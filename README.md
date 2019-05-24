@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install
 
@@ -20,3 +20,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+Learning project. Working on recreating https://avocode.com/design-report-2018.
