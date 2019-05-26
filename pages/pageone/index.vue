@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container foo bar">
     <h1>
       This is pageone 'pages' thing.
     </h1>

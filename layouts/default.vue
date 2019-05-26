@@ -1,11 +1,23 @@
 <template>
   <div id="app">
-    <nuxt />
+    <logo-mark />
+    <main>
+      <nuxt />
+    </main>
   </div>
 </template>
 
-<style>
-h1 {
-  background-color: orange;
+<script>
+import LogoMark from '~/components/LogoMark.vue'
+export default {
+  head() {
+    return {
+      title: 'Welcome',
+      titleTemplate: '%s | Design Report'
+    }
+  },
+  components: {
+    LogoMark
+  }
 }
-</style>
+</script>
