@@ -21,3 +21,12 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import '~assets/scss/main';
+body {
+  margin: 0;
+}
+h1 {
+  color: $green;
+}
+</style>

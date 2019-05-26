@@ -9,7 +9,12 @@
 </template>
 
 <style lang="scss" scoped>
-.LogoMark img {
-  width: 40px;
+.LogoMark {
+  position: fixed;
+  width: 100%;
+
+  img {
+    width: 40px;
+  }
 }
 </style>

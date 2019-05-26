@@ -24,7 +24,8 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/main.scss'],
+  // TODO: Doing this as an import in layouts/default.vue. Otherwise you don't get access to scss variables.
+  // css: ['@/assets/scss/main.scss'],
 
   /*
    ** Plugins to load before mounting the App
