@@ -1,0 +1,46 @@
+html {
+  font-family: $font-pt-sans;
+  color: $black;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-crimson;
+}
+h1 {
+  font-size: $fs5;
+  line-height: $fs5;
+}
+h2 {
+  font-size: $fs4;
+  line-height: $fs4;
+}
+h3 {
+  font-size: $fs3;
+  line-height: $fs3;
+}
+h4 {
+  font-size: $fs2;
+  line-height: $fs2;
+}
+h5 {
+  font-size: $fs1;
+  line-height: $fs1;
+}
+p {
+  font-size: $fs0;
+}
+.text *:last-child {
+  margin-bottom: 0;
+}
