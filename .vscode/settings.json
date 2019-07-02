@@ -15,5 +15,14 @@
   ],
   "eslint.autoFixOnSave": true,
   "editor.formatOnSave": false,
-  "vetur.validation.template": false
+  "vetur.validation.template": false,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#472133",
+    "titleBar.activeBackground": "#632F47",
+    "titleBar.activeForeground": "#FCF9FA"
+  },
+  // ES Lint
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+},
 }

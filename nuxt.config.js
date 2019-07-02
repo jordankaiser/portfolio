@@ -29,12 +29,6 @@ export default {
   loading: { color: '#fff' },
 
   /*
-   ** Global CSS
-   */
-  // TODO: Doing this as an import in layouts/default.vue. Otherwise you don't get access to scss variables.
-  // css: ['@/assets/scss/main.scss'],
-
-  /*
    ** Plugins to load before mounting the App
    */
   plugins: [],

@@ -30,11 +30,11 @@
         </h5>
         <p>
           Proin ultrices nibh eget condimentum facilisis. Nunc in lorem et mi
-          facilisis vulputate. Morbi porta pellentesque nibh scelerisque auctor.
-          Nunc enim lacus, ultricies in pharetra a, porttitor vel dui. Duis
-          tincidunt rutrum lorem et porta. Nunc sit amet porta erat. Vivamus vel
-          diam a neque dictum feugiat. Mauris ultrices scelerisque turpis sed
-          porta. Nunc nec tempor massa.
+          facilisis vulputate. <strong>Morbi porta pellentesque</strong> nibh
+          scelerisque auctor. Nunc enim lacus, ultricies in pharetra a,
+          porttitor vel dui. Duis tincidunt rutrum lorem et porta. Nunc sit amet
+          porta erat. Vivamus vel diam a neque dictum feugiat. Mauris ultrices
+          scelerisque turpis sed porta. Nunc nec tempor massa.
         </p>
         <p>
           Proin auctor nisl mattis lorem varius mattis. Aliquam cursus dui non
