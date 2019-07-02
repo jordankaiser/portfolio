@@ -45,12 +45,12 @@ main {
 }
 .marquee {
   display: flex;
-  align-items: center;
+  align-items: stretch;
 
   &__art {
     position: relative;
     flex: 0 1 auto;
-    padding: 160px 60px;
+    padding: 100px 60px;
     width: 50%;
     background-image: url('~assets/img/background-grey.jpg');
     background-repeat: no-repeat;
@@ -66,9 +66,12 @@ main {
     }
   }
   &__description {
+    display: flex;
+    align-items: center;
     flex: 0 1 auto;
     padding: 60px;
     width: 50%;
+    background-color: $white;
   }
   &__shape {
     position: absolute;
