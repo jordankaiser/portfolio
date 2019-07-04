@@ -3,13 +3,13 @@
     <section class="choose-tool">
       <div class="choose-tool__description">
         <h5>
-          LET’S START BY PICKING YOUR DESIGN TOOL OF CHOICE
+          LET'S START BY PICKING YOUR DESIGN TOOL OF CHOICE
         </h5>
       </div>
       <div class="choose-tool__icons">
         <nuxt-link
           class="choose-tool__icons__wrap choose-tool__icons__wrap--sketch"
-          to="#"
+          to="styleguide"
         >
           <img
             class="choose-tool__icon"
@@ -24,7 +24,7 @@
         </nuxt-link>
         <nuxt-link
           class="choose-tool__icons__wrap choose-tool__icons__wrap--sketch"
-          to="#"
+          to="styleguide"
         >
           <img
             class="choose-tool__icon"
@@ -39,7 +39,7 @@
         </nuxt-link>
         <nuxt-link
           class="choose-tool__icons__wrap choose-tool__icons__wrap--sketch"
-          to="#"
+          to="styleguide"
         >
           <img
             class="choose-tool__icon"
@@ -54,7 +54,7 @@
         </nuxt-link>
         <nuxt-link
           class="choose-tool__icons__wrap choose-tool__icons__wrap--sketch"
-          to="#"
+          to="styleguide"
         >
           <img
             class="choose-tool__icon"
@@ -69,7 +69,7 @@
         </nuxt-link>
         <nuxt-link
           class="choose-tool__icons__wrap choose-tool__icons__wrap--sketch"
-          to="#"
+          to="styleguide"
         >
           <img
             class="choose-tool__icon"
