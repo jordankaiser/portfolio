@@ -1,7 +1,6 @@
 <template>
   <div>
     <section class="marquee">
-      <div class="breakpoint"></div>
       <div class="marquee__art">
         <img src="~/assets/img/logo.png" alt="Design Report" />
         <div class="marquee__shape"></div>
@@ -50,6 +49,9 @@ main {
   display: flex;
   align-items: stretch;
 
+  @include responsive(medium) {
+    flex-direction: column;
+  }
   &__art {
     position: relative;
     flex: 0 1 auto;
@@ -59,6 +61,10 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
 
+    @include responsive(medium) {
+      width: 100%;
+      padding: 50px 30px;
+    }
     img {
       position: relative;
       float: right;
@@ -75,6 +81,11 @@ main {
     padding: 60px;
     width: 50%;
     background-color: $white;
+
+    @include responsive(medium) {
+      width: 100%;
+      padding: 50px 30px;
+    }
   }
   &__shape {
     position: absolute;

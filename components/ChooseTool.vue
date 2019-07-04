@@ -88,6 +88,7 @@
 </template>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
+@import '~/assets/scss/_mixins.scss';
 .choose-tool {
   display: flex;
   align-items: center;
@@ -95,6 +96,10 @@
   background-color: $tan;
   padding: 100px 0;
 
+  @include responsive(medium) {
+    flex-direction: column;
+    padding: 50px 30px;
+  }
   &__description {
     display: flex;
     justify-content: flex-end;
@@ -102,10 +107,19 @@
     width: 50%;
     padding: 0 60px;
 
+    @include responsive(medium) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
     h5 {
       margin-bottom: 0;
       max-width: 370px;
       text-align: right;
+
+      @include responsive(medium) {
+        max-width: inherit;
+        text-align: center;
+      }
     }
   }
   &__icons {
@@ -115,6 +129,10 @@
     width: 50%;
     padding: 0 30px;
 
+    @include responsive(medium) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
     &__wrap {
       position: relative;
 
