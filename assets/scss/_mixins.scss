@@ -1,0 +1,17 @@
+// Breakpoints
+$large: 1024px;
+$medium: 758px;
+$small: 600px;
+
+@mixin responsive($size) {
+  @if $size == large {
+    @media (max-width: 1024px) { @content; }
+  } @else if $size == medium {
+    @media (max-width: 768px) { @content; }
+  } @else if $size == small {
+    @media (max-width: 600px) { @content; }
+  } 
+  @else {
+    @media (#{$size}) { @content };
+  }
+}

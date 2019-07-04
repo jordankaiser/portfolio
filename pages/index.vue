@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="marquee">
+      <div class="breakpoint"></div>
       <div class="marquee__art">
         <img src="~/assets/img/logo.png" alt="Design Report" />
         <div class="marquee__shape"></div>
@@ -40,10 +41,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
+@import '~/assets/scss/_mixins.scss';
 main {
   padding-top: 0;
 }
 .marquee {
+  position: relative;
   display: flex;
   align-items: stretch;
 

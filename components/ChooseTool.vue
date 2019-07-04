@@ -100,7 +100,7 @@
     justify-content: flex-end;
     flex: 0 1 auto;
     width: 50%;
-    padding: 0 30px;
+    padding: 0 60px;
 
     h5 {
       margin-bottom: 0;
