@@ -56,6 +56,15 @@ export default {
           'https://fonts.googleapis.com/css?family=Crimson+Text&display=swap'
       }
     ]
+  },
+  asyncData() {
+    /* eslint-disable */
+    return new Promise(resolve => {
+      setTimeout(function() {
+        resolve({ name: 'world' })
+      }, 1000)
+    })
+    /* eslint-enable */
   }
 }
 </script>
