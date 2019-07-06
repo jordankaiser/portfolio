@@ -3,7 +3,7 @@
     <section class="choose-tool">
       <div class="choose-tool__description">
         <h5>
-          LET'S START BY PICKING YOUR DESIGN TOOL OF CHOICE
+          Let's start by picking your design tool of choice
         </h5>
       </div>
       <div class="choose-tool__icons">
@@ -113,7 +113,7 @@
     }
     h5 {
       margin-bottom: 0;
-      max-width: 370px;
+      max-width: 320px;
       text-align: right;
 
       @include responsive(medium) {

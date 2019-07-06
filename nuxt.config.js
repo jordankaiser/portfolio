@@ -26,8 +26,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  // loading: { color: '#e67e22' },
-  loading: '~/components/loading.vue',
+  loading: '~/components/Loading.vue',
 
   /*
    ** Plugins to load before mounting the App

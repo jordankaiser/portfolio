@@ -1,0 +1,17 @@
+@mixin bender($delay) {
+  animation-name: bender;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: $delay;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bender {
+  0% {
+    transform: translateY(55px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
