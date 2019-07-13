@@ -6,8 +6,21 @@ body {
   background-color: $tan;
 }
 .container {
+  position: relative;
   max-width: 1000px;
   margin: 0 auto;
   padding-left: 30px;
   padding-right: 30px;
+
+  &--narrow {
+    max-width: 600px;
+  }
+}
+.segment {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &--dark {
+    background-color: $navy-dark;
+  }
 }

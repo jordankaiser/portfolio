@@ -1,19 +1,19 @@
 <template>
   <div
-    class="loading-page"
+    class="loader"
     :class="{
-      'loading-page--start': loading,
-      'loading-page--finish': !loading
+      'loader--start': loading,
+      'loader--finish': !loading
     }"
   >
-    <div class="loading-page__icons">
-      <div class="loading-page__icon"></div>
-      <div class="loading-page__icon"></div>
-      <div class="loading-page__icon"></div>
-      <div class="loading-page__icon"></div>
-      <div class="loading-page__icon"></div>
+    <div class="loader__icons">
+      <div class="loader__icon"></div>
+      <div class="loader__icon"></div>
+      <div class="loader__icon"></div>
+      <div class="loader__icon"></div>
+      <div class="loader__icon"></div>
     </div>
-    <div class="loading-page__description">
+    <div class="loader__description">
       <p>Loading</p>
     </div>
   </div>
@@ -24,6 +24,14 @@ export default {
   data: () => ({
     loading: false
   }),
+  head() {
+    return {
+      bodyAttrs: {
+        // Set loaded status with a body class.
+        class: !this.loading ? 'loaded' : 'loading'
+      }
+    }
+  },
   methods: {
     start() {
       this.loading = true
@@ -37,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_animation.scss';
-.loading-page {
+.loader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +65,7 @@ export default {
     visibility: visible;
     opacity: 1;
 
-    .loading-page__icon {
+    .loader__icon {
       &:nth-child(1) {
         @include bender(0s);
       }

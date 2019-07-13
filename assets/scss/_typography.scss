@@ -6,6 +6,9 @@ html {
   @include responsive(large) {
     font-size: 16px;
   }
+  .segment--dark {
+    color: $white-blue;
+  }
 }
 h1,
 h2,

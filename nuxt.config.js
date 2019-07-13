@@ -31,7 +31,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/gsap-scrollmagic', ssr: false }],
 
   /*
    ** Nuxt.js modules
