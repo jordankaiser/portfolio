@@ -89,12 +89,18 @@ Make sure the `.eslintrc.js` file in the project root is being used.
 
 ## Misc
 
+### Lodash import
+
 Import lodash modules without import the whole thing and keeping it small.
 
 ```javascript
 // index.vue. Doing it this simple way didn't seem to bloat the bundle size or anything. I think that may be because I'm using recent versions of webpack/babel?
 import debounce from 'lodash/debounce'
 ```
+
+### Webpack analyzer
+
+To analyze the webpack bundle run `npm run analyze`. That will generate a report at `.nuxt/stats/client.html`.
 
 ## References
 

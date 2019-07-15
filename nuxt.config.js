@@ -1,5 +1,8 @@
-import webpack from 'webpack'
 import pkg from './package'
+
+/* eslint-disable */
+const path = require('path');
+/* eslint-enable */
 
 export default {
   mode: 'universal',
@@ -65,6 +68,26 @@ export default {
           exclude: /(node_modules)/
         })
       }
+      config.resolve.alias['~gsap/TweenLite'] = path.join(
+        process.cwd(),
+        'node_modules/gsap/src/uncompressed/TweenLite.js'
+      )
+      config.resolve.alias['~gsap/TimelineLite'] = path.join(
+        process.cwd(),
+        'node_modules/gsap/src/uncompressed/TimelineLite.js'
+      )
+      config.resolve.alias['~gsap/plugins/CSSPlugin'] = path.join(
+        process.cwd(),
+        'node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js'
+      )
+      config.resolve.alias['~ScrollMagic'] = path.join(
+        process.cwd(),
+        'node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
+      )
+      config.resolve.alias['~animation.gsap'] = path.join(
+        process.cwd(),
+        'node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+      )
     }
   }
 }
