@@ -135,6 +135,7 @@
   </div>
 </template>
 <script>
+import debounce from 'lodash/debounce'
 export default {
   head: {
     title: 'Styleguide',
@@ -158,16 +159,40 @@ export default {
   mounted: function() {
     const ScrollMagic = this.$ScrollMagic
     const elements = document.querySelectorAll('.segment')
-    Array.from(elements).forEach(function(element) {
-      const controller = new ScrollMagic.Controller({
-        globalSceneOptions: { duration: element.offsetHeight }
+
+    /* --------------------------
+     * Init
+     * -------------------------- */
+
+    function init() {
+      scrollMagicInit()
+    }
+
+    /* --------------------------
+     * Scroll magic
+     * -------------------------- */
+
+    // Re-init on window resize.
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        scrollMagicInit()
+      }, 200)
+    )
+
+    function scrollMagicInit() {
+      Array.from(elements).forEach(function(element) {
+        const controller = new ScrollMagic.Controller({
+          globalSceneOptions: { duration: element.offsetHeight }
+        })
+        console.log(element.offsetHeight)
+        new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
+          .setClassToggle(element.querySelector('.indicator'), 'active') // add class toggle
+          .addTo(controller)
       })
-      console.log(element.offsetHeight)
-      new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
-        .setClassToggle(element.querySelector('.indicator'), 'active') // add class toggle
-        .addTo(controller)
-      console.log(element)
-    })
+    }
+
+    init()
   }
 }
 </script>
