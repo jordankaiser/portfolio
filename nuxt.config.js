@@ -1,5 +1,5 @@
-import pkg from './package'
 import webpack from 'webpack'
+import pkg from './package'
 
 export default {
   mode: 'universal',
@@ -32,9 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/gsap-scrollmagic', ssr: false },
-  ],
+  plugins: [{ src: '~/plugins/gsap-scrollmagic', ssr: false }],
 
   /*
    ** Nuxt.js modules
@@ -67,12 +65,6 @@ export default {
           exclude: /(node_modules)/
         })
       }
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        map: ['lodash', 'map'],
-        shuffle: ['lodash', 'shuffle']
-      })
-    ]
+    }
   }
 }

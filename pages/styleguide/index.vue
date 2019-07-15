@@ -161,9 +161,8 @@ export default {
     const elements = document.querySelectorAll('.segment')
 
     /* --------------------------
-     * Init
+     * Initialization
      * -------------------------- */
-
     function init() {
       scrollMagicInit()
     }
@@ -185,7 +184,6 @@ export default {
         const controller = new ScrollMagic.Controller({
           globalSceneOptions: { duration: element.offsetHeight }
         })
-        console.log(element.offsetHeight)
         new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
           .setClassToggle(element.querySelector('.indicator'), 'active') // add class toggle
           .addTo(controller)
