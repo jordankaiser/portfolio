@@ -34,16 +34,17 @@ export default {
   },
   components: {
     ChooseTool
-  },
-  asyncData() {
-    /* eslint-disable */
-    return new Promise(resolve => {
-      setTimeout(function() {
-        resolve({ name: 'world' })
-      }, 1000)
-    })
-    /* eslint-enable */
   }
+  // Uncomment to simulate a 1 second delay.
+  // asyncData() {
+  //   /* eslint-disable */
+  //   return new Promise(resolve => {
+  //     setTimeout(function() {
+  //       resolve({ name: 'world' })
+  //     }, 1000)
+  //   })
+  //   /* eslint-enable */
+  // }
 }
 </script>
 
