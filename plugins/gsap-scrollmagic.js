@@ -1,8 +1,9 @@
 /* eslint-disable */
 import Vue from 'vue'
-import '~gsap/TweenLite';
-import '~gsap/TimelineLite';
-import '~gsap/plugins/CSSPlugin';
+// import '~gsap/TweenLite';
+// import '~gsap/TimelineLite';
+// import '~gsap/plugins/CSSPlugin';
+import {TweenLite, CSSPlugin, TimelineLite} from "gsap/all";
 
 import 'script-loader!~ScrollMagic';
 import 'script-loader!~animation.gsap';
