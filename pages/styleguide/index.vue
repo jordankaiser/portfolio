@@ -176,6 +176,8 @@ export default {
 
     /* --------------------------
      * Scroll magic
+     * Getting an error referencing this issue:
+     * https://github.com/janpaepke/ScrollMagic/wiki/WARNING:-tween-was-overwritten-by-another
      * -------------------------- */
     function scrollMagicInit() {
       const elements = document.querySelectorAll('.segment')
