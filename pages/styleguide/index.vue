@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="scroll-element"></div>
     <section id="bar" class="styleguide segment">
       <div class="container container--narrow text">
         <div id="foo" class="indicator"></div>
@@ -147,6 +148,74 @@ export default {
       }
     ]
   },
+  mounted: function() {
+    const ScrollMagic = this.$ScrollMagic
+    const TimelineLite = this.$GSAP.TimelineLite
+
+    /* --------------------------
+     * Initialization
+     * -------------------------- */
+    function init() {
+      scrollMagicInit()
+    }
+
+    /* --------------------------
+     * Scroll Element
+     * -------------------------- */
+    let timeline
+    function scrollElement() {
+      timeline = new TimelineLite()
+      timeline
+        .to('.scroll-element', 1, {
+          x: '-=100'
+        })
+        .to('.scroll-element', 1, {
+          y: '-=100'
+        })
+    }
+
+    /* --------------------------
+     * Scroll magic
+     * -------------------------- */
+    function scrollMagicInit() {
+      const elements = document.querySelectorAll('.segment')
+      Array.from(elements).forEach(function(element) {
+        // Create timeline for each loop.
+        scrollElement()
+
+        /**
+         * Vertical line
+         */
+        const verticalLineController = new ScrollMagic.Controller({
+          globalSceneOptions: { duration: element.offsetHeight }
+        })
+        new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
+          .setClassToggle(element.querySelector('.indicator'), 'active') // add class toggle
+          .addTo(verticalLineController)
+
+        /**
+         * Scroll element
+         */
+        const scrollElementController = new ScrollMagic.Controller()
+        new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
+          .setTween(timeline)
+          .addTo(scrollElementController)
+      })
+    }
+
+    /* --------------------------
+     * HELPER: Window Resize Debounce
+     * -------------------------- */
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        scrollMagicInit()
+        this.debounce()
+      }, 200)
+    )
+
+    init()
+  }
   // Uncomment to simulate a 1 second delay.
   // asyncData() {
   //   /* eslint-disable */
@@ -157,42 +226,6 @@ export default {
   //   })
   //   /* eslint-enable */
   // },
-  mounted: function() {
-    const ScrollMagic = this.$ScrollMagic
-    const elements = document.querySelectorAll('.segment')
-
-    /* --------------------------
-     * Initialization
-     * -------------------------- */
-    function init() {
-      scrollMagicInit()
-    }
-
-    /* --------------------------
-     * Scroll magic
-     * -------------------------- */
-
-    // Re-init on window resize.
-    window.addEventListener(
-      'resize',
-      debounce(() => {
-        scrollMagicInit()
-      }, 200)
-    )
-
-    function scrollMagicInit() {
-      Array.from(elements).forEach(function(element) {
-        const controller = new ScrollMagic.Controller({
-          globalSceneOptions: { duration: element.offsetHeight }
-        })
-        new ScrollMagic.Scene({ triggerElement: element, triggerHook: 0.5 })
-          .setClassToggle(element.querySelector('.indicator'), 'active') // add class toggle
-          .addTo(controller)
-      })
-    }
-
-    init()
-  }
 }
 </script>
 
@@ -213,5 +246,13 @@ export default {
   .segment--dark & {
     background-color: crimson;
   }
+}
+.scroll-element {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
 }
 </style>
