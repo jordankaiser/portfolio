@@ -27,7 +27,6 @@ I got this setup while looking at libraries to solve this issue. This person des
 
 Things I want to look at adjusting.
 
-- Adjust `gsap-scrollmagic.js` so we're not using TweenMax and TimelineMax. The ScrollMagic library says it support to so should be possible.
 - Look at seperating out GSAP and ScrollMagic into seperate plugin imports. 
 
 ## Code Editor setup.
