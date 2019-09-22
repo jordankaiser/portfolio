@@ -1,6 +1,6 @@
-# designreport
+# Portfolio
 
-> Project to get familiar with Nuxt.js
+> Portfolio website.
 
 ## Build Setup
 
@@ -18,16 +18,6 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-## ScrollMagic setup.
-
-When attemping to import the library as normal I got an error, `window not defined`. The issue was we needed this JS library to run before instatiating the root of the Vue application. See [The Plugins Directory](https://nuxtjs.org/guide/plugins#vue-plugins). The key thing is is when importing a libary via the plugin object in nuxt.config.js we're laoding the plugin before mounting the app, thus the plugin now know what `window` is.
-
-I got this setup while looking at libraries to solve this issue. This person describes how to get ScrollMagic and GSAP working without any libaries. [How to avoid this plugin in Nuxt 2.0+](https://github.com/pirony/ks-vue-scrollmagic/issues/13).
-
-Things I want to look at adjusting.
-
-- Look at seperating out GSAP and ScrollMagic into seperate plugin imports. 
 
 ## Code Editor setup.
 
@@ -85,6 +75,16 @@ Make sure you've created the `.vscode/settings.json` file. This will be a projec
 Make sure the `.eslintrc.js` file in the project root is being used. 
 
 - [How to properly set up Nuxt with ESLint and Prettier in VSCode](https://medium.com/@gogl.alex/how-to-properly-set-up-eslint-with-prettier-for-vue-or-nuxt-in-vscode-e42532099a9c)
+
+## ScrollMagic setup.
+
+When attemping to import the library as normal I got an error, `window not defined`. The issue was we needed this JS library to run before instatiating the root of the Vue application. See [The Plugins Directory](https://nuxtjs.org/guide/plugins#vue-plugins). The key thing is is when importing a libary via the plugin object in nuxt.config.js we're laoding the plugin before mounting the app, thus the plugin now know what `window` is.
+
+I got this setup while looking at libraries to solve this issue. This person describes how to get ScrollMagic and GSAP working without any libaries. [How to avoid this plugin in Nuxt 2.0+](https://github.com/pirony/ks-vue-scrollmagic/issues/13).
+
+Things I want to look at adjusting.
+
+- Look at seperating out GSAP and ScrollMagic into seperate plugin imports.
 
 ## Misc
 
