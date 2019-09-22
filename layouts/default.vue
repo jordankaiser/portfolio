@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <logo-mark />
     <main>
       <nuxt />
     </main>
@@ -8,16 +7,12 @@
 </template>
 
 <script>
-import LogoMark from '~/components/LogoMark.vue'
 export default {
   head() {
     return {
       title: 'Welcome',
-      titleTemplate: '%s | Design Report'
+      titleTemplate: '%s | Jordan Kaiser'
     }
-  },
-  components: {
-    LogoMark
   }
 }
 </script>

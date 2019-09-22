@@ -23,6 +23,11 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Open+Sans|Raleway:300,700&display=swap'
       }
     ]
   },
@@ -68,18 +73,6 @@ export default {
           exclude: /(node_modules)/
         })
       }
-      // config.resolve.alias['~gsap/TweenLite'] = path.join(
-      //   process.cwd(),
-      //   'node_modules/gsap/src/uncompressed/TweenLite.js'
-      // )
-      // config.resolve.alias['~gsap/TimelineLite'] = path.join(
-      //   process.cwd(),
-      //   'node_modules/gsap/src/uncompressed/TimelineLite.js'
-      // )
-      // config.resolve.alias['~gsap/plugins/CSSPlugin'] = path.join(
-      //   process.cwd(),
-      //   'node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js'
-      // )
       config.resolve.alias['~ScrollMagic'] = path.join(
         process.cwd(),
         'node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'

@@ -1,22 +1,16 @@
 <template>
   <div>
-    <section class="marquee">
-      <div class="marquee__art">
-        <img src="~/assets/img/logo.png" alt="Design Report" />
-        <div class="marquee__shape"></div>
-      </div>
-      <div class="marquee__description">
-        <div class="marquee__text text">
-          <h1>Introduction</h1>
-          <p>
-            Along with <strong>fourteen experienced designers</strong>, we’d
-            like to invite you to celebrate creativity, and look into the state
-            of design tools and trends in 2018.
-          </p>
-          <p>
-            Data is backed by <strong>6,354,110</strong> designs that were added
-            to Avocode that year.
-          </p>
+    <section class="introduction">
+      <div class="introduction__container container">
+        <div class="introduction__illustration-headline">
+          <div class="introduction__headline">
+            <h1>
+              <span class="introduction__first-name">Jordan</span>
+              <span class="introduction__last-name">Kaiser</span>
+            </h1>
+          </div>
+          <!-- TODO: Work on getting illustration in. Artwork is produced. -->
+          <div class="introduction__illustration"></div>
         </div>
       </div>
     </section>
@@ -35,13 +29,13 @@ export default {
   components: {
     ChooseTool
   }
-  // Uncomment to simulate a 1 second delay.
+  // Uncomment to simulate a 1 second delay. Used for building loading animations.
   // asyncData() {
   //   /* eslint-disable */
   //   return new Promise(resolve => {
   //     setTimeout(function() {
   //       resolve({ name: 'world' })
-  //     }, 1000)
+  //     }, 5000)
   //   })
   //   /* eslint-enable */
   // }
@@ -51,59 +45,47 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
-main {
-  padding-top: 0;
-}
-.marquee {
-  position: relative;
-  display: flex;
-  align-items: stretch;
 
-  @include responsive(medium) {
-    flex-direction: column;
-  }
-  &__art {
-    position: relative;
-    flex: 0 1 auto;
-    padding: 100px 60px;
-    width: 50%;
-    background-image: url('~assets/img/background-grey.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.introduction {
+  background-color: $color-red;
+  width: 100%;
+  height: 100vh;
 
-    @include responsive(medium) {
-      width: 100%;
-      padding: 50px 30px;
-    }
-    img {
-      position: relative;
-      float: right;
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      z-index: 1;
-    }
-  }
-  &__description {
+  &__container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  &__illustration-headline {
+    display: flex;
+    justify-content: space-between;
     flex: 0 1 auto;
-    padding: 60px;
+    width: 100%;
+  }
+  &__headline {
+    flex: 0 1 auto;
     width: 50%;
-    background-color: $white;
 
-    @include responsive(medium) {
-      width: 100%;
-      padding: 50px 30px;
+    h1 {
+      line-height: 2.2rem;
     }
   }
-  &__shape {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 44%;
-    background-color: $tan;
+  &__first-name {
+    display: block;
+    color: $white;
+    font-size: $fs1;
+    font-weight: 300;
+  }
+  &__last-name {
+    display: block;
+    font-size: $fs5;
+    font-weight: 700;
+    color: $color-red-dark;
+  }
+  &__illustration {
+    flex: 0 1 auto;
+    width: 50%;
   }
 }
 </style>

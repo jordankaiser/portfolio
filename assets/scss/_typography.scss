@@ -1,5 +1,5 @@
 html {
-  font-family: $font-pt-sans;
+  font-family: $font-open-sans;
   color: $black;
   font-size: 18px;
 
@@ -14,17 +14,8 @@ h1,
 h2,
 h3,
 h4,
-h5,
-p {
-  margin-top: 0;
-  margin-bottom: 30px;
-}
-h1,
-h2,
-h3,
-h4,
 h5 {
-  font-family: $font-crimson;
+  font-family: $font-raleway;
 }
 h1 {
   font-size: $fs5;
@@ -49,6 +40,17 @@ h5 {
 p {
   font-size: $fs0;
 }
-.text *:last-child {
-  margin-bottom: 0;
+.text  {
+  *:last-child {
+    margin-bottom: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
 }

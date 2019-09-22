@@ -40,6 +40,7 @@ Make sure you've got all the extensions installed.
 ```bash
 Vetur
 ESLint
+Prettier
 ```
 
 Make sure you've created the `.vscode/settings.json` file. This will be a project specific settings file.
