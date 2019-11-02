@@ -1,7 +1,7 @@
 {
-  "name": "designreport",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "My doozie Nuxt.js project",
+  "description": "Portfolio website.",
   "author": "Jordan Kaiser",
   "private": true,
   "scripts": {

@@ -2,16 +2,7 @@
   <div>
     <section class="introduction">
       <div class="introduction__container container">
-        <div class="introduction__illustration-headline">
-          <div class="introduction__headline">
-            <h1>
-              <span class="introduction__first-name">Jordan</span>
-              <span class="introduction__last-name">Kaiser</span>
-            </h1>
-          </div>
-          <!-- TODO: Work on getting illustration in. Artwork is produced. -->
-          <div class="introduction__illustration"></div>
-        </div>
+        <introduction-dino />
       </div>
     </section>
     <choose-tool />
@@ -20,6 +11,7 @@
 
 <script>
 import ChooseTool from '~/components/ChooseTool.vue'
+import introductionDino from '~/components/IntroductionDino.vue'
 export default {
   head() {
     return {
@@ -27,7 +19,8 @@ export default {
     }
   },
   components: {
-    ChooseTool
+    ChooseTool,
+    introductionDino
   }
   // Uncomment to simulate a 1 second delay. Used for building loading animations.
   // asyncData() {
@@ -56,36 +49,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-  }
-  &__illustration-headline {
-    display: flex;
-    justify-content: space-between;
-    flex: 0 1 auto;
-    width: 100%;
-  }
-  &__headline {
-    flex: 0 1 auto;
-    width: 50%;
-
-    h1 {
-      line-height: 2.2rem;
-    }
-  }
-  &__first-name {
-    display: block;
-    color: $white;
-    font-size: $fs1;
-    font-weight: 300;
-  }
-  &__last-name {
-    display: block;
-    font-size: $fs5;
-    font-weight: 700;
-    color: $color-red-dark;
-  }
-  &__illustration {
-    flex: 0 1 auto;
-    width: 50%;
   }
 }
 </style>

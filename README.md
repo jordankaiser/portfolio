@@ -1,6 +1,6 @@
 # Portfolio
 
-> Portfolio website.
+> Portfolio website documentation.
 
 ## Build Setup
 
