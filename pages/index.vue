@@ -11,7 +11,7 @@
 
 <script>
 import ChooseTool from '~/components/ChooseTool.vue'
-import introductionDino from '~/components/IntroductionDino.vue'
+import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 export default {
   head() {
     return {
