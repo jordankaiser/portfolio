@@ -3,6 +3,18 @@
     <section class="introduction">
       <div class="introduction__container container">
         <introduction-dino />
+        <div class="introduction__text">
+          <p>
+            Brief description of self amet nulla vel nunc placerat ultricies
+            eget vel massa. Ut efficitur ex ut libero vestibulum porta.
+            Vestibulum sed purus aliquet, consequat nisl vel.
+          </p>
+        </div>
+        <div class="introduction__cta">
+          <nuxt-link to="/styleguide" class="cta-hero">
+            <cta-arrow />
+          </nuxt-link>
+        </div>
       </div>
     </section>
     <choose-tool />
@@ -10,8 +22,17 @@
 </template>
 
 <script>
+/* eslint-disable-next-line */
+import TweenLite from 'gsap/umd/TweenLite'
+/* eslint-disable-next-line */
+import TimelineLite from 'gsap/umd/TimelineLite'
 import ChooseTool from '~/components/ChooseTool.vue'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
+import CtaArrow from '~/components/CTAArrow'
+if (process.client) {
+  /* eslint-disable-next-line */
+  const MorphSVGPlugin = require('~/assets/vendor/MorphSVGPlugin');
+}
 export default {
   head() {
     return {
@@ -20,7 +41,22 @@ export default {
   },
   components: {
     ChooseTool,
-    introductionDino
+    introductionDino,
+    CtaArrow
+  },
+  mounted: function() {
+    const timeline = new TimelineLite({ paused: true })
+
+    timeline.to('.cta-hero #cta-arrow-up', 0.25, {
+      morphSVG: '#cta-arrow-down'
+    })
+
+    document.querySelector('.cta-hero').addEventListener('mouseenter', () => {
+      timeline.play()
+    })
+    document.querySelector('.cta-hero').addEventListener('mouseleave', () => {
+      timeline.play().reverse()
+    })
   }
   // Uncomment to simulate a 1 second delay. Used for building loading animations.
   // asyncData() {
@@ -44,11 +80,34 @@ export default {
   width: 100%;
   height: 100vh;
 
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 70%;
+    background-color: $color-red-light;
+    border-bottom-right-radius: 14px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 14px;
+    background-color: $color-red-light;
+    border-top-left-radius: 14px;
+  }
   &__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
+  }
+  &__text {
+    color: $color-white;
   }
 }
 </style>

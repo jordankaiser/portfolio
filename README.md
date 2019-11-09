@@ -77,6 +77,29 @@ Make sure the `.eslintrc.js` file in the project root is being used.
 
 - [How to properly set up Nuxt with ESLint and Prettier in VSCode](https://medium.com/@gogl.alex/how-to-properly-set-up-eslint-with-prettier-for-vue-or-nuxt-in-vscode-e42532099a9c)
 
+## GSAP + Bonus plugin setup.
+
+To get GSAP working you currently need to use the UMD versions of the plugin. This can be done like a standard import in whatever file you want.
+
+```
+import TweenLite from 'gsap/umd/TweenLite'
+```
+
+If you want to use one of the bonus GSAP plugins then you'll need to make sure they are only used on the client side. Otherwise you'll get errrors. That can ben done by setting up the code like the following. You can put this along with your `import` from above.
+
+```
+if (process.client) {
+  /* eslint-disable-next-line */
+  const MorphSVGPlugin = require('~/assets/vendor/MorphSVGPlugin');
+}
+```
+
+### Reference Links.
+
+https://greensock.com/forums/topic/17888-importing-plugins-in-nuxtjs/?do=findComment&comment=94614
+
+https://github.com/dipscom/nuxt-gsap-plugins
+
 ## ScrollMagic setup.
 
 When attemping to import the library as normal I got an error, `window not defined`. The issue was we needed this JS library to run before instatiating the root of the Vue application. See [The Plugins Directory](https://nuxtjs.org/guide/plugins#vue-plugins). The key thing is is when importing a libary via the plugin object in nuxt.config.js we're laoding the plugin before mounting the app, thus the plugin now know what `window` is.

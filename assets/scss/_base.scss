@@ -1,9 +1,13 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body {
   margin: 0;
-  background-color: $tan;
+  background: $color-red-light;
 }
 .container {
   position: relative;

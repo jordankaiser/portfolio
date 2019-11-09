@@ -109,6 +109,18 @@ export default {
         },
         '+=0.15'
       )
+      .to(
+        '.dino__forground',
+        1,
+        {
+          rotation: 35
+        },
+        '+=0.3'
+      )
+      .to('.dino__forground', 1, {
+        rotation: 0,
+        ease: Bounce.easeOut
+      })
   }
 }
 </script>
@@ -120,7 +132,9 @@ export default {
   display: flex;
   justify-content: space-between;
   flex: 0 1 auto;
+  margin-bottom: 20px;
   width: 100%;
+
   &__headline {
     display: flex;
     flex-direction: column;
@@ -135,7 +149,7 @@ export default {
   }
   &__first-name {
     display: block;
-    color: $white;
+    color: $color-white;
     font-size: $fs1;
     font-weight: 300;
   }
@@ -159,19 +173,6 @@ export default {
     visibility: hidden;
     z-index: 1;
     transform-origin: 69% 78%;
-
-    // &:after {
-    //   content: '';
-    //   position: absolute;
-    //   left: 0%;
-    //   top: 0%;
-    //   width: 5px;
-    //   height: 5px;
-    //   background-color: yellow;
-    //   z-index: 100;
-    //   left: 69%;
-    //   top: 78%;
-    // }
   }
   &__background {
     position: absolute;
