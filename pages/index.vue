@@ -11,9 +11,14 @@
           </p>
         </div>
         <div class="introduction__cta">
-          <nuxt-link to="/styleguide" class="cta-hero">
-            <cta-arrow />
-          </nuxt-link>
+          <div class="cta-hero">
+            <nuxt-link to="/styleguide" class="cta-hero__link">
+              <div class="cta-hero__text">About Me</div>
+              <div class="cta-hero__arrow">
+                <cta-arrow />
+              </div>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </section>
@@ -47,16 +52,24 @@ export default {
   mounted: function() {
     const timeline = new TimelineLite({ paused: true })
 
-    timeline.to('.cta-hero #cta-arrow-up', 0.25, {
-      morphSVG: '#cta-arrow-down'
-    })
+    timeline
+      .to('.cta-hero #cta-arrow-up', 0.2, {
+        morphSVG: '#cta-arrow-circle'
+      })
+      .to('.cta-hero #cta-arrow-up', 0.2, {
+        morphSVG: '#cta-arrow-down'
+      })
 
-    document.querySelector('.cta-hero').addEventListener('mouseenter', () => {
-      timeline.play()
-    })
-    document.querySelector('.cta-hero').addEventListener('mouseleave', () => {
-      timeline.play().reverse()
-    })
+    document
+      .querySelector('.cta-hero .cta-hero__link')
+      .addEventListener('mouseenter', () => {
+        timeline.play()
+      })
+    document
+      .querySelector('.cta-hero .cta-hero__link')
+      .addEventListener('mouseleave', () => {
+        timeline.play().reverse()
+      })
   }
   // Uncomment to simulate a 1 second delay. Used for building loading animations.
   // asyncData() {
@@ -108,6 +121,9 @@ export default {
   }
   &__text {
     color: $color-white;
+  }
+  &__cta {
+    margin-top: 30px;
   }
 }
 </style>

@@ -23,8 +23,74 @@ body {
 .segment {
   padding-top: 60px;
   padding-bottom: 60px;
+  background-color: $color-white;
 
   &--dark {
     background-color: $navy-dark;
+  }
+}
+/* --------------------------
+ * LINKS
+ * -------------------------- */
+
+//  Standard Link
+a.link {
+  position: relative;
+  color: $color-red;
+  text-decoration: none;
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-color: $color-red;
+  background-color: $color-white-blue;
+  transition: border-bottom-color $t, background-color $t;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom-color: $color-navy;
+    background-color: transparent;
+  }
+}
+
+// CTA Hero Link
+.cta-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__link {
+    flex: 0 1 auto;
+    padding: 20px 38px;
+    background-color: $color-red-medium;
+    border-radius: 16px;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      .cta-hero__text {
+        transform: translate(0px, 6px);
+      }
+      .cta-hero__arrow {
+        transform: translate(-50%, -50px);
+      }
+    }
+  }
+  &__text {
+    font-family: $font-raleway;
+    color: $color-white;
+    transform: translate(0px, -7px);
+    transition: transform $t;
+  }
+  &__arrow {
+    position: absolute;
+    padding: 6px 38px 3px;
+    bottom: -9px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: $color-white;
+    border-radius: 20px;
+    transition: transform $t;
+    box-shadow: 3.19487px 4.69646px 5.76142px rgba(0, 0, 0, 0.2);
   }
 }
