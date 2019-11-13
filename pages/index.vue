@@ -21,6 +21,12 @@
           </div>
         </div>
       </div>
+      <div class="introduction__scroll-hint">
+        <div class="scroll-hint">
+          <p class="scroll-hint__text">Work</p>
+          <img class="scroll-hint__arrow" src="~/assets/img/arrow-white.png" />
+        </div>
+      </div>
     </section>
     <choose-tool />
   </div>
@@ -89,6 +95,7 @@ export default {
 @import '~/assets/scss/_mixins.scss';
 
 .introduction {
+  position: relative;
   background-color: $color-red;
   width: 100%;
   height: 100vh;
@@ -124,6 +131,28 @@ export default {
   }
   &__cta {
     margin-top: 30px;
+  }
+  &__scroll-hint {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 3px;
+  }
+}
+.scroll-hint {
+  &__text {
+    display: inline-block;
+    margin-right: 2px;
+    font-size: 0.9rem;
+    color: $color-white;
+  }
+  &__arrow {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 12px;
+    height: auto;
   }
 }
 </style>

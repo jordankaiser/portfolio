@@ -121,6 +121,26 @@ export default {
         rotation: 0,
         ease: Bounce.easeOut
       })
+      .from(
+        '.introduction__text',
+        0.5,
+        {
+          y: -30,
+          opacity: 0,
+          ease: Bounce.easeOut
+        },
+        '-=0.75'
+      )
+      .from(
+        '.introduction__cta',
+        0.5,
+        {
+          y: -30,
+          opacity: 0,
+          ease: Bounce.easeOut
+        },
+        '-=0.65'
+      )
   }
 }
 </script>
