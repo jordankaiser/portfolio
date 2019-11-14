@@ -49,12 +49,16 @@ export default {
         rotation: 10,
         ease: Bounce.easeOut
       })
-      .from(
+      .fromTo(
         '.dino__background',
         1.75,
         {
           opacity: 0,
-          scale: 0,
+          scale: 0
+        },
+        {
+          opacity: 1,
+          scale: 1,
           ease: Bounce.easeOut
         },
         '-=1.75'
@@ -99,7 +103,7 @@ export default {
         {
           opacity: 0
         },
-        '+=1.25'
+        '+=0.5'
       )
       .to(
         '.dino__artwork--eye-closed',
@@ -121,23 +125,40 @@ export default {
         rotation: 0,
         ease: Bounce.easeOut
       })
-      .from(
+      .fromTo(
         '.introduction__text',
         0.5,
         {
           y: -30,
-          opacity: 0,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
           ease: Bounce.easeOut
         },
         '-=0.75'
       )
-      .from(
+      .fromTo(
         '.introduction__cta',
         0.5,
         {
           y: -30,
-          opacity: 0,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
           ease: Bounce.easeOut
+        },
+        '-=0.65'
+      )
+      .from(
+        '.scroll-hint',
+        0.25,
+        {
+          y: 30,
+          opacity: 0
         },
         '-=0.65'
       )
@@ -178,12 +199,17 @@ export default {
     font-size: $fs5;
     font-weight: 700;
     color: $color-red-dark;
+
+    @media (max-width: 345px) {
+      font-size: 2.75rem;
+    }
   }
   &__illustration {
     position: relative;
     flex: 0 1 auto;
     padding-top: 14px;
     width: 48%;
+    max-width: 218px;
   }
 }
 
@@ -200,6 +226,7 @@ export default {
     bottom: -5px;
     width: 100%;
     transform: translateX(-50%);
+    opacity: 0;
 
     img {
       width: 100%;

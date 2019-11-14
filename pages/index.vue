@@ -125,12 +125,15 @@ export default {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    max-width: 390px;
   }
   &__text {
     color: $color-white;
+    opacity: 0;
   }
   &__cta {
     margin-top: 30px;
+    opacity: 0;
   }
   &__scroll-hint {
     position: absolute;
@@ -141,6 +144,8 @@ export default {
   }
 }
 .scroll-hint {
+  overflow: hidden;
+
   &__text {
     display: inline-block;
     margin-right: 2px;
