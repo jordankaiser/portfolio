@@ -11,7 +11,7 @@
           </p>
         </div>
         <div class="introduction__cta">
-          <cta-hero />
+          <cta-hero color="red" />
         </div>
       </div>
       <div class="introduction__scroll-hint">
