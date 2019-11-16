@@ -21,12 +21,14 @@
         </div>
       </div>
     </section>
+    <work-state-fair />
   </div>
 </template>
 
 <script>
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 import CtaHero from '~/components/CTAHero'
+import WorkStateFair from '~/components/WorkStateFair'
 export default {
   head() {
     return {
@@ -35,18 +37,33 @@ export default {
   },
   components: {
     introductionDino,
-    CtaHero
+    CtaHero,
+    WorkStateFair
+  },
+  mounted: function() {
+    // Intersection Observer example.
+    // this.$nextTick(() => {
+    //   const myImg = document.querySelector('.introduction')
+    //   const observer = new IntersectionObserver((entry, observer) => {
+    //     if (entry[0].intersectionRatio > 0) {
+    //       console.log('in the view')
+    //     } else {
+    //       console.log('out of view')
+    //     }
+    //   })
+    //   observer.observe(myImg)
+    // })
+    // Uncomment to simulate a 1 second delay. Used for building loading animations.
+    // asyncData() {
+    //   /* eslint-disable */
+    //   return new Promise(resolve => {
+    //     setTimeout(function() {
+    //       resolve({ name: 'world' })
+    //     }, 5000)
+    //   })
+    //   /* eslint-enable */
+    // }
   }
-  // Uncomment to simulate a 1 second delay. Used for building loading animations.
-  // asyncData() {
-  //   /* eslint-disable */
-  //   return new Promise(resolve => {
-  //     setTimeout(function() {
-  //       resolve({ name: 'world' })
-  //     }, 5000)
-  //   })
-  //   /* eslint-enable */
-  // }
 }
 </script>
 

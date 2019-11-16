@@ -1,5 +1,5 @@
 <template>
-  <div class="cta-hero">
+  <div :class="CtaHero" class="cta-hero">
     <nuxt-link to="/styleguide" class="cta-hero__link">
       <div class="cta-hero__text">About Me</div>
       <div class="cta-hero__arrow">
@@ -29,6 +29,14 @@ export default {
       default: 'white'
     }
   },
+  computed: {
+    CtaHero: function() {
+      return {
+        'cta-hero--red': this.color === 'red',
+        'cta-hero--purple': this.color === 'purple'
+      }
+    }
+  },
   mounted: function() {
     const timeline = new TimelineLite({ paused: true })
 
@@ -40,16 +48,35 @@ export default {
         morphSVG: '#cta-arrow-down'
       })
 
+    // Events.
     document
       .querySelector('.cta-hero .cta-hero__link')
       .addEventListener('mouseenter', () => {
-        timeline.play()
+        play()
       })
     document
       .querySelector('.cta-hero .cta-hero__link')
       .addEventListener('mouseleave', () => {
-        timeline.play().reverse()
+        reverse()
       })
+    document
+      .querySelector('.cta-hero .cta-hero__link')
+      .addEventListener('focus', () => {
+        play()
+      })
+    document
+      .querySelector('.cta-hero .cta-hero__link')
+      .addEventListener('blur', () => {
+        reverse()
+      })
+
+    function play() {
+      timeline.play()
+    }
+
+    function reverse() {
+      timeline.play().reverse()
+    }
   }
 }
 </script>

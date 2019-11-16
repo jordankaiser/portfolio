@@ -7,7 +7,11 @@
 }
 body {
   margin: 0;
-  background: $color-red-light;
+  background: $color-red-dark;
+}
+section.segment {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 .container {
   position: relative;
@@ -29,6 +33,7 @@ body {
     background-color: $navy-dark;
   }
 }
+
 /* --------------------------
  * LINKS
  * -------------------------- */
