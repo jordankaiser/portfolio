@@ -1,15 +1,3 @@
-html {
-  font-family: $font-open-sans;
-  color: $black;
-  font-size: 18px;
-
-  @include responsive(large) {
-    font-size: 16px;
-  }
-  .segment--dark {
-    color: $white-blue;
-  }
-}
 h1,
 h2,
 h3,

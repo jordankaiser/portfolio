@@ -7,7 +7,8 @@
           <p>
             Brief description of self amet nulla vel nunc placerat ultricies
             eget vel massa. Ut efficitur ex ut libero vestibulum porta.
-            Vestibulum sed purus aliquet, consequat nisl vel.
+            Vestibulum sed purus aliquet, consequat nisl vel. Donec non felis et
+            turpis tempor.
           </p>
         </div>
         <div class="introduction__cta">

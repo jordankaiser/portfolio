@@ -1,17 +1,6 @@
-// Breakpoints
-$large: 1024px;
-$medium: 758px;
-$small: 600px;
+// https://github.com/at-import/breakpoint/wiki/Basic-Media-Queries
+@import '~breakpoint-sass/stylesheets/breakpoint';
 
-@mixin responsive($size) {
-  @if $size == large {
-    @media (max-width: 1024px) { @content; }
-  } @else if $size == medium {
-    @media (max-width: 768px) { @content; }
-  } @else if $size == small {
-    @media (max-width: 600px) { @content; }
-  } 
-  @else {
-    @media (#{$size}) { @content };
-  }
-}
+$small: 600px;
+$medium: 768px;
+$large: 1024px;

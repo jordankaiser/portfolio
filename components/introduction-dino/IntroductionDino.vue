@@ -173,7 +173,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex: 0 1 auto;
-  margin-bottom: 20px;
+  margin-bottom: $s0;
   width: 100%;
 
   &__headline {
