@@ -110,6 +110,12 @@ Things I want to look at adjusting.
 
 - Look at seperating out GSAP and ScrollMagic into seperate plugin imports.
 
+## Breakpoint
+
+Used for generating CSS media queries.
+
+[Breakpoint Documentation](https://github.com/at-import/breakpoint)
+
 ## Misc
 
 ### Lodash import
