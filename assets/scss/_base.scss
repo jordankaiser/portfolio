@@ -13,7 +13,10 @@ body {
 .container {
   position: relative;
   max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
   padding-left: 30px;
   padding-right: 30px;
 
