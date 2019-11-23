@@ -1,6 +1,6 @@
 <template>
   <section class="work segment">
-    <div class="work__intro">
+    <div class="work__intro container container--narrow">
       <div class="work__text">
         <p class="work__subhead">Development</p>
         <h2 class="work__heading">Nebraska State Fair</h2>
@@ -9,7 +9,7 @@
         <corn-hero />
       </div>
     </div>
-    <p class="container work__description">
+    <p class="work__description container container--narrow">
       Brief description of project amet nulla vel nunc placerat ultricies eget
       vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed
       purus aliquet, consequat.
@@ -42,6 +42,14 @@ export default {
     display: flex;
     justify-content: space-between;
     padding-left: $s0;
+
+    max-width: none;
+    padding-right: 0;
+
+    @include breakpoint($small) {
+      max-width: $cs-1;
+      padding-right: $s0;
+    }
   }
   &__text {
     flex: 0 1 auto;
@@ -55,6 +63,13 @@ export default {
   &__illustration {
     flex: 0 0 auto;
     width: 114px;
+    overflow: hidden;
+
+    @include breakpoint($small) {
+      flex: 0 1 auto;
+      width: 161px;
+      overflow: visible;
+    }
   }
 }
 </style>
