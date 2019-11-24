@@ -1,5 +1,5 @@
 <template>
-  <section class="work segment">
+  <section class="work work--nsf segment">
     <div class="work__intro container container--narrow">
       <div class="work__text">
         <p class="work__subhead">Development</p>

@@ -21,66 +21,90 @@
 <script>
 export default {
   mounted: function() {
+    const ScrollMagic = this.$ScrollMagic
     const TimelineLite = this.$GSAP.TimelineLite
-    const timeline = new TimelineLite({
-      paused: true,
-      onComplete: timelineComplete
-    })
-    const cornEl = {
-      container: document.querySelector('.corn-hero'),
-      cob: document.querySelector('.corn-hero__1'),
-      leftLeaf: document.querySelector('.corn-hero__2'),
-      rightLeaf: document.querySelector('.corn-hero__3'),
-      circle: document.querySelector('.corn-hero__circle')
+    /* --------------------------
+     * INIT
+     * -------------------------- */
+    function init() {
+      createTimeline()
+      scrollMagicInit()
     }
 
-    timeline
-      .from(cornEl.container, 1, {
-        scale: 0
+    let timeline = new TimelineLite()
+    function createTimeline() {
+      timeline = new TimelineLite({
+        onComplete: timelineComplete
       })
-      .from(
-        cornEl.circle,
-        1,
-        {
+      const cornEl = {
+        container: document.querySelector('.corn-hero'),
+        cob: document.querySelector('.corn-hero__1'),
+        leftLeaf: document.querySelector('.corn-hero__2'),
+        rightLeaf: document.querySelector('.corn-hero__3'),
+        circle: document.querySelector('.corn-hero__circle')
+      }
+
+      timeline
+        .from(cornEl.container, 1, {
           scale: 0
-        },
-        '-=1'
-      )
-      .from(
-        cornEl.cob,
-        0.5,
-        {
-          x: 30,
-          y: 30
-        },
-        '-=1'
-      )
-      .from(
-        cornEl.leftLeaf,
-        1,
-        {
-          rotation: 7
-        },
-        '-=0.5'
-      )
-      .from(
-        cornEl.rightLeaf,
-        1,
-        {
-          rotation: -7
-        },
-        '-=1'
-      )
+        })
+        .from(
+          cornEl.circle,
+          1,
+          {
+            scale: 0
+          },
+          '-=1'
+        )
+        .from(
+          cornEl.cob,
+          0.5,
+          {
+            x: 30,
+            y: 30
+          },
+          '-=1'
+        )
+        .from(
+          cornEl.leftLeaf,
+          1,
+          {
+            rotation: 7
+          },
+          '-=0.5'
+        )
+        .from(
+          cornEl.rightLeaf,
+          1,
+          {
+            rotation: -7
+          },
+          '-=1'
+        )
 
-    timeline.play()
-
-    // Clear inline styles incase of browser resize.
-    function timelineComplete() {
-      Object.values(cornEl).forEach(element => {
-        /* eslint-disable-next-line no-undef */
-        TweenLite.set(element, { clearProps: 'all' })
-      })
+      // Clear inline styles incase of browser resize.
+      function timelineComplete() {
+        Object.values(cornEl).forEach(element => {
+          /* eslint-disable-next-line no-undef */
+          TweenLite.set(element, { clearProps: 'all' })
+        })
+      }
     }
+
+    function scrollMagicInit() {
+      const nsfSection = document.querySelector('.work--nsf')
+      const sceneController = new ScrollMagic.Controller()
+      new ScrollMagic.Scene({
+        triggerElement: nsfSection,
+        triggerHook: 0.5,
+        reverse: false
+      })
+        .setClassToggle(nsfSection, 'active') // add class toggle
+        .setTween(timeline)
+        .addTo(sceneController)
+    }
+
+    init()
   }
 }
 </script>
@@ -91,16 +115,6 @@ export default {
   position: relative;
   padding-bottom: 10px;
 
-  // &:after {
-  //   content: '';
-  //   position: absolute;
-  //   left: 50%;
-  //   top: 50%;
-  //   width: 3px;
-  //   height: 3px;
-  //   background-color: red;
-  //   z-index: 100;
-  // }
   &__1 {
     position: relative;
     width: 161px;
