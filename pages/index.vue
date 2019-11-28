@@ -27,9 +27,11 @@
 </template>
 
 <script>
+import debounce from 'lodash/debounce'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 import CtaHero from '~/components/CTAHero'
 import WorkStateFair from '~/components/WorkStateFair'
+import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 export default {
   head() {
     return {
@@ -42,6 +44,17 @@ export default {
     WorkStateFair
   },
   mounted: function() {
+    // Track viewport dimensions in store. Not showing as updated on debounce
+    // in browser dev tools but does when logging.
+    let viewportDimensions = getViewportDimensions()
+    this.$store.commit('viewportDimensions/update', viewportDimensions)
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        viewportDimensions = getViewportDimensions()
+        this.$store.commit('viewportDimensions/update', viewportDimensions)
+      }, 200)
+    )
     // Intersection Observer example.
     // this.$nextTick(() => {
     //   const myImg = document.querySelector('.introduction')

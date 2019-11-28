@@ -96,7 +96,7 @@ export default {
       const sceneController = new ScrollMagic.Controller()
       new ScrollMagic.Scene({
         triggerElement: nsfSection,
-        triggerHook: 0.5,
+        triggerHook: 0.75,
         reverse: false
       })
         .setClassToggle(nsfSection, 'active') // add class toggle
