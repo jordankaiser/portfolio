@@ -19,37 +19,55 @@
   </div>
 </template>
 <script>
+import debounce from 'lodash/debounce'
+import { mapState } from 'vuex'
+import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 export default {
+  computed: {
+    ...mapState({
+      count: state => state.viewportDimensions.viewportDimensions
+    })
+  },
   mounted: function() {
-    const ScrollMagic = this.$ScrollMagic
-    const TimelineLite = this.$GSAP.TimelineLite
-    /* --------------------------
-     * INIT
-     * -------------------------- */
-    function init() {
-      createTimeline()
-      scrollMagicInit()
+    const vm = this
+    let viewportDimensions = getViewportDimensions()
+    const cornEl = {
+      container: document.querySelector('.corn-hero'),
+      cob: document.querySelector('.corn-hero__1'),
+      leftLeaf: document.querySelector('.corn-hero__2'),
+      rightLeaf: document.querySelector('.corn-hero__3'),
+      circle: document.querySelector('.corn-hero__circle')
+    }
+    const TimelineLite = vm.$GSAP.TimelineLite
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        viewportDimensions = getViewportDimensions()
+        mobileOrDesktop(viewportDimensions.width)
+      }, 200)
+    )
+    mobileOrDesktop(viewportDimensions.width)
+    function mobileOrDesktop(viewportWidth) {
+      if (viewportWidth > 600) {
+        desktopTimeline(cornEl)
+      } else {
+        mobileTimeline(cornEl)
+      }
     }
 
-    let timeline = new TimelineLite()
-    function createTimeline() {
+    function desktopTimeline(element) {
+      let timeline = new TimelineLite()
       timeline = new TimelineLite({
-        onComplete: timelineComplete
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
       })
-      const cornEl = {
-        container: document.querySelector('.corn-hero'),
-        cob: document.querySelector('.corn-hero__1'),
-        leftLeaf: document.querySelector('.corn-hero__2'),
-        rightLeaf: document.querySelector('.corn-hero__3'),
-        circle: document.querySelector('.corn-hero__circle')
-      }
 
       timeline
-        .from(cornEl.container, 1, {
+        .from(element.container, 1, {
           scale: 0
         })
         .from(
-          cornEl.circle,
+          element.circle,
           1,
           {
             scale: 0
@@ -57,7 +75,7 @@ export default {
           '-=1'
         )
         .from(
-          cornEl.cob,
+          element.cob,
           0.5,
           {
             x: 30,
@@ -66,7 +84,7 @@ export default {
           '-=1'
         )
         .from(
-          cornEl.leftLeaf,
+          element.leftLeaf,
           1,
           {
             rotation: 7
@@ -74,7 +92,7 @@ export default {
           '-=0.5'
         )
         .from(
-          cornEl.rightLeaf,
+          element.rightLeaf,
           1,
           {
             rotation: -7
@@ -82,16 +100,29 @@ export default {
           '-=1'
         )
 
-      // Clear inline styles incase of browser resize.
-      function timelineComplete() {
-        Object.values(cornEl).forEach(element => {
-          /* eslint-disable-next-line no-undef */
-          TweenLite.set(element, { clearProps: 'all' })
-        })
-      }
+      scrollMagicInit(timeline)
     }
 
-    function scrollMagicInit() {
+    function mobileTimeline(element) {
+      let timeline = new TimelineLite()
+      timeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      timeline.from(element.container, 1, {
+        scale: 0
+      })
+    }
+
+    function timelineCleanup(elements) {
+      Object.values(elements).forEach(element => {
+        /* eslint-disable-next-line no-undef */
+        TweenLite.set(element, { clearProps: 'all' })
+      })
+    }
+
+    function scrollMagicInit(timeline) {
+      const ScrollMagic = vm.$ScrollMagic
       const nsfSection = document.querySelector('.work--nsf')
       const sceneController = new ScrollMagic.Controller()
       new ScrollMagic.Scene({
@@ -99,12 +130,10 @@ export default {
         triggerHook: 0.75,
         reverse: false
       })
-        .setClassToggle(nsfSection, 'active') // add class toggle
+        .setClassToggle(nsfSection, 'active')
         .setTween(timeline)
         .addTo(sceneController)
     }
-
-    init()
   }
 }
 </script>

@@ -1,6 +1,7 @@
-/* --------------------------
- * HELPER: Window Resize Debounce
- * -------------------------- */
+/**
+ * Returns clientWidth() and clientHeight() from documentElement
+ * @constructor
+ */
 export default function() {
   const dimensions = {
     width: document.documentElement.clientWidth,
