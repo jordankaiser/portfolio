@@ -57,6 +57,9 @@ export default {
     margin-bottom: 35px;
     width: 100%;
   }
+  &__subhead {
+    color: $color-blue-light;
+  }
   &__heading {
     margin-top: 9px;
   }

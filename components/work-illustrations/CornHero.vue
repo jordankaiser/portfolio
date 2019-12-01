@@ -1,20 +1,22 @@
 <template>
   <div class="corn-hero">
-    <img
-      src="~/assets/img/corn-1.png"
-      alt="Corn Illustration"
-      class="corn-hero__1"
-    />
-    <img
-      src="~/assets/img/corn-2.png"
-      alt="Corn Illustration"
-      class="corn-hero__2"
-    />
-    <img
-      src="~/assets/img/corn-3.png"
-      alt="Corn Illustration"
-      class="corn-hero__3"
-    />
+    <div class="corn-hero__corn">
+      <img
+        src="~/assets/img/corn-1.png"
+        alt="Corn Illustration"
+        class="corn-hero__1"
+      />
+      <img
+        src="~/assets/img/corn-2.png"
+        alt="Corn Illustration"
+        class="corn-hero__2"
+      />
+      <img
+        src="~/assets/img/corn-3.png"
+        alt="Corn Illustration"
+        class="corn-hero__3"
+      />
+    </div>
     <div class="corn-hero__circle"></div>
   </div>
 </template>
@@ -33,6 +35,7 @@ export default {
     let viewportDimensions = getViewportDimensions()
     const cornEl = {
       container: document.querySelector('.corn-hero'),
+      corn: document.querySelector('.corn-hero__corn'),
       cob: document.querySelector('.corn-hero__1'),
       leftLeaf: document.querySelector('.corn-hero__2'),
       rightLeaf: document.querySelector('.corn-hero__3'),
@@ -54,7 +57,6 @@ export default {
         mobileTimeline(cornEl)
       }
     }
-
     function desktopTimeline(element) {
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
@@ -63,7 +65,7 @@ export default {
       })
 
       timeline
-        .from(element.container, 1, {
+        .from(element.container, 0.66, {
           scale: 0
         })
         .from(
@@ -72,7 +74,55 @@ export default {
           {
             scale: 0
           },
+          '-=0.5'
+        )
+        .from(
+          element.cob,
+          0.5,
+          {
+            x: 20,
+            y: 20
+          },
           '-=1'
+        )
+        .from(
+          element.leftLeaf,
+          0.5,
+          {
+            rotation: 7
+          },
+          '-=0.75'
+        )
+        .from(
+          element.rightLeaf,
+          0.5,
+          {
+            rotation: -7
+          },
+          '-=0.75'
+        )
+
+      scrollMagicInit(timeline)
+    }
+
+    function mobileTimeline(element) {
+      let timeline = new TimelineLite()
+      timeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      timeline
+        .from(element.circle, 0.66, {
+          scale: 0
+        })
+        .from(
+          element.corn,
+          0.66,
+          {
+            x: 110,
+            y: 70
+          },
+          '-=0.5'
         )
         .from(
           element.cob,
@@ -81,7 +131,7 @@ export default {
             x: 30,
             y: 30
           },
-          '-=1'
+          '-=0.75'
         )
         .from(
           element.leftLeaf,
@@ -99,19 +149,7 @@ export default {
           },
           '-=1'
         )
-
       scrollMagicInit(timeline)
-    }
-
-    function mobileTimeline(element) {
-      let timeline = new TimelineLite()
-      timeline = new TimelineLite({
-        onComplete: timelineCleanup,
-        onCompleteParams: [element]
-      })
-      timeline.from(element.container, 1, {
-        scale: 0
-      })
     }
 
     function timelineCleanup(elements) {
@@ -144,6 +182,10 @@ export default {
   position: relative;
   padding-bottom: 10px;
 
+  &__corn {
+    position: relative;
+    z-index: 1;
+  }
   &__1 {
     position: relative;
     width: 161px;
