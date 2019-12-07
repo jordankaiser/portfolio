@@ -2,14 +2,14 @@
   <section class="work work--nsf segment">
     <div class="work__intro container container--narrow">
       <div class="work__text">
-        <p class="work__subhead">Development</p>
-        <h2 class="work__heading">Nebraska State Fair</h2>
+        <p class="work__subhead preanimation">Development</p>
+        <h2 class="work__heading preanimation">Nebraska State Fair</h2>
       </div>
       <div class="work__illustration">
         <corn-hero />
       </div>
     </div>
-    <p class="work__description container container--narrow">
+    <p class="work__description preanimation container container--narrow">
       Brief description of project amet nulla vel nunc placerat ultricies eget
       vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed
       purus aliquet, consequat.
@@ -56,6 +56,13 @@ export default {
     align-self: flex-end;
     margin-bottom: 35px;
     width: 100%;
+
+    &.preanimation {
+      opacity: 0;
+    }
+  }
+  &__description.preanimation {
+    opacity: 0;
   }
   &__subhead {
     color: $color-blue-light;

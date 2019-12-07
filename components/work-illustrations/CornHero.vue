@@ -1,5 +1,5 @@
 <template>
-  <div class="corn-hero">
+  <div class="corn-hero preanimation">
     <div class="corn-hero__corn">
       <img
         src="~/assets/img/corn-1.png"
@@ -22,14 +22,8 @@
 </template>
 <script>
 import debounce from 'lodash/debounce'
-import { mapState } from 'vuex'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 export default {
-  computed: {
-    ...mapState({
-      count: state => state.viewportDimensions.viewportDimensions
-    })
-  },
   mounted: function() {
     const vm = this
     let viewportDimensions = getViewportDimensions()
@@ -60,7 +54,9 @@ export default {
     function desktopTimeline(element) {
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
-        onComplete: timelineCleanup,
+        onStart: timelineStarted,
+        onStartParams: [element],
+        onComplete: timelineCompleted,
         onCompleteParams: [element]
       })
 
@@ -108,10 +104,13 @@ export default {
     function mobileTimeline(element) {
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
-        onComplete: timelineCleanup,
+        onStart: timelineStarted,
+        onStartParams: [element],
+        onComplete: timelineCompleted,
         onCompleteParams: [element]
       })
       timeline
+        .call(sectionReveal)
         .from(element.circle, 0.66, {
           scale: 0
         })
@@ -152,7 +151,34 @@ export default {
       scrollMagicInit(timeline)
     }
 
-    function timelineCleanup(elements) {
+    function sectionReveal() {
+      const elements = {}
+      const timeline = new TimelineLite({
+        onStart: timelineStarted,
+        onStartParams: [elements]
+      })
+      timeline.staggerFromTo(
+        '.work .preanimation',
+        2,
+        { opacity: 0 },
+        /* eslint-disable-next-line */
+        { opacity: 1, ease: Power2.easeInOut},
+        0.3
+      )
+    }
+
+    // Setup when timeline starts.
+    function timelineStarted(elements) {
+      // Remove preanimation classes.
+      Object.values(elements).forEach(element => {
+        if (element.classList.contains('preanimation')) {
+          element.classList.remove('preanimation')
+        }
+      })
+    }
+
+    // Cleanup after timeline is done.
+    function timelineCompleted(elements) {
       Object.values(elements).forEach(element => {
         /* eslint-disable-next-line no-undef */
         TweenLite.set(element, { clearProps: 'all' })
