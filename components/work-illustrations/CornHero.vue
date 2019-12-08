@@ -61,6 +61,7 @@ export default {
       })
 
       timeline
+        .call(sectionReveal)
         .from(element.container, 0.66, {
           scale: 0
         })
