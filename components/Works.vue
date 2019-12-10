@@ -1,44 +1,42 @@
 <template>
-  <section class="work work--nsf segment">
-    <!-- TODO: Remove this file -->
-    <div class="work__intro container container--narrow">
-      <div class="work__text">
-        <p class="work__subhead preanimation">Development</p>
-        <h2 class="work__heading preanimation">Nebraska State Fair</h2>
+  <div>
+    <section
+      v-for="work in works"
+      :key="work.id"
+      :class="'work--' + work.id"
+      class="work work--nsf segment"
+    >
+      <div class="work__intro container container--narrow">
+        <div class="work__text">
+          <p class="work__subhead preanimation">{{ work.task }}</p>
+          <h2 class="work__heading preanimation">{{ work.title }}</h2>
+        </div>
+        <div class="work__illustration">
+          <component :is="work.illustration"></component>
+        </div>
       </div>
-      <div class="work__illustration">
-        <corn-hero />
-      </div>
-    </div>
-    <p class="work__description preanimation container container--narrow">
-      Brief description of project amet nulla vel nunc placerat ultricies eget
-      vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed
-      purus aliquet, consequat.
-    </p>
-    <receiver v-for="post in posts" :key="post.id" :title="post.title" />
-  </section>
+      <p class="work__description preanimation container container--narrow">
+        {{ work.description }}
+      </p>
+    </section>
+  </div>
 </template>
 <script>
 import CornHero from '~/components/work-illustrations/CornHero.vue'
-import receiver from '~/components/receiver.vue'
 export default {
   components: {
-    CornHero,
-    receiver
+    CornHero
   },
   data: function() {
     return {
-      posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
-      ],
       works: [
         {
+          id: 'nsf',
           title: 'Nebraska State Fair',
           task: 'Development',
           description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.'
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: CornHero
         }
       ]
     }
