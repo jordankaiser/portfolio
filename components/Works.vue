@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section
+  <section class="work">
+    <div
       v-for="work in works"
       :key="work.id"
-      :class="'work--' + work.id"
-      class="work work--nsf segment"
+      :class="'work__segment--' + work.id"
+      class="work__segment segment"
     >
       <div class="work__intro container container--narrow">
         <div class="work__text">
@@ -18,8 +18,17 @@
       <p class="work__description preanimation container container--narrow">
         {{ work.description }}
       </p>
-    </section>
-  </div>
+      <div class="work__divider container container--narrow">
+        <div :class="'divider-' + work.id">
+          <div :class="'divider-' + work.id + '__line'"></div>
+          <div :class="'divider-' + work.id + '__artwork'">
+            <div :class="'divider-' + work.id + '__circle'"></div>
+            <div :class="'divider-' + work.id + '__illustration'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 <script>
 import CornHero from '~/components/work-illustrations/CornHero.vue'
@@ -47,10 +56,11 @@ export default {
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .work {
-  width: 100%;
-  height: 100vh;
-  background-color: $color-white;
-
+  &__segment {
+    width: 100%;
+    height: 100vh;
+    background-color: $color-white;
+  }
   &__container {
     margin-left: 0;
     margin-right: 0;
@@ -99,6 +109,20 @@ export default {
       width: 161px;
       overflow: visible;
     }
+  }
+  &__divider {
+    margin-top: 50px;
+
+    &.container {
+      padding-left: 0;
+    }
+  }
+}
+.divider-nsf {
+  &__line {
+    width: 100%;
+    height: 2px;
+    background-color: $color-orange;
   }
 }
 </style>

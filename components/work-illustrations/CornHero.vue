@@ -188,7 +188,7 @@ export default {
 
     function scrollMagicInit(timeline) {
       const ScrollMagic = vm.$ScrollMagic
-      const nsfSection = document.querySelector('.work--nsf')
+      const nsfSection = document.querySelector('.work__segment--nsf')
       const sceneController = new ScrollMagic.Controller()
       new ScrollMagic.Scene({
         triggerElement: nsfSection,

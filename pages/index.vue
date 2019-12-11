@@ -22,7 +22,6 @@
         </div>
       </div>
     </section>
-    <!-- <work-state-fair /> -->
     <works />
   </div>
 </template>
@@ -31,7 +30,6 @@
 import debounce from 'lodash/debounce'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 import CtaHero from '~/components/CTAHero'
-// import WorkStateFair from '~/components/WorkStateFair'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 import Works from '~/components/Works'
 export default {
@@ -43,7 +41,6 @@ export default {
   components: {
     introductionDino,
     CtaHero,
-    // WorkStateFair,
     Works
   },
   mounted: function() {
