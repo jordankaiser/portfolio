@@ -19,22 +19,18 @@
         {{ work.description }}
       </p>
       <div class="work__divider container container--narrow">
-        <div :class="'divider-' + work.id">
-          <div :class="'divider-' + work.id + '__line'"></div>
-          <div :class="'divider-' + work.id + '__artwork'">
-            <div :class="'divider-' + work.id + '__circle'"></div>
-            <div :class="'divider-' + work.id + '__illustration'"></div>
-          </div>
-        </div>
+        <component :is="work.divider"></component>
       </div>
     </div>
   </section>
 </template>
 <script>
 import CornHero from '~/components/work-illustrations/CornHero.vue'
+import CornDog from '~/components/work-dividers/CornDog.vue'
 export default {
   components: {
-    CornHero
+    CornHero,
+    CornDog
   },
   data: function() {
     return {
@@ -45,7 +41,8 @@ export default {
           task: 'Development',
           description:
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: CornHero
+          illustration: CornHero,
+          divider: CornDog
         }
       ]
     }
@@ -85,13 +82,9 @@ export default {
     align-self: flex-end;
     margin-bottom: 35px;
     width: 100%;
-
-    &.preanimation {
-      opacity: 0;
-    }
   }
-  &__description.preanimation {
-    opacity: 0;
+  &__description.container {
+    padding-right: 70px;
   }
   &__subhead {
     color: $color-blue-light;
@@ -111,18 +104,12 @@ export default {
     }
   }
   &__divider {
-    margin-top: 50px;
+    margin-top: $s0;
 
     &.container {
+      padding-right: 70px;
       padding-left: 0;
     }
-  }
-}
-.divider-nsf {
-  &__line {
-    width: 100%;
-    height: 2px;
-    background-color: $color-orange;
   }
 }
 </style>
