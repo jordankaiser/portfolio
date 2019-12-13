@@ -158,14 +158,16 @@ export default {
         onStart: timelineStarted,
         onStartParams: [elements]
       })
-      timeline.staggerFromTo(
-        '.work .preanimation',
-        2,
-        { opacity: 0 },
-        /* eslint-disable-next-line */
+      timeline
+        .staggerFromTo(
+          '.work .preanimation',
+          2,
+          { opacity: 0 },
+          /* eslint-disable-next-line */
         { opacity: 1, ease: Power2.easeInOut},
-        0.3
-      )
+          0.3
+        )
+        .from('.divider-corndog', 1, { opacity: 0 })
     }
 
     // Setup when timeline starts.

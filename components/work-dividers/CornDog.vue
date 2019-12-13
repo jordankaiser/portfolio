@@ -44,8 +44,8 @@ export default {}
   }
   &__illustration-wrap {
     position: absolute;
+    top: 50%;
     left: 50%;
-    right: 50%;
     width: 42px;
     height: 42px;
     transform: translate(-50%, -50%);
