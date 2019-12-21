@@ -158,16 +158,42 @@ export default {
         onStart: timelineStarted,
         onStartParams: [elements]
       })
+      const introText = [
+        '.work__subhead',
+        '.work__heading',
+        '.work__description'
+      ]
       timeline
+        .set('.work__divider', { opacity: 1 })
         .staggerFromTo(
-          '.work .preanimation',
+          introText,
           2,
           { opacity: 0 },
           /* eslint-disable-next-line */
         { opacity: 1, ease: Power2.easeInOut},
           0.3
         )
-        .from('.divider-corndog', 1, { opacity: 0 })
+        .from(
+          '.divider-corndog__line',
+          0.66,
+          {
+            scaleX: 0,
+            transformOrigin: '100% 50%'
+          },
+          '-=1'
+        )
+        .from('.divider-corndog__circle', 0.5, { scale: 0, x: -20 }, '-=1')
+        .from(
+          '.divider-corndog__illustration',
+          0.75,
+          {
+            rotation: 360,
+            scale: 0,
+            /* eslint-disable-next-line */
+          ease: Back.easeOut.config(2)
+          },
+          '-=0.75'
+        )
     }
 
     // Setup when timeline starts.

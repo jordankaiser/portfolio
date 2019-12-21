@@ -18,7 +18,7 @@
       <p class="work__description preanimation container container--narrow">
         {{ work.description }}
       </p>
-      <div class="work__divider container container--narrow">
+      <div class="work__divider preanimation container container--narrow">
         <component :is="work.divider"></component>
       </div>
     </div>
