@@ -25,4 +25,7 @@
   "eslint.options": {
     "configFile": ".eslintrc.js"
 },
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+},
 }
