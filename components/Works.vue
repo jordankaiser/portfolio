@@ -21,12 +21,20 @@
       <div class="work__divider preanimation container container--narrow">
         <component :is="work.divider"></component>
       </div>
+      <div class="work__image">
+        <img
+          :data-src="require('~/assets/img/work/nsf/work-small.jpg')"
+          alt="Nebraska State Fair"
+          class="animatelazyload lazyload"
+        />
+      </div>
     </div>
   </section>
 </template>
 <script>
 import CornHero from '~/components/work-illustrations/CornHero.vue'
 import CornDog from '~/components/work-dividers/CornDog.vue'
+import 'lazysizes'
 export default {
   components: {
     CornHero,
@@ -109,6 +117,20 @@ export default {
     &.container {
       padding-right: 70px;
       padding-left: 0;
+    }
+  }
+  &__image {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $s0;
+
+    img {
+      flex: 0 1 auto;
+      width: 344px;
+      height: auto;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.42);
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
     }
   }
 }

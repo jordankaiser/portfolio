@@ -116,6 +116,11 @@ Used for generating CSS media queries.
 
 [Breakpoint Documentation](https://github.com/at-import/breakpoint)
 
+
+## Lazy loading images.
+
+Using [lazyimages](https://github.com/aFarkas/lazysizes). In order to use the `data-src` method when defining the image path it needs to be done like `:data-src="require('~/assets/img/work/nsf/work-small.jpg')"`
+
 ## Misc
 
 ### Lodash import

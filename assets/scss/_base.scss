@@ -106,3 +106,15 @@ a.link {
 .preanimation {
   opacity: 0;
 }
+
+/* --------------------------
+ * LAZYLOADING
+ * -------------------------- */
+img.animatelazyload {
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
