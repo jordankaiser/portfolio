@@ -23,6 +23,7 @@
 <script>
 import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
+import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
 export default {
   mounted: function() {
     const vm = this
@@ -99,7 +100,7 @@ export default {
           '-=0.75'
         )
 
-      scrollMagicInit(timeline)
+      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
     }
 
     function mobileTimeline(element) {
@@ -149,8 +150,16 @@ export default {
           },
           '-=1'
         )
-      scrollMagicInit(timeline)
+      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
     }
+
+    // TODO: Remove this test. Testing scrollmagic import
+    function testScrollmagicImport() {
+      const timeline = new TimelineLite()
+      timeline.from('.work__image', 5, { x: 100 })
+      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0)
+    }
+    testScrollmagicImport()
 
     function sectionReveal() {
       const elements = {}
@@ -212,20 +221,6 @@ export default {
         /* eslint-disable-next-line no-undef */
         TweenLite.set(element, { clearProps: 'all' })
       })
-    }
-
-    function scrollMagicInit(timeline) {
-      const ScrollMagic = vm.$ScrollMagic
-      const nsfSection = document.querySelector('.work__segment--nsf')
-      const sceneController = new ScrollMagic.Controller()
-      new ScrollMagic.Scene({
-        triggerElement: nsfSection,
-        triggerHook: 0.75,
-        reverse: false
-      })
-        .setClassToggle(nsfSection, 'active')
-        .setTween(timeline)
-        .addTo(sceneController)
     }
   }
 }
