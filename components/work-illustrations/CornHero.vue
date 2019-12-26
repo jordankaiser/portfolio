@@ -37,6 +37,8 @@ export default {
       circle: document.querySelector('.corn-hero__circle')
     }
     const TimelineLite = vm.$GSAP.TimelineLite
+
+    // Determine viewport width.
     window.addEventListener(
       'resize',
       debounce(() => {
@@ -44,7 +46,9 @@ export default {
         mobileOrDesktop(viewportDimensions.width)
       }, 200)
     )
-    mobileOrDesktop(viewportDimensions.width)
+
+    // Setup viewport specific animations.
+    mobileOrDesktop()
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth > 600) {
         desktopTimeline(cornEl)
@@ -52,17 +56,21 @@ export default {
         mobileTimeline(cornEl)
       }
     }
+
+    // Desktop animations.
     function desktopTimeline(element) {
+      // Remove preanimation class.
+      document
+        .querySelector('.corn-hero.preanimation')
+        .classList.remove('preanimation')
+
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
-        onStart: timelineStarted,
-        onStartParams: [element],
         onComplete: timelineCompleted,
         onCompleteParams: [element]
       })
 
       timeline
-        .call(sectionReveal)
         .from(element.container, 0.66, {
           scale: 0
         })
@@ -101,18 +109,25 @@ export default {
         )
 
       scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
+
+      // Intro reveal.
+      introReveal()
     }
 
+    // Mobile animations.
     function mobileTimeline(element) {
+      // Remove preanimation class.
+      document
+        .querySelector('.corn-hero.preanimation')
+        .classList.remove('preanimation')
+
+      // Timeline animation.
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
-        onStart: timelineStarted,
-        onStartParams: [element],
         onComplete: timelineCompleted,
         onCompleteParams: [element]
       })
       timeline
-        .call(sectionReveal)
         .from(element.circle, 0.66, {
           scale: 0
         })
@@ -150,27 +165,31 @@ export default {
           },
           '-=1'
         )
-      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
+      scrollMagicInit(vm, timeline, '.corn-hero', 0.75)
+
+      // Intro reveal.
+      introReveal()
     }
 
     // TODO: Remove this test. Testing scrollmagic import
     function testScrollmagicImport() {
       const timeline = new TimelineLite()
       timeline.from('.work__image', 5, { x: 100 })
-      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0)
+      scrollMagicInit(vm, timeline, '.work__segment--nsf .work__image', 0.75)
     }
     testScrollmagicImport()
 
-    function sectionReveal() {
-      const elements = {}
-      const timeline = new TimelineLite({
-        onStart: timelineStarted,
-        onStartParams: [elements]
-      })
+    function introReveal() {
+      // Remove preanimation class.
+      document
+        .querySelector('.work__segment--nsf .work__intro.preanimation')
+        .classList.remove('preanimation')
+
+      const timeline = new TimelineLite()
       const introText = [
-        '.work__subhead',
-        '.work__heading',
-        '.work__description'
+        '.work__segment--nsf .work__subhead',
+        '.work__segment--nsf .work__heading',
+        '.work__segment--nsf .work__description'
       ]
       timeline
         .set('.work__divider', { opacity: 1 })
@@ -203,16 +222,7 @@ export default {
           },
           '-=0.75'
         )
-    }
-
-    // Setup when timeline starts.
-    function timelineStarted(elements) {
-      // Remove preanimation classes.
-      Object.values(elements).forEach(element => {
-        if (element.classList.contains('preanimation')) {
-          element.classList.remove('preanimation')
-        }
-      })
+      scrollMagicInit(vm, timeline, '.work__segment--nsf .work__intro', 0.75)
     }
 
     // Cleanup after timeline is done.

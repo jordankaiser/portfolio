@@ -1,9 +1,7 @@
-import webpack from 'webpack'
 import pkg from './package'
 
-/* eslint-disable */
+/* eslint-disable-next-line */
 const path = require('path');
-/* eslint-enable */
 
 export default {
   mode: 'universal',

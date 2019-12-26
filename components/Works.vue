@@ -6,10 +6,10 @@
       :class="'work__segment--' + work.id"
       class="work__segment segment"
     >
-      <div class="work__intro container container--narrow">
+      <div class="work__intro container container--narrow preanimation">
         <div class="work__text">
-          <p class="work__subhead preanimation">{{ work.task }}</p>
-          <h2 class="work__heading preanimation">{{ work.title }}</h2>
+          <p class="work__subhead">{{ work.task }}</p>
+          <h2 class="work__heading">{{ work.title }}</h2>
         </div>
         <div class="work__illustration">
           <component :is="work.illustration"></component>
