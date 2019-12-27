@@ -54,15 +54,15 @@ export default {
     //   })
     //   observer.observe(myImg)
     // })
-    // Uncomment to simulate a 1 second delay. Used for building loading animations.
-    // asyncData() {
-    //   /* eslint-disable */
-    //   return new Promise(resolve => {
-    //     setTimeout(function() {
-    //       resolve({ name: 'world' })
-    //     }, 5000)
-    //   })
-    //   /* eslint-enable */
+    // Uncomment to simulate a 1 second delay. Used for building loading animations. Have this fire on a click event. Kind of working maybe.
+    // function asyncData() {
+    /* eslint-disable */
+      // return new Promise(resolve => {
+      //   setTimeout(function() {
+      //     resolve({ name: 'world' })
+      //   }, 5000)
+      // })
+      /* eslint-enable */
     // }
   }
 }
@@ -77,6 +77,11 @@ export default {
   background-color: $color-red;
   width: 100%;
   height: 100vh;
+  visibility: visible;
+
+  body.js-enabled & {
+    visibility: hidden;
+  }
 
   &::before {
     content: '';
@@ -107,7 +112,6 @@ export default {
   }
   &__text {
     color: $color-white;
-    opacity: 0;
   }
   &__cta {
     margin-top: 30px;

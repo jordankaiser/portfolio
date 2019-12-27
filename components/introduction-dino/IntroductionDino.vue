@@ -37,18 +37,25 @@ export default {
 
     const timeline = new TimelineLite()
     timeline
-      .set('.dino__forground', {
-        visibility: 'visible'
-      })
+      .set('.introduction', { visibility: 'visible' })
       .set('.dino__artwork--eye-closed', {
         opacity: 0
       })
-      .from('.dino__forground', 1.75, {
-        opacity: 0,
-        y: -300,
-        rotation: 10,
-        ease: Bounce.easeOut
-      })
+      .fromTo(
+        '.dino__forground',
+        1.75,
+        {
+          opacity: 0,
+          y: -300,
+          rotation: 10
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotation: 0,
+          ease: Bounce.easeOut
+        }
+      )
       .fromTo(
         '.dino__background',
         1.75,
@@ -216,7 +223,6 @@ export default {
 .dino {
   &__forground {
     position: relative;
-    visibility: hidden;
     z-index: 1;
     transform-origin: 69% 78%;
   }

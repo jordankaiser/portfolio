@@ -104,7 +104,10 @@ a.link {
  * ANIMATION
  * -------------------------- */
 .preanimation {
-  opacity: 0;
+  visibility: hidden;
+}
+body.no-js .preanimation {
+  visibility: visible;
 }
 
 /* --------------------------

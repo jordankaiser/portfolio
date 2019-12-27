@@ -47,7 +47,7 @@ export default {
       }, 200)
     )
 
-    // Setup viewport specific animations.
+    // Determine which animations to play by viewport width.
     mobileOrDesktop()
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth > 600) {

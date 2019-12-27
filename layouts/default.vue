@@ -11,8 +11,19 @@ export default {
   head() {
     return {
       title: 'Welcome',
-      titleTemplate: '%s | Jordan Kaiser'
+      titleTemplate: '%s | Jordan Kaiser',
+      bodyAttrs: {
+        class: this.bodyClasses
+      }
     }
+  },
+  data: function() {
+    return {
+      bodyClasses: null
+    }
+  },
+  created: function() {
+    this.bodyClasses = ['js-enabled']
   }
 }
 </script>

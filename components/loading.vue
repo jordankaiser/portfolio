@@ -28,7 +28,7 @@ export default {
     return {
       bodyAttrs: {
         // Set loaded status with a body class.
-        class: !this.loading ? 'loaded' : 'loading'
+        class: [!this.loading ? 'loaded' : 'loading']
       }
     }
   },
