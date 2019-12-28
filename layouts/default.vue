@@ -3,6 +3,13 @@
     <main>
       <nuxt />
     </main>
+    <noscript inline-template>
+      <style>
+        .animated {
+          visibility: visible !important;
+        }
+      </style>
+    </noscript>
   </div>
 </template>
 
@@ -11,19 +18,8 @@ export default {
   head() {
     return {
       title: 'Welcome',
-      titleTemplate: '%s | Jordan Kaiser',
-      bodyAttrs: {
-        class: this.bodyClasses
-      }
+      titleTemplate: '%s | Jordan Kaiser'
     }
-  },
-  data: function() {
-    return {
-      bodyClasses: null
-    }
-  },
-  created: function() {
-    this.bodyClasses = ['js-enabled']
   }
 }
 </script>

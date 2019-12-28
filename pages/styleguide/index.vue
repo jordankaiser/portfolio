@@ -2,6 +2,7 @@
   <div>
     <section class="styleguide segment">
       <div class="container container--narrow text">
+        <a href="/">home</a>
         <h1>
           Fusce fringilla nisl sed eros finibus volutpat. Praesent convallis
           elit non sapien suscipit, quis pellentesque ligula egestas.

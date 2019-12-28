@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="introduction">
+    <section class="introduction animated">
       <div class="introduction__container container">
         <introduction-dino />
         <div class="introduction__text">
@@ -77,11 +77,7 @@ export default {
   background-color: $color-red;
   width: 100%;
   height: 100vh;
-  visibility: visible;
-
-  body.js-enabled & {
-    visibility: hidden;
-  }
+  visibility: hidden;
 
   &::before {
     content: '';
