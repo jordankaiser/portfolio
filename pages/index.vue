@@ -79,8 +79,10 @@ export default {
   background-color: $color-red;
   width: 100%;
   height: 100vh;
-  visibility: hidden;
 
+  &.animated {
+    visibility: hidden;
+  }
   &::before {
     content: '';
     position: absolute;

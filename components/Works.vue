@@ -32,13 +32,14 @@
   </section>
 </template>
 <script>
-import CornHero from '~/components/work-illustrations/CornHero.vue'
-import CornDog from '~/components/work-dividers/CornDog.vue'
+import NSFHero from '~/components/works/nsf/Hero.vue'
+import NSFDivider from '~/components/works/nsf/Divider.vue'
+
 import 'lazysizes'
 export default {
   components: {
-    CornHero,
-    CornDog
+    NSFHero,
+    NSFDivider
   },
   data: function() {
     return {
@@ -49,8 +50,8 @@ export default {
           task: 'Development',
           description:
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: CornHero,
-          divider: CornDog
+          illustration: NSFHero,
+          divider: NSFDivider
         }
       ]
     }
