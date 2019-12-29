@@ -175,7 +175,7 @@ export default {
           2,
           { opacity: 0 },
           /* eslint-disable-next-line */
-        { opacity: 1, ease: Power2.easeInOut},
+        { opacity: 1, ease: Power2.easeInOut },
           0.3
         )
         .from(

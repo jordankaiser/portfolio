@@ -21,7 +21,7 @@
       <div class="work__divider container container--narrow">
         <component :is="work.divider"></component>
       </div>
-      <div class="work_screenshot">
+      <div class="work__screenshot container container--narrow">
         <component :is="work.screenshot"></component>
       </div>
     </div>
@@ -69,7 +69,6 @@ export default {
   }
   &__segment {
     width: 100%;
-    height: 100vh;
     background-color: $color-white;
   }
   &__container {
@@ -123,20 +122,18 @@ export default {
     &.container {
       padding-right: 70px;
       padding-left: 0;
+
+      @include breakpoint($small) {
+        padding-left: $s0;
+        padding-right: $s0;
+      }
     }
   }
-  &__screenshot {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: $s0;
-
-    img {
-      flex: 0 1 auto;
-      width: 344px;
-      height: auto;
-      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.42);
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+  &__screenshot.container {
+    padding-right: 0;
+    @include breakpoint($small) {
+      max-width: $cs-1;
+      padding-right: $s0;
     }
   }
 }
