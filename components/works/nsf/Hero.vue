@@ -161,14 +161,6 @@ export default {
       introReveal()
     }
 
-    // TODO: Remove this test. Testing scrollmagic import
-    function testScrollmagicImport() {
-      const timeline = new TimelineLite()
-      timeline.from('.work__image', 5, { x: 100 })
-      scrollMagicInit(vm, timeline, '.work__segment--nsf .work__image', 0.75)
-    }
-    testScrollmagicImport()
-
     function introReveal() {
       const timeline = new TimelineLite()
       const introText = [

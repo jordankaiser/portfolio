@@ -21,12 +21,8 @@
       <div class="work__divider container container--narrow">
         <component :is="work.divider"></component>
       </div>
-      <div class="work__image">
-        <img
-          :data-src="require('~/assets/img/work/nsf/work-small.jpg')"
-          alt="Nebraska State Fair"
-          class="animatelazyload lazyload"
-        />
+      <div class="work_screenshot">
+        <component :is="work.screenshot"></component>
       </div>
     </div>
   </section>
@@ -34,7 +30,7 @@
 <script>
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
-
+import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import 'lazysizes'
 export default {
   components: {
@@ -51,7 +47,8 @@ export default {
           description:
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
           illustration: NSFHero,
-          divider: NSFDivider
+          divider: NSFDivider,
+          screenshot: NSFScreenshot
         }
       ]
     }
@@ -128,7 +125,7 @@ export default {
       padding-left: 0;
     }
   }
-  &__image {
+  &__screenshot {
     display: flex;
     justify-content: flex-end;
     margin-top: $s0;
