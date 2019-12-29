@@ -1,12 +1,12 @@
 <template>
-  <section class="work">
+  <section class="work animated">
     <div
       v-for="work in works"
       :key="work.id"
       :class="'work__segment--' + work.id"
       class="work__segment segment"
     >
-      <div class="work__intro container container--narrow preanimation">
+      <div class="work__intro container container--narrow">
         <div class="work__text">
           <p class="work__subhead">{{ work.task }}</p>
           <h2 class="work__heading">{{ work.title }}</h2>
@@ -15,10 +15,10 @@
           <component :is="work.illustration"></component>
         </div>
       </div>
-      <p class="work__description preanimation container container--narrow">
+      <p class="work__description container container--narrow">
         {{ work.description }}
       </p>
-      <div class="work__divider preanimation container container--narrow">
+      <div class="work__divider container container--narrow">
         <component :is="work.divider"></component>
       </div>
       <div class="work__image">
@@ -54,6 +54,11 @@ export default {
         }
       ]
     }
+  },
+  mounted: function() {
+    // Unhide animated section.
+    /* eslint-disable-next-line */
+    TweenLite.set('.work.animated', { visibility: 'visible' })
   }
 }
 </script>
@@ -61,6 +66,9 @@ export default {
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .work {
+  &.animated {
+    visibility: hidden;
+  }
   &__segment {
     width: 100%;
     height: 100vh;

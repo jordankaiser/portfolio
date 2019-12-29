@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Intro section -->
     <section class="introduction animated">
       <div class="introduction__container container">
         <introduction-dino />
@@ -22,6 +23,7 @@
         </div>
       </div>
     </section>
+    <!-- Work sections -->
     <works />
   </div>
 </template>

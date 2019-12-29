@@ -1,5 +1,5 @@
 <template>
-  <div class="corn-hero preanimation">
+  <div class="corn-hero animated">
     <div class="corn-hero__corn">
       <img
         src="~/assets/img/corn-1.png"
@@ -59,11 +59,6 @@ export default {
 
     // Desktop animations.
     function desktopTimeline(element) {
-      // Remove preanimation class.
-      document
-        .querySelector('.corn-hero.preanimation')
-        .classList.remove('preanimation')
-
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
         onComplete: timelineCompleted,
@@ -116,11 +111,6 @@ export default {
 
     // Mobile animations.
     function mobileTimeline(element) {
-      // Remove preanimation class.
-      document
-        .querySelector('.corn-hero.preanimation')
-        .classList.remove('preanimation')
-
       // Timeline animation.
       let timeline = new TimelineLite()
       timeline = new TimelineLite({
@@ -180,11 +170,6 @@ export default {
     testScrollmagicImport()
 
     function introReveal() {
-      // Remove preanimation class.
-      document
-        .querySelector('.work__segment--nsf .work__intro.preanimation')
-        .classList.remove('preanimation')
-
       const timeline = new TimelineLite()
       const introText = [
         '.work__segment--nsf .work__subhead',

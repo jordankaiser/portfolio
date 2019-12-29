@@ -35,9 +35,12 @@ export default {
   mounted: function() {
     const TimelineLite = this.$GSAP.TimelineLite
 
+    // Unhide animated section.
+    /* eslint-disable-next-line */
+    TweenLite.set('.introduction.animated', { visibility: 'visible' })
+
     const timeline = new TimelineLite()
     timeline
-      .set('.introduction', { visibility: 'visible' })
       .set('.dino__artwork--eye-closed', {
         opacity: 0
       })
