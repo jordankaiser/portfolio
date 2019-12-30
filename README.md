@@ -139,6 +139,3 @@ To analyze the webpack bundle run `npm run analyze`. That will generate a report
 ## References
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-
-## Notes
-Learning project. Working on recreating https://avocode.com/design-report-2018.
