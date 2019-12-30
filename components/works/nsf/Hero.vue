@@ -24,6 +24,7 @@
 import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 export default {
   mounted: function() {
     const vm = this
@@ -48,7 +49,7 @@ export default {
     )
 
     // Determine which animations to play by viewport width.
-    mobileOrDesktop()
+    mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth > 600) {
         desktopTimeline(cornEl)
@@ -59,15 +60,15 @@ export default {
 
     // Desktop animations.
     function desktopTimeline(element) {
-      let timeline = new TimelineLite()
-      timeline = new TimelineLite({
-        onComplete: timelineCompleted,
+      const timeline = new TimelineLite({
+        onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
 
       timeline
         .from(element.container, 0.66, {
-          scale: 0
+          scale: 0,
+          opacity: 0
         })
         .from(
           element.circle,
@@ -103,6 +104,7 @@ export default {
           '-=0.75'
         )
 
+      // Reveal on scroll.
       scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
 
       // Intro reveal.
@@ -112,9 +114,8 @@ export default {
     // Mobile animations.
     function mobileTimeline(element) {
       // Timeline animation.
-      let timeline = new TimelineLite()
-      timeline = new TimelineLite({
-        onComplete: timelineCompleted,
+      const timeline = new TimelineLite({
+        onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
       timeline
@@ -155,6 +156,8 @@ export default {
           },
           '-=1'
         )
+
+      // Reveal on scroll.
       scrollMagicInit(vm, timeline, '.corn-hero', 0.75)
 
       // Intro reveal.
@@ -162,14 +165,24 @@ export default {
     }
 
     function introReveal() {
-      const timeline = new TimelineLite()
       const introText = [
-        '.work__segment--nsf .work__subhead',
-        '.work__segment--nsf .work__heading',
-        '.work__segment--nsf .work__description'
+        document.querySelector('.work__segment--nsf .work__subhead'),
+        document.querySelector('.work__segment--nsf .work__heading'),
+        document.querySelector('.work__segment--nsf .work__description')
       ]
+      const divider = {
+        container: document.querySelector('.work__divider'),
+        line: document.querySelector('.divider-corndog__line'),
+        circle: document.querySelector('.divider-corndog__circle'),
+        illustration: document.querySelector('.divider-corndog__illustration')
+      }
+      const allAnimatedElements = { ...introText, ...divider }
+      const timeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [allAnimatedElements]
+      })
       timeline
-        .set('.work__divider', { opacity: 1 })
+        .set(divider.container, { opacity: 1 })
         .staggerFromTo(
           introText,
           2,
@@ -179,7 +192,7 @@ export default {
           0.3
         )
         .from(
-          '.divider-corndog__line',
+          divider.line,
           0.66,
           {
             scaleX: 0,
@@ -187,27 +200,19 @@ export default {
           },
           '-=1'
         )
-        .from('.divider-corndog__circle', 0.5, { scale: 0, x: -20 }, '-=1')
+        .from(divider.circle, 0.5, { scale: 0, x: -20 }, '-=1')
         .from(
-          '.divider-corndog__illustration',
+          divider.illustration,
           0.75,
           {
             rotation: 360,
             scale: 0,
             /* eslint-disable-next-line */
-          ease: Back.easeOut.config(2)
+            ease: Back.easeOut.config(2)
           },
           '-=0.75'
         )
       scrollMagicInit(vm, timeline, '.work__segment--nsf .work__intro', 0.75)
-    }
-
-    // Cleanup after timeline is done.
-    function timelineCompleted(elements) {
-      Object.values(elements).forEach(element => {
-        /* eslint-disable-next-line no-undef */
-        TweenLite.set(element, { clearProps: 'all' })
-      })
     }
   }
 }

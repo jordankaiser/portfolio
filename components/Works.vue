@@ -120,18 +120,19 @@ export default {
     margin-top: $s0;
 
     &.container {
-      padding-right: 70px;
+      padding-right: $s0;
+      // padding-right: 70px;
       padding-left: 0;
 
-      @include breakpoint($small) {
+      @include breakpoint($extrasmall) {
         padding-left: $s0;
-        padding-right: $s0;
+        // padding-right: $s0;
       }
     }
   }
   &__screenshot.container {
     padding-right: 0;
-    @include breakpoint($small) {
+    @include breakpoint($extrasmall) {
       max-width: $cs-1;
       padding-right: $s0;
     }
