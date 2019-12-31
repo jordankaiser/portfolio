@@ -24,16 +24,26 @@
       <div class="work__screenshot container container--narrow">
         <component :is="work.screenshot"></component>
       </div>
+      <div class="work__ctas container container--narrow">
+        <div class="work__ctas-wrapper">
+          <component
+            :is="work.secondaryCTA.component"
+            :link="work.secondaryCTA.link"
+          ></component>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 <script>
+import CtaSecondary from '~/components/CTASecondary'
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import 'lazysizes'
 export default {
   components: {
+    CtaSecondary,
     NSFHero,
     NSFDivider
   },
@@ -48,7 +58,14 @@ export default {
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
           illustration: NSFHero,
           divider: NSFDivider,
-          screenshot: NSFScreenshot
+          screenshot: NSFScreenshot,
+          secondaryCTA: {
+            component: CtaSecondary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://google.com'
+            }
+          }
         }
       ]
     }
@@ -121,12 +138,10 @@ export default {
 
     &.container {
       padding-right: $s0;
-      // padding-right: 70px;
       padding-left: 0;
 
       @include breakpoint($extrasmall) {
         padding-left: $s0;
-        // padding-right: $s0;
       }
     }
   }
@@ -136,6 +151,14 @@ export default {
       max-width: $cs-1;
       padding-right: $s0;
     }
+  }
+  &__ctas {
+    display: flex;
+    justify-content: center;
+    margin-top: $s0;
+  }
+  &__ctas-wrapper {
+    flex: 0 1 auto;
   }
 }
 </style>

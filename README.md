@@ -139,3 +139,7 @@ To analyze the webpack bundle run `npm run analyze`. That will generate a report
 ## References
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## TODOs
+
+* Look at setting up lazy loading for all images. Currently just setup on work screenshots.
