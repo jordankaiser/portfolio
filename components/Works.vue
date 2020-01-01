@@ -27,9 +27,14 @@
       <div class="work__ctas container container--narrow">
         <div class="work__ctas-wrapper">
           <component
-            :is="work.secondaryCTA.component"
-            v-if="work.secondaryCTA"
-            :link="work.secondaryCTA.link"
+            :is="work.CTASecondary.component"
+            v-if="work.CTASecondary"
+            :link="work.CTASecondary.link"
+          ></component>
+          <component
+            :is="work.CTATertiary.component"
+            v-if="work.CTATertiary"
+            :link="work.CTATertiary.link"
           ></component>
         </div>
       </div>
@@ -37,14 +42,16 @@
   </section>
 </template>
 <script>
-import CtaSecondary from '~/components/ctas/CTASecondary'
+import CTASecondary from '~/components/ctas/CTASecondary'
+import CTATertiary from '~/components/ctas/CTATertiary'
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import 'lazysizes'
 export default {
   components: {
-    CtaSecondary,
+    CTASecondary,
+    CTATertiary,
     NSFHero,
     NSFDivider
   },
@@ -60,10 +67,17 @@ export default {
           illustration: NSFHero,
           divider: NSFDivider,
           screenshot: NSFScreenshot,
-          secondaryCTA: {
-            component: CtaSecondary,
+          CTATertiary: {
+            component: CTATertiary,
             link: {
               text: 'Visit Site',
+              href: 'https://google.com'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
               href: 'https://google.com'
             }
           }
@@ -159,7 +173,16 @@ export default {
     margin-top: $s0;
   }
   &__ctas-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex: 0 1 auto;
+
+    .cta-secondary + .cta-tertiary {
+      margin-top: $s0;
+      margin-left: $s-1;
+    }
   }
 }
 </style>

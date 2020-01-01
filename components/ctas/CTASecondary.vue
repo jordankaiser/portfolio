@@ -14,6 +14,8 @@
   </div>
 </template>
 <script>
+/* eslint-disable-next-line */
+import TimelineLite from 'gsap/umd/TimelineLite'
 export default {
   props: {
     link: {
@@ -25,27 +27,95 @@ export default {
         }
       }
     }
+  },
+  mounted: function() {
+    const timeline = new TimelineLite({ paused: true })
+    const widthOffset = -Math.abs(
+      document.querySelector('.cta-secondary__link').offsetWidth
+    )
+
+    timeline
+      /* eslint-disable-next-line */
+      .to('.cta-secondary__icon', 0.5, { x: widthOffset,  ease: Back.easeOut.config( 1.7) })
+      .to('.cta-secondary__text', 0.15, { x: 5 }, '-=0.5')
+      .to(
+        '.cta-secondary__circle',
+        0.25,
+        /* eslint-disable-next-line */
+        { scaleY: 0.75, ease: Power1.easeOut },
+        '-=0.5'
+      )
+      /* eslint-disable-next-line */
+      .to('.cta-secondary__circle', 0.25, { scaleY: 1, ease: Power1.easeIn }, '-=0.25')
+
+    // Events.
+    document
+      .querySelector('.cta-secondary__link')
+      .addEventListener('mouseenter', () => {
+        play()
+      })
+    document
+      .querySelector('.cta-secondary__link')
+      .addEventListener('focus', () => {
+        play()
+      })
+    document
+      .querySelector('.cta-secondary__link')
+      .addEventListener('mouseleave', () => {
+        reverse()
+      })
+    document
+      .querySelector('.cta-secondary__link')
+      .addEventListener('blur', () => {
+        reverse()
+      })
+    function play() {
+      timeline.play()
+    }
+
+    function reverse() {
+      timeline.play().reverse()
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 .cta-secondary {
+  position: relative;
+  flex: 0 1 auto;
+
   &__link {
-    display: flex;
-    align-items: center;
+    display: block;
+    position: relative;
     text-decoration: none;
-    color: $color-blue-light;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    border-radius: 16px;
+    background-color: $color-blue-light;
+    color: $color-white;
+    font-family: $font-raleway;
+
+    &:hover,
+    &:focus,
+    &:active {
+      .cta-secondary__icon {
+        // right: calc(100% - 15px);
+      }
+    }
   }
   &__text {
-    flex: 0 1 auto;
-    width: 75%;
-    margin-right: 7px;
+    // transition: transform $t;
   }
   &__icon {
-    position: relative;
-    flex: 0 0 auto;
+    position: absolute;
+    right: -15px;
+    top: 50%;
     width: 30px;
+    transform: translate(0, -50%);
+    // transition: right $t;
   }
   &__circle {
     width: 30px;
