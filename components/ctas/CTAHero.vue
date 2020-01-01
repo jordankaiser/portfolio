@@ -14,7 +14,7 @@
 import TweenLite from 'gsap/umd/TweenLite'
 /* eslint-disable-next-line */
 import TimelineLite from 'gsap/umd/TimelineLite'
-import CtaArrow from '~/components/CTAArrow'
+import CtaArrow from '~/components/svg/ctaArrow'
 if (process.client) {
   /* eslint-disable-next-line */
   const MorphSVGPlugin = require('~/assets/vendor/MorphSVGPlugin');

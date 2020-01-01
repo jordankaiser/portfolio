@@ -28,6 +28,7 @@
         <div class="work__ctas-wrapper">
           <component
             :is="work.secondaryCTA.component"
+            v-if="work.secondaryCTA"
             :link="work.secondaryCTA.link"
           ></component>
         </div>
@@ -36,7 +37,7 @@
   </section>
 </template>
 <script>
-import CtaSecondary from '~/components/CTASecondary'
+import CtaSecondary from '~/components/ctas/CTASecondary'
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'

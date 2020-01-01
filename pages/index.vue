@@ -30,7 +30,7 @@
 
 <script>
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
-import CtaHero from '~/components/CTAHero'
+import CtaHero from '~/components/ctas/CTAHero'
 import Works from '~/components/Works'
 export default {
   head() {
