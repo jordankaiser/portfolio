@@ -14,21 +14,22 @@
   </div>
 </template>
 <script>
-/* eslint-disable-next-line */
 import TimelineLite from 'gsap/umd/TimelineLite'
+import { secondaryTertiaryCTA } from '~/plugins/secondaryTertiaryCTA'
 export default {
   props: {
     link: {
       type: Object,
       default: function() {
         return {
-          text: 'Learn More',
+          text: 'Home',
           href: '/'
         }
       }
     }
   },
   mounted: function() {
+    secondaryTertiaryCTA('.cta-secondary__link')
     const timeline = new TimelineLite({ paused: true })
     const widthOffset = -Math.abs(
       document.querySelector('.cta-secondary__link').offsetWidth
@@ -56,23 +57,26 @@ export default {
       })
     document
       .querySelector('.cta-secondary__link')
-      .addEventListener('focus', () => {
-        play()
+      .addEventListener('mouseleave', () => {
+        reverse()
       })
     document
       .querySelector('.cta-secondary__link')
-      .addEventListener('mouseleave', () => {
-        reverse()
+      .addEventListener('focus', () => {
+        play()
       })
     document
       .querySelector('.cta-secondary__link')
       .addEventListener('blur', () => {
         reverse()
       })
+
+    // Play timeline.
     function play() {
       timeline.play()
     }
 
+    // Reverse timeline.
     function reverse() {
       timeline.play().reverse()
     }
