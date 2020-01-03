@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import TimelineLite from 'gsap/umd/TimelineLite'
+import { secondaryTertiaryCTA } from '~/plugins/secondaryTertiaryCTA'
 export default {
   props: {
     link: {
@@ -28,56 +28,7 @@ export default {
     }
   },
   mounted: function() {
-    const timeline = new TimelineLite({ paused: true })
-    const widthOffset = -Math.abs(
-      document.querySelector('.cta-tertiary__link').offsetWidth
-    )
-
-    timeline
-      /* eslint-disable-next-line */
-      .to('.cta-tertiary__icon', 0.5, { x: widthOffset,  ease: Back.easeOut.config( 1.7) })
-      .to('.cta-tertiary__text', 0.15, { x: 8 }, '-=0.5')
-      .to(
-        '.cta-tertiary__circle',
-        0.25,
-        /* eslint-disable-next-line */
-        { scaleY: 0.75, ease: Power1.easeOut },
-        '-=0.5'
-      )
-      /* eslint-disable-next-line */
-      .to('.cta-tertiary__circle', 0.25, { scaleY: 1, ease: Power1.easeIn }, '-=0.25')
-
-    // Events.
-    document
-      .querySelector('.cta-tertiary__link')
-      .addEventListener('mouseenter', () => {
-        play()
-      })
-    document
-      .querySelector('.cta-tertiary__link')
-      .addEventListener('mouseleave', () => {
-        reverse()
-      })
-    document
-      .querySelector('.cta-tertiary__link')
-      .addEventListener('focus', () => {
-        play()
-      })
-    document
-      .querySelector('.cta-tertiary__link')
-      .addEventListener('blur', () => {
-        reverse()
-      })
-
-    // Play timeline.
-    function play() {
-      timeline.play()
-    }
-
-    // Reverse timeline.
-    function reverse() {
-      timeline.play().reverse()
-    }
+    secondaryTertiaryCTA('.cta-tertiary__link', 'tertiary')
   }
 }
 </script>
