@@ -38,6 +38,11 @@
           ></component>
         </div>
       </div>
+      <div class="work__footer container container--narrow">
+        <div class="work__footer-wrapper">
+          <component :is="work.footer"></component>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -47,13 +52,15 @@ import CTATertiary from '~/components/ctas/CTATertiary'
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
+import NSFFooter from '~/components/works/nsf/Footer.vue'
 import 'lazysizes'
 export default {
   components: {
     CTASecondary,
     CTATertiary,
     NSFHero,
-    NSFDivider
+    NSFDivider,
+    NSFFooter
   },
   data: function() {
     return {
@@ -80,7 +87,8 @@ export default {
               text: 'Project Details',
               href: 'https://google.com'
             }
-          }
+          },
+          footer: NSFFooter
         }
       ]
     }
@@ -100,8 +108,7 @@ export default {
     visibility: hidden;
   }
   &__segment {
-    width: 100%;
-    background-color: $color-white;
+    padding-bottom: 0;
   }
   &__container {
     margin-left: 0;
@@ -160,11 +167,15 @@ export default {
       }
     }
   }
-  &__screenshot.container {
-    padding-right: 0;
-    @include breakpoint($extrasmall) {
-      max-width: $cs-1;
-      padding-right: $s0;
+  &__screenshot {
+    overflow: hidden;
+
+    &.container {
+      padding-right: 0;
+      @include breakpoint($extrasmall) {
+        max-width: $cs-1;
+        padding-right: $s0;
+      }
     }
   }
   &__ctas {
@@ -183,6 +194,10 @@ export default {
       margin-top: $s0;
       margin-left: $s-1;
     }
+  }
+  &__footer-wrapper {
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

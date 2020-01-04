@@ -106,9 +106,6 @@ export default {
 
       // Reveal on scroll.
       scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
-
-      // Intro reveal.
-      introReveal()
     }
 
     // Mobile animations.
@@ -159,61 +156,92 @@ export default {
 
       // Reveal on scroll.
       scrollMagicInit(vm, timeline, '.corn-hero', 0.75)
-
-      // Intro reveal.
-      introReveal()
     }
 
-    function introReveal() {
-      const introText = [
-        document.querySelector('.work__segment--nsf .work__subhead'),
-        document.querySelector('.work__segment--nsf .work__heading'),
-        document.querySelector('.work__segment--nsf .work__description')
-      ]
-      const divider = {
-        container: document.querySelector('.work__divider'),
-        line: document.querySelector('.divider-corndog__line'),
-        circle: document.querySelector('.divider-corndog__circle'),
-        illustration: document.querySelector('.divider-corndog__illustration')
-      }
-      const allAnimatedElements = { ...introText, ...divider }
-      const timeline = new TimelineLite({
-        onComplete: timelineCleanup,
-        onCompleteParams: [allAnimatedElements]
-      })
-      timeline
-        .set(divider.container, { opacity: 1 })
-        .staggerFromTo(
-          introText,
-          2,
-          { opacity: 0 },
-          /* eslint-disable-next-line */
+    // Intro reveal.
+    const introText = [
+      document.querySelector('.work__segment--nsf .work__subhead'),
+      document.querySelector('.work__segment--nsf .work__heading'),
+      document.querySelector('.work__segment--nsf .work__description')
+    ]
+    const divider = {
+      container: document.querySelector('.work__divider'),
+      line: document.querySelector('.divider-corndog__line'),
+      circle: document.querySelector('.divider-corndog__circle'),
+      illustration: document.querySelector('.divider-corndog__illustration')
+    }
+    const allAnimatedElements = { ...introText, ...divider }
+    const introTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [allAnimatedElements]
+    })
+    introTimeline
+      .set(divider.container, { opacity: 1 })
+      .staggerFromTo(
+        introText,
+        2,
+        { opacity: 0 },
+        /* eslint-disable-next-line */
         { opacity: 1, ease: Power2.easeInOut },
-          0.3
-        )
-        .from(
-          divider.line,
-          0.66,
-          {
-            scaleX: 0,
-            transformOrigin: '100% 50%'
-          },
-          '-=1'
-        )
-        .from(divider.circle, 0.5, { scale: 0, x: -20 }, '-=1')
-        .from(
-          divider.illustration,
-          0.75,
-          {
-            rotation: 360,
-            scale: 0,
-            /* eslint-disable-next-line */
+        0.3
+      )
+      .from(
+        divider.line,
+        0.66,
+        {
+          scaleX: 0,
+          transformOrigin: '100% 50%'
+        },
+        '-=1'
+      )
+      .from(divider.circle, 0.5, { scale: 0, x: -20 }, '-=1')
+      .from(
+        divider.illustration,
+        0.75,
+        {
+          rotation: 360,
+          scale: 0,
+          /* eslint-disable-next-line */
             ease: Back.easeOut.config(2)
-          },
-          '-=0.75'
-        )
-      scrollMagicInit(vm, timeline, '.work__segment--nsf .work__intro', 0.75)
+        },
+        '-=0.75'
+      )
+    scrollMagicInit(vm, introTimeline, '.work__segment--nsf .work__intro', 0.75)
+
+    // CTA reveal.
+    const ctas = [
+      document.querySelector('.work__segment--nsf .cta-secondary__link'),
+      document.querySelector('.work__segment--nsf .cta-tertiary__link')
+    ]
+    const ctasTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [ctas]
+    })
+    ctasTimeline.staggerFromTo(
+      ctas,
+      1,
+      { y: -15, opacity: 0 },
+      { y: 0, opacity: 1 },
+      0.25
+    )
+    scrollMagicInit(vm, ctasTimeline, '.work__segment--nsf .work__ctas', 0.9)
+
+    // Footer reveal.
+    const footerIllustrations = {
+      left: document.querySelector('.work__segment--nsf .corn-footer__left'),
+      middle: document.querySelector(
+        '.work__segment--nsf .corn-footer__middle'
+      ),
+      right: document.querySelector('.work__segment--nsf .corn-footer__right')
     }
+    const footerTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [footerIllustrations]
+    })
+    footerTimeline.from(footerIllustrations.middle, 0.5, { y: 50 })
+    footerTimeline.from(footerIllustrations.left, 0.5, { y: 50 }, '-=0.25')
+    footerTimeline.from(footerIllustrations.right, 0.5, { y: 50 }, '-=0.4')
+    scrollMagicInit(vm, footerTimeline, '.work__segment--nsf .corn-footer', 1)
   }
 }
 </script>
