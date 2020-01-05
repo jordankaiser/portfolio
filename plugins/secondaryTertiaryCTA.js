@@ -1,4 +1,3 @@
-// TODO: Finish building this out. Rerefence animations from CTASecondary.vue.
 /**
  * Animate secondary and tertiary CTA interactions.
  *
@@ -45,6 +44,12 @@ export function secondaryTertiaryCTA(elements, type) {
       this.animation.play()
     })
     cta.addEventListener('mouseleave', function() {
+      this.animation.reverse()
+    })
+    cta.addEventListener('focus', function() {
+      this.animation.play()
+    })
+    cta.addEventListener('blur', function() {
       this.animation.reverse()
     })
   })
