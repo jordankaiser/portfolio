@@ -2,15 +2,15 @@
   <div :class="'dino-fun--' + orientation" class="dino-fun">
     <img
       class="dino-fun__artwork dino-fun__artwork--body"
-      src="~/assets/img/dino.png"
+      src="~/assets/img/dino-white.png"
     />
     <img
       class="dino-fun__artwork dino-fun__artwork--eye-open"
-      src="~/assets/img/dino-eye-open.png"
+      src="~/assets/img/dino-white-eye-open.png"
     />
     <img
       class="dino-fun__artwork dino-fun__artwork--eye-closed"
-      src="~/assets/img/dino-eye-closed.png"
+      src="~/assets/img/dino-white-eye-closed.png"
     />
   </div>
 </template>
@@ -27,10 +27,12 @@ export default {
 <style lang="scss" scoped>
 .dino-fun {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
+  transform: translateX(90px);
+
   &--right {
-    transform: scaleX(-1);
+    transform: translateX(-90px) scaleX(-1);
   }
   &__artwork {
     width: 100%;

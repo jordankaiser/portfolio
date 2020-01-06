@@ -51,7 +51,8 @@ export default {
 
     // Do desktop animations.
     function isDesktop() {
-      const randomNumber = Math.floor(Math.random() * 2)
+      // const randomNumber = Math.floor(Math.random() * 2)
+      const randomNumber = 0
       const timelineOne = new TimelineLite()
       const timelineTwo = new TimelineLite()
       switch (randomNumber) {
@@ -71,15 +72,18 @@ export default {
 
       // Timeline one.
       function initTimelineOne() {
-        timelineOne.to(
-          '.bg-fun__left .bg-fun__section--one',
-          1,
-          { opacity: 0.5 },
-          '+=5'
-        )
-        timelineOne.to('.bg-fun__right .bg-fun__section--two', 1, {
-          opacity: 0.5
-        })
+        const activeLeft = '.bg-fun__left .bg-fun__section--one'
+        const activeRight = '.bg-fun__right .bg-fun__section--two'
+        // TODO: Change this timeline to use an object of DOM elements
+        // instead of the interoplation like doing right now.
+        // const leftDino = {
+        //   container:
+        // }
+        timelineOne
+          .to(`${activeLeft} .dino-fun`, 1, { x: 90 }, '+=1')
+          .to(`${activeRight} .dino-fun`, 1, {
+            x: -90
+          })
         // Reveal on scroll.
         scrollMagicInit(vm, timelineOne, '.work__segment--nsf', 0.5)
       }
@@ -128,9 +132,16 @@ export default {
       margin-left: 300px;
     }
     &__section {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       flex: 0 1 auto;
       height: 25%;
-      background-color: tomato;
+      overflow: hidden;
+
+      .bg-fun__right & {
+        justify-content: flex-end;
+      }
     }
   }
 }
