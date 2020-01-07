@@ -72,18 +72,50 @@ export default {
 
       // Timeline one.
       function initTimelineOne() {
-        const activeLeft = '.bg-fun__left .bg-fun__section--one'
-        const activeRight = '.bg-fun__right .bg-fun__section--two'
-        // TODO: Change this timeline to use an object of DOM elements
-        // instead of the interoplation like doing right now.
-        // const leftDino = {
-        //   container:
-        // }
+        const leftDino = {
+          container: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun'
+          ),
+          eyeOpen: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-open'
+          ),
+          eyeClosed: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-closed'
+          )
+        }
+        const rightDino = {
+          container: document.querySelector(
+            '.bg-fun__right .bg-fun__section--two .dino-fun'
+          ),
+          eyeOpen: document.querySelector(
+            '.bg-fun__right .bg-fun__section--one .dino-fun__artwork--eye-open'
+          ),
+          eyeClosed: document.querySelector(
+            '.bg-fun__right .bg-fun__section--one .dino-fun__artwork--eye-closed'
+          )
+        }
+        const rightContainerWidth = document.querySelector('.bg-fun__right')
+          .clientWidth
         timelineOne
-          .to(`${activeLeft} .dino-fun`, 1, { x: 90 }, '+=1')
-          .to(`${activeRight} .dino-fun`, 1, {
-            x: -90
-          })
+          .set([leftDino.eyeClosed, rightDino.eyeClosed], { opacity: 0 })
+          .fromTo(
+            leftDino.container,
+            1,
+            { x: -90, rotation: 170 },
+            { x: -45, rotation: 180 },
+            '+=1'
+          )
+          .to(leftDino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+          .to(leftDino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+          .to(leftDino.container, 0.33, { x: -90, rotation: 170 }, '+=0.5 ')
+          .fromTo(
+            rightDino.container,
+            1,
+            { x: 90 },
+            {
+              x: rightContainerWidth * -1 + 90
+            }
+          )
         // Reveal on scroll.
         scrollMagicInit(vm, timelineOne, '.work__segment--nsf', 0.5)
       }
