@@ -30,9 +30,11 @@ export default {
   width: 90px;
   height: 90px;
   transform: translateX(90px);
+  transform-origin: 69% 78%;
 
   &--right {
     transform: translateX(-90px) scaleX(-1);
+    transform-origin: 78% 69%;
   }
   &__artwork {
     width: 100%;
