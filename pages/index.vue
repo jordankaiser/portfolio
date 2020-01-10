@@ -1,5 +1,7 @@
 <template>
   <div>
+    <bg-fun-left />
+    <bg-fun-right />
     <!-- Intro section -->
     <section class="introduction animated">
       <div class="introduction__container container">
@@ -29,6 +31,8 @@
 </template>
 
 <script>
+import BgFunLeft from '~/components/bg-fun/BGFunLeft.vue'
+import BgFunRight from '~/components/bg-fun/BGFunRight.vue'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 import CtaHero from '~/components/ctas/CTAHero'
 import Works from '~/components/Works'
@@ -41,7 +45,9 @@ export default {
   components: {
     introductionDino,
     CtaHero,
-    Works
+    Works,
+    BgFunLeft,
+    BgFunRight
   },
   mounted: function() {
     // Intersection Observer example.

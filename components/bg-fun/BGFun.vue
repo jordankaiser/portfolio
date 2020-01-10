@@ -132,7 +132,7 @@ export default {
             ease: Bounce.easeOut
           })
         // Reveal on scroll.
-        scrollMagicInit(vm, timelineOne, '.work__segment--nsf', 0.5)
+        // scrollMagicInit(vm, timelineOne, '.work__segment--nsf', 0.5)
       }
 
       // Timeline two.
@@ -160,23 +160,30 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color: cadetblue;
+    opacity: 0.45;
+    z-index: 1;
 
     &__left {
+      position: fixed;
       display: flex;
       flex-direction: column;
       flex: 0 1 auto;
       width: calc(50% - 300px);
       height: 100%;
       margin-right: 300px;
+      background-color: darkgoldenrod;
     }
     &__right {
+      position: fixed;
       display: flex;
       flex-direction: column;
       flex: 0 1 auto;
       width: calc(50% - 300px);
       height: 100%;
       margin-left: 300px;
+      background-color: darkgoldenrod;
     }
     &__section {
       display: flex;

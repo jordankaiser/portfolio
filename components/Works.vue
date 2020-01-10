@@ -6,9 +6,6 @@
       :class="'work__segment--' + work.id"
       class="work__segment segment"
     >
-      <div class="work__bg-fun">
-        <bg-fun />
-      </div>
       <div class="work__intro container container--narrow">
         <div class="work__text">
           <p class="work__subhead">{{ work.task }}</p>
@@ -56,7 +53,6 @@ import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import NSFFooter from '~/components/works/nsf/Footer.vue'
-import BgFun from '~/components/bg-fun/BGFun.vue'
 import 'lazysizes'
 export default {
   components: {
@@ -64,8 +60,7 @@ export default {
     CTATertiary,
     NSFHero,
     NSFDivider,
-    NSFFooter,
-    BgFun
+    NSFFooter
   },
   data: function() {
     return {
