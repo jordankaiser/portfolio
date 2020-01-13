@@ -8,10 +8,12 @@
 </template>
 <script>
 import Dino from '~/components/bg-fun/Dino.vue'
+import DinoAnimation from '~/plugins/mixins/dinoFun.js'
 export default {
   components: {
     Dino
-  }
+  },
+  mixins: [DinoAnimation]
 }
 </script>
 <style lang="scss" scoped>
