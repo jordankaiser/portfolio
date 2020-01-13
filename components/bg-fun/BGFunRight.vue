@@ -4,8 +4,6 @@
       <dino orientation="left"></dino>
     </div>
     <div class="bg-fun-right__section bg-fun__section--two"></div>
-    <div class="bg-fun-right__section bg-fun__section--three"></div>
-    <div class="bg-fun-right__section bg-fun__section--four"></div>
   </div>
 </template>
 <script>
@@ -36,7 +34,8 @@ export default {
       justify-content: flex-start;
       align-items: center;
       flex: 0 1 auto;
-      height: 25%;
+      width: 100%;
+      height: 50%;
       overflow: hidden;
     }
   }
