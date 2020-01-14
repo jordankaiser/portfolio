@@ -157,33 +157,30 @@ export default {
 @import '~/assets/scss/_mixins.scss';
 .bg-fun {
   @include breakpoint($large) {
+    position: fixed;
     display: flex;
     justify-content: space-between;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    background-color: cadetblue;
-    opacity: 0.45;
     z-index: 1;
 
     &__left {
-      position: fixed;
       display: flex;
       flex-direction: column;
       flex: 0 1 auto;
       width: calc(50% - 300px);
       height: 100%;
       margin-right: 300px;
-      background-color: darkgoldenrod;
     }
     &__right {
-      position: fixed;
       display: flex;
       flex-direction: column;
       flex: 0 1 auto;
       width: calc(50% - 300px);
       height: 100%;
       margin-left: 300px;
-      background-color: darkgoldenrod;
     }
     &__section {
       display: flex;

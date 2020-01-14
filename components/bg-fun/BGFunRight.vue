@@ -1,9 +1,9 @@
 <template>
   <div class="bg-fun-right">
-    <div class="bg-fun-right__section bg-fun__section--one">
+    <div class="bg-fun-right__section bg-fun-right__section--one">
       <dino orientation="left"></dino>
     </div>
-    <div class="bg-fun-right__section bg-fun__section--two"></div>
+    <div class="bg-fun-right__section bg-fun-right__section--two"></div>
   </div>
 </template>
 <script>

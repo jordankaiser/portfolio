@@ -1,19 +1,44 @@
 <template>
   <div class="bg-fun-left">
-    <div class="bg-fun-left__section bg-fun__section--one">
+    <div class="bg-fun-left__section bg-fun-left__section--one">
       <dino orientation="right"></dino>
     </div>
-    <div class="bg-fun-left__section bg-fun__section--two"></div>
+    <div class="bg-fun-left__section bg-fun-left__section--two"></div>
   </div>
 </template>
 <script>
+import debounce from 'lodash/debounce'
+import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
+import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
 import Dino from '~/components/bg-fun/Dino.vue'
-import DinoAnimation from '~/plugins/mixins/dinoFun.js'
+import { dinoFunTimeline } from '~/plugins/mixins/dinoFun.js'
 export default {
   components: {
     Dino
   },
-  mixins: [DinoAnimation]
+  mounted: function() {
+    const vm = this
+    let viewportDimensions = getViewportDimensions()
+
+    // Determine viewport width.
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        viewportDimensions = getViewportDimensions()
+        mobileOrDesktop(viewportDimensions.width)
+      }, 200)
+    )
+
+    // Determine which animations to play by viewport width.
+    mobileOrDesktop(viewportDimensions.width)
+    function mobileOrDesktop(viewportWidth) {
+      if (viewportWidth >= 1024) {
+        vm.$nextTick(function() {
+          scrollMagicInit(vm, dinoFunTimeline, '.work__segment--nsf', 0.5)
+        })
+      }
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
