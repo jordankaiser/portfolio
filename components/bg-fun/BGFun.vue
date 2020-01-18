@@ -1,20 +1,18 @@
 <template>
-  <div class="bg-fun">
+  <div class="bg-fun animated">
     <div class="bg-fun__left">
       <div class="bg-fun__section bg-fun__section--one">
         <dino orientation="right"></dino>
       </div>
-      <div class="bg-fun__section bg-fun__section--two"></div>
-      <div class="bg-fun__section bg-fun__section--three"></div>
-      <div class="bg-fun__section bg-fun__section--four"></div>
+      <div class="bg-fun__section bg-fun__section--two">
+        <dino orientation="right-pointed-up"></dino>
+      </div>
     </div>
     <div class="bg-fun__right">
       <div class="bg-fun__section bg-fun__section--one"></div>
       <div class="bg-fun__section bg-fun__section--two">
         <dino orientation="left"></dino>
       </div>
-      <div class="bg-fun__section bg-fun__section--three"></div>
-      <div class="bg-fun__section bg-fun__section--four"></div>
     </div>
   </div>
 </template>
@@ -51,111 +49,125 @@ export default {
 
     // Do desktop animations.
     function isDesktop() {
+      const timelineOne = new TimelineLite({ paused: true })
+      const timelineTwo = new TimelineLite({ paused: true })
+      const timelineThree = new TimelineLite({ paused: true })
       // const randomNumber = Math.floor(Math.random() * 2)
-      const randomNumber = 0
-      const timelineOne = new TimelineLite()
-      const timelineTwo = new TimelineLite()
+      const randomNumber = 2
+      const leftDinoOne = {
+        container: document.querySelector(
+          '.bg-fun__left .bg-fun__section--one .dino-fun'
+        ),
+        eyeOpen: document.querySelector(
+          '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-open'
+        ),
+        eyeClosed: document.querySelector(
+          '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-closed'
+        )
+      }
+      const leftDinoTwo = {
+        container: document.querySelector(
+          '.bg-fun__left .bg-fun__section--two .dino-fun'
+        ),
+        eyeOpen: document.querySelector(
+          '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-open'
+        ),
+        eyeClosed: document.querySelector(
+          '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-closed'
+        )
+      }
+      const rightDinoOne = {
+        container: document.querySelector(
+          '.bg-fun__right .bg-fun__section--two .dino-fun'
+        ),
+        eyeOpen: document.querySelector(
+          '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-open'
+        ),
+        eyeClosed: document.querySelector(
+          '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-closed'
+        )
+      }
       switch (randomNumber) {
         case 0:
-          initTimelineOne()
+          timelineOne.paused(false)
+          scrollMagicInit(vm, timelineOne, '.screenshot-nsf', 0.5)
           break
         case 1:
-          initTimelineTwo()
+          timelineTwo.paused(false)
+          scrollMagicInit(vm, timelineTwo, '.screenshot-nsf', 0.5)
           break
         case 2:
-          // randomTimeline = timelineThree
-          break
-        case 3:
-          // randomTimeline = timelineFour
+          timelineThree.paused(false)
+          scrollMagicInit(vm, timelineThree, '.screenshot-nsf', 0.5)
           break
       }
 
       // Timeline one.
-      function initTimelineOne() {
-        const leftDino = {
-          container: document.querySelector(
-            '.bg-fun__left .bg-fun__section--one .dino-fun'
-          ),
-          eyeOpen: document.querySelector(
-            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-open'
-          ),
-          eyeClosed: document.querySelector(
-            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-closed'
-          )
-        }
-        const rightDino = {
-          container: document.querySelector(
-            '.bg-fun__right .bg-fun__section--two .dino-fun'
-          ),
-          eyeOpen: document.querySelector(
-            '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-open'
-          ),
-          eyeClosed: document.querySelector(
-            '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-closed'
-          )
-        }
-        const rightContainerWidth = document.querySelector('.bg-fun__right')
-          .clientWidth
-        timelineOne
-          .set([leftDino.eyeClosed, rightDino.eyeOpen], { opacity: 0 })
-          .fromTo(
-            leftDino.container,
-            1,
-            { x: -135, rotation: 170 },
-            { x: -95, rotation: 180 },
-            '+=1'
-          )
-          .to(leftDino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
-          .to(leftDino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
-          .to(leftDino.container, 0.33, { x: -135, rotation: 170 }, '+=0.5 ')
-          .fromTo(
-            rightDino.container,
-            1.25,
-            { x: 100, rotation: 30 },
-            {
-              x: rightContainerWidth * -1 + 100,
-              rotation: 0,
-              /* eslint-disable-next-line no-undef */
-              ease: Power3.easeIn
-            },
-            '+=0.25'
-          )
-          .fromTo(
-            '.work__segment--nsf .work__screenshot',
-            0.25,
-            { x: 0 },
-            { x: -50 }
-          )
-          .to('.work__segment--nsf .work__screenshot', 0.25, {
-            x: 0,
-            /* eslint-disable-next-line no-undef */
-            ease: Bounce.easeOut
-          })
-        // Reveal on scroll.
-        // scrollMagicInit(vm, timelineOne, '.work__segment--nsf', 0.5)
-      }
+      timelineOne
+        .set('.bg-fun', { visibility: 'visible' })
+        .set('.bg-fun__left .bg-fun__section--one', {
+          justifyContent: 'flex-start',
+          alignItems: 'center'
+        })
+        .set([leftDinoOne.eyeClosed], { opacity: 0 })
+        .fromTo(
+          leftDinoOne.container,
+          1,
+          { x: -135, rotation: 170 },
+          { x: -95, rotation: 180 },
+          '+=1'
+        )
+        .to(leftDinoOne.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(leftDinoOne.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(leftDinoOne.container, 0.25, { x: -145, rotation: 170 }, '+=0.5')
 
       // Timeline two.
-      function initTimelineTwo() {
-        timelineTwo.to(
-          '.bg-fun__right .bg-fun__section--one',
-          1,
-          { opacity: 0.5 },
-          '+=5'
-        )
-        timelineTwo.to('.bg-fun__left .bg-fun__section--two', 1, {
-          opacity: 0.5
+      timelineTwo
+        .set('.bg-fun', { visibility: 'visible' })
+        .set('.bg-fun__right .bg-fun__section--two', {
+          justifyContent: 'flex-end',
+          alignItems: 'center'
         })
-        // Reveal on scroll.
-        scrollMagicInit(vm, timelineTwo, '.work__segment--nsf', 0.5)
-      }
+        .set([rightDinoOne.eyeClosed], { opacity: 0 })
+        .fromTo(
+          rightDinoOne.container,
+          0.5,
+          { x: 90, rotation: 15 },
+          { x: 44, rotation: 0 },
+          '+=1'
+        )
+        .to(rightDinoOne.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(rightDinoOne.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(rightDinoOne.container, 0.25, { x: 90, rotation: 15 }, '+=0.5')
+
+      // Timeline three.
+      timelineThree
+        .set('.bg-fun', { visibility: 'visible' })
+        .set('.bg-fun__left .bg-fun__section--two', {
+          justifyContent: 'center',
+          alignItems: 'flex-end'
+        })
+        .set([leftDinoTwo.eyeClosed], { opacity: 0 })
+        .fromTo(
+          leftDinoTwo.container,
+          0.5,
+          { y: 90, rotation: -25 },
+          /* eslint-disable-next-line no-undef */
+          { y: 30, rotation: 5, ease: Back.easeOut.config(1.7) },
+          '+=1'
+        )
+        .to(leftDinoTwo.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(leftDinoTwo.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(leftDinoTwo.container, 0.2, { y: 90, rotation: -25 }, '+=0.5')
     }
   }
 }
 </script>
 <style lang="scss" scoped>
+@import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .bg-fun {
+  @include animated;
   @include breakpoint($large) {
     position: fixed;
     display: flex;
@@ -184,10 +196,10 @@ export default {
     }
     &__section {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      // justify-content: flex-start;
+      // align-items: center;
       flex: 0 1 auto;
-      height: 25%;
+      height: 100%;
       overflow: hidden;
 
       .bg-fun__right & {

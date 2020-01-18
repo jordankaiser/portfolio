@@ -20,6 +20,7 @@ body {
   margin-left: auto;
   padding-left: $s0;
   padding-right: $s0;
+  z-index: 5;
 
   &--narrow {
     max-width: $cs-1;
@@ -104,6 +105,7 @@ a.link {
 /* --------------------------
  * ANIMATION
  * -------------------------- */
+//  TODO: I think this can be removed.
 .preanimation {
   visibility: hidden;
 }

@@ -1,8 +1,8 @@
-// TODO: Move this breakpoint stuff out of mixins.
-// https://github.com/at-import/breakpoint/wiki/Basic-Media-Queries
-@import '~breakpoint-sass/stylesheets/breakpoint';
-
-$extrasmall: 400px;
-$small: 600px;
-$medium: 768px;
-$large: 1024px;
+// Used to hide JS animated elements to avoid
+// the brief flicker of visibility before JS
+// kicks in to hide them itself.
+@mixin animated {
+  &.animated {
+    visibility: hidden;
+  }
+}

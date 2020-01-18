@@ -80,14 +80,12 @@ export default {
 @import '~/assets/scss/_mixins.scss';
 
 .introduction {
+  @include animated;
   position: relative;
   background-color: $color-red;
   width: 100%;
   height: 100vh;
 
-  &.animated {
-    visibility: hidden;
-  }
   &::before {
     content: '';
     position: absolute;

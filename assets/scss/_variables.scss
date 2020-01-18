@@ -1,3 +1,11 @@
+// Breakpoints
+// https://github.com/at-import/breakpoint/wiki/Basic-Media-Queries
+@import '~breakpoint-sass/stylesheets/breakpoint';
+$extrasmall: 400px;
+$small: 600px;
+$medium: 768px;
+$large: 1024px;
+
 // Colors
 $green: #00bc87;
 $grey: #777;
@@ -19,10 +27,6 @@ $color-blue: #1A4382;
 $color-blue-light: #7984EA;
 $color-navy: navy;
 $color-orange: #FEA520;
-
-// Fonts
-$font-pt-sans: 'Pt Sans', sans-serif;
-$font-crimson: 'Crimson Text', serif;
 
 // Fonts - New
 $font-raleway: 'Raleway', sans-serif;

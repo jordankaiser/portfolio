@@ -1,5 +1,5 @@
 <template>
-  <div class="corn-hero animated">
+  <div class="corn-hero">
     <div class="corn-hero__corn">
       <img
         src="~/assets/img/corn-1.png"

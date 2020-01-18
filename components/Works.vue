@@ -104,9 +104,7 @@ export default {
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .work {
-  &.animated {
-    visibility: hidden;
-  }
+  @include animated;
   &__segment {
     position: relative;
     padding-bottom: 0;

@@ -29,12 +29,17 @@ export default {
   position: relative;
   width: 90px;
   height: 90px;
-  transform: translateX(90px);
-  transform-origin: 69% 78%;
 
+  &--left {
+    transform: translateX(90px);
+    transform-origin: 69% 78%;
+  }
   &--right {
-    transform: translateX(-90px) scaleX(-1);
+    transform: translateX(-145px) scaleX(-1);
     transform-origin: 78% 69%;
+  }
+  &--right-pointed-up {
+    align-self: flex-end;
   }
   &__artwork {
     width: 100%;
