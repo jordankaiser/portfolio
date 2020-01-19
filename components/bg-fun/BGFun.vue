@@ -19,7 +19,7 @@
 <script>
 import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
-import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import Dino from '~/components/bg-fun/Dino.vue'
 export default {
   components: {
@@ -49,116 +49,169 @@ export default {
 
     // Do desktop animations.
     function isDesktop() {
-      const timelineOne = new TimelineLite({ paused: true })
-      const timelineTwo = new TimelineLite({ paused: true })
-      const timelineThree = new TimelineLite({ paused: true })
-      // const randomNumber = Math.floor(Math.random() * 2)
-      const randomNumber = 2
-      const leftDinoOne = {
-        container: document.querySelector(
-          '.bg-fun__left .bg-fun__section--one .dino-fun'
-        ),
-        eyeOpen: document.querySelector(
-          '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-open'
-        ),
-        eyeClosed: document.querySelector(
-          '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-closed'
-        )
+      const timelines = {
+        one: new TimelineLite({ paused: true }),
+        two: new TimelineLite({ paused: true }),
+        three: new TimelineLite({ paused: true }),
+        four: new TimelineLite({ paused: true })
       }
-      const leftDinoTwo = {
-        container: document.querySelector(
-          '.bg-fun__left .bg-fun__section--two .dino-fun'
-        ),
-        eyeOpen: document.querySelector(
-          '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-open'
-        ),
-        eyeClosed: document.querySelector(
-          '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-closed'
-        )
-      }
-      const rightDinoOne = {
-        container: document.querySelector(
-          '.bg-fun__right .bg-fun__section--two .dino-fun'
-        ),
-        eyeOpen: document.querySelector(
-          '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-open'
-        ),
-        eyeClosed: document.querySelector(
-          '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-closed'
-        )
-      }
-      switch (randomNumber) {
-        case 0:
-          timelineOne.paused(false)
-          scrollMagicInit(vm, timelineOne, '.screenshot-nsf', 0.5)
-          break
-        case 1:
-          timelineTwo.paused(false)
-          scrollMagicInit(vm, timelineTwo, '.screenshot-nsf', 0.5)
-          break
-        case 2:
-          timelineThree.paused(false)
-          scrollMagicInit(vm, timelineThree, '.screenshot-nsf', 0.5)
-          break
+      const dinos = {
+        leftOne: {
+          container: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun'
+          ),
+          eyeOpen: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-open'
+          ),
+          eyeClosed: document.querySelector(
+            '.bg-fun__left .bg-fun__section--one .dino-fun__artwork--eye-closed'
+          )
+        },
+        leftTwo: {
+          container: document.querySelector(
+            '.bg-fun__left .bg-fun__section--two .dino-fun'
+          ),
+          eyeOpen: document.querySelector(
+            '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-open'
+          ),
+          eyeClosed: document.querySelector(
+            '.bg-fun__left .bg-fun__section--two .dino-fun__artwork--eye-closed'
+          )
+        },
+        rightOne: {
+          container: document.querySelector(
+            '.bg-fun__right .bg-fun__section--two .dino-fun'
+          ),
+          eyeOpen: document.querySelector(
+            '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-open'
+          ),
+          eyeClosed: document.querySelector(
+            '.bg-fun__right .bg-fun__section--two .dino-fun__artwork--eye-closed'
+          )
+        }
       }
 
-      // Timeline one.
-      timelineOne
-        .set('.bg-fun', { visibility: 'visible' })
+      // Pick random dino to play.
+
+      const dinoTriggerEls = document.querySelectorAll('.dino-fun-trigger')
+      const ScrollMagic = vm.$ScrollMagic
+      Array.from(dinoTriggerEls).forEach(trigger => {
+        const sceneController = new ScrollMagic.Controller()
+        let randomNumber = 0
+        new ScrollMagic.Scene({
+          triggerElement: trigger,
+          triggerHook: 0.5,
+          reverse: false
+        })
+          .addTo(sceneController)
+          .on('start end', function(e) {
+            randomNumber = Math.floor(Math.random() * 3)
+            // randomNumber = 3
+            callDinoTimelines(randomNumber, timelines, dinos, trigger.className)
+          })
+      })
+    }
+
+    // Call dino timelines.
+    function callDinoTimelines(randomNumber, timelines, dinos, trigger) {
+      switch (randomNumber) {
+        case 0:
+          timelines.one.paused(false)
+          createTimelineOne(timelines.one, dinos.leftOne)
+          scrollMagicScene(vm, timelines.one, trigger, 0.5)
+          break
+        case 1:
+          timelines.two.paused(false)
+          createTimelineTwo(timelines.two, dinos.rightOne)
+          scrollMagicScene(vm, timelines.two, trigger, 0.5)
+          break
+        case 2:
+          timelines.three.paused(false)
+          createTimelineThree(timelines.three, dinos.leftTwo)
+          scrollMagicScene(vm, timelines.three, trigger, 0.5)
+          break
+
+        case 3:
+          timelines.four.paused(false)
+          createTimelineFour(timelines.four, dinos.leftOne)
+          scrollMagicScene(vm, timelines.four, trigger, 0.5)
+          break
+      }
+    }
+    // Timeline one.
+    function createTimelineOne(timeline, dino) {
+      timeline
+        .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__left .bg-fun__section--one', {
           justifyContent: 'flex-start',
           alignItems: 'center'
         })
-        .set([leftDinoOne.eyeClosed], { opacity: 0 })
+        .set([dino.eyeClosed], { opacity: 0 })
         .fromTo(
-          leftDinoOne.container,
+          dino.container,
           1,
-          { x: -135, rotation: 170 },
-          { x: -95, rotation: 180 },
+          { x: -140, scaleX: '-1', rotation: -20 },
+          { x: -95, scaleX: '-1', rotation: 0 },
           '+=1'
         )
-        .to(leftDinoOne.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
-        .to(leftDinoOne.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
-        .to(leftDinoOne.container, 0.25, { x: -145, rotation: 170 }, '+=0.5')
+        .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(dino.container, 0.25, { x: -140, rotation: -20 }, '+=0.5')
+    }
 
-      // Timeline two.
-      timelineTwo
-        .set('.bg-fun', { visibility: 'visible' })
+    // Timeline two.
+    function createTimelineTwo(timeline, dino) {
+      console.log('creating two')
+      timeline
+        .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__right .bg-fun__section--two', {
           justifyContent: 'flex-end',
           alignItems: 'center'
         })
-        .set([rightDinoOne.eyeClosed], { opacity: 0 })
+        .set([dino.eyeClosed], { opacity: 0 })
         .fromTo(
-          rightDinoOne.container,
+          dino.container,
           0.5,
           { x: 90, rotation: 15 },
           { x: 44, rotation: 0 },
           '+=1'
         )
-        .to(rightDinoOne.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
-        .to(rightDinoOne.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
-        .to(rightDinoOne.container, 0.25, { x: 90, rotation: 15 }, '+=0.5')
+        .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(dino.container, 0.25, { x: 90, rotation: 15 }, '+=0.5')
+    }
 
-      // Timeline three.
-      timelineThree
-        .set('.bg-fun', { visibility: 'visible' })
+    // Timeline three.
+    function createTimelineThree(timeline, dino) {
+      timeline
+        .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__left .bg-fun__section--two', {
           justifyContent: 'center',
           alignItems: 'flex-end'
         })
-        .set([leftDinoTwo.eyeClosed], { opacity: 0 })
+        .set([dino.eyeClosed], { opacity: 0 })
         .fromTo(
-          leftDinoTwo.container,
+          dino.container,
           0.5,
           { y: 90, rotation: -25 },
           /* eslint-disable-next-line no-undef */
           { y: 30, rotation: 5, ease: Back.easeOut.config(1.7) },
           '+=1'
         )
-        .to(leftDinoTwo.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
-        .to(leftDinoTwo.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
-        .to(leftDinoTwo.container, 0.2, { y: 90, rotation: -25 }, '+=0.5')
+        .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(dino.container, 0.2, { y: 90, rotation: -25 }, '+=0.5')
+    }
+
+    function createTimelineFour(timeline, dino) {
+      timeline
+        .set(['.bg-fun', dino.container], { visibility: 'visible' })
+        .set('.bg-fun__left .bg-fun__section--one', {
+          justifyContent: 'center',
+          alignItems: 'flex-start'
+        })
+        .set([dino.eyeClosed], { opacity: 0 })
+        .fromTo(dino.container, 0.5, { y: -90 }, { y: 0 }, '+=1')
     }
   }
 }
@@ -196,8 +249,6 @@ export default {
     }
     &__section {
       display: flex;
-      // justify-content: flex-start;
-      // align-items: center;
       flex: 0 1 auto;
       height: 100%;
       overflow: hidden;

@@ -11,10 +11,10 @@
  *
  * @example
  *
- *     scrollMagicInit(vm, timeline, '.screenshot-nsf', 0.75)
+ *     scrollMagicScene(vm, timeline, '.screenshot-nsf', 0.75)
  *
  */
-export function scrollMagicInit(vue, timeline, trigger, triggerHook) {
+export function scrollMagicScene(vue, timeline, trigger, triggerHook) {
   const ScrollMagic = vue.$ScrollMagic
   const triggerEl = document.querySelector(trigger)
   const sceneController = new ScrollMagic.Controller()

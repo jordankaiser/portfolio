@@ -1,5 +1,5 @@
 <template>
-  <div :class="'dino-fun--' + orientation" class="dino-fun">
+  <div :class="'dino-fun--' + orientation" class="dino-fun animated">
     <img
       class="dino-fun__artwork dino-fun__artwork--body"
       src="~/assets/img/dino-white.png"
@@ -25,17 +25,17 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '~/assets/scss/_mixins.scss';
 .dino-fun {
+  @include animated;
   position: relative;
   width: 90px;
   height: 90px;
 
   &--left {
-    transform: translateX(90px);
     transform-origin: 69% 78%;
   }
   &--right {
-    transform: translateX(-145px) scaleX(-1);
     transform-origin: 78% 69%;
   }
   &--right-pointed-up {

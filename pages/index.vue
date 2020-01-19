@@ -17,7 +17,7 @@
           <cta-hero color="red" />
         </div>
       </div>
-      <div class="introduction__scroll-hint">
+      <div class="introduction__scroll-hint dino-fun-trigger">
         <div class="scroll-hint">
           <p class="scroll-hint__text">Work</p>
           <img class="scroll-hint__arrow" src="~/assets/img/arrow-white.png" />

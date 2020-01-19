@@ -23,7 +23,7 @@
 <script>
 import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
-import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 export default {
   mounted: function() {
@@ -105,7 +105,7 @@ export default {
         )
 
       // Reveal on scroll.
-      scrollMagicInit(vm, timeline, '.work__segment--nsf', 0.75)
+      scrollMagicScene(vm, timeline, '.work__segment--nsf', 0.75)
     }
 
     // Mobile animations.
@@ -155,7 +155,7 @@ export default {
         )
 
       // Reveal on scroll.
-      scrollMagicInit(vm, timeline, '.corn-hero', 0.75)
+      scrollMagicScene(vm, timeline, '.corn-hero', 0.75)
     }
 
     // Intro reveal.
@@ -206,7 +206,12 @@ export default {
         },
         '-=0.75'
       )
-    scrollMagicInit(vm, introTimeline, '.work__segment--nsf .work__intro', 0.75)
+    scrollMagicScene(
+      vm,
+      introTimeline,
+      '.work__segment--nsf .work__intro',
+      0.75
+    )
 
     // CTA reveal.
     const ctas = [
@@ -224,7 +229,7 @@ export default {
       { y: 0, opacity: 1 },
       0.25
     )
-    scrollMagicInit(vm, ctasTimeline, '.work__segment--nsf .work__ctas', 0.9)
+    scrollMagicScene(vm, ctasTimeline, '.work__segment--nsf .work__ctas', 0.9)
 
     // Footer reveal.
     const footerIllustrations = {
@@ -241,7 +246,7 @@ export default {
     footerTimeline.from(footerIllustrations.middle, 0.5, { y: 50 })
     footerTimeline.from(footerIllustrations.left, 0.5, { y: 50 }, '-=0.25')
     footerTimeline.from(footerIllustrations.right, 0.5, { y: 50 }, '-=0.4')
-    scrollMagicInit(vm, footerTimeline, '.work__segment--nsf .corn-footer', 1)
+    scrollMagicScene(vm, footerTimeline, '.work__segment--nsf .corn-footer', 1)
   }
 }
 </script>

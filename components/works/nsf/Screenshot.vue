@@ -9,7 +9,7 @@
 </template>
 <script>
 import debounce from 'lodash/debounce'
-import { scrollMagicInit } from '~/plugins/helpers/scrollMagicInit.js'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 export default {
   mounted: function() {
@@ -41,7 +41,7 @@ export default {
     function desktopTimeline() {
       const timeline = new TimelineLite()
       timeline.fromTo(image, 0.75, { opacity: 0 }, { opacity: 1 })
-      scrollMagicInit(vm, timeline, '.screenshot-nsf', 0.75)
+      scrollMagicScene(vm, timeline, '.screenshot-nsf', 0.75)
     }
 
     // Mobile animations.
@@ -53,7 +53,7 @@ export default {
         { x: image.width / 2, opacity: 0 },
         { x: 0, opacity: 1 }
       )
-      scrollMagicInit(vm, timeline, '.screenshot-nsf', 0.75)
+      scrollMagicScene(vm, timeline, '.screenshot-nsf', 0.75)
     }
   }
 }

@@ -21,7 +21,9 @@
       <div class="work__divider container container--narrow">
         <component :is="work.divider"></component>
       </div>
-      <div class="work__screenshot container container--narrow">
+      <div
+        class="work__screenshot container container--narrow dino-fun-trigger"
+      >
         <component :is="work.screenshot"></component>
       </div>
       <div class="work__ctas container container--narrow">
