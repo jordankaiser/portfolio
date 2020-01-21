@@ -161,7 +161,6 @@ export default {
 
     // Timeline two.
     function createTimelineTwo(timeline, dino) {
-      console.log('creating two')
       timeline
         .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__right .bg-fun__section--two', {
