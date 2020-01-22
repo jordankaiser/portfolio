@@ -8,8 +8,8 @@
     >
       <div class="work__intro container container--narrow">
         <div class="work__text">
-          <p class="work__subhead">{{ work.task }}</p>
           <h2 class="work__heading">{{ work.title }}</h2>
+          <p class="work__subhead">Roles | {{ work.task }}</p>
         </div>
         <div class="work__illustration">
           <component :is="work.illustration"></component>
@@ -140,10 +140,9 @@ export default {
     padding-right: 70px;
   }
   &__subhead {
+    margin-top: 5px;
+    font-size: $fs-1;
     color: $color-blue-light;
-  }
-  &__heading {
-    margin-top: 9px;
   }
   &__illustration {
     flex: 0 0 auto;
@@ -164,6 +163,8 @@ export default {
       padding-left: 0;
 
       @include breakpoint($extrasmall) {
+        max-width: 300px;
+        margin-top: 40px;
         padding-left: $s0;
       }
     }
@@ -173,7 +174,9 @@ export default {
 
     &.container {
       padding-right: 0;
+
       @include breakpoint($extrasmall) {
+        margin-top: $s-1;
         max-width: $cs-1;
         padding-right: $s0;
       }

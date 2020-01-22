@@ -34,6 +34,12 @@ export default {}
     flex: 0 0 auto;
     width: 33px;
     height: 33px;
+
+    @include breakpoint($extrasmall) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   &__circle {
     width: 100%;
