@@ -5,7 +5,7 @@
     <section class="introduction animated">
       <div class="introduction__container container">
         <introduction-dino />
-        <div class="introduction__text">
+        <div class="introduction__text dino-fun-trigger">
           <p>
             Brief description of self amet nulla vel nunc placerat ultricies
             eget vel massa. Ut efficitur ex ut libero vestibulum porta.

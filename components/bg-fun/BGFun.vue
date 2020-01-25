@@ -20,10 +20,17 @@
 import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
+import { shuffle } from '~/plugins/helpers/shuffleArray.js'
 import Dino from '~/components/bg-fun/Dino.vue'
 export default {
   components: {
     Dino
+  },
+  data: function() {
+    return {
+      dinoIsNotPlaying: true
+    }
   },
   mounted: function() {
     const vm = this
@@ -49,12 +56,7 @@ export default {
 
     // Do desktop animations.
     function isDesktop() {
-      const timelines = {
-        one: new TimelineLite({ paused: true }),
-        two: new TimelineLite({ paused: true }),
-        three: new TimelineLite({ paused: true }),
-        four: new TimelineLite({ paused: true })
-      }
+      const ScrollMagic = vm.$ScrollMagic
       const dinos = {
         leftOne: {
           container: document.querySelector(
@@ -90,56 +92,83 @@ export default {
           )
         }
       }
+      const timelines = {
+        one: new TimelineLite({
+          onComplete: timelineCleanup,
+          onCompleteParams: [dinos.leftOne]
+        }),
+        two: new TimelineLite({
+          onComplete: timelineCleanup,
+          onCompleteParams: [dinos.rightOne]
+        }),
+        three: new TimelineLite({
+          onComplete: timelineCleanup,
+          onCompleteParams: [dinos.leftTwo]
+        }),
+        four: new TimelineLite({
+          onComplete: timelineCleanup,
+          onCompleteParams: [dinos.leftOne]
+        })
+      }
 
-      // Pick random dino to play.
-
+      // Create a random play order for dino timelines.
+      let playOrder = [0, 1, 2, 3]
+      playOrder = shuffle(playOrder)
+      let playOrderDelta = 0
       const dinoTriggerEls = document.querySelectorAll('.dino-fun-trigger')
-      const ScrollMagic = vm.$ScrollMagic
       Array.from(dinoTriggerEls).forEach(trigger => {
         const sceneController = new ScrollMagic.Controller()
-        let randomNumber = 0
         new ScrollMagic.Scene({
           triggerElement: trigger,
           triggerHook: 0.5,
           reverse: false
         })
           .addTo(sceneController)
-          .on('start end', function(e) {
-            randomNumber = Math.floor(Math.random() * 3)
-            // randomNumber = 3
-            callDinoTimelines(randomNumber, timelines, dinos, trigger.className)
+          .on('start', function(e) {
+            if (playOrderDelta < playOrder.length - 1) {
+              playOrderDelta++
+            } else {
+              playOrderDelta = 0
+            }
+            if (vm.dinoIsNotPlaying) {
+              vm.dinoIsNotPlaying = false
+              callDinoTimelines(
+                playOrder[playOrderDelta],
+                timelines,
+                dinos,
+                trigger.className
+              )
+            }
           })
       })
     }
 
     // Call dino timelines.
-    function callDinoTimelines(randomNumber, timelines, dinos, trigger) {
-      switch (randomNumber) {
+    function callDinoTimelines(
+      playOrder,
+      timelines,
+      dinos,
+      trigger,
+      dinoIsNotPlaying
+    ) {
+      switch (playOrder) {
         case 0:
-          timelines.one.paused(false)
-          createTimelineOne(timelines.one, dinos.leftOne)
-          scrollMagicScene(vm, timelines.one, trigger, 0.5)
+          createTimelineOne(timelines.one, dinos.leftOne, trigger)
           break
         case 1:
-          timelines.two.paused(false)
-          createTimelineTwo(timelines.two, dinos.rightOne)
-          scrollMagicScene(vm, timelines.two, trigger, 0.5)
+          createTimelineTwo(timelines.two, dinos.rightOne, trigger)
           break
         case 2:
-          timelines.three.paused(false)
-          createTimelineThree(timelines.three, dinos.leftTwo)
-          scrollMagicScene(vm, timelines.three, trigger, 0.5)
+          createTimelineThree(timelines.three, dinos.leftTwo, trigger)
           break
 
         case 3:
-          timelines.four.paused(false)
-          createTimelineFour(timelines.four, dinos.leftOne)
-          scrollMagicScene(vm, timelines.four, trigger, 0.5)
+          createTimelineFour(timelines.four, dinos.leftOne, trigger)
           break
       }
     }
     // Timeline one.
-    function createTimelineOne(timeline, dino) {
+    function createTimelineOne(timeline, dino, trigger, dinoIsNotPlaying) {
       timeline
         .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__left .bg-fun__section--one', {
@@ -157,10 +186,14 @@ export default {
         .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
         .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
         .to(dino.container, 0.25, { x: -140, rotation: -20 }, '+=0.5')
+        .call(function() {
+          vm.dinoIsNotPlaying = true
+        })
+      scrollMagicScene(vm, timeline, trigger, 0.5)
     }
 
     // Timeline two.
-    function createTimelineTwo(timeline, dino) {
+    function createTimelineTwo(timeline, dino, trigger) {
       timeline
         .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__right .bg-fun__section--two', {
@@ -178,10 +211,14 @@ export default {
         .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
         .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
         .to(dino.container, 0.25, { x: 90, rotation: 15 }, '+=0.5')
+        .call(function() {
+          vm.dinoIsNotPlaying = true
+        })
+      scrollMagicScene(vm, timeline, trigger, 0.5)
     }
 
     // Timeline three.
-    function createTimelineThree(timeline, dino) {
+    function createTimelineThree(timeline, dino, trigger) {
       timeline
         .set(['.bg-fun', dino.container], { visibility: 'visible' })
         .set('.bg-fun__left .bg-fun__section--two', {
@@ -200,17 +237,54 @@ export default {
         .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
         .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
         .to(dino.container, 0.2, { y: 90, rotation: -25 }, '+=0.5')
+        .call(function() {
+          vm.dinoIsNotPlaying = true
+        })
+      scrollMagicScene(vm, timeline, trigger, 0.5)
     }
 
-    function createTimelineFour(timeline, dino) {
+    function createTimelineFour(timeline, dino, trigger) {
       timeline
-        .set(['.bg-fun', dino.container], { visibility: 'visible' })
+        .set('.bg-fun', { visibility: 'visible' })
+        .set(dino.container, {
+          visibility: 'visible',
+          transformOrigin: '67% 89%'
+        })
         .set('.bg-fun__left .bg-fun__section--one', {
           justifyContent: 'center',
           alignItems: 'flex-start'
         })
         .set([dino.eyeClosed], { opacity: 0 })
-        .fromTo(dino.container, 0.5, { y: -90 }, { y: 0 }, '+=1')
+        .set([dino.eyeOpen], { opacity: 1 })
+        .fromTo(
+          dino.container,
+          0.5,
+          { y: -160, rotation: -20, scaleX: -1, scaleY: -1 },
+          {
+            y: -102,
+            rotation: 0,
+            scaleX: -1,
+            scaleY: -1,
+            /* eslint-disable-next-line no-undef */
+            ease: Back.easeOut.config(1.7)
+          },
+          '+=1'
+        )
+        .to(dino.eyeOpen, 0.15, { opacity: 0 }, '+=0.75')
+        .to(dino.eyeClosed, 0.15, { opacity: 1 }, '+=0.15')
+        .to(
+          dino.container,
+          0.2,
+          {
+            y: -160,
+            rotation: -20
+          },
+          '+=0.5'
+        )
+        .call(function() {
+          vm.dinoIsNotPlaying = true
+        })
+      scrollMagicScene(vm, timeline, trigger, 0.5)
     }
   }
 }

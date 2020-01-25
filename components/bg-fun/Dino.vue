@@ -38,9 +38,9 @@ export default {
   &--right {
     transform-origin: 78% 69%;
   }
-  &--right-pointed-up {
-    align-self: flex-end;
-  }
+  // &--right-pointed-up {
+  //   align-self: flex-end;
+  // }
   &__artwork {
     width: 100%;
     height: auto;
