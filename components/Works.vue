@@ -55,6 +55,12 @@ import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import NSFFooter from '~/components/works/nsf/Footer.vue'
+
+import EZGOHero from '~/components/works/ezgo/Hero.vue'
+import EZGODivider from '~/components/works/ezgo/Divider.vue'
+import EZGOScreenshot from '~/components/works/ezgo/Screenshot.vue'
+import EZGOFooter from '~/components/works/ezgo/Footer.vue'
+
 import 'lazysizes'
 export default {
   components: {
@@ -62,7 +68,12 @@ export default {
     CTATertiary,
     NSFHero,
     NSFDivider,
-    NSFFooter
+    NSFFooter,
+    NSFScreenshot,
+    EZGOHero,
+    EZGODivider,
+    EZGOFooter,
+    EZGOScreenshot
   },
   data: function() {
     return {
@@ -91,6 +102,31 @@ export default {
             }
           },
           footer: NSFFooter
+        },
+        {
+          id: 'ezgo',
+          title: 'E-Z-GO',
+          task: 'Development',
+          description:
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: EZGOHero,
+          divider: EZGODivider,
+          screenshot: EZGOScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://google.com'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: 'https://google.com'
+            }
+          },
+          footer: EZGOFooter
         }
       ]
     }
