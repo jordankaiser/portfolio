@@ -7,7 +7,9 @@
         class="cart-hero__image"
       />
     </div>
-    <div class="cart-hero__circle"></div>
+    <div class="cart-hero__circle-wrap">
+      <div class="cart-hero__circle"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -241,6 +243,40 @@
 // }
 </script>
 <style lang="scss" scoped>
-// @import '~/assets/scss/_variables.scss';
+@import '~/assets/scss/_variables.scss';
 // @import '~/assets/scss/_mixins.scss';
+.cart-hero {
+  position: relative;
+
+  &__image-wrap {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  &__image {
+    position: relative;
+    width: 155px;
+  }
+  &__circle-wrap {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(0%, -50%);
+    transform-origin: 50% 50%;
+    background-color: orange;
+    overflow: hidden;
+  }
+  &__circle {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: 55%;
+    left: 99%;
+    transform: translate(-50%, -50%);
+    background-color: $color-ezgo-blue-dark;
+    border-radius: 100%;
+  }
+}
 </style>

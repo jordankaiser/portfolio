@@ -11,7 +11,10 @@
           <h2 class="work__heading">{{ work.title }}</h2>
           <p class="work__subhead">Roles | {{ work.task }}</p>
         </div>
-        <div class="work__illustration">
+        <div
+          :class="'work__illustration--' + work.id"
+          class="work__illustration"
+        >
           <component :is="work.illustration"></component>
         </div>
       </div>
@@ -146,6 +149,10 @@ export default {
   &__segment {
     position: relative;
     padding-bottom: 0;
+
+    &--ezgo {
+      background-color: $color-ezgo-blue;
+    }
   }
   &__container {
     margin-left: 0;
@@ -188,6 +195,9 @@ export default {
     @include breakpoint($small) {
       flex: 0 1 auto;
       width: 161px;
+      overflow: visible;
+    }
+    &--ezgo {
       overflow: visible;
     }
   }
