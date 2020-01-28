@@ -293,6 +293,7 @@ export default {
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .bg-fun {
+  display: none;
   @include animated;
   @include breakpoint($large) {
     position: fixed;
