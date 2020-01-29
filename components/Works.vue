@@ -198,6 +198,7 @@ export default {
       overflow: visible;
     }
     &--ezgo {
+      width: 135px;
       overflow: visible;
     }
   }

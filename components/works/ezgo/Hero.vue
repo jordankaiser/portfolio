@@ -60,12 +60,17 @@ export default {
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-      timeline.fromTo(
-        element.container,
-        1,
-        { x: 200, rotation: 40 },
-        { x: 0, rotation: 20 }
-      )
+      timeline
+        .fromTo(element.container, 1.3, { opacity: 0 }, { opacity: 1 })
+        .fromTo(
+          element.container,
+          1.75,
+          { rotation: 100 },
+          /* eslint-disable-next-line no-undef */
+          { rotation: 0, ease: Elastic.easeOut.config(1, 0.3) },
+          '-=0.5'
+        )
+        .to(element.container, 0.5, { rotation: 15 })
       // Reveal on scroll.
       scrollMagicScene(vm, timeline, '.cart-hero__image', 0.75)
     }
@@ -170,12 +175,20 @@ export default {
 
   &__image-wrap {
     position: relative;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    margin-top: -20px;
+    margin-bottom: -20px;
     z-index: 1;
     overflow: hidden;
   }
   &__image {
+    flex: 0 0 auto;
     position: relative;
     width: 155px;
+    height: auto;
+    transform: rotate(15deg);
     transform-origin: 71% 80%;
   }
   &__circle-wrap {
