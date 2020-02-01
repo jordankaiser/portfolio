@@ -23,7 +23,7 @@
     flex: 0 1 auto;
     width: 100%;
     height: 2px;
-    background-color: $color-orange;
+    background-color: $color-ezgo-blue-dark;
   }
   &__artwork {
     position: relative;
@@ -40,9 +40,9 @@
   &__circle {
     width: 100%;
     height: 100%;
-    border: 2px solid $color-orange;
+    border: 2px solid $color-ezgo-blue-dark;
     border-radius: 33px;
-    background-color: $color-white;
+    background-color: $color-ezgo-blue;
   }
   &__illustration-wrap {
     position: absolute;

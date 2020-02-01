@@ -25,8 +25,15 @@ import debounce from 'lodash/debounce'
 import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
+import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
   mounted: function() {
+    // Only animated if user hasn't scrolled past already
+    if (scrolledPast(document.querySelector('.work__segment--nsf')) === true) {
+      return
+    }
+
+    // Wide scopped variables.
     const vm = this
     let viewportDimensions = getViewportDimensions()
     const cornEl = {

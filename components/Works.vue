@@ -82,31 +82,6 @@ export default {
     return {
       works: [
         {
-          id: 'nsf',
-          title: 'Nebraska State Fair',
-          task: 'Development',
-          description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: NSFHero,
-          divider: NSFDivider,
-          screenshot: NSFScreenshot,
-          CTATertiary: {
-            component: CTATertiary,
-            link: {
-              text: 'Visit Site',
-              href: 'https://google.com'
-            }
-          },
-          CTASecondary: {
-            component: CTASecondary,
-            link: {
-              text: 'Project Details',
-              href: 'https://google.com'
-            }
-          },
-          footer: NSFFooter
-        },
-        {
           id: 'ezgo',
           title: 'E-Z-GO',
           task: 'Development',
@@ -130,6 +105,31 @@ export default {
             }
           },
           footer: EZGOFooter
+        },
+        {
+          id: 'nsf',
+          title: 'Nebraska State Fair',
+          task: 'Development',
+          description:
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: NSFHero,
+          divider: NSFDivider,
+          screenshot: NSFScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://google.com'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: 'https://google.com'
+            }
+          },
+          footer: NSFFooter
         }
       ]
     }
@@ -152,6 +152,9 @@ export default {
 
     &--ezgo {
       background-color: $color-ezgo-blue;
+    }
+    &--nsf {
+      height: 10000px;
     }
   }
   &__container {
