@@ -85,6 +85,7 @@ export default {
   background-color: $color-red;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 
   &::before {
     content: '';

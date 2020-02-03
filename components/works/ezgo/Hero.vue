@@ -29,7 +29,7 @@ export default {
       return
     }
 
-    // Wide scopped variables.
+    // Broad scopped variables.
     const vm = this
     let viewportDimensions = getViewportDimensions()
     const TimelineLite = vm.$GSAP.TimelineLite
@@ -73,37 +73,60 @@ export default {
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
+      // timeline
+      //   .from(element.circle, 0.5, {
+      //     opacity: 0
+      //   })
+      //   .fromTo(
+      //     element.container,
+      //     0.5,
+      //     { opacity: 0, x: 135 },
+      //     { opacity: 1, x: 0 },
+      //     '-=0.25'
+      //   )
+      //   .fromTo(
+      //     element.containerInner,
+      //     1.5,
+      //     { rotation: 90 },
+      //     /* eslint-disable-next-line no-undef */
+      //     { rotation: 0, ease: Bounce.easeOut },
+      //     '-=0.5'
+      //   )
+      //   .to(
+      //     element.containerInner,
+      //     2,
+      //     {
+      //       rotation: 15,
+      //       /* eslint-disable-next-line no-undef */
+      //       ease: Back.easeOut.config(7.75)
+      //     },
+      //     '+=0.15'
+      //   )
       timeline
+        .set(element.containerInner, { rotation: 0 })
         .from(element.circle, 0.5, {
           opacity: 0
         })
         .fromTo(
           element.container,
-          0.5,
-          { opacity: 0, x: 135 },
-          { opacity: 1, x: 0 },
-          '-=0.25'
-        )
-        .fromTo(
-          element.containerInner,
-          1.5,
-          { rotation: 90 },
+          0.75,
+          { x: 135 },
           /* eslint-disable-next-line no-undef */
-          { rotation: 0, ease: Bounce.easeOut },
-          '-=0.5'
+          { x: 0, ease: Power4.easeOut },
+          '-=0.25'
         )
         .to(
           element.containerInner,
-          2,
+          1.5,
           {
             rotation: 15,
             /* eslint-disable-next-line no-undef */
-            ease: Back.easeOut.config(7.75)
+            ease: Back.easeOut.config(7)
           },
-          '+=0.15'
+          '-=0.5'
         )
       // Reveal on scroll.
-      scrollMagicScene(vm, timeline, '.cart-hero__image', 0.75)
+      scrollMagicScene(vm, timeline, '.cart-hero__image', 0.65)
     }
 
     // Intro reveal.
