@@ -24,20 +24,21 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-top: calc(#{$s0} - 5px);
-  width: 200px;
+  width: 150px;
   overflow: hidden;
 
   &__left,
   &__right {
     flex: 0 1 auto;
-    width: 47px;
+    width: 38px;
     height: auto;
-    transform: translateY(12px);
+    transform: translateY(18px);
   }
   &__middle {
     flex: 0 1 auto;
-    width: 47px;
+    width: 38px;
     height: auto;
+    transform: translateY(10px);
   }
 }
 </style>

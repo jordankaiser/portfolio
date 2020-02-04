@@ -35,6 +35,7 @@
             :is="work.CTASecondary.component"
             v-if="work.CTASecondary"
             :link="work.CTASecondary.link"
+            :varient="work.id"
           ></component>
           <component
             :is="work.CTATertiary.component"
@@ -152,9 +153,6 @@ export default {
 
     &--ezgo {
       background-color: $color-ezgo-blue;
-    }
-    &--nsf {
-      height: 10000px;
     }
   }
   &__container {

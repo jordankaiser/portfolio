@@ -73,35 +73,6 @@ export default {
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-      // timeline
-      //   .from(element.circle, 0.5, {
-      //     opacity: 0
-      //   })
-      //   .fromTo(
-      //     element.container,
-      //     0.5,
-      //     { opacity: 0, x: 135 },
-      //     { opacity: 1, x: 0 },
-      //     '-=0.25'
-      //   )
-      //   .fromTo(
-      //     element.containerInner,
-      //     1.5,
-      //     { rotation: 90 },
-      //     /* eslint-disable-next-line no-undef */
-      //     { rotation: 0, ease: Bounce.easeOut },
-      //     '-=0.5'
-      //   )
-      //   .to(
-      //     element.containerInner,
-      //     2,
-      //     {
-      //       rotation: 15,
-      //       /* eslint-disable-next-line no-undef */
-      //       ease: Back.easeOut.config(7.75)
-      //     },
-      //     '+=0.15'
-      //   )
       timeline
         .set(element.containerInner, { rotation: 0 })
         .from(element.circle, 0.5, {
@@ -202,22 +173,27 @@ export default {
     )
     scrollMagicScene(vm, ctasTimeline, '.work__segment--ezgo .work__ctas', 0.9)
 
-    //     // Footer reveal.
-    //     const footerIllustrations = {
-    //       left: document.querySelector('.work__segment--nsf .corn-footer__left'),
-    //       middle: document.querySelector(
-    //         '.work__segment--nsf .corn-footer__middle'
-    //       ),
-    //       right: document.querySelector('.work__segment--nsf .corn-footer__right')
-    //     }
-    //     const footerTimeline = new TimelineLite({
-    //       onComplete: timelineCleanup,
-    //       onCompleteParams: [footerIllustrations]
-    //     })
-    //     footerTimeline.from(footerIllustrations.middle, 0.5, { y: 50 })
-    //     footerTimeline.from(footerIllustrations.left, 0.5, { y: 50 }, '-=0.25')
-    //     footerTimeline.from(footerIllustrations.right, 0.5, { y: 50 }, '-=0.4')
-    //     scrollMagicScene(vm, footerTimeline, '.work__segment--nsf .corn-footer', 1)
+    // Footer reveal.
+    const footerIllustrations = {
+      left: document.querySelector('.work__segment--ezgo .golf-footer__left'),
+      middle: document.querySelector(
+        '.work__segment--ezgo .golf-footer__middle'
+      ),
+      right: document.querySelector('.work__segment--ezgo .golf-footer__right')
+    }
+    const footerTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [footerIllustrations]
+    })
+    footerTimeline.from(footerIllustrations.middle, 0.5, { y: 70 })
+    footerTimeline.from(footerIllustrations.left, 0.5, { y: 70 }, '-=0.25')
+    footerTimeline.from(footerIllustrations.right, 0.5, { y: 70 }, '-=0.4')
+    scrollMagicScene(
+      vm,
+      footerTimeline,
+      '.work__segment--ezgo .golf-footer',
+      0.9
+    )
   }
 }
 </script>
