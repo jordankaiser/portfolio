@@ -1,6 +1,10 @@
 <template>
   <div class="cta-tertiary">
-    <a :href="link.href" class="cta-tertiary__link">
+    <a
+      :href="link.href"
+      :class="`cta-tertiary__link--${varient}`"
+      class="cta-tertiary__link"
+    >
       <div class="cta-tertiary__text">{{ link.text }}</div>
       <div class="cta-tertiary__icon">
         <div class="cta-tertiary__circle"></div>
@@ -25,6 +29,10 @@ export default {
           href: '/'
         }
       }
+    },
+    varient: {
+      type: String,
+      default: 'default'
     }
   },
   mounted: function() {
@@ -43,6 +51,10 @@ export default {
     align-items: center;
     text-decoration: none;
     color: $color-blue-light;
+
+    &--ezgo {
+      color: $color-ezgo-blue-dark;
+    }
   }
   &__text {
     flex: 0 1 auto;

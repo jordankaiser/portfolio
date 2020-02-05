@@ -64,16 +64,26 @@ export default {
       //   onComplete: timelineCleanup,
       //   onCompleteParams: [element]
       // })
+
+      // Screenshot timeline.
+      const screenShotTimeline = new TimelineLite()
+      screenShotTimeline.fromTo(
+        '.screenshot-ezgo img',
+        0.75,
+        { opacity: 0 },
+        { opacity: 1 }
+      )
+      scrollMagicScene(vm, screenShotTimeline, '.screenshot-ezgo', 0.75)
     }
 
     // Mobile animations.
     function mobileTimeline(element) {
-      // Timeline animation.
-      const timeline = new TimelineLite({
+      // Hero Timeline animation.
+      const heroTimeline = new TimelineLite({
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-      timeline
+      heroTimeline
         .set(element.containerInner, { rotation: 0 })
         .from(element.circle, 0.5, {
           opacity: 0
@@ -97,7 +107,18 @@ export default {
           '-=0.5'
         )
       // Reveal on scroll.
-      scrollMagicScene(vm, timeline, '.cart-hero__image', 0.65)
+      scrollMagicScene(vm, heroTimeline, '.cart-hero__image', 0.65)
+
+      // Screenshot timeline
+      const screenshotTimeline = new TimelineLite()
+      const image = document.querySelector('.screenshot-ezgo img')
+      screenshotTimeline.fromTo(
+        '.screenshot-ezgo img',
+        0.75,
+        { x: image.width / 2, opacity: 0 },
+        { x: 0, opacity: 1 }
+      )
+      scrollMagicScene(vm, screenshotTimeline, '.screenshot-ezgo', 0.75)
     }
 
     // Intro reveal.
