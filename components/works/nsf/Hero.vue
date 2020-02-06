@@ -33,7 +33,7 @@ export default {
       return
     }
 
-    // Wide scopped variables.
+    // Broadly scopped variables.
     const vm = this
     let viewportDimensions = getViewportDimensions()
     const cornEl = {
@@ -67,12 +67,12 @@ export default {
 
     // Desktop animations.
     function desktopTimeline(element) {
-      const timeline = new TimelineLite({
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-
-      timeline
+      heroTimeline
         .from(element.container, 0.66, {
           scale: 0,
           opacity: 0
@@ -112,17 +112,27 @@ export default {
         )
 
       // Reveal on scroll.
-      scrollMagicScene(vm, timeline, '.work__segment--nsf', 0.75)
+      scrollMagicScene(vm, heroTimeline, '.work__segment--nsf', 0.75)
+
+      // Screenshot timeline
+      const screenshotTimeline = new TimelineLite()
+      screenshotTimeline.fromTo(
+        '.screenshot-nsf img',
+        0.75,
+        { opacity: 0 },
+        { opacity: 1 }
+      )
+      scrollMagicScene(vm, screenshotTimeline, '.screenshot-nsf', 0.75)
     }
 
     // Mobile animations.
     function mobileTimeline(element) {
-      // Timeline animation.
-      const timeline = new TimelineLite({
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-      timeline
+      heroTimeline
         .from(element.circle, 0.66, {
           scale: 0
         })
@@ -162,7 +172,18 @@ export default {
         )
 
       // Reveal on scroll.
-      scrollMagicScene(vm, timeline, '.corn-hero', 0.75)
+      scrollMagicScene(vm, heroTimeline, '.corn-hero', 0.75)
+
+      // Screenshot timeline.
+      const screenshot = document.querySelector('.screenshot-nsf img')
+      const screenshotTimeline = new TimelineLite()
+      screenshotTimeline.fromTo(
+        screenshot,
+        0.75,
+        { x: screenshot.width / 2, opacity: 0 },
+        { x: 0, opacity: 1 }
+      )
+      scrollMagicScene(vm, screenshotTimeline, '.screenshot-nsf', 0.75)
     }
 
     // Intro reveal.

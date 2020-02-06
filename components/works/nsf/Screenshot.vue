@@ -7,57 +7,6 @@
     />
   </div>
 </template>
-<script>
-import debounce from 'lodash/debounce'
-import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
-import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
-export default {
-  mounted: function() {
-    const vm = this
-    let viewportDimensions = getViewportDimensions()
-    const TimelineLite = vm.$GSAP.TimelineLite
-    const image = document.querySelector('.screenshot-nsf img')
-
-    // Determine viewport width.
-    window.addEventListener(
-      'resize',
-      debounce(() => {
-        viewportDimensions = getViewportDimensions()
-        mobileOrDesktop(viewportDimensions.width)
-      }, 200)
-    )
-
-    // Determine which animations to play by viewport width.
-    mobileOrDesktop(viewportDimensions.width)
-    function mobileOrDesktop(viewportWidth) {
-      if (viewportWidth > 600) {
-        desktopTimeline()
-      } else {
-        mobileTimeline()
-      }
-    }
-
-    // Desktop animations.
-    function desktopTimeline() {
-      const timeline = new TimelineLite()
-      timeline.fromTo(image, 0.75, { opacity: 0 }, { opacity: 1 })
-      scrollMagicScene(vm, timeline, '.screenshot-nsf', 0.75)
-    }
-
-    // Mobile animations.
-    function mobileTimeline() {
-      const timeline = new TimelineLite()
-      timeline.fromTo(
-        image,
-        0.75,
-        { x: image.width / 2, opacity: 0 },
-        { x: 0, opacity: 1 }
-      )
-      scrollMagicScene(vm, timeline, '.screenshot-nsf', 0.75)
-    }
-  }
-}
-</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
