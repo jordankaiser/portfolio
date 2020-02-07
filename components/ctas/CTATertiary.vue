@@ -53,7 +53,11 @@ export default {
     color: $color-blue-light;
 
     &--ezgo {
-      color: $color-ezgo-blue-dark;
+      color: $color-blue;
+
+      .cta-tertiary__circle {
+        background-color: $color-ezgo-blue-dark;
+      }
     }
   }
   &__text {

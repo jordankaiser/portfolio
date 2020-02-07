@@ -60,7 +60,11 @@ export default {
     font-family: $font-raleway;
 
     &--ezgo {
-      background-color: $color-ezgo-blue-dark;
+      background-color: $color-blue;
+
+      .cta-secondary__circle {
+        background-color: $color-ezgo-blue-dark;
+      }
     }
   }
   &__icon {

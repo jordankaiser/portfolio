@@ -30,8 +30,6 @@
 </template>
 
 <script>
-// import BgFunLeft from '~/components/bg-fun/BGFunLeft.vue'
-// import BgFunRight from '~/components/bg-fun/BGFunRight.vue'
 import BgFun from '~/components/bg-fun/BGFun.vue'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
 import CtaHero from '~/components/ctas/CTAHero'
