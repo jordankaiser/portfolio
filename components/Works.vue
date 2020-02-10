@@ -9,7 +9,7 @@
       <div class="work__intro container container--narrow">
         <div class="work__text">
           <h2 class="work__heading">{{ work.title }}</h2>
-          <p class="work__subhead">Roles | {{ work.task }}</p>
+          <p class="work__subhead">Roles <span>|</span> {{ work.task }}</p>
         </div>
         <div
           :class="'work__illustration--' + work.id"
@@ -66,6 +66,8 @@ import EZGODivider from '~/components/works/ezgo/Divider.vue'
 import EZGOScreenshot from '~/components/works/ezgo/Screenshot.vue'
 import EZGOFooter from '~/components/works/ezgo/Footer.vue'
 
+import MCHero from '~/components/works/mc/Hero.vue'
+
 import 'lazysizes'
 export default {
   components: {
@@ -78,11 +80,37 @@ export default {
     EZGOHero,
     EZGODivider,
     EZGOFooter,
-    EZGOScreenshot
+    EZGOScreenshot,
+    MCHero
   },
   data: function() {
     return {
       works: [
+        {
+          id: 'mc',
+          title: 'MemorialCare',
+          task: 'Development',
+          description:
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: MCHero,
+          // divider: EZGODivider,
+          // screenshot: EZGOScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://google.com'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: 'https://google.com'
+            }
+          }
+          // footer: EZGOFooter
+        },
         {
           id: 'ezgo',
           title: 'E-Z-GO',
@@ -158,6 +186,11 @@ export default {
     &--nsf {
       height: 10000px;
     }
+    &--mc {
+      .work__heading {
+        font-size: $fs2;
+      }
+    }
   }
   &__container {
     margin-left: 0;
@@ -190,7 +223,6 @@ export default {
   &__subhead {
     margin-top: 5px;
     font-size: $fs-1;
-    color: $color-blue-light;
   }
   &__illustration {
     flex: 0 0 auto;

@@ -165,7 +165,7 @@ export default {
           rotation: 360,
           scale: 0,
           /* eslint-disable-next-line */
-                ease: Back.easeOut.config(2)
+          ease: Back.easeOut.config(2)
         },
         '-=0.75'
       )
@@ -213,7 +213,7 @@ export default {
       vm,
       footerTimeline,
       '.work__segment--ezgo .golf-footer',
-      0.9
+      0.75
     )
   }
 }
