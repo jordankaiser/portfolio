@@ -238,6 +238,9 @@ export default {
       width: 135px;
       overflow: visible;
     }
+    &--mc {
+      overflow: visible;
+    }
   }
   &__divider {
     margin-top: $s0;
