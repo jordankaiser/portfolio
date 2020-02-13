@@ -187,6 +187,8 @@ export default {
       height: 10000px;
     }
     &--mc {
+      background-color: $color-mc-purple;
+
       .work__heading {
         font-size: $fs2;
       }

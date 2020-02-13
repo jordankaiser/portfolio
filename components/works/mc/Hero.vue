@@ -14,6 +14,26 @@
         alt="Pill Illustration"
         class="mc-hero__pill-circle mc-hero__pill-circle--1"
       />
+      <img
+        src="~/assets/img/work/mc/pill-oval-pink.png"
+        alt="Pill Illustration"
+        class="mc-hero__pill-oval mc-hero__pill-oval--1"
+      />
+      <img
+        src="~/assets/img/work/mc/pill-oval-pink.png"
+        alt="Pill Illustration"
+        class="mc-hero__pill-oval mc-hero__pill-oval--2"
+      />
+      <img
+        src="~/assets/img/work/mc/pill-oval-blue.png"
+        alt="Pill Illustration"
+        class="mc-hero__pill-oval mc-hero__pill-oval--3"
+      />
+      <img
+        src="~/assets/img/work/mc/pill-circle-pink.png"
+        alt="Pill Illustration"
+        class="mc-hero__pill-circle mc-hero__pill-circle--2"
+      />
     </div>
     <div class="mc-hero__circle-wrap">
       <div class="mc-hero__circle"></div>
@@ -41,19 +61,49 @@
   &__pills {
     position: absolute;
     right: 0;
-    top: 13px;
-    width: 100%;
-    height: 100%;
+    top: 8px;
+    width: calc(100% + 10px);
+    height: calc(100% + 20px);
+    overflow: hidden;
   }
   &__pill-circle {
     position: absolute;
     width: 26px;
     height: auto;
-    top: 0;
-    left: 0;
-    top: -3px;
-    left: 65px;
     z-index: 1;
+
+    &--1 {
+      top: 1px;
+      left: 76px;
+      transform: rotate(32deg);
+    }
+    &--2 {
+      top: 124px;
+      left: 96px;
+      transform: rotate(105deg);
+    }
+  }
+  &__pill-oval {
+    position: absolute;
+    width: 21px;
+    height: auto;
+    z-index: 1;
+
+    &--1 {
+      top: 7px;
+      left: 108px;
+      transform: rotate(44deg);
+    }
+    &--2 {
+      top: 76px;
+      left: 43px;
+      transform: rotate(87deg);
+    }
+    &--3 {
+      top: 101px;
+      left: 67px;
+      transform: rotate(33deg);
+    }
   }
   &__circle-wrap {
     position: absolute;
