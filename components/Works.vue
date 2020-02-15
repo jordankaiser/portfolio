@@ -67,6 +67,7 @@ import EZGOScreenshot from '~/components/works/ezgo/Screenshot.vue'
 import EZGOFooter from '~/components/works/ezgo/Footer.vue'
 
 import MCHero from '~/components/works/mc/Hero.vue'
+import MCDivider from '~/components/works/mc/Divider.vue'
 
 import 'lazysizes'
 export default {
@@ -81,7 +82,8 @@ export default {
     EZGODivider,
     EZGOFooter,
     EZGOScreenshot,
-    MCHero
+    MCHero,
+    MCDivider
   },
   data: function() {
     return {
@@ -93,7 +95,7 @@ export default {
           description:
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
           illustration: MCHero,
-          // divider: EZGODivider,
+          divider: MCDivider,
           // screenshot: EZGOScreenshot,
           CTATertiary: {
             component: CTATertiary,
