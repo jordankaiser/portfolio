@@ -40,6 +40,34 @@
     </div>
   </div>
 </template>
+<script>
+// import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
+import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
+export default {
+  mounted: function() {
+    // Only animated if user hasn't scrolled past already
+    if (scrolledPast(document.querySelector('.work__segment--mc')) === true) {
+      return
+    }
+
+    // Broadly scopped variables.
+    // const vm = this
+    // let viewportDimensions = getViewportDimensions()
+    const pillHero = {
+      container: document.querySelector('.mc-hero'),
+      syringe: document.querySelector('.mc-hero__syringe img'),
+      pillOne: document.querySelector('.mc-hero__pill-circle--1'),
+      pillTwo: document.querySelector('.mc-hero__pill-oval--1'),
+      pillThree: document.querySelector('.mc-hero__pill-oval--2'),
+      pillFour: document.querySelector('.mc-hero__pill-oval--3'),
+      pillFive: document.querySelector('.mc-hero__pill-circle--2'),
+      circle: document.querySelector('.mc-hero__circle')
+    }
+    // const TimelineLite = vm.$GSAP.TimelineLite
+    console.log(pillHero)
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 .mc-hero {
