@@ -1,5 +1,5 @@
 <template>
-  <div class="cta-secondary">
+  <div :class="`cta-secondary--${varient}`" class="cta-secondary">
     <a
       :href="link.href"
       :class="`cta-secondary__link--${varient}`"
@@ -46,6 +46,23 @@ export default {
   position: relative;
   flex: 0 1 auto;
 
+  &--mc {
+    .cta-secondary__link {
+      background-color: $color-mc-purple-dark;
+    }
+    .cta-secondary__circle {
+      background-color: $color-mc-blue;
+    }
+  }
+  &--ezgo {
+    .cta-secondary__link {
+      background-color: $color-blue;
+
+      .cta-secondary__circle {
+        background-color: $color-ezgo-blue-dark;
+      }
+    }
+  }
   &__link {
     display: block;
     position: relative;
@@ -58,14 +75,6 @@ export default {
     background-color: $color-blue-light;
     color: $color-white;
     font-family: $font-raleway;
-
-    &--ezgo {
-      background-color: $color-blue;
-
-      .cta-secondary__circle {
-        background-color: $color-ezgo-blue-dark;
-      }
-    }
   }
   &__icon {
     position: absolute;

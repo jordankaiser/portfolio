@@ -1,5 +1,5 @@
 <template>
-  <div class="cta-tertiary">
+  <div :class="`cta-tertiary--${varient}`" class="cta-tertiary">
     <a
       :href="link.href"
       :class="`cta-tertiary__link--${varient}`"
@@ -46,19 +46,29 @@ export default {
   position: relative;
   flex: 0 1 auto;
 
-  &__link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: $color-blue-light;
-
-    &--ezgo {
+  &--ezgo {
+    .cta-tertiary__link {
       color: $color-blue;
 
       .cta-tertiary__circle {
         background-color: $color-ezgo-blue-dark;
       }
     }
+  }
+  &--mc {
+    .cta-tertiary__link {
+      color: $color-white;
+
+      .cta-tertiary__circle {
+        background-color: $color-mc-blue;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $color-blue-light;
   }
   &__text {
     flex: 0 1 auto;

@@ -187,10 +187,14 @@ export default {
       height: 10000px;
     }
     &--mc {
+      color: $color-white;
       background-color: $color-mc-purple;
 
       .work__heading {
         font-size: $fs2;
+      }
+      .work__subhead span {
+        color: #2c024d;
       }
     }
   }
