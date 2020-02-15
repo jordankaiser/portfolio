@@ -68,6 +68,8 @@ import EZGOFooter from '~/components/works/ezgo/Footer.vue'
 
 import MCHero from '~/components/works/mc/Hero.vue'
 import MCDivider from '~/components/works/mc/Divider.vue'
+import MCScreenshot from '~/components/works/mc/Screenshot.vue'
+import MCFooter from '~/components/works/mc/Footer.vue'
 
 import 'lazysizes'
 export default {
@@ -83,7 +85,9 @@ export default {
     EZGOFooter,
     EZGOScreenshot,
     MCHero,
-    MCDivider
+    MCDivider,
+    MCScreenshot,
+    MCFooter
   },
   data: function() {
     return {
@@ -96,7 +100,7 @@ export default {
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
           illustration: MCHero,
           divider: MCDivider,
-          // screenshot: EZGOScreenshot,
+          screenshot: MCScreenshot,
           CTATertiary: {
             component: CTATertiary,
             link: {
@@ -110,8 +114,8 @@ export default {
               text: 'Project Details',
               href: 'https://google.com'
             }
-          }
-          // footer: EZGOFooter
+          },
+          footer: MCFooter
         },
         {
           id: 'ezgo',
@@ -194,6 +198,13 @@ export default {
 
       .work__heading {
         font-size: $fs2;
+
+        @include breakpoint($tiny) {
+          font-size: $fs3;
+        }
+        @include breakpoint($extrasmall) {
+          font-size: $fs4;
+        }
       }
       .work__subhead span {
         color: #2c024d;
