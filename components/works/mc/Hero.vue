@@ -1,13 +1,5 @@
 <template>
   <div class="mc-hero">
-    <div class="mc-hero__syringe-wrap">
-      <div class="mc-hero__syringe">
-        <img
-          src="~/assets/img/work/mc/syringe.png"
-          alt="Syringe Illustration"
-        />
-      </div>
-    </div>
     <div class="mc-hero__pills">
       <img
         src="~/assets/img/work/mc/pill-circle-blue.png"
@@ -35,13 +27,24 @@
         class="mc-hero__pill-circle mc-hero__pill-circle--2"
       />
     </div>
+    <div class="mc-hero__syringe-wrap">
+      <div class="mc-hero__syringe">
+        <img
+          src="~/assets/img/work/mc/syringe.png"
+          alt="Syringe Illustration"
+        />
+      </div>
+    </div>
     <div class="mc-hero__circle-wrap">
       <div class="mc-hero__circle"></div>
     </div>
   </div>
 </template>
 <script>
-// import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
+import debounce from 'lodash/debounce'
+import getViewportDimensions from '~/plugins/helpers/viewportDimensions'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
   mounted: function() {
@@ -51,11 +54,12 @@ export default {
     }
 
     // Broadly scopped variables.
-    // const vm = this
-    // let viewportDimensions = getViewportDimensions()
+    const vm = this
+    let viewportDimensions = getViewportDimensions()
     const pillHero = {
       container: document.querySelector('.mc-hero'),
       syringe: document.querySelector('.mc-hero__syringe img'),
+      pillsContainer: document.querySelector('.mc-hero__pills'),
       pillOne: document.querySelector('.mc-hero__pill-circle--1'),
       pillTwo: document.querySelector('.mc-hero__pill-oval--1'),
       pillThree: document.querySelector('.mc-hero__pill-oval--2'),
@@ -63,8 +67,166 @@ export default {
       pillFive: document.querySelector('.mc-hero__pill-circle--2'),
       circle: document.querySelector('.mc-hero__circle')
     }
-    // const TimelineLite = vm.$GSAP.TimelineLite
-    console.log(pillHero)
+    const TimelineLite = vm.$GSAP.TimelineLite
+
+    // Determine viewport width.
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        viewportDimensions = getViewportDimensions()
+        mobileOrDesktop(viewportDimensions.width)
+      }, 200)
+    )
+
+    // Determine which animations to play by viewport width.
+    mobileOrDesktop(viewportDimensions.width)
+    function mobileOrDesktop(viewportWidth) {
+      if (viewportWidth > 600) {
+        desktopTimeline(pillHero)
+      } else {
+        mobileTimeline(pillHero)
+      }
+    }
+
+    // Desktop animations.
+    function desktopTimeline(element) {
+      console.log('desktop')
+    }
+
+    // Mobile animations.
+    function mobileTimeline(element) {
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      console.log(element)
+      heroTimeline
+        .set(
+          [
+            element.pillsContainer,
+            element.pillOne,
+            element.pillTwo,
+            element.pillThree,
+            element.pillFour,
+            element.pillFive
+          ],
+          {
+            opacity: 0
+          }
+        )
+        .from(element.circle, 0.5, { opacity: 0 })
+        .fromTo(
+          element.pillsContainer,
+          0.1,
+          { opacity: 0 },
+          { opacity: 1 },
+          '-=0.5'
+        )
+        .fromTo(
+          element.syringe,
+          1.5,
+          {
+            x: 120,
+            y: 120,
+            rotation: 20
+          },
+          { x: 0, y: 0, rotation: 0 }
+        )
+        .set(element.pillOne, { opacity: 1 }, '-=0.5')
+        .fromTo(
+          element.pillOne,
+          0.6,
+          {
+            x: -30,
+            y: 30,
+            rotation: 292
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 32,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.5'
+        )
+        .set(element.pillFour, { opacity: 1 }, '-=0.25')
+        .fromTo(
+          element.pillFour,
+          0.6,
+          {
+            x: 30,
+            y: -30,
+            rotation: 293
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 33,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.25'
+        )
+        .set(element.pillTwo, { opacity: 1 }, '-=0.5')
+        .fromTo(
+          element.pillTwo,
+          0.6,
+          {
+            x: -30,
+            y: 30,
+            rotation: 294
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 44,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.5'
+        )
+        .set(element.pillFive, { opacity: 1 }, '-=0.25')
+        .fromTo(
+          element.pillFive,
+          0.6,
+          {
+            x: 30,
+            y: -30,
+            rotation: 350
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 105,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.25'
+        )
+        .set(element.pillThree, { opacity: 1 }, '-=0.5')
+        .fromTo(
+          element.pillThree,
+          0.6,
+          {
+            x: 30,
+            y: -30,
+            rotation: 347
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 87,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.5'
+        )
+
+      // Reveal on scroll.
+      scrollMagicScene(vm, heroTimeline, '.mc-hero', 0.75)
+    }
   }
 }
 </script>
@@ -81,6 +243,7 @@ export default {
   &__syringe {
     transform: translateX(4px);
 
+    transform-origin: 90% 71%;
     img {
       width: 139px;
       height: auto;
