@@ -100,7 +100,6 @@ export default {
         onComplete: timelineCleanup,
         onCompleteParams: [element]
       })
-      console.log(element)
       heroTimeline
         .set(
           [
@@ -226,7 +225,108 @@ export default {
 
       // Reveal on scroll.
       scrollMagicScene(vm, heroTimeline, '.mc-hero', 0.75)
+
+      // Screenshot timeline.
+      const screenshot = document.querySelector('.screenshot-mc img')
+      const screenshotTimeline = new TimelineLite()
+      screenshotTimeline.fromTo(
+        screenshot,
+        0.75,
+        { x: screenshot.width / 2, opacity: 0 },
+        { x: 0, opacity: 1 }
+      )
+      scrollMagicScene(vm, screenshotTimeline, '.screenshot-mc', 0.75)
     }
+
+    // Intro reveal.
+    const introText = [
+      document.querySelector('.work__segment--mc .work__heading'),
+      document.querySelector('.work__segment--mc .work__subhead'),
+      document.querySelector('.work__segment--mc .work__description')
+    ]
+    const introTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [introText]
+    })
+    introTimeline.staggerFromTo(
+      introText,
+      2,
+      { opacity: 0 },
+      /* eslint-disable-next-line */
+        { opacity: 1, ease: Power2.easeInOut },
+      0.3
+    )
+    scrollMagicScene(vm, introTimeline, '.work__segment--mc .work__intro', 0.75)
+
+    // Divider timeline.
+    const divider = {
+      container: document.querySelector('.work__segment--mc .work__divider'),
+      line: document.querySelector('.divider-bottle__line'),
+      circle: document.querySelector('.divider-bottle__circle'),
+      illustration: document.querySelector('.divider-bottle__illustration')
+    }
+    const dividerTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [divider]
+    })
+    dividerTimeline
+      .set(divider.container, { opacity: 1 })
+      .from(
+        divider.line,
+        0.66,
+        {
+          scaleX: 0,
+          transformOrigin: '100% 50%'
+        },
+        '-=1'
+      )
+      .from(divider.circle, 0.5, { scale: 0, x: -20 }, '-=1')
+      .from(
+        divider.illustration,
+        0.75,
+        {
+          rotation: 360,
+          scale: 0,
+          /* eslint-disable-next-line */
+            ease: Back.easeOut.config(2)
+        },
+        '-=0.75'
+      )
+    scrollMagicScene(
+      vm,
+      dividerTimeline,
+      '.work__segment--mc .work__divider',
+      0.75
+    )
+
+    // CTA reveal.
+    const ctas = [
+      document.querySelector('.work__segment--mc .cta-secondary__link'),
+      document.querySelector('.work__segment--mc .cta-tertiary__link')
+    ]
+    const ctasTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [ctas]
+    })
+    ctasTimeline.staggerFromTo(
+      ctas,
+      1,
+      { y: -15, opacity: 0 },
+      { y: 0, opacity: 1 },
+      0.25
+    )
+    scrollMagicScene(vm, ctasTimeline, '.work__segment--mc .work__ctas', 0.9)
+
+    // Footer reveal.
+    const footerIllustrations = {
+      circle1: document.querySelector('.pill-footer__circle--1'),
+      oval1: document.querySelector('.pill-footer__oval--1'),
+      circle2: document.querySelector('.pill-footer__circle--2'),
+      oval2: document.querySelector('.pill-footer__oval--2'),
+      circle3: document.querySelector('.pill-footer__circle--3'),
+      oval3: document.querySelector('.pill-footer__oval--3')
+    }
+    console.log(footerIllustrations)
   }
 }
 </script>

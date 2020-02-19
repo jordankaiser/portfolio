@@ -1,34 +1,34 @@
 <template>
   <div class="pill-footer">
     <img
-      :data-src="require('~/assets/img/work/mc/pill-circle-pink.png')"
+      src="~/assets/img/work/mc/pill-circle-pink.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__circle pill-footer__circle--1"
+      class="pill-footer__circle pill-footer__circle--1"
     />
     <img
-      :data-src="require('~/assets/img/work/mc/pill-oval-blue.png')"
+      src="~/assets/img/work/mc/pill-oval-blue.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__oval pill-footer__oval--1"
+      class="pill-footer__oval pill-footer__oval--1"
     />
     <img
-      :data-src="require('~/assets/img/work/mc/pill-circle-pink.png')"
+      src="~/assets/img/work/mc/pill-circle-pink.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__circle pill-footer__circle--2"
+      class="pill-footer__circle pill-footer__circle--2"
     />
     <img
-      :data-src="require('~/assets/img/work/mc/pill-oval-blue.png')"
+      src="~/assets/img/work/mc/pill-oval-blue.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__oval pill-footer__oval--2"
+      class="pill-footer__oval pill-footer__oval--2"
     />
     <img
-      :data-src="require('~/assets/img/work/mc/pill-circle-pink.png')"
+      src="~/assets/img/work/mc/pill-circle-pink.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__circle pill-footer__circle--3"
+      class="pill-footer__circle pill-footer__circle--3"
     />
     <img
-      :data-src="require('~/assets/img/work/mc/pill-oval-blue.png')"
+      src="~/assets/img/work/mc/pill-oval-blue.png"
       alt="Pill Illustration"
-      class="animatelazyload lazyload pill-footer__oval pill-footer__oval--3"
+      class="pill-footer__oval pill-footer__oval--3"
     />
   </div>
 </template>

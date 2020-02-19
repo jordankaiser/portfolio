@@ -193,7 +193,7 @@ export default {
       document.querySelector('.work__segment--nsf .work__description')
     ]
     const divider = {
-      container: document.querySelector('.work__divider'),
+      container: document.querySelector('.work__segment--nsf .work__divider'),
       line: document.querySelector('.divider-corndog__line'),
       circle: document.querySelector('.divider-corndog__circle'),
       illustration: document.querySelector('.divider-corndog__illustration')
