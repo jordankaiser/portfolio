@@ -124,18 +124,18 @@ export default {
         )
         .fromTo(
           element.syringe,
-          1.5,
+          1,
           {
             x: 120,
             y: 120,
-            rotation: 20
+            rotation: 60
           },
           { x: 0, y: 0, rotation: 0 }
         )
-        .set(element.pillOne, { opacity: 1 }, '-=0.5')
+        .set(element.pillOne, { opacity: 1 }, '-=0.25')
         .fromTo(
           element.pillOne,
-          0.6,
+          0.3,
           {
             x: -30,
             y: 30,
@@ -148,12 +148,12 @@ export default {
             /* eslint-disable-next-line no-undef */
             ease: Power2.easeOut
           },
-          '-=0.5'
+          '-=0.25'
         )
-        .set(element.pillFour, { opacity: 1 }, '-=0.25')
+        .set(element.pillFour, { opacity: 1 }, '-=0.2')
         .fromTo(
           element.pillFour,
-          0.6,
+          0.45,
           {
             x: 30,
             y: -30,
@@ -166,12 +166,12 @@ export default {
             /* eslint-disable-next-line no-undef */
             ease: Power2.easeOut
           },
-          '-=0.25'
+          '-=0.2'
         )
-        .set(element.pillTwo, { opacity: 1 }, '-=0.5')
+        .set(element.pillTwo, { opacity: 1 }, '-=0.25')
         .fromTo(
           element.pillTwo,
-          0.6,
+          0.45,
           {
             x: -30,
             y: 30,
@@ -184,12 +184,12 @@ export default {
             /* eslint-disable-next-line no-undef */
             ease: Power2.easeOut
           },
-          '-=0.5'
+          '-=0.25'
         )
-        .set(element.pillFive, { opacity: 1 }, '-=0.25')
+        .set(element.pillFive, { opacity: 1 }, '-=0.2')
         .fromTo(
           element.pillFive,
-          0.6,
+          0.45,
           {
             x: 30,
             y: -30,
@@ -202,12 +202,12 @@ export default {
             /* eslint-disable-next-line no-undef */
             ease: Power2.easeOut
           },
-          '-=0.25'
+          '-=0.2'
         )
-        .set(element.pillThree, { opacity: 1 }, '-=0.5')
+        .set(element.pillThree, { opacity: 1 }, '-=0.25')
         .fromTo(
           element.pillThree,
-          0.6,
+          0.45,
           {
             x: 30,
             y: -30,
@@ -220,7 +220,7 @@ export default {
             /* eslint-disable-next-line no-undef */
             ease: Power2.easeOut
           },
-          '-=0.5'
+          '-=0.25'
         )
 
       // Reveal on scroll.
@@ -326,7 +326,26 @@ export default {
       circle3: document.querySelector('.pill-footer__circle--3'),
       oval3: document.querySelector('.pill-footer__oval--3')
     }
-    console.log(footerIllustrations)
+    const footerTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [footerIllustrations]
+    })
+    footerTimeline
+      .fromTo(
+        footerIllustrations.oval2,
+        0.75,
+        { y: 60, rotation: 0 },
+        /* eslint-disable-next-line no-undef */
+        { y: -23, rotation: 188, ease: Back.easeOut.config(1.7) }
+      )
+      .fromTo(
+        footerIllustrations.circle2,
+        0.75,
+        { y: 30, rotation: -100 },
+        /* eslint-disable-next-line no-undef */
+        { y: -8, rotation: 164, ease: Back.easeOut.config(1.7) },
+        '-=0.52'
+      )
   }
 }
 </script>
@@ -343,10 +362,10 @@ export default {
   &__syringe {
     transform: translateX(4px);
 
-    transform-origin: 90% 71%;
     img {
       width: 139px;
       height: auto;
+      transform-origin: 90% 71%;
     }
   }
   &__pills {
