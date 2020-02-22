@@ -344,8 +344,41 @@ export default {
         { y: 30, rotation: -100 },
         /* eslint-disable-next-line no-undef */
         { y: -8, rotation: 164, ease: Back.easeOut.config(1.7) },
-        '-=0.52'
+        '-=0.65'
       )
+      .fromTo(
+        footerIllustrations.circle3,
+        0.75,
+        { y: 60, rotation: -201 },
+        /* eslint-disable-next-line no-undef */
+        { y: -15, rotation: 19, ease: Back.easeOut.config(1.7) },
+        '-=0.65'
+      )
+      .fromTo(
+        footerIllustrations.oval1,
+        0.75,
+        { y: 60, rotation: -201 },
+        /* eslint-disable-next-line no-undef */
+        { y: -15, rotation: 146, ease: Back.easeOut.config(1.7) },
+        '-=0.65'
+      )
+      .fromTo(
+        footerIllustrations.oval3,
+        0.75,
+        { y: 60, rotation: -201 },
+        /* eslint-disable-next-line no-undef */
+        { y: 1, rotation: 57, ease: Back.easeOut.config(1.7) },
+        '-=0.65'
+      )
+      .fromTo(
+        footerIllustrations.circle1,
+        0.75,
+        { y: 60, rotation: -201 },
+        /* eslint-disable-next-line no-undef */
+        { y: -4, rotation: 119, ease: Back.easeOut.config(1.7) },
+        '-=0.65'
+      )
+    scrollMagicScene(vm, footerTimeline, '.work__segment--mc .pill-footer', 0.9)
   }
 }
 </script>
