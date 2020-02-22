@@ -90,7 +90,147 @@ export default {
 
     // Desktop animations.
     function desktopTimeline(element) {
-      console.log('desktop')
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      heroTimeline
+        .set(
+          [
+            element.pillsContainer,
+            element.pillOne,
+            element.pillTwo,
+            element.pillThree,
+            element.pillFour,
+            element.pillFive
+          ],
+          {
+            opacity: 0
+          }
+        )
+        .from(element.circle, 0.5, { opacity: 0 })
+        .fromTo(
+          element.pillsContainer,
+          0.1,
+          { opacity: 0 },
+          { opacity: 1 },
+          '-=0.5'
+        )
+        .fromTo(
+          element.syringe,
+          1,
+          {
+            scale: 0.1,
+            opacity: 0,
+            rotation: 360
+          },
+          { scale: 1, opacity: 1, rotation: 0 }
+        )
+        .set(element.pillOne, { opacity: 1 }, '-=0.25')
+        .fromTo(
+          element.pillOne,
+          0.3,
+          {
+            x: -30,
+            y: 30,
+            rotation: 292
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 32,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.25'
+        )
+        .set(element.pillFour, { opacity: 1 }, '-=0.2')
+        .fromTo(
+          element.pillFour,
+          0.45,
+          {
+            x: 30,
+            y: -30,
+            rotation: 293
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 33,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.2'
+        )
+        .set(element.pillTwo, { opacity: 1 }, '-=0.25')
+        .fromTo(
+          element.pillTwo,
+          0.45,
+          {
+            x: 1,
+            y: 30,
+            rotation: 294
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 44,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.25'
+        )
+        .set(element.pillFive, { opacity: 1 }, '-=0.2')
+        .fromTo(
+          element.pillFive,
+          0.45,
+          {
+            x: -30,
+            y: 30,
+            rotation: 350
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 105,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.2'
+        )
+        .set(element.pillThree, { opacity: 1 }, '-=0.25')
+        .fromTo(
+          element.pillThree,
+          0.45,
+          {
+            x: 30,
+            y: -30,
+            rotation: 347
+          },
+          {
+            x: 0,
+            y: 0,
+            rotation: 87,
+            /* eslint-disable-next-line no-undef */
+            ease: Power2.easeOut
+          },
+          '-=0.25'
+        )
+
+      // Reveal on scroll.
+      scrollMagicScene(vm, heroTimeline, '.mc-hero', 0.75)
+
+      // Screenshot timeline.
+      const screenshot = document.querySelector('.screenshot-mc img')
+      const screenshotTimeline = new TimelineLite()
+      screenshotTimeline.fromTo(
+        screenshot,
+        0.75,
+        { opacity: 0 },
+        { opacity: 1 }
+      )
+      scrollMagicScene(vm, screenshotTimeline, '.screenshot-mc', 0.75)
     }
 
     // Mobile animations.
@@ -391,6 +531,10 @@ export default {
     position: relative;
     z-index: 1;
     overflow: hidden;
+
+    @include breakpoint($small) {
+      overflow: visible;
+    }
   }
   &__syringe {
     transform: translateX(4px);
@@ -399,6 +543,10 @@ export default {
       width: 139px;
       height: auto;
       transform-origin: 90% 71%;
+
+      @include breakpoint($small) {
+        transform-origin: 50% 50%;
+      }
     }
   }
   &__pills {
@@ -408,6 +556,12 @@ export default {
     width: calc(100% + 10px);
     height: calc(100% + 20px);
     overflow: hidden;
+
+    @include breakpoint($small) {
+      right: 20px;
+      top: -4px;
+      overflow: visible;
+    }
   }
   &__pill-circle {
     position: absolute;
@@ -424,6 +578,11 @@ export default {
       top: 124px;
       left: 96px;
       transform: rotate(105deg);
+
+      @include breakpoint($small) {
+        top: 43px;
+        left: 147px;
+      }
     }
   }
   &__pill-oval {
@@ -436,6 +595,11 @@ export default {
       top: 7px;
       left: 108px;
       transform: rotate(44deg);
+
+      @include breakpoint($small) {
+        top: 8px;
+        left: 124px;
+      }
     }
     &--2 {
       top: 76px;
@@ -457,6 +621,14 @@ export default {
     transform: translate(0%, -43%);
     transform-origin: 50% 50%;
     overflow: hidden;
+
+    @include breakpoint($small) {
+      width: 120px;
+      height: 120px;
+      top: 10px;
+      transform: none;
+      overflow: visible;
+    }
   }
   &__circle {
     position: absolute;
@@ -467,6 +639,15 @@ export default {
     transform: translate(-50%, -50%);
     background-color: $color-mc-blue;
     border-radius: 100%;
+
+    @include breakpoint($small) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: initial;
+      left: initial;
+      transform: none;
+    }
   }
 }
 </style>
