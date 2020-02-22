@@ -51,7 +51,7 @@ export default {
     // Determine which animations to play by viewport width.
     mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
-      if (viewportWidth > 600) {
+      if (viewportWidth >= 600) {
         desktopTimeline(cartEl)
       } else {
         mobileTimeline(cartEl)
@@ -60,10 +60,36 @@ export default {
 
     // Desktop animations.
     function desktopTimeline(element) {
-      // const timeline = new TimelineLite({
-      //   onComplete: timelineCleanup,
-      //   onCompleteParams: [element]
-      // })
+      // Hero Timeline animation.
+      const heroTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      heroTimeline
+        .set(element.containerInner, { rotation: 0 })
+        .from(element.circle, 0.5, {
+          opacity: 0
+        })
+        .fromTo(
+          element.container,
+          0.75,
+          { y: -200, opacity: 0 },
+          /* eslint-disable-next-line no-undef */
+          { y: 0, opacity: 1, ease: Bounce.easeOut },
+          '-=0.25'
+        )
+        .to(
+          element.containerInner,
+          1.5,
+          {
+            rotation: 15,
+            /* eslint-disable-next-line no-undef */
+            ease: Back.easeOut.config(7)
+          },
+          '-=0.5'
+        )
+      // Reveal on scroll.
+      scrollMagicScene(vm, heroTimeline, '.cart-hero', 0.65)
 
       // Screenshot timeline.
       const screenShotTimeline = new TimelineLite()
@@ -220,7 +246,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
-// @import '~/assets/scss/_mixins.scss';
 .cart-hero {
   position: relative;
 
@@ -233,6 +258,10 @@ export default {
     margin-bottom: -20px;
     z-index: 1;
     overflow: hidden;
+
+    @include breakpoint($small) {
+      overflow: visible;
+    }
   }
   &__image {
     flex: 0 0 auto;
@@ -241,6 +270,10 @@ export default {
     height: auto;
     transform: rotate(15deg);
     transform-origin: 71% 80%;
+
+    @include breakpoint($small) {
+      overflow: visible;
+    }
   }
   &__circle-wrap {
     position: absolute;
@@ -251,6 +284,10 @@ export default {
     transform: translate(0%, -50%);
     transform-origin: 50% 50%;
     overflow: hidden;
+
+    @include breakpoint($small) {
+      overflow: visible;
+    }
   }
   &__circle {
     position: absolute;
@@ -261,6 +298,13 @@ export default {
     transform: translate(-50%, -50%);
     background-color: $color-ezgo-blue-dark;
     border-radius: 100%;
+
+    @include breakpoint($small) {
+      left: 41%;
+      top: 46%;
+      width: 156px;
+      height: 159px;
+    }
   }
 }
 </style>

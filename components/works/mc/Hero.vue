@@ -81,7 +81,7 @@ export default {
     // Determine which animations to play by viewport width.
     mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
-      if (viewportWidth > 600) {
+      if (viewportWidth >= 600) {
         desktopTimeline(pillHero)
       } else {
         mobileTimeline(pillHero)

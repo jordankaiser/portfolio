@@ -256,6 +256,10 @@ export default {
     &--ezgo {
       width: 135px;
       overflow: visible;
+
+      @include breakpoint($small) {
+        width: inherit;
+      }
     }
     &--mc {
       overflow: visible;
