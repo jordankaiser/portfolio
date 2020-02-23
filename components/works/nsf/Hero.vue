@@ -192,27 +192,38 @@ export default {
       document.querySelector('.work__segment--nsf .work__heading'),
       document.querySelector('.work__segment--nsf .work__description')
     ]
+    const introTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [introText]
+    })
+    introTimeline.staggerFromTo(
+      introText,
+      2,
+      { opacity: 0 },
+      /* eslint-disable-next-line */
+        { opacity: 1, ease: Power2.easeInOut },
+      0.3
+    )
+    scrollMagicScene(
+      vm,
+      introTimeline,
+      '.work__segment--nsf .work__intro',
+      0.75
+    )
+
+    // Divider reveall.
     const divider = {
       container: document.querySelector('.work__segment--nsf .work__divider'),
       line: document.querySelector('.divider-corndog__line'),
       circle: document.querySelector('.divider-corndog__circle'),
       illustration: document.querySelector('.divider-corndog__illustration')
     }
-    const allAnimatedElements = { ...introText, ...divider }
-    const introTimeline = new TimelineLite({
+    const dividerTimeline = new TimelineLite({
       onComplete: timelineCleanup,
-      onCompleteParams: [allAnimatedElements]
+      onCompleteParams: [divider]
     })
-    introTimeline
+    dividerTimeline
       .set(divider.container, { opacity: 1 })
-      .staggerFromTo(
-        introText,
-        2,
-        { opacity: 0 },
-        /* eslint-disable-next-line */
-        { opacity: 1, ease: Power2.easeInOut },
-        0.3
-      )
       .from(
         divider.line,
         0.66,
@@ -236,8 +247,8 @@ export default {
       )
     scrollMagicScene(
       vm,
-      introTimeline,
-      '.work__segment--nsf .work__intro',
+      dividerTimeline,
+      '.work__segment--nsf .work__divider',
       0.75
     )
 

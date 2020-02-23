@@ -189,9 +189,6 @@ export default {
     &--ezgo {
       background-color: $color-ezgo-blue;
     }
-    &--nsf {
-      height: 10000px;
-    }
     &--mc {
       color: $color-white;
       background-color: $color-mc-purple;

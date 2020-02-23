@@ -398,7 +398,7 @@ export default {
     )
     scrollMagicScene(vm, introTimeline, '.work__segment--mc .work__intro', 0.75)
 
-    // Divider timeline.
+    // Divider reveal.
     const divider = {
       container: document.querySelector('.work__segment--mc .work__divider'),
       line: document.querySelector('.divider-bottle__line'),

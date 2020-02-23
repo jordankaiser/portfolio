@@ -153,27 +153,39 @@ export default {
       segment.querySelector('.work__heading'),
       segment.querySelector('.work__description')
     ]
+
+    const introTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [introText]
+    })
+    introTimeline.staggerFromTo(
+      introText,
+      2,
+      { opacity: 0 },
+      /* eslint-disable-next-line no-undef */
+      { opacity: 1, ease: Power2.easeInOut },
+      0.3
+    )
+    scrollMagicScene(
+      vm,
+      introTimeline,
+      '.work__segment--ezgo .work__intro',
+      0.75
+    )
+
+    // Divider reveal.
     const divider = {
       container: segment.querySelector('.work__divider'),
       line: segment.querySelector('.divider-golfer__line'),
       circle: segment.querySelector('.divider-golfer__circle'),
       illustration: segment.querySelector('.divider-golfer__illustration')
     }
-    const allAnimatedElements = { ...introText, ...divider }
-    const introTimeline = new TimelineLite({
+    const dividerTimeline = new TimelineLite({
       onComplete: timelineCleanup,
-      onCompleteParams: [allAnimatedElements]
+      onCompleteParams: [divider]
     })
-    introTimeline
+    dividerTimeline
       .set(divider.container, { opacity: 1 })
-      .staggerFromTo(
-        introText,
-        2,
-        { opacity: 0 },
-        /* eslint-disable-next-line no-undef */
-        { opacity: 1, ease: Power2.easeInOut },
-        0.3
-      )
       .from(
         divider.line,
         0.66,
@@ -197,8 +209,8 @@ export default {
       )
     scrollMagicScene(
       vm,
-      introTimeline,
-      '.work__segment--ezgo .work__intro',
+      dividerTimeline,
+      '.work__segment--ezgo .work__divider',
       0.75
     )
 
