@@ -5,7 +5,7 @@
     <section class="introduction animated">
       <div class="introduction__container container">
         <introduction-dino />
-        <div class="introduction__text dino-fun-trigger">
+        <div class="introduction__text">
           <p>
             Brief description of self amet nulla vel nunc placerat ultricies
             eget vel massa. Ut efficitur ex ut libero vestibulum porta.
@@ -17,7 +17,7 @@
           <cta-hero color="red" />
         </div>
       </div>
-      <div class="introduction__scroll-hint dino-fun-trigger">
+      <div class="introduction__scroll-hint">
         <div class="scroll-hint">
           <p class="scroll-hint__text">Work</p>
           <img class="scroll-hint__arrow" src="~/assets/img/arrow-white.png" />
@@ -80,7 +80,7 @@ export default {
 .introduction {
   @include animated;
   position: relative;
-  background-color: $color-red;
+  background: $color-red;
   width: 100%;
   height: 100vh;
   overflow: hidden;
