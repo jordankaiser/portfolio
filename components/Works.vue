@@ -105,7 +105,8 @@ export default {
             component: CTATertiary,
             link: {
               text: 'Visit Site',
-              href: 'https://google.com'
+              href: 'https://google.com',
+              target: '_blank'
             }
           },
           CTASecondary: {
@@ -116,31 +117,6 @@ export default {
             }
           },
           footer: MCFooter
-        },
-        {
-          id: 'ezgo',
-          title: 'E-Z-GO',
-          task: 'Development',
-          description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: EZGOHero,
-          divider: EZGODivider,
-          screenshot: EZGOScreenshot,
-          CTATertiary: {
-            component: CTATertiary,
-            link: {
-              text: 'Visit Site',
-              href: 'https://google.com'
-            }
-          },
-          CTASecondary: {
-            component: CTASecondary,
-            link: {
-              text: 'Project Details',
-              href: 'https://google.com'
-            }
-          },
-          footer: EZGOFooter
         },
         {
           id: 'nsf',
@@ -155,7 +131,8 @@ export default {
             component: CTATertiary,
             link: {
               text: 'Visit Site',
-              href: 'https://google.com'
+              href: 'https://statefair.org',
+              target: '_blank'
             }
           },
           CTASecondary: {
@@ -166,6 +143,32 @@ export default {
             }
           },
           footer: NSFFooter
+        },
+        {
+          id: 'ezgo',
+          title: 'E-Z-GO',
+          task: 'Development',
+          description:
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: EZGOHero,
+          divider: EZGODivider,
+          screenshot: EZGOScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://google.com',
+              target: '_blank'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: 'https://google.com'
+            }
+          },
+          footer: EZGOFooter
         }
       ]
     }
@@ -286,6 +289,9 @@ export default {
         margin-top: $s-1;
         max-width: $cs-1;
         padding-right: $s0;
+      }
+      @include breakpoint($medium) {
+        max-width: 700px;
       }
     }
   }

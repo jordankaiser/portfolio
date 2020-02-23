@@ -3,6 +3,7 @@
     <a
       :href="link.href"
       :class="`cta-tertiary__link--${varient}`"
+      :target="link.target"
       class="cta-tertiary__link"
     >
       <div class="cta-tertiary__text">{{ link.text }}</div>
@@ -26,7 +27,8 @@ export default {
       default: function() {
         return {
           text: 'Home',
-          href: '/'
+          href: '/',
+          target: '_self'
         }
       }
     },

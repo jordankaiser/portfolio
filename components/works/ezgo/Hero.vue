@@ -211,7 +211,7 @@ export default {
       vm,
       dividerTimeline,
       '.work__segment--ezgo .work__divider',
-      0.75
+      0.85
     )
 
     // CTA reveal.
@@ -247,12 +247,7 @@ export default {
     footerTimeline.from(footerIllustrations.middle, 0.5, { y: 70 })
     footerTimeline.from(footerIllustrations.left, 0.5, { y: 70 }, '-=0.25')
     footerTimeline.from(footerIllustrations.right, 0.5, { y: 70 }, '-=0.4')
-    scrollMagicScene(
-      vm,
-      footerTimeline,
-      '.work__segment--ezgo .golf-footer',
-      0.75
-    )
+    scrollMagicScene(vm, footerTimeline, '.work__segment--ezgo .golf-footer', 1)
   }
 }
 </script>

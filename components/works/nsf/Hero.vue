@@ -249,7 +249,7 @@ export default {
       vm,
       dividerTimeline,
       '.work__segment--nsf .work__divider',
-      0.75
+      0.85
     )
 
     // CTA reveal.
