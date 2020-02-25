@@ -127,6 +127,8 @@ Followed the [How to deploy on Heroku?](https://nuxtjs.org/faq/heroku-deployment
 
 For custom domain name setup followed the [Custom Domain Names for Apps](https://devcenter.heroku.com/articles/custom-domains) documentation.
 
+https://nuxtjs-portfolio.herokuapp.com/
+
 ## Misc
 
 ### Lodash import
