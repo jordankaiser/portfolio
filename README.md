@@ -121,6 +121,12 @@ Used for generating CSS media queries.
 
 Using [lazyimages](https://github.com/aFarkas/lazysizes). In order to use the `data-src` method when defining the image path it needs to be done like `:data-src="require('~/assets/img/work/nsf/work-small.jpg')"`
 
+## Deployment
+
+Followed the [How to deploy on Heroku?](https://nuxtjs.org/faq/heroku-deployment/) documentation to deploy to heroku.
+
+For custom domain name setup followed the [Custom Domain Names for Apps](https://devcenter.heroku.com/articles/custom-domains) documentation.
+
 ## Misc
 
 ### Lodash import
