@@ -26,7 +26,8 @@ export default {
       default: function() {
         return {
           text: 'Home',
-          href: '/'
+          href: '/',
+          target: '_self'
         }
       }
     },

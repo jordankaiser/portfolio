@@ -105,7 +105,7 @@ export default {
             component: CTATertiary,
             link: {
               text: 'Visit Site',
-              href: 'https://google.com',
+              href: 'https://memorialcare.org',
               target: '_blank'
             }
           },
@@ -113,7 +113,8 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: 'https://google.com'
+              href: '/styleguide',
+              target: '_self'
             }
           },
           footer: MCFooter
@@ -139,7 +140,8 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: 'https://google.com'
+              href: '/styleguide',
+              target: '_self'
             }
           },
           footer: NSFFooter
@@ -157,7 +159,7 @@ export default {
             component: CTATertiary,
             link: {
               text: 'Visit Site',
-              href: 'https://google.com',
+              href: 'https://ezgo.txtsv.com/',
               target: '_blank'
             }
           },
@@ -165,7 +167,8 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: 'https://google.com'
+              href: '/styleguide',
+              target: '_self'
             }
           },
           footer: EZGOFooter
