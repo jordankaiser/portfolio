@@ -2,11 +2,25 @@
   <div class="screenshot-nsf">
     <img
       :data-src="require('~/assets/img/work/nsf/work-small.jpg')"
+      :src="placeholder"
       alt="Nebraska State Fair"
       class="animatelazyload lazyload"
     />
   </div>
 </template>
+<script>
+import { imageContentReflow } from '~/plugins/helpers/imageContentReflow.js'
+export default {
+  data: function() {
+    return {
+      placeholder: null
+    }
+  },
+  mounted: function() {
+    this.placeholder = imageContentReflow('690', '660')
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';

@@ -2,11 +2,25 @@
   <div class="screenshot-mc">
     <img
       :data-src="require('~/assets/img/work/mc/work-small.jpg')"
+      :src="placeholder"
       alt="MemorialCare"
       class="animatelazyload lazyload"
     />
   </div>
 </template>
+<script>
+import { imageContentReflow } from '~/plugins/helpers/imageContentReflow.js'
+export default {
+  data: function() {
+    return {
+      placeholder: null
+    }
+  },
+  mounted: function() {
+    this.placeholder = imageContentReflow('678', '638')
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
@@ -14,6 +28,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  position: relative;
   margin-top: $s0;
   padding-top: 5px;
   padding-left: 5px;

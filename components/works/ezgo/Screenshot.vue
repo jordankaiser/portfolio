@@ -3,12 +3,26 @@
     <div class="screenshot-ezgo__wrapper">
       <img
         :data-src="require('~/assets/img/work/ezgo/work-small.jpg')"
+        :src="placeholder"
         alt="E-Z-GO Website"
         class="animatelazyload lazyload"
       />
     </div>
   </div>
 </template>
+<script>
+import { imageContentReflow } from '~/plugins/helpers/imageContentReflow.js'
+export default {
+  data: function() {
+    return {
+      placeholder: null
+    }
+  },
+  mounted: function() {
+    this.placeholder = imageContentReflow('686', '634')
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
@@ -27,17 +41,6 @@
     overflow: visible;
     justify-content: center;
   }
-  // TODO: Fix image pop-in when already scrolled past.
-  // &__wrapper:before {
-  //   content: '';
-  //   position: absolute;
-  //   display: block;
-  //   left: 0;
-  //   bottom: 0;
-  //   width: 100%;
-  //   padding-top: 92.42%;
-  //   // 686x634
-  // }
   img {
     flex: 0 1 auto;
     max-width: 344px;
