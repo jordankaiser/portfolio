@@ -3,7 +3,7 @@
     <div
       v-for="work in works"
       :key="work.id"
-      :class="'work__segment--' + work.id"
+      :class="['work__segment--' + work.id, 'work__segment--' + work.parity]"
       class="work__segment segment"
     >
       <div class="work__intro container container--narrow">
@@ -54,24 +54,28 @@
   </section>
 </template>
 <script>
+// Work components.
 import CTASecondary from '~/components/ctas/CTASecondary'
 import CTATertiary from '~/components/ctas/CTATertiary'
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import NSFFooter from '~/components/works/nsf/Footer.vue'
-
 import EZGOHero from '~/components/works/ezgo/Hero.vue'
 import EZGODivider from '~/components/works/ezgo/Divider.vue'
 import EZGOScreenshot from '~/components/works/ezgo/Screenshot.vue'
 import EZGOFooter from '~/components/works/ezgo/Footer.vue'
-
 import MCHero from '~/components/works/mc/Hero.vue'
 import MCDivider from '~/components/works/mc/Divider.vue'
 import MCScreenshot from '~/components/works/mc/Screenshot.vue'
 import MCFooter from '~/components/works/mc/Footer.vue'
 
+// Libraries.
 import 'lazysizes'
+
+// Helpers.
+import { isEven } from '~/plugins/helpers/isEven.js'
+
 export default {
   components: {
     CTASecondary,
@@ -94,6 +98,7 @@ export default {
       works: [
         {
           id: 'mc',
+          parity: null,
           title: 'MemorialCare',
           task: 'Development',
           description:
@@ -121,6 +126,7 @@ export default {
         },
         {
           id: 'nsf',
+          parity: null,
           title: 'Nebraska State Fair',
           task: 'Development',
           description:
@@ -148,6 +154,7 @@ export default {
         },
         {
           id: 'ezgo',
+          parity: null,
           title: 'E-Z-GO',
           task: 'Development',
           description:
@@ -180,6 +187,15 @@ export default {
     // Unhide animated section.
     /* eslint-disable-next-line */
     TweenLite.set('.work.animated', { visibility: 'visible' })
+
+    // Parity.
+    this.works.forEach((work, index) => {
+      if (isEven(index)) {
+        this.works[index].parity = 'even'
+      } else {
+        this.works[index].parity = 'odd'
+      }
+    })
   }
 }
 </script>

@@ -1,5 +1,6 @@
 /**
  * Fix for lazy loaded images causing content reflow when loaded in.
+ * Using the inline SVG method from https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/
  *
  * @param {string} width - The width of the image.
  *
