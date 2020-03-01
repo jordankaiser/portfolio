@@ -229,6 +229,78 @@ export default {
         color: #2c024d;
       }
     }
+    &--even {
+      &:after {
+        content: '';
+        position: absolute;
+        display: none;
+        left: 0;
+        bottom: 0;
+        width: 146px;
+        height: 80%;
+        background-color: rgba(black, 0.1);
+        border-top-right-radius: 146px;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        display: none;
+        right: 0;
+        top: 0;
+        width: 146px;
+        height: 80%;
+        background-color: rgba(black, 0.1);
+        border-bottom-left-radius: 146px;
+      }
+      @include breakpoint($large) {
+        &:after,
+        &:before {
+          display: block;
+        }
+      }
+      @include breakpoint($extralarge) {
+        &::before,
+        &:after {
+          width: 200px;
+        }
+      }
+    }
+    &--odd {
+      &:after {
+        display: none;
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 146px;
+        height: 80%;
+        background-color: rgba(black, 0.1);
+        border-top-left-radius: 146px;
+      }
+      &:before {
+        content: '';
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 146px;
+        height: 80%;
+        background-color: rgba(black, 0.1);
+        border-bottom-right-radius: 146px;
+      }
+      @include breakpoint($large) {
+        &:after,
+        &:before {
+          display: block;
+        }
+      }
+      @include breakpoint($extralarge) {
+        &::before,
+        &:after {
+          width: 200px;
+        }
+      }
+    }
   }
   &__container {
     margin-left: 0;
