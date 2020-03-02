@@ -51,7 +51,12 @@ export default {
       'resize',
       debounce(() => {
         viewportDimensions = getViewportDimensions()
-        mobileOrDesktop(viewportDimensions.width)
+        if (
+          viewportDimensions.width !== document.documentElement.clientWidth ||
+          viewportDimensions.height !== document.documentElement.clientHeight
+        ) {
+          mobileOrDesktop(viewportDimensions.width)
+        }
       }, 200)
     )
 
