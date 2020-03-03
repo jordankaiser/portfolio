@@ -523,7 +523,12 @@ export default {
         { y: -4, rotation: 119, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
-    scrollMagicScene(vm, footerTimeline, '.work__segment--mc .pill-footer', 0.9)
+    scrollMagicScene(
+      vm,
+      footerTimeline,
+      '.work__segment--mc .pill-footer',
+      0.85
+    )
   }
 }
 </script>

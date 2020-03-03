@@ -208,13 +208,27 @@ export default {
     position: relative;
     padding-bottom: 0;
 
+    &--nsf {
+      &::before,
+      &:after {
+        background-color: $color-blue-light;
+      }
+    }
     &--ezgo {
       background-color: $color-ezgo-blue;
+      &::before,
+      &:after {
+        background-color: $color-blue;
+      }
     }
     &--mc {
       color: $color-white;
       background-color: $color-mc-purple;
 
+      &::before,
+      &:after {
+        background-color: $color-mc-blue;
+      }
       .work__heading {
         font-size: $fs2;
 
@@ -238,7 +252,6 @@ export default {
         bottom: 0;
         width: 146px;
         height: 80%;
-        background-color: rgba(black, 0.1);
         border-top-right-radius: 146px;
       }
       &:before {
@@ -249,7 +262,6 @@ export default {
         top: 0;
         width: 146px;
         height: 80%;
-        background-color: rgba(black, 0.1);
         border-bottom-left-radius: 146px;
       }
       @include breakpoint($large) {
@@ -274,7 +286,6 @@ export default {
         bottom: 0;
         width: 146px;
         height: 80%;
-        background-color: rgba(black, 0.1);
         border-top-left-radius: 146px;
       }
       &:before {
@@ -285,7 +296,6 @@ export default {
         top: 0;
         width: 146px;
         height: 80%;
-        background-color: rgba(black, 0.1);
         border-bottom-right-radius: 146px;
       }
       @include breakpoint($large) {

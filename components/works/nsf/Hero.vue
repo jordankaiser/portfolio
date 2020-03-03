@@ -290,7 +290,12 @@ export default {
     footerTimeline.from(footerIllustrations.middle, 0.5, { y: 50 })
     footerTimeline.from(footerIllustrations.left, 0.5, { y: 50 }, '-=0.25')
     footerTimeline.from(footerIllustrations.right, 0.5, { y: 50 }, '-=0.4')
-    scrollMagicScene(vm, footerTimeline, '.work__segment--nsf .corn-footer', 1)
+    scrollMagicScene(
+      vm,
+      footerTimeline,
+      '.work__segment--nsf .corn-footer',
+      0.85
+    )
   }
 }
 </script>

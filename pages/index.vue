@@ -95,7 +95,7 @@ export default {
     background-color: $color-red-light;
     border-bottom-right-radius: 14px;
   }
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     right: 0;
@@ -104,6 +104,17 @@ export default {
     height: 14px;
     background-color: $color-red-light;
     border-top-left-radius: 14px;
+
+    @include breakpoint($small) {
+      & {
+        width: 146px;
+      }
+    }
+    @include breakpoint($extralarge) {
+      & {
+        width: 200px;
+      }
+    }
   }
   &__container {
     display: flex;
