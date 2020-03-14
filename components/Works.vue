@@ -118,7 +118,7 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: '/styleguide',
+              href: '/memorialcare',
               target: '_self'
             }
           },
