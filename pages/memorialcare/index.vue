@@ -1,17 +1,34 @@
 <template>
   <div>
-    <section class="work-detail segment">
-      <div class="container container--narrow">
-        <h4 class="work-detail__roles">Roles <span>|</span> Development</h4>
-        <h1 class="work-detail__title">MemorialCare</h1>
-        <div class="work-detail__introduction">
-          <p>
-            Introduction of work donec maximus turpis eget quam elementum
-            laoreet. Quisque euismod leo a magna congue, vitae scelerisque eros
-            dapibus. Mauris in quam vitae tortor consectetur volutpat at id
-            purus. Maecenas maximus nibh quis mauris molestie, at lacinia arcu
-            finibus. Mauris at sem at metus luctus mattis vel ac massa.
-          </p>
+    <section class="work-details segment">
+      <div class="work-details__sub-segment">
+        <div class="introduction container container--narrow">
+          <h4 class="introduction__roles">Roles <span>|</span> Development</h4>
+          <h1 class="introduction__title">MemorialCare</h1>
+          <div class="introduction__description">
+            <p>
+              Introduction of work donec maximus turpis eget quam elementum
+              laoreet. Quisque euismod leo a magna congue, vitae scelerisque
+              eros dapibus. Mauris in quam vitae tortor consectetur volutpat at
+              id purus. Maecenas maximus nibh quis mauris molestie, at lacinia
+              arcu finibus. Mauris at sem at metus luctus mattis vel ac massa.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="work-details__sub-segment">
+        <div class="tools container container--narrow">
+          <div class="tools__list">
+            <ul>
+              <li>Drupal</li>
+              <li>PHP</li>
+              <li>Javascript</li>
+              <li>Vue.js</li>
+              <li>Twig</li>
+              <li>SCSS</li>
+            </ul>
+          </div>
+          <div class="tools__illustration"></div>
         </div>
       </div>
     </section>
@@ -28,9 +45,15 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
-.work-detail {
+.work-details {
   color: $color-white;
+  background-color: $color-mc-purple;
 
+  &__sub-segment:not(:first-of-type) {
+    margin-top: $s1;
+  }
+}
+.introduction {
   &__roles {
     font-size: $fs-1;
     line-height: $fs-1;
@@ -45,11 +68,23 @@ export default {
     font-size: $fs3;
     line-height: $fs3;
   }
-  &__introduction {
-    margin-top: $s0;
+  &__description {
+    margin-top: 40px;
   }
-  &.segment {
-    background-color: $color-mc-purple;
+}
+.tools {
+  display: flex;
+  justify-content: space-between;
+
+  &__list {
+    flex: 0 1 auto;
+    width: 100%;
+    background-color: lightcoral;
+  }
+  &__illustration {
+    width: 161px;
+    height: 180px;
+    background-color: orange;
   }
 }
 </style>
