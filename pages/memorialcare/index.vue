@@ -92,7 +92,7 @@ export default {
   align-items: center;
   padding-top: 15px;
   padding-left: 15px;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   padding-right: 15px;
   border-radius: 10px;
   box-shadow: $box-shadow;
@@ -142,7 +142,8 @@ export default {
     }
   }
   &__illustration {
-    background-color: orange;
+    flex: 0 1 auto;
+    width: 140px;
   }
 }
 </style>
