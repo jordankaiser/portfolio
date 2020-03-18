@@ -36,7 +36,7 @@
               </ul>
             </div>
             <div class="tools__illustration">
-              <!-- <Hero /> -->
+              <Hero />
             </div>
           </div>
         </div>
@@ -45,13 +45,13 @@
   </div>
 </template>
 <script>
-// import Hero from '~/components/work-details/mc/Hero.vue'
+import Hero from '~/components/work-details/mc/Hero.vue'
 export default {
   head: {
     title: 'MemorialCare'
   },
   components: {
-    // Hero
+    Hero
   }
 }
 </script>
