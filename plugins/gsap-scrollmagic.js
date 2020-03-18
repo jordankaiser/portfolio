@@ -10,6 +10,7 @@ const GSAPScrollMagic = {
     Vue.prototype.$GSAP = {
       TweenLite,
       TimelineLite,
+      CSSPlugin,
     }
     // ScrollMagic
     Vue.prototype.$ScrollMagic = {
