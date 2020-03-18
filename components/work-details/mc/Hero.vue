@@ -48,13 +48,13 @@
 <script>
 // import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
-import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
+// import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
   mounted: function() {
     // Only animated if user hasn't scrolled past already
-    if (scrolledPast(document.querySelector('.mc-hero')) === true) {
-      return
-    }
+    // if (scrolledPast(document.querySelector('.mc-hero')) === true) {
+    //   return
+    // }
 
     // Broadly scopped variables.
     const vm = this
