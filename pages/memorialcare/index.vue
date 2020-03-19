@@ -1,6 +1,9 @@
 <template>
   <div>
     <section class="work-details segment">
+      <div class="work-details__header-flair">
+        <HeaderFlair />
+      </div>
       <div class="work-details__sub-segment">
         <div class="introduction container container--narrow">
           <div class="introduction">
@@ -46,12 +49,14 @@
 </template>
 <script>
 import Hero from '~/components/work-details/mc/Hero.vue'
+import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 export default {
   head: {
     title: 'MemorialCare'
   },
   components: {
-    Hero
+    Hero,
+    HeaderFlair
   }
 }
 </script>
@@ -65,6 +70,14 @@ export default {
 
   &__sub-segment:not(:first-of-type) {
     margin-top: $s1;
+  }
+  &__header-flair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 .introduction {
