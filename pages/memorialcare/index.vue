@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="work-details segment">
-      <div class="work-details__header-flair">
-        <HeaderFlair />
-      </div>
       <div class="work-details__sub-segment">
+        <div class="work-details__header-flair">
+          <HeaderFlair />
+        </div>
         <div class="introduction container container--narrow">
           <div class="introduction">
             <h4 class="introduction__roles">
@@ -68,12 +68,16 @@ export default {
   color: $color-white;
   background-color: $color-mc-purple;
 
-  &__sub-segment:not(:first-of-type) {
-    margin-top: $s1;
+  &__sub-segment {
+    position: relative;
+
+    &:not(:first-of-type) {
+      margin-top: $s1;
+    }
   }
   &__header-flair {
     position: absolute;
-    top: 0;
+    top: -60px;
     left: 0;
     width: 100%;
     display: flex;

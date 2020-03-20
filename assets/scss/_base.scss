@@ -27,6 +27,7 @@ body {
   }
 }
 .segment {
+  position: relative;
   padding-top: $s1;
   padding-bottom: $s1;
   background-color: $color-white;
