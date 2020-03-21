@@ -24,7 +24,11 @@ export default {
   },
   mounted: function() {
     // Only animated if user hasn't scrolled past already
-    if (scrolledPast(document.querySelector('.mc-hero')) === true) {
+    if (
+      scrolledPast(
+        document.querySelector(`.header-flair--${this.modifier}`)
+      ) === true
+    ) {
       return
     }
 
@@ -33,17 +37,11 @@ export default {
 
     // Flair elements.
     const flair = {
-      // -16px
       one: document.querySelector('.header-flair__box--one'),
-      // -6px
       two: document.querySelector('.header-flair__box--two'),
-      // 0
       three: document.querySelector('.header-flair__box--three'),
-      // -6
       four: document.querySelector('.header-flair__box--four'),
-      // -12
       five: document.querySelector('.header-flair__box--five'),
-      // -17
       six: document.querySelector('.header-flair__box--six')
     }
 
