@@ -26,6 +26,9 @@
       </div>
       <div class="work-details__sub-segment">
         <div class="container container--narrow">
+          <div class="work-details__flair">
+            <Flair :modifier="modifier" />
+          </div>
           <div class="tools">
             <div class="tools__listing">
               <h4 class="tools__list-title">Tools</h4>
@@ -50,13 +53,15 @@
 <script>
 import Hero from '~/components/work-details/mc/Hero.vue'
 import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
+import Flair from '~/components/work-details/universal/Flair.vue'
 export default {
   head: {
     title: 'MemorialCare'
   },
   components: {
     Hero,
-    HeaderFlair
+    HeaderFlair,
+    Flair
   },
   data: function() {
     return {
@@ -79,6 +84,20 @@ export default {
   color: $color-white;
   background-color: $color-mc-purple;
 
+  &__flair {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    bottom: 100%;
+    left: $s0;
+    width: calc(100% - #{$s0 * 2});
+    z-index: -1;
+
+    &:first-child div {
+      flex: 0 1 auto;
+    }
+  }
   &__sub-segment {
     position: relative;
 

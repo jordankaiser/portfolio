@@ -13,7 +13,6 @@
   </div>
 </template>
 <script>
-// import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
@@ -34,8 +33,6 @@ export default {
 
     // Flair elements.
     const flair = {
-      // -25
-
       // -16px
       one: document.querySelector('.header-flair__box--one'),
       // -6px
