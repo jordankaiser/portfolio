@@ -57,7 +57,6 @@ export default {
     }
 
     // Broadly scopped variables.
-    const vm = this
     const pillHero = {
       container: document.querySelector('.mc-hero'),
       syringe: document.querySelector('.mc-hero__syringe img'),
@@ -70,7 +69,7 @@ export default {
       pillSix: document.querySelector('.mc-hero__pill-oval--4'),
       circle: document.querySelector('.mc-hero__circle')
     }
-    const TimelineLite = vm.$GSAP.TimelineLite
+    const TimelineLite = this.$GSAP.TimelineLite
 
     // Hero timeline.
     const heroTimeline = new TimelineLite({
@@ -220,7 +219,7 @@ export default {
       )
 
     // Reveal on scroll.
-    scrollMagicScene(vm, heroTimeline, '.mc-hero', 0.75)
+    scrollMagicScene(this, heroTimeline, '.mc-hero', 0.75)
   }
 }
 </script>

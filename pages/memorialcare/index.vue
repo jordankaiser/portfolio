@@ -3,7 +3,7 @@
     <section class="work-details segment">
       <div class="work-details__sub-segment">
         <div class="work-details__header-flair">
-          <HeaderFlair />
+          <HeaderFlair :modifier="modifier" />
         </div>
         <div class="introduction container container--narrow">
           <div class="introduction">
@@ -57,6 +57,11 @@ export default {
   components: {
     Hero,
     HeaderFlair
+  },
+  data: function() {
+    return {
+      modifier: 'mc'
+    }
   }
 }
 </script>
