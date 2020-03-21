@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="work-details segment">
+    <section class="work-details segment animated">
       <div class="work-details__sub-segment">
         <div class="work-details__header-flair">
           <HeaderFlair :modifier="modifier" />
@@ -62,6 +62,11 @@ export default {
     return {
       modifier: 'mc'
     }
+  },
+  mounted: function() {
+    // Unhide animated section.
+    /* eslint-disable-next-line no-undef */
+    TweenLite.set('.work-details.animated', { visibility: 'visible' })
   }
 }
 </script>
@@ -70,6 +75,7 @@ export default {
 @import '~/assets/scss/_variables.scss';
 @import '~/assets/scss/_mixins.scss';
 .work-details {
+  @include animated;
   color: $color-white;
   background-color: $color-mc-purple;
 

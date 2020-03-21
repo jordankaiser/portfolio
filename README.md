@@ -131,6 +131,14 @@ https://nuxtjs-portfolio.herokuapp.com/
 
 ## Misc
 
+### Hiding initial flicker of animated elements on page load.
+
+This is keyed off a class called `.animated`. First `.animated: visible !important;` is set in `default.vue`. This makes sure the element is visible with javascript disabled. Then `@include animated` is set in the components SCSS. This hides the initial flicker of the element when JS is enabled. Finally in javascript we use TweenLite so set the visibility of the element to `visible` which is done as an inline style so has precendence over every other style.
+
+You would think that you wouldn't need to use the mixin. What I think is happening is gsap is setting `visibility: visible;` on the element but behind the scenes it's setting to `visible` _from_ something. The _from_ is why we need to do the mixin, so it can come _from_ being hidden.
+
+Note that that the animated class is not applied to the actual elements that are being animated but instead to a container element of the animated elements.
+
 ### Lodash import
 
 Import lodash modules without import the whole thing and keeping it small.
