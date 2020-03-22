@@ -47,6 +47,9 @@
           </div>
         </div>
       </div>
+      <div
+        class="work-details__sub-segment work-details__sub-segment--placeholder"
+      ></div>
     </section>
   </div>
 </template>
@@ -103,6 +106,9 @@ export default {
 
     &:not(:first-of-type) {
       margin-top: $s1;
+    }
+    &--placeholder {
+      height: 200vh;
     }
   }
   &__header-flair {

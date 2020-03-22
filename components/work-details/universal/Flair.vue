@@ -11,6 +11,7 @@
 <script>
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 export default {
   props: {
     modifier: {
@@ -53,6 +54,9 @@ export default {
       .fromTo(flair.one, 0.33, { y: 25 }, { y: 16 }, '-=0.2')
       .fromTo(flair.five, 0.33, { y: 25 }, { y: 12 }, '-=0.2')
       .fromTo(flair.six, 0.33, { y: 25 }, { y: 17 }, '-=0.2')
+
+    // Reveal flair animation on scroll.
+    scrollMagicScene(this, flairTimeline, '.mc-hero', 0.7)
   }
 }
 </script>
