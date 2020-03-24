@@ -47,6 +47,13 @@
           </div>
         </div>
       </div>
+      <div class="work-details__sub-segment">
+        <div class="screenshots">
+          <div class="screenshots__screenshot">
+            <Screenshot />
+          </div>
+        </div>
+      </div>
       <div
         class="work-details__sub-segment work-details__sub-segment--placeholder"
       ></div>
@@ -54,15 +61,22 @@
   </div>
 </template>
 <script>
+// Components
 import Hero from '~/components/work-details/mc/Hero.vue'
+import Screenshot from '~/components/work-details/universal/Screenshot.vue'
 import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
+
+// Libraries.
+import 'lazysizes'
+
 export default {
   head: {
     title: 'MemorialCare'
   },
   components: {
     Hero,
+    Screenshot,
     HeaderFlair,
     Flair
   },
