@@ -3,7 +3,7 @@
     <section class="work-details segment animated">
       <div class="work-details__sub-segment">
         <div class="work-details__header-flair">
-          <HeaderFlair :modifier="modifier" />
+          <HeaderFlair :modifiers="headerModifiers" />
         </div>
         <div class="introduction container container--narrow">
           <div class="introduction">
@@ -27,7 +27,7 @@
       <div class="work-details__sub-segment">
         <div class="container container--narrow">
           <div class="work-details__flair">
-            <Flair :modifier="modifier" />
+            <Flair :modifiers="toolsModifiers" />
           </div>
           <div class="tools">
             <div class="tools__listing">
@@ -82,7 +82,14 @@ export default {
   },
   data: function() {
     return {
-      modifier: 'mc'
+      toolsModifiers: {
+        id: 'mc-tools',
+        revealOffset: 0.7
+      },
+      headerModifiers: {
+        id: 'mc-header',
+        revealOffset: 0.7
+      }
     }
   },
   mounted: function() {

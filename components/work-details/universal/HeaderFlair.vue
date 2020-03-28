@@ -1,5 +1,5 @@
 <template>
-  <div :class="`header-flair--${modifier}`" class="header-flair">
+  <div :class="`header-flair--${modifiers.id}`" class="header-flair">
     <div class="container container--narrow">
       <div class="header-flair__content">
         <div class="header-flair__box header-flair__box--one"></div>
@@ -17,16 +17,21 @@ import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
   props: {
-    modifier: {
-      type: String,
-      default: 'default'
+    modifiers: {
+      type: Object,
+      default: function() {
+        return {
+          id: 'default',
+          revealOffset: 0.7
+        }
+      }
     }
   },
   mounted: function() {
     // Only animated if user hasn't scrolled past already
     if (
       scrolledPast(
-        document.querySelector(`.header-flair--${this.modifier}`)
+        document.querySelector(`.header-flair--${this.modifiers.id}`)
       ) === true
     ) {
       return
@@ -37,14 +42,27 @@ export default {
 
     // Flair elements.
     const flair = {
-      one: document.querySelector('.header-flair__box--one'),
-      two: document.querySelector('.header-flair__box--two'),
-      three: document.querySelector('.header-flair__box--three'),
-      four: document.querySelector('.header-flair__box--four'),
-      five: document.querySelector('.header-flair__box--five'),
-      six: document.querySelector('.header-flair__box--six')
+      one: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--one`
+      ),
+      two: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--two`
+      ),
+      three: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--three`
+      ),
+      four: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--four`
+      ),
+      five: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--five`
+      ),
+      six: document.querySelector(
+        `.header-flair--${this.modifiers.id} .header-flair__box--six`
+      )
     }
 
+    console.log(flair)
     // Creat flair timeline.
     const flairTimeline = new TimelineLite({
       onComplete: timelineCleanup,
@@ -71,7 +89,7 @@ export default {
   /**
    * MemorialCare
    */
-  &--mc {
+  &--mc-header {
     .header-flair__box--one {
       background-color: $color-mc-blue;
     }

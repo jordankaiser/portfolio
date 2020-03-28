@@ -1,5 +1,5 @@
 <template>
-  <div :class="`flair--${modifier}`" class="flair">
+  <div :class="`flair--${modifiers.id}`" class="flair">
     <div class="flair__box flair__box--one"></div>
     <div class="flair__box flair__box--two"></div>
     <div class="flair__box flair__box--three"></div>
@@ -14,15 +14,21 @@ import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 export default {
   props: {
-    modifier: {
-      type: String,
-      default: 'default'
+    modifiers: {
+      type: Object,
+      default: function() {
+        return {
+          id: 'default',
+          revealOffset: 0.7
+        }
+      }
     }
   },
   mounted: function() {
     // Only animated if user hasn't scrolled past already
     if (
-      scrolledPast(document.querySelector(`.flair--${this.modifier}`)) === true
+      scrolledPast(document.querySelector(`.flair--${this.modifiers.id}`)) ===
+      true
     ) {
       return
     }
@@ -32,12 +38,24 @@ export default {
 
     // Flair elements.
     const flair = {
-      one: document.querySelector('.flair__box--one'),
-      two: document.querySelector('.flair__box--two'),
-      three: document.querySelector('.flair__box--three'),
-      four: document.querySelector('.flair__box--four'),
-      five: document.querySelector('.flair__box--five'),
-      six: document.querySelector('.flair__box--six')
+      one: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--one`
+      ),
+      two: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--two`
+      ),
+      three: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--three`
+      ),
+      four: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--four`
+      ),
+      five: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--five`
+      ),
+      six: document.querySelector(
+        `.flair--${this.modifiers.id} .flair__box--six`
+      )
     }
 
     // Creat flair timeline.
@@ -56,7 +74,12 @@ export default {
       .fromTo(flair.six, 0.33, { y: 25 }, { y: 17 }, '-=0.2')
 
     // Reveal flair animation on scroll.
-    scrollMagicScene(this, flairTimeline, '.mc-hero', 0.7)
+    scrollMagicScene(
+      this,
+      flairTimeline,
+      '.mc-hero',
+      this.modifiers.revealOffset
+    )
   }
 }
 </script>
@@ -71,7 +94,8 @@ export default {
   /**
    * MemorialCare
    */
-  &--mc {
+  &--mc-tools,
+  &--mc-screenshot {
     .flair__box--one {
       background-color: $color-mc-blue;
     }
