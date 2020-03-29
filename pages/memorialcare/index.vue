@@ -50,7 +50,7 @@
       <div class="work-details__sub-segment">
         <div class="screenshots">
           <div class="screenshots__screenshot">
-            <Screenshot />
+            <Screenshot>blah foo go</Screenshot>
           </div>
         </div>
       </div>
@@ -82,13 +82,15 @@ export default {
   },
   data: function() {
     return {
-      toolsModifiers: {
-        id: 'mc-tools',
-        revealOffset: 0.7
-      },
       headerModifiers: {
         id: 'mc-header',
         revealOffset: 0.7
+      },
+      toolsModifiers: {
+        id: 'mc-tools',
+        revealOffset: 0.6,
+        initialDelay: '+=1',
+        triggerEl: '.mc-hero'
       }
     }
   },

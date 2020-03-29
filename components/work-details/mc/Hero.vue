@@ -219,7 +219,7 @@ export default {
       )
 
     // Reveal on scroll.
-    scrollMagicScene(this, heroTimeline, '.mc-hero', 0.75)
+    scrollMagicScene(this, heroTimeline, '.mc-hero', 0.6)
   }
 }
 </script>

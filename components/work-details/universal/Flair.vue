@@ -66,7 +66,13 @@ export default {
 
     // Flair animation.
     flairTimeline
-      .fromTo(flair.three, 0.33, { y: 25 }, { y: 0 }, '+=0.5')
+      .fromTo(
+        flair.three,
+        0.33,
+        { y: 25 },
+        { y: 0 },
+        `${this.modifiers.initialDelay}`
+      )
       .fromTo(flair.two, 0.33, { y: 25 }, { y: 6 }, '-=0.2')
       .fromTo(flair.four, 0.33, { y: 25 }, { y: 6 }, '-=0.2')
       .fromTo(flair.one, 0.33, { y: 25 }, { y: 16 }, '-=0.2')
@@ -77,7 +83,7 @@ export default {
     scrollMagicScene(
       this,
       flairTimeline,
-      '.mc-hero',
+      `${this.modifiers.triggerEl}`,
       this.modifiers.revealOffset
     )
   }
