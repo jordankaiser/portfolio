@@ -2,15 +2,12 @@
   <div class="caption">
     <div class="caption__content">
       <div class="caption__text">
-        <p>
-          {{ caption.text }}
-        </p>
+        <slot name="captionText"></slot>
       </div>
     </div>
   </div>
 </template>
 <script>
-// import Caption from '~/components/work-details/mc/slots/CaptionOne.vue'
 export default {
   props: {
     caption: {

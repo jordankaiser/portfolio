@@ -13,8 +13,8 @@
         />
         <div class="caption">
           <div class="caption__content">
-            <div class="caption__text">
-              <slot></slot>
+            <div class="caption__text text">
+              <slot name="caption"></slot>
             </div>
           </div>
         </div>

@@ -50,7 +50,25 @@
       <div class="work-details__sub-segment">
         <div class="screenshots">
           <div class="screenshots__screenshot">
-            <Screenshot>blah foo go</Screenshot>
+            <!-- Slot for Screenshot.vue -->
+            <Screenshot>
+              <template v-slot:caption>
+                <!-- Slot for ScreenshotCaption.vue -->
+                <ScreenshotCaption>
+                  <template v-slot:captionText>
+                    <p>
+                      The Cash Pricing tool allows the user to specifiy a
+                      medical procedure and medical facility. The cash price of
+                      that procedure is then given.
+                    </p>
+                    <p>
+                      This tool was built with Vue.js and utilized Vuex for
+                      state management.
+                    </p>
+                  </template>
+                </ScreenshotCaption>
+              </template>
+            </Screenshot>
           </div>
         </div>
       </div>
@@ -64,6 +82,7 @@
 // Components
 import Hero from '~/components/work-details/mc/Hero.vue'
 import Screenshot from '~/components/work-details/universal/Screenshot.vue'
+import ScreenshotCaption from '~/components/work-details/universal/ScreenshotCaption.vue'
 import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
 
@@ -77,6 +96,7 @@ export default {
   components: {
     Hero,
     Screenshot,
+    ScreenshotCaption,
     HeaderFlair,
     Flair
   },
