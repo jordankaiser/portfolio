@@ -54,7 +54,7 @@
             <Screenshot>
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
-                <ScreenshotCaption>
+                <ScreenshotCaption :id="id">
                   <template v-slot:captionText>
                     <p>
                       The Cash Pricing tool allows the user to specifiy a
@@ -102,6 +102,7 @@ export default {
   },
   data: function() {
     return {
+      id: 'mc',
       headerModifiers: {
         id: 'mc-header',
         revealOffset: 0.7

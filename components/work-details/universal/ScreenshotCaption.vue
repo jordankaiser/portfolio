@@ -1,5 +1,5 @@
 <template>
-  <div class="caption">
+  <div :class="`caption--${id}`" class="caption">
     <div class="caption__content">
       <div class="caption__text">
         <slot name="captionText"></slot>
@@ -10,6 +10,7 @@
 <script>
 export default {
   props: {
+    id: undefined,
     caption: {
       type: Object,
       default: function() {
