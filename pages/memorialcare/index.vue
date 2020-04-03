@@ -62,7 +62,7 @@
                       that procedure is then given.
                     </p>
                     <p>
-                      This tool was built with Vue.js and utilized Vuex for
+                      This tool was built with Vue.js and utilizes Vuex for
                       state management.
                     </p>
                   </template>
