@@ -51,7 +51,7 @@
         <div class="screenshots">
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot>
+            <Screenshot :screenshot="screenshotOne">
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :id="id">
@@ -67,6 +67,9 @@
                     </p>
                   </template>
                 </ScreenshotCaption>
+              </template>
+              <template v-slot:cta>
+                <CtaSecondary :link="screenshotOneLink" />
               </template>
             </Screenshot>
           </div>
@@ -85,6 +88,7 @@ import Screenshot from '~/components/work-details/universal/Screenshot.vue'
 import ScreenshotCaption from '~/components/work-details/universal/ScreenshotCaption.vue'
 import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
+import CtaSecondary from '~/components/ctas/CTASecondary'
 
 // Libraries.
 import 'lazysizes'
@@ -98,7 +102,8 @@ export default {
     Screenshot,
     ScreenshotCaption,
     HeaderFlair,
-    Flair
+    Flair,
+    CtaSecondary
   },
   data: function() {
     return {
@@ -112,6 +117,25 @@ export default {
         revealOffset: 0.6,
         initialDelay: '+=1',
         triggerEl: '.mc-hero'
+      },
+      screenshotOneLink: {
+        text: 'Use Cash Pricing',
+        href: 'https://memorialcare.org/cash-pricing',
+        target: '_blank'
+      },
+      screenshotOne: {
+        image: 'mc/work-small-homepage-mobile.jpg',
+        placeholderConfig: {
+          initial: null,
+          width: '580',
+          height: '1948'
+        },
+        animationConfig: {
+          id: 'mc-screenshot',
+          revealOffset: 0.3,
+          initialDelay: '+=0',
+          triggerEl: '.screenshot'
+        }
       }
     }
   },

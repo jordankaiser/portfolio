@@ -7,23 +7,17 @@
         <slot name="captionText"></slot>
       </div>
     </div>
-    <div>
-      <CtaSecondary />
-    </div>
   </div>
 </template>
 <script>
-import CtaSecondary from '~/components/ctas/CTASecondary'
 export default {
-  components: { CtaSecondary },
   props: {
     id: undefined,
     caption: {
       type: Object,
       default: function() {
         return {
-          id: 'default',
-          text: 'Screenshot description.'
+          id: 'default'
         }
       }
     }
@@ -54,7 +48,7 @@ export default {
   &__content {
     padding-top: 30px;
     padding-left: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 45px;
     padding-right: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;

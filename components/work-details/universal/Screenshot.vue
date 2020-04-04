@@ -2,16 +2,17 @@
   <div class="container container--narrow">
     <div class="screenshot">
       <div class="screenshot__image">
-        <Flair :modifiers="screenshotModifiers" />
+        <Flair :modifiers="screenshot.animationConfig" />
         <img
-          :data-src="
-            require('~/assets/img/work/mc/work-small-homepage-mobile.jpg')
-          "
-          :src="placeholder"
+          :data-src="require(`~/assets/img/work/${screenshot.image}`)"
+          :src="screenshot.placeholder"
           alt="MemorialCare"
           class="animatelazyload lazyload"
         />
         <slot name="caption"></slot>
+        <div class="screenshot__cta">
+          <slot name="cta"></slot>
+        </div>
       </div>
     </div>
   </div>
@@ -23,24 +24,37 @@ export default {
   components: {
     Flair
   },
-  data: function() {
-    return {
-      placeholder: null,
-      screenshotModifiers: {
-        id: 'mc-screenshot',
-        revealOffset: 0.3,
-        initialDelay: '+=0',
-        triggerEl: '.screenshot'
-      },
-      caption: {
-        id: 'mc',
-        text:
-          'Phasellus elementum est et placerat accumsan. Nunc congue tortor et vehicula consectetur. Vestibulum ut nibh at dolor porttitor imperdiet non et erat. Proin volutpat elit eu nibh commodo, id eleifend eros pretium. Suspendisse congue mi consectetur enim venenatis, vitae convallis odio convallis.'
+  props: {
+    screenshot: {
+      type: Object,
+      default: function() {
+        return {
+          image: '',
+          placeholderConfig: {
+            initial: null,
+            width: '500',
+            height: '500'
+          },
+          animationConfig: {
+            id: 'mc-screenshot',
+            revealOffset: 0.3,
+            initialDelay: '+=0',
+            triggerEl: '.screenshot'
+          }
+        }
       }
     }
   },
+  data: function() {
+    return {
+      placeholder: null
+    }
+  },
   mounted: function() {
-    this.placeholder = imageContentReflow('580', '1948')
+    this.placeholder = imageContentReflow(
+      this.screenshot.placeholderConfig.width,
+      this.screenshot.placeholderConfig.height
+    )
   }
 }
 </script>
@@ -60,6 +74,16 @@ export default {
       height: auto;
       border-radius: 10px;
       box-shadow: $box-shadow;
+    }
+  }
+  &__cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .cta-secondary {
+      flex: 0 1 auto;
+      top: -28px;
     }
   }
 }

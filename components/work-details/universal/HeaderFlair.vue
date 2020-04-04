@@ -62,7 +62,6 @@ export default {
       )
     }
 
-    console.log(flair)
     // Creat flair timeline.
     const flairTimeline = new TimelineLite({
       onComplete: timelineCleanup,

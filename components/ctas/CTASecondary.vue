@@ -4,6 +4,7 @@
       :href="link.href"
       :class="`cta-secondary__link--${varient}`"
       class="cta-secondary__link"
+      :target="link.target"
     >
       <div class="cta-secondary__text">{{ link.text }}</div>
       <div class="cta-secondary__icon">
