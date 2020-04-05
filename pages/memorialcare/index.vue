@@ -54,7 +54,7 @@
             <Screenshot :screenshot="screenshotOne">
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
-                <ScreenshotCaption :id="id">
+                <ScreenshotCaption :caption="screenshotOneCaption">
                   <template v-slot:captionText>
                     <p>
                       The Cash Pricing tool allows the user to specifiy a
@@ -69,7 +69,7 @@
                 </ScreenshotCaption>
               </template>
               <template v-slot:cta>
-                <CtaSecondary :link="screenshotOneLink" />
+                <CtaSecondary :link="screenshotOneLink" :varient="id" />
               </template>
             </Screenshot>
           </div>
@@ -119,11 +119,12 @@ export default {
         triggerEl: '.mc-hero'
       },
       screenshotOneLink: {
-        text: 'Use Cash Pricing',
+        text: 'Cash Pricing',
         href: 'https://memorialcare.org/cash-pricing',
         target: '_blank'
       },
       screenshotOne: {
+        id: 'one',
         image: 'mc/work-small-homepage-mobile.jpg',
         placeholderConfig: {
           initial: null,
@@ -136,6 +137,11 @@ export default {
           initialDelay: '+=0',
           triggerEl: '.screenshot'
         }
+      },
+      screenshotOneCaption: {
+        id: 'mc',
+        uniqueId: 'one',
+        cta: '.screenshot--one .cta-secondary'
       }
     }
   },

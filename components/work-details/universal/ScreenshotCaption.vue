@@ -1,5 +1,8 @@
 <template>
-  <div :class="`caption--${id}`" class="caption">
+  <div
+    :class="`caption--${caption.id} caption--${caption.uniqueId}`"
+    class="caption"
+  >
     <div class="caption__flair-left"></div>
     <div class="caption__flair-right"></div>
     <div class="caption__content">
@@ -10,17 +13,77 @@
   </div>
 </template>
 <script>
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
+// import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 export default {
   props: {
-    id: undefined,
     caption: {
       type: Object,
       default: function() {
         return {
-          id: 'default'
+          id: 'default',
+          uniqueId: 'one'
         }
       }
     }
+  },
+  mounted: function() {
+    // TODO: Uncomment this after finished.
+    // Only animated if user hasn't scrolled past already
+    // if (
+    //   scrolledPast(document.querySelector(`.caption--${this.caption.id}`)) ===
+    //   true
+    // ) {
+    //   /* eslint-disable-next-line no-useless-return */
+    //   return
+    // }
+
+    // Timeline class.
+    const TimelineLite = this.$GSAP.TimelineLite
+
+    // Animated elements.
+    const uniqueEl = `.caption--${this.caption.uniqueId}`
+    const caption = {
+      flairLeft: document.querySelector(`${uniqueEl} .caption__flair-left`),
+      flairRight: document.querySelector(`${uniqueEl} .caption__flair-right`),
+      content: document.querySelector(`${uniqueEl} .caption__content`),
+      text: document.querySelector(`${uniqueEl} .caption__text`),
+      cta: document.querySelector(this.caption.cta)
+    }
+
+    // Creat flair timeline.
+    const captionTimeline = new TimelineLite({
+      onComplete: timelineCleanup,
+      onCompleteParams: [caption]
+    })
+
+    captionTimeline
+      .fromTo(
+        caption.content,
+        0.5,
+        { y: -60, opacity: 0 },
+        { y: 0, opacity: 1 }
+      )
+      .fromTo(caption.flairLeft, 1.25, { y: -70 }, { y: 0 }, '-=0.25')
+      .fromTo(caption.flairRight, 1.75, { y: -200 }, { y: 0 }, '-=0.85')
+      .fromTo(
+        caption.text,
+        1,
+        { y: -15, opacity: 0 },
+        { y: 0, opacity: 1 },
+        '-=2'
+      )
+      .fromTo(
+        caption.cta,
+        1,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1 },
+        '-=1.0'
+      )
+
+    // Reveal flair animation on scroll.
+    scrollMagicScene(this, captionTimeline, uniqueEl, 0.5)
   }
 }
 </script>

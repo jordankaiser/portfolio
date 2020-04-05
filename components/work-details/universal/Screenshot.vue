@@ -1,11 +1,11 @@
 <template>
   <div class="container container--narrow">
-    <div class="screenshot">
+    <div :class="`screenshot--${screenshot.id}`" class="screenshot">
       <div class="screenshot__image">
         <Flair :modifiers="screenshot.animationConfig" />
         <img
           :data-src="require(`~/assets/img/work/${screenshot.image}`)"
-          :src="screenshot.placeholder"
+          :src="placeholder"
           alt="MemorialCare"
           class="animatelazyload lazyload"
         />
@@ -29,6 +29,7 @@ export default {
       type: Object,
       default: function() {
         return {
+          id: 'default',
           image: '',
           placeholderConfig: {
             initial: null,
@@ -55,6 +56,7 @@ export default {
       this.screenshot.placeholderConfig.width,
       this.screenshot.placeholderConfig.height
     )
+    console.log(this.placeholder)
   }
 }
 </script>
