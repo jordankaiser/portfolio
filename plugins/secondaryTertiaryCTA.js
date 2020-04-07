@@ -9,7 +9,11 @@
  *
  */
 import TimelineLite from 'gsap/umd/TimelineLite'
+import EasePack from 'gsap/umd/EasePack'
 export function secondaryTertiaryCTA(elements, type) {
+  /* eslint-disable-next-line no-unused-vars */
+  const plugins = [EasePack]
+
   const ctas = document.querySelectorAll(elements)
   const textXMove = type === 'secondary' ? 5 : 8
   Array.from(ctas).forEach(cta => {
