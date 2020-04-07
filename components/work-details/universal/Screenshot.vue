@@ -56,7 +56,6 @@ export default {
       this.screenshot.placeholderConfig.width,
       this.screenshot.placeholderConfig.height
     )
-    console.log(this.placeholder)
   }
 }
 </script>

@@ -133,7 +133,7 @@ export default {
         },
         animationConfig: {
           id: 'mc-screenshot',
-          revealOffset: 0.3,
+          revealOffset: 0.75,
           initialDelay: '+=0',
           triggerEl: '.screenshot'
         }
