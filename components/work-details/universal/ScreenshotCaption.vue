@@ -65,21 +65,21 @@ export default {
         { y: -60, opacity: 0 },
         { y: 0, opacity: 1 }
       )
-      .fromTo(caption.flairLeft, 1.25, { y: -70 }, { y: 0 }, '-=0.25')
-      .fromTo(caption.flairRight, 1.75, { y: -200 }, { y: 0 }, '-=0.85')
+      .fromTo(caption.flairLeft, 0.75, { y: -70 }, { y: 0 }, '-=0.25')
+      .fromTo(caption.flairRight, 1.25, { y: -200 }, { y: 0 }, '-=0.45')
       .fromTo(
         caption.text,
-        1,
+        0.5,
         { y: -15, opacity: 0 },
         { y: 0, opacity: 1 },
-        '-=2'
+        '-=1.5'
       )
       .fromTo(
         caption.cta,
-        1,
+        0.5,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1 },
-        '-=1.0'
+        '-=1'
       )
 
     // Reveal flair animation on scroll.
