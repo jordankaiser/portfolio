@@ -75,6 +75,9 @@
           </div>
         </div>
       </div>
+      <div class="work-details__sub-segment">
+        <CtaHero />
+      </div>
       <div
         class="work-details__sub-segment work-details__sub-segment--placeholder"
       ></div>
@@ -89,6 +92,7 @@ import ScreenshotCaption from '~/components/work-details/universal/ScreenshotCap
 import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
 import CtaSecondary from '~/components/ctas/CTASecondary'
+import CtaHero from '~/components/ctas/CTAHero'
 
 // Libraries.
 import 'lazysizes'
@@ -103,7 +107,8 @@ export default {
     ScreenshotCaption,
     HeaderFlair,
     Flair,
-    CtaSecondary
+    CtaSecondary,
+    CtaHero
   },
   data: function() {
     return {
