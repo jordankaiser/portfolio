@@ -50,7 +50,7 @@ export default {
   &--mc {
     #cta-arrow-up,
     #cta-arrow-down {
-      fill: $color-mc-purple-dark;
+      fill: $color-mc-blue-medium;
     }
   }
 }

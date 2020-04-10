@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="work-details__sub-segment">
-        <CtaHero :id="id" />
+        <CtaHero :cta="ctaHero" />
       </div>
       <div
         class="work-details__sub-segment work-details__sub-segment--placeholder"
@@ -147,6 +147,12 @@ export default {
         id: 'mc',
         uniqueId: 'one',
         cta: '.screenshot--one .cta-secondary'
+      },
+      ctaHero: {
+        id: 'mc',
+        text: 'Visit Website',
+        link: 'https://wwww.memorialcare.org',
+        linkTarget: '_blank'
       }
     }
   },

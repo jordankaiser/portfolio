@@ -1,9 +1,9 @@
 <template>
-  <div :class="`cta-hero cta-hero--${id}`">
-    <nuxt-link to="/styleguide" class="cta-hero__link">
-      <div class="cta-hero__text">About Me</div>
+  <div :class="`cta-hero cta-hero--${cta.id}`">
+    <nuxt-link :to="cta.link" class="cta-hero__link" :target="cta.target">
+      <div class="cta-hero__text">{{ cta.text }}</div>
       <div class="cta-hero__arrow">
-        <cta-arrow :id="id" />
+        <cta-arrow :id="cta.id" />
       </div>
     </nuxt-link>
   </div>
@@ -28,6 +28,17 @@ export default {
     id: {
       type: String,
       default: 'default'
+    },
+    cta: {
+      type: Object,
+      default: function() {
+        return {
+          id: 'default',
+          text: 'About Me',
+          link: '/about-me',
+          linkTarget: '_self'
+        }
+      }
     }
   },
   mounted: function() {
@@ -83,7 +94,7 @@ export default {
   &--mc {
     // MemorialCare.
     .cta-hero__link {
-      background-color: $color-mc-purple-dark;
+      background-color: $color-mc-blue-medium;
     }
   }
   &__link {
