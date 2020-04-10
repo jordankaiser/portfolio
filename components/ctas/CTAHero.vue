@@ -1,9 +1,9 @@
 <template>
-  <div class="cta-hero">
+  <div :class="`cta-hero cta-hero--${id}`">
     <nuxt-link to="/styleguide" class="cta-hero__link">
       <div class="cta-hero__text">About Me</div>
       <div class="cta-hero__arrow">
-        <cta-arrow />
+        <cta-arrow :id="id" />
       </div>
     </nuxt-link>
   </div>
@@ -25,9 +25,9 @@ export default {
     CtaArrow
   },
   props: {
-    color: {
+    id: {
       type: String,
-      default: 'white'
+      default: 'default'
     }
   },
   mounted: function() {
@@ -75,12 +75,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
-// CTA Hero Link
 .cta-hero {
   position: relative;
   display: flex;
   justify-content: center;
 
+  &--mc {
+    // MemorialCare.
+    .cta-hero__link {
+      background-color: $color-mc-purple-dark;
+    }
+  }
   &__link {
     flex: 0 1 auto;
     padding: 20px 38px;

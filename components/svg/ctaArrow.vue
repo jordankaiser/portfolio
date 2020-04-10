@@ -5,6 +5,7 @@
     viewBox="0 0 12 15"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    :class="`arrow arrow--${id}`"
   >
     <path
       id="cta-arrow-down"
@@ -27,3 +28,30 @@
     />
   </svg>
 </template>
+<script>
+export default {
+  props: {
+    id: {
+      type: String,
+      default: 'default'
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+@import '~/assets/scss/_variables.scss';
+.arrow {
+  &--default {
+    #cta-arrow-up,
+    #cta-arrow-down {
+      fill: #740606;
+    }
+  }
+  &--mc {
+    #cta-arrow-up,
+    #cta-arrow-down {
+      fill: $color-mc-purple-dark;
+    }
+  }
+}
+</style>

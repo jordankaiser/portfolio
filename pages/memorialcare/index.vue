@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="work-details__sub-segment">
-        <CtaHero />
+        <CtaHero :id="id" />
       </div>
       <div
         class="work-details__sub-segment work-details__sub-segment--placeholder"
