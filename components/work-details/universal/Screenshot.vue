@@ -6,7 +6,7 @@
         <img
           :data-src="require(`~/assets/img/work/${screenshot.image}`)"
           :src="placeholder"
-          alt="MemorialCare"
+          :alt="screenshot.alt"
           class="animatelazyload lazyload"
         />
         <slot name="caption"></slot>

@@ -101,7 +101,8 @@ export default {
    * MemorialCare
    */
   &--mc-tools,
-  &--mc-screenshot {
+  &--mc-screenshot,
+  &[class*='mc-screenshot'] {
     .flair__box--one {
       background-color: $color-mc-blue;
     }

@@ -73,6 +73,28 @@
               </template>
             </Screenshot>
           </div>
+          <div class="screenshots__screenshot">
+            <!-- Slot for Screenshot.vue -->
+            <Screenshot :screenshot="screenshotTwo">
+              <template v-slot:caption>
+                <!-- Slot for ScreenshotCaption.vue -->
+                <ScreenshotCaption :caption="screenshotTwoCaption">
+                  <template v-slot:captionText>
+                    <p>
+                      One of the objectives for the project was allow the user
+                      to specify a particular medical location. Once chosen the
+                      user sees specific content for that location throughout
+                      the site. The Cancer Care service page is one example of
+                      this.
+                    </p>
+                  </template>
+                </ScreenshotCaption>
+              </template>
+              <template v-slot:cta>
+                <CtaSecondary :link="screenshotTwoLink" :varient="id" />
+              </template>
+            </Screenshot>
+          </div>
         </div>
       </div>
       <div class="work-details__sub-segment">
@@ -128,25 +150,51 @@ export default {
         href: 'https://memorialcare.org/cash-pricing',
         target: '_blank'
       },
+      screenshotTwoLink: {
+        text: 'Cancer Care Service',
+        href: 'https://www.memorialcare.org/services/cancer-care',
+        target: '_blank'
+      },
       screenshotOne: {
         id: 'one',
         image: 'mc/work-small-homepage-mobile.jpg',
+        alt: 'MemorialCare Home Page',
         placeholderConfig: {
           initial: null,
           width: '580',
           height: '1948'
         },
         animationConfig: {
-          id: 'mc-screenshot',
+          id: 'mc-screenshot-one',
           revealOffset: 0.75,
           initialDelay: '+=0',
-          triggerEl: '.screenshot'
+          triggerEl: '.screenshot--one'
+        }
+      },
+      screenshotTwo: {
+        id: 'two',
+        image: 'mc/work-small-service-line.jpg',
+        placeholderConfig: {
+          initial: null,
+          width: '582',
+          height: '570'
+        },
+        animationConfig: {
+          id: 'mc-screenshot-two',
+          revealOffset: 0.75,
+          initialDelay: '+=0',
+          triggerEl: '.screenshot--two'
         }
       },
       screenshotOneCaption: {
         id: 'mc',
         uniqueId: 'one',
         cta: '.screenshot--one .cta-secondary'
+      },
+      screenshotTwoCaption: {
+        id: 'mc',
+        uniqueId: 'two',
+        cta: '.screenshot--two .cta-secondary'
       },
       ctaHero: {
         id: 'mc',

@@ -1,7 +1,7 @@
 /**
  * Animate secondary and tertiary CTA interactions.
  *
- * @param {object} elements - An object of document.querySelector type elements.
+ * @param {object} elements - An object of document.querySelectorAll() type elements.
  *
  * @example
  *
@@ -18,9 +18,9 @@ export function secondaryTertiaryCTA(elements, type) {
   const textXMove = type === 'secondary' ? 5 : 8
   Array.from(ctas).forEach(cta => {
     const timeline = new TimelineLite({ paused: true })
-    const widthOffset = -Math.abs(
-      document.querySelector(`.cta-${type}__link`).offsetWidth
-    )
+    const widthOffset = -Math.abs(cta.offsetWidth)
+
+    console.log(widthOffset)
 
     timeline
       /* eslint-disable-next-line */
