@@ -100,6 +100,9 @@
       <div class="work-details__sub-segment">
         <CtaHero :cta="ctaHero" />
       </div>
+      <div class="work-details__sub-segment">
+        <Footer :footer="footer" />
+      </div>
       <div
         class="work-details__sub-segment work-details__sub-segment--placeholder"
       ></div>
@@ -115,6 +118,7 @@ import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
 import CtaSecondary from '~/components/ctas/CTASecondary'
 import CtaHero from '~/components/ctas/CTAHero'
+import Footer from '~/components/works/mc/Footer.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -130,7 +134,8 @@ export default {
     HeaderFlair,
     Flair,
     CtaSecondary,
-    CtaHero
+    CtaHero,
+    Footer
   },
   data: function() {
     return {
@@ -201,6 +206,10 @@ export default {
         text: 'Visit Website',
         link: 'https://wwww.memorialcare.org',
         linkTarget: '_blank'
+      },
+      footer: {
+        revealOffset: 0.85,
+        triggerEl: '.work-details__sub-segment .pill-footer'
       }
     }
   },

@@ -236,23 +236,6 @@ export default {
       0.25
     )
     scrollMagicScene(vm, ctasTimeline, '.work__segment--ezgo .work__ctas', 0.9)
-
-    // Footer reveal.
-    const footerIllustrations = {
-      left: document.querySelector('.work__segment--ezgo .golf-footer__left'),
-      middle: document.querySelector(
-        '.work__segment--ezgo .golf-footer__middle'
-      ),
-      right: document.querySelector('.work__segment--ezgo .golf-footer__right')
-    }
-    const footerTimeline = new TimelineLite({
-      onComplete: timelineCleanup,
-      onCompleteParams: [footerIllustrations]
-    })
-    footerTimeline.from(footerIllustrations.middle, 0.5, { y: 70 })
-    footerTimeline.from(footerIllustrations.left, 0.5, { y: 70 }, '-=0.25')
-    footerTimeline.from(footerIllustrations.right, 0.5, { y: 70 }, '-=0.4')
-    scrollMagicScene(vm, footerTimeline, '.work__segment--ezgo .golf-footer', 1)
   }
 }
 </script>

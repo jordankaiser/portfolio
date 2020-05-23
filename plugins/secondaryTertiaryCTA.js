@@ -20,8 +20,6 @@ export function secondaryTertiaryCTA(elements, type) {
     const timeline = new TimelineLite({ paused: true })
     const widthOffset = -Math.abs(cta.offsetWidth)
 
-    console.log(widthOffset)
-
     timeline
       /* eslint-disable-next-line */
       .to(cta.querySelector(`.cta-${type}__icon`), 0.5, { x: widthOffset,  ease: Back.easeOut.config( 1.7) })

@@ -274,28 +274,6 @@ export default {
       0.25
     )
     scrollMagicScene(vm, ctasTimeline, '.work__segment--nsf .work__ctas', 0.9)
-
-    // Footer reveal.
-    const footerIllustrations = {
-      left: document.querySelector('.work__segment--nsf .corn-footer__left'),
-      middle: document.querySelector(
-        '.work__segment--nsf .corn-footer__middle'
-      ),
-      right: document.querySelector('.work__segment--nsf .corn-footer__right')
-    }
-    const footerTimeline = new TimelineLite({
-      onComplete: timelineCleanup,
-      onCompleteParams: [footerIllustrations]
-    })
-    footerTimeline.from(footerIllustrations.middle, 0.5, { y: 50 })
-    footerTimeline.from(footerIllustrations.left, 0.5, { y: 50 }, '-=0.25')
-    footerTimeline.from(footerIllustrations.right, 0.5, { y: 50 }, '-=0.4')
-    scrollMagicScene(
-      vm,
-      footerTimeline,
-      '.work__segment--nsf .corn-footer',
-      0.85
-    )
   }
 }
 </script>

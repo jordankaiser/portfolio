@@ -47,7 +47,10 @@
       </div>
       <div class="work__footer container container--narrow">
         <div class="work__footer-wrapper">
-          <component :is="work.footer"></component>
+          <component
+            :is="work.footer.component"
+            :modifiers="work.footer.modifiers"
+          ></component>
         </div>
       </div>
     </div>
@@ -122,7 +125,13 @@ export default {
               target: '_self'
             }
           },
-          footer: MCFooter
+          footer: {
+            component: MCFooter,
+            modifiers: {
+              triggerEl: '.work__segment--mc .pill-footer',
+              revealOffset: '0.85'
+            }
+          }
         },
         {
           id: 'nsf',
@@ -150,7 +159,13 @@ export default {
               target: '_self'
             }
           },
-          footer: NSFFooter
+          footer: {
+            component: NSFFooter,
+            modifiers: {
+              triggerEl: '.work__segment--nsf .corn-footer',
+              revealOffset: '0.85'
+            }
+          }
         },
         {
           id: 'ezgo',
@@ -178,7 +193,13 @@ export default {
               target: '_self'
             }
           },
-          footer: EZGOFooter
+          footer: {
+            component: EZGOFooter,
+            modifiers: {
+              triggerEl: '.work__segment--ezgo .golf-footer',
+              revealOffset: '1'
+            }
+          }
         }
       ]
     }
