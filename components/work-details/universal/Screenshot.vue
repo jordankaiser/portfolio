@@ -70,6 +70,9 @@ export default {
     flex: 0 1 auto;
     max-width: 290px;
 
+    @include breakpoint($medium) {
+      max-width: 600px;
+    }
     img {
       width: 100%;
       height: auto;

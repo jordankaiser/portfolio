@@ -17,6 +17,10 @@ $ npm start
 
 # generate static project
 $ npm run generate
+
+# push to heroku
+$ git push heroku master
+
 ```
 
 ## Code Editor setup.
@@ -124,6 +128,8 @@ Using [lazyimages](https://github.com/aFarkas/lazysizes). In order to use the `d
 ## Deployment
 
 Followed the [How to deploy on Heroku?](https://nuxtjs.org/faq/heroku-deployment/) documentation to deploy to heroku.
+
+`git push heroku master`
 
 For custom domain name setup followed the [Custom Domain Names for Apps](https://devcenter.heroku.com/articles/custom-domains) documentation.
 

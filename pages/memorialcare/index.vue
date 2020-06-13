@@ -162,7 +162,7 @@ export default {
       },
       screenshotOne: {
         id: 'one',
-        image: 'mc/work-small-homepage-mobile.jpg',
+        image: 'mc/work-cash-pricing.jpg',
         alt: 'MemorialCare Home Page',
         placeholderConfig: {
           initial: null,
@@ -339,6 +339,17 @@ export default {
   &__illustration {
     flex: 0 1 auto;
     width: 140px;
+  }
+}
+.screenshots {
+  @include breakpoint($medium) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  &__screenshot {
+    flex: 0 1 auto;
   }
 }
 </style>
