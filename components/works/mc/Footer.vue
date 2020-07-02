@@ -34,7 +34,6 @@
 </template>
 <script>
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
-// import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 export default {
   props: {
@@ -49,11 +48,6 @@ export default {
     }
   },
   mounted: function() {
-    // Only animated if user hasn't scrolled past already
-    // if (scrolledPast(document.querySelector('.work__segment--mc')) === true) {
-    //   return
-    // }
-
     // Broadly scopped variables.
     const vm = this
     const TimelineLite = vm.$GSAP.TimelineLite
@@ -77,14 +71,14 @@ export default {
         0.75,
         { y: 60, rotation: 0 },
         /* eslint-disable-next-line no-undef */
-        { y: -23, rotation: 188, ease: Back.easeOut.config(1.7) }
+        { y: -28, rotation: 188, ease: Back.easeOut.config(1.7) }
       )
       .fromTo(
         footerIllustrations.circle2,
         0.75,
         { y: 30, rotation: -100 },
         /* eslint-disable-next-line no-undef */
-        { y: -8, rotation: 164, ease: Back.easeOut.config(1.7) },
+        { y: -13, rotation: 164, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
       .fromTo(
@@ -92,7 +86,7 @@ export default {
         0.75,
         { y: 60, rotation: -201 },
         /* eslint-disable-next-line no-undef */
-        { y: -15, rotation: 19, ease: Back.easeOut.config(1.7) },
+        { y: -20, rotation: 19, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
       .fromTo(
@@ -100,7 +94,7 @@ export default {
         0.75,
         { y: 60, rotation: -201 },
         /* eslint-disable-next-line no-undef */
-        { y: -15, rotation: 146, ease: Back.easeOut.config(1.7) },
+        { y: -20, rotation: 146, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
       .fromTo(
@@ -108,7 +102,7 @@ export default {
         0.75,
         { y: 60, rotation: -201 },
         /* eslint-disable-next-line no-undef */
-        { y: 1, rotation: 57, ease: Back.easeOut.config(1.7) },
+        { y: -4, rotation: 57, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
       .fromTo(
@@ -116,7 +110,7 @@ export default {
         0.75,
         { y: 60, rotation: -201 },
         /* eslint-disable-next-line no-undef */
-        { y: -4, rotation: 119, ease: Back.easeOut.config(1.7) },
+        { y: -9, rotation: 119, ease: Back.easeOut.config(1.7) },
         '-=0.65'
       )
     scrollMagicScene(
@@ -144,13 +138,13 @@ export default {
     height: auto;
 
     &--1 {
-      transform: translate(14px, -4px) rotate(119deg);
+      transform: translate(14px, -9px) rotate(119deg);
     }
     &--2 {
-      transform: translate(4px, -8px) rotate(164deg);
+      transform: translate(4px, -13px) rotate(164deg);
     }
     &--3 {
-      transform: translate(-5px, -15px) rotate(19deg);
+      transform: translate(-5px, -20px) rotate(19deg);
     }
   }
   &__oval {
@@ -158,13 +152,13 @@ export default {
     height: auto;
 
     &--1 {
-      transform: translate(7px, -15px) rotate(146deg);
+      transform: translate(7px, -20px) rotate(146deg);
     }
     &--2 {
-      transform: translate(0px, -23px) rotate(188deg);
+      transform: translate(0px, -28px) rotate(188deg);
     }
     &--3 {
-      transform: translate(-10px, 1px) rotate(57deg);
+      transform: translate(-10px, -4px) rotate(57deg);
     }
   }
 }

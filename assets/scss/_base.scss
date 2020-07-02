@@ -7,7 +7,7 @@
 }
 body {
   margin: 0;
-  background: $color-red-dark;
+  background: lighten($color-ezgo-blue-dark, 25);
   color: $color-blue;
   font-family: $font-open-sans;
 }
@@ -32,6 +32,9 @@ body {
   padding-bottom: $s1;
   background-color: $color-white;
 
+  &:last-of-type {
+    padding-bottom: 0;
+  }
   &--dark {
     background-color: $navy-dark;
   }

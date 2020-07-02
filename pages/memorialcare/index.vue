@@ -25,29 +25,6 @@
         </div>
       </div>
       <div class="work-details__sub-segment">
-        <div class="container container--narrow">
-          <div class="work-details__flair">
-            <Flair :modifiers="toolsModifiers" />
-          </div>
-          <div class="tools">
-            <div class="tools__listing">
-              <h4 class="tools__list-title">Tools</h4>
-              <ul class="tools__list">
-                <li class="tools__list-item">Drupal</li>
-                <li class="tools__list-item">PHP</li>
-                <li class="tools__list-item">Javascript</li>
-                <li class="tools__list-item">Vue.js</li>
-                <li class="tools__list-item">Twig</li>
-                <li class="tools__list-item">SCSS</li>
-              </ul>
-            </div>
-            <div class="tools__illustration">
-              <Hero />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="work-details__sub-segment">
         <div class="screenshots">
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
@@ -98,14 +75,34 @@
         </div>
       </div>
       <div class="work-details__sub-segment">
+        <div class="container container--narrow">
+          <div class="work-details__flair">
+            <Flair :modifiers="toolsModifiers" />
+          </div>
+          <div class="tools">
+            <div class="tools__listing">
+              <h4 class="tools__list-title">Tools</h4>
+              <ul class="tools__list">
+                <li class="tools__list-item">Drupal</li>
+                <li class="tools__list-item">PHP</li>
+                <li class="tools__list-item">Javascript</li>
+                <li class="tools__list-item">Vue.js</li>
+                <li class="tools__list-item">Twig</li>
+                <li class="tools__list-item">SCSS</li>
+              </ul>
+            </div>
+            <div class="tools__illustration">
+              <Hero />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="work-details__sub-segment">
         <CtaHero :cta="ctaHero" />
       </div>
       <div class="work-details__sub-segment">
         <Footer :footer="footer" />
       </div>
-      <div
-        class="work-details__sub-segment work-details__sub-segment--placeholder"
-      ></div>
     </section>
   </div>
 </template>
@@ -208,6 +205,7 @@ export default {
         linkTarget: '_blank'
       },
       footer: {
+        id: 'mc',
         revealOffset: 0.85,
         triggerEl: '.work-details__sub-segment .pill-footer'
       }
@@ -270,12 +268,21 @@ export default {
     span {
       color: #2c024d;
     }
+    @include breakpoint($medium) {
+      font-size: $fs0;
+      line-height: $fs0;
+    }
   }
   &__title {
     margin-top: 5px;
     font-weight: bold;
     font-size: $fs3;
     line-height: $fs3;
+
+    @include breakpoint($medium) {
+      font-size: $fs5;
+      line-height: $fs5;
+    }
   }
   &__description {
     margin-top: 40px;
@@ -347,9 +354,14 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
   }
   &__screenshot {
     flex: 0 1 auto;
   }
+}
+.pill-footer {
+  margin: 0 auto;
 }
 </style>
