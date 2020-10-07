@@ -5,22 +5,19 @@
         <div class="work-details__header-flair">
           <HeaderFlair :modifiers="headerModifiers" />
         </div>
-        <div class="introduction container container--narrow">
-          <div class="introduction">
-            <h4 class="introduction__roles">
-              Roles <span>|</span> Development
-            </h4>
-            <h1 class="introduction__title">MemorialCare</h1>
-            <div class="introduction__description">
-              <p>
-                Introduction of work donec maximus turpis eget quam elementum
-                laoreet. Quisque euismod leo a magna congue, vitae scelerisque
-                eros dapibus. Mauris in quam vitae tortor consectetur volutpat
-                at id purus. Maecenas maximus nibh quis mauris molestie, at
-                lacinia arcu finibus. Mauris at sem at metus luctus mattis vel
-                ac massa.
-              </p>
-            </div>
+        <div class="introduction">
+          <h4 class="introduction__roles container container--narrow">
+            Roles <span>|</span> Development
+          </h4>
+          <h1 class="introduction__title container">MemorialCare</h1>
+          <div class="introduction__description container container--narrow">
+            <p>
+              Introduction of work donec maximus turpis eget quam elementum
+              laoreet. Quisque euismod leo a magna congue, vitae scelerisque
+              eros dapibus. Mauris in quam vitae tortor consectetur volutpat at
+              id purus. Maecenas maximus nibh quis mauris molestie, at lacinia
+              arcu finibus. Mauris at sem at metus luctus mattis vel ac massa.
+            </p>
           </div>
         </div>
       </div>
@@ -264,6 +261,7 @@ export default {
   &__roles {
     font-size: $fs-1;
     line-height: $fs-1;
+    text-align: center;
 
     span {
       color: #2c024d;
@@ -274,18 +272,21 @@ export default {
     }
   }
   &__title {
-    margin-top: 5px;
+    margin-top: $s0;
     font-weight: bold;
-    font-size: $fs3;
-    line-height: $fs3;
+    font-size: $fs5;
+    line-height: $fs5;
+    word-break: break-all;
+    text-align: center;
 
     @include breakpoint($medium) {
-      font-size: $fs5;
-      line-height: $fs5;
+      font-size: $fs8;
+      line-height: $fs7;
+      word-break: break-all;
     }
   }
   &__description {
-    margin-top: 40px;
+    margin-top: $s0;
   }
 }
 .tools {
