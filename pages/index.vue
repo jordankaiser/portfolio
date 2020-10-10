@@ -107,12 +107,7 @@ export default {
 
     @include breakpoint($small) {
       & {
-        width: 146px;
-      }
-    }
-    @include breakpoint($extralarge) {
-      & {
-        width: 200px;
+        width: 25px;
       }
     }
   }

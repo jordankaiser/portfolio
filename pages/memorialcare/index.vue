@@ -274,16 +274,11 @@ export default {
   &__title {
     margin-top: $s0;
     font-weight: bold;
-    font-size: $fs5;
-    line-height: $fs5;
-    word-break: break-all;
     text-align: center;
-
-    @include breakpoint($medium) {
-      font-size: $fs8;
-      line-height: $fs7;
-      word-break: break-all;
-    }
+    font-size: $fs4;
+    line-height: $fs4;
+    font-size: calc(min(max(40px, 4.5vw), 65px));
+    line-height: calc(min(max(40px, 4.5vw), 65px));
   }
   &__description {
     margin-top: $s0;
@@ -299,6 +294,7 @@ export default {
   padding-right: 15px;
   border-radius: 10px;
   box-shadow: $box-shadow;
+  background-color: lighten($color-mc-purple, 6);
 
   &__listing {
     flex: 0 1 auto;
@@ -342,6 +338,7 @@ export default {
       width: 5px;
       height: 20px;
       background-color: $color-mc-pink;
+      border-radius: 5px;
     }
   }
   &__illustration {
@@ -355,7 +352,7 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   &__screenshot {

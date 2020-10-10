@@ -271,9 +271,9 @@ export default {
         display: none;
         left: 0;
         bottom: 0;
-        width: 146px;
+        width: 25px;
         height: 80%;
-        border-top-right-radius: 146px;
+        border-top-right-radius: 25px;
       }
       &:before {
         content: '';
@@ -281,20 +281,14 @@ export default {
         display: none;
         right: 0;
         top: 0;
-        width: 146px;
+        width: 25px;
         height: 80%;
-        border-bottom-left-radius: 146px;
+        border-bottom-left-radius: 25px;
       }
       @include breakpoint($large) {
         &:after,
         &:before {
           display: block;
-        }
-      }
-      @include breakpoint($extralarge) {
-        &::before,
-        &:after {
-          width: 200px;
         }
       }
     }
@@ -305,9 +299,9 @@ export default {
         position: absolute;
         right: 0;
         bottom: 0;
-        width: 146px;
+        width: 25px;
         height: 80%;
-        border-top-left-radius: 146px;
+        border-top-left-radius: 25px;
       }
       &:before {
         content: '';
@@ -315,20 +309,14 @@ export default {
         position: absolute;
         left: 0;
         top: 0;
-        width: 146px;
+        width: 25px;
         height: 80%;
-        border-bottom-right-radius: 146px;
+        border-bottom-right-radius: 25px;
       }
       @include breakpoint($large) {
         &:after,
         &:before {
           display: block;
-        }
-      }
-      @include breakpoint($extralarge) {
-        &::before,
-        &:after {
-          width: 200px;
         }
       }
     }
