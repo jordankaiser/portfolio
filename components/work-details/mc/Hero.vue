@@ -50,6 +50,16 @@ import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 export default {
+  props: {
+    modifiers: {
+      type: Object,
+      default: function() {
+        return {
+          revealOffset: 0.6
+        }
+      }
+    }
+  },
   mounted: function() {
     // Only animated if user hasn't scrolled past already
     if (scrolledPast(document.querySelector('.mc-hero')) === true) {
@@ -70,6 +80,7 @@ export default {
       circle: document.querySelector('.mc-hero__circle')
     }
     const TimelineLite = this.$GSAP.TimelineLite
+    const vm = this
 
     // Hero timeline.
     const heroTimeline = new TimelineLite({
@@ -219,7 +230,7 @@ export default {
       )
 
     // Reveal on scroll.
-    scrollMagicScene(this, heroTimeline, '.mc-hero', 0.6)
+    scrollMagicScene(this, heroTimeline, '.mc-hero', vm.modifiers.revealOffset)
   }
 }
 </script>

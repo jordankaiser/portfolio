@@ -42,7 +42,8 @@ export default {
       default: function() {
         return {
           revealOffset: 0.85,
-          triggerEl: '.pill-footer'
+          triggerEl: '.pill-footer',
+          initialDelay: '+=0'
         }
       }
     }
@@ -71,7 +72,8 @@ export default {
         0.75,
         { y: 60, rotation: 0 },
         /* eslint-disable-next-line no-undef */
-        { y: -28, rotation: 188, ease: Back.easeOut.config(1.7) }
+        { y: -28, rotation: 188, ease: Back.easeOut.config(1) },
+        `${this.modifiers.initialDelay}`
       )
       .fromTo(
         footerIllustrations.circle2,

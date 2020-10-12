@@ -89,7 +89,7 @@
               </ul>
             </div>
             <div class="tools__illustration">
-              <Hero />
+              <Hero :modifiers="hero" />
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@
         <CtaHero :cta="ctaHero" />
       </div>
       <div class="work-details__sub-segment">
-        <Footer :footer="footer" />
+        <FooterPills :modifiers="footerPills" />
       </div>
     </section>
   </div>
@@ -112,7 +112,7 @@ import HeaderFlair from '~/components/work-details/universal/HeaderFlair.vue'
 import Flair from '~/components/work-details/universal/Flair.vue'
 import CtaSecondary from '~/components/ctas/CTASecondary'
 import CtaHero from '~/components/ctas/CTAHero'
-import Footer from '~/components/works/mc/Footer.vue'
+import FooterPills from '~/components/works/mc/Footer.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -129,7 +129,7 @@ export default {
     Flair,
     CtaSecondary,
     CtaHero,
-    Footer
+    FooterPills
   },
   data: function() {
     return {
@@ -201,10 +201,14 @@ export default {
         link: 'https://wwww.memorialcare.org',
         linkTarget: '_blank'
       },
-      footer: {
+      hero: {
+        revealOffset: 0.75
+      },
+      footerPills: {
         id: 'mc',
-        revealOffset: 0.85,
-        triggerEl: '.work-details__sub-segment .pill-footer'
+        revealOffset: 1,
+        triggerEl: '.work-details__sub-segment .pill-footer',
+        initialDelay: '+=0.5'
       }
     }
   },
