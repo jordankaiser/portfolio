@@ -43,6 +43,7 @@ export default {
     const TimelineLite = this.$GSAP.TimelineLite
 
     // Animated elements.
+    // const uniqueEl = `.screenshot--${this.caption.uniqueId} img`
     const uniqueEl = `.caption--${this.caption.uniqueId}`
     const caption = {
       flairLeft: document.querySelector(`${uniqueEl} .caption__flair-left`),
@@ -83,7 +84,7 @@ export default {
       )
 
     // Reveal flair animation on scroll.
-    scrollMagicScene(this, captionTimeline, uniqueEl, 0.6)
+    scrollMagicScene(this, captionTimeline, uniqueEl, 0.55)
   }
 }
 </script>

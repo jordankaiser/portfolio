@@ -277,6 +277,7 @@ export default {
   }
   &__title {
     margin-top: $s0;
+    margin-top: calc(min(max(10px, 4.5vw), 30px));
     font-weight: bold;
     text-align: center;
     font-size: $fs4;
@@ -286,6 +287,7 @@ export default {
   }
   &__description {
     margin-top: $s0;
+    margin-top: calc(min(max(10px, 4.5vw), 30px));
   }
 }
 .tools {
