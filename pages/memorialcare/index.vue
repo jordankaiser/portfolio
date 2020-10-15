@@ -140,7 +140,7 @@ export default {
       },
       toolsModifiers: {
         id: 'mc-tools',
-        revealOffset: 0.6,
+        revealOffset: 0.8,
         initialDelay: '+=1',
         triggerEl: '.mc-hero'
       },

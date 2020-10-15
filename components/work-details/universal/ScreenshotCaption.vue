@@ -60,12 +60,7 @@ export default {
     })
 
     captionTimeline
-      .fromTo(
-        caption.content,
-        0.5,
-        { y: -60, opacity: 0 },
-        { y: 0, opacity: 1 }
-      )
+      .fromTo(caption.content, 0.5, { opacity: 0 }, { opacity: 1 })
       .fromTo(caption.flairLeft, 0.75, { y: -70 }, { y: 0 }, '-=0.25')
       .fromTo(caption.flairRight, 1.25, { y: -200 }, { y: 0 }, '-=0.45')
       .fromTo(
