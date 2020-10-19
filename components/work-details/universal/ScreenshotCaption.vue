@@ -79,7 +79,7 @@ export default {
       )
 
     // Reveal flair animation on scroll.
-    scrollMagicScene(this, captionTimeline, uniqueEl, 0.55)
+    scrollMagicScene(this, captionTimeline, uniqueEl, 0.8)
   }
 }
 </script>

@@ -51,7 +51,7 @@ export default {
       placeholder: null
     }
   },
-  mounted: function() {
+  created: function() {
     this.placeholder = imageContentReflow(
       this.screenshot.placeholderConfig.width,
       this.screenshot.placeholderConfig.height

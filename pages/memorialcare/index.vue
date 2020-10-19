@@ -160,8 +160,8 @@ export default {
         alt: 'MemorialCare Home Page',
         placeholderConfig: {
           initial: null,
-          width: '580',
-          height: '1948'
+          width: '1000',
+          height: '1000'
         },
         animationConfig: {
           id: 'mc-screenshot-one',
