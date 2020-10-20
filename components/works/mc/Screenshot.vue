@@ -16,7 +16,7 @@ export default {
       placeholder: null
     }
   },
-  mounted: function() {
+  created: function() {
     this.placeholder = imageContentReflow('678', '638')
   }
 }
@@ -35,21 +35,19 @@ export default {
   padding-bottom: 5px;
   overflow: hidden;
 
-  @include breakpoint($extrasmall) {
+  @include breakpoint($small) {
     overflow: visible;
     justify-content: center;
   }
   img {
     flex: 0 1 auto;
-    max-width: 344px;
     width: 100%;
     height: auto;
     box-shadow: $box-shadow;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 
-    @include breakpoint($extrasmall) {
-      max-width: none;
+    @include breakpoint($small) {
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       overflow: visible;

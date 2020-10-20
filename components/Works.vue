@@ -395,7 +395,7 @@ export default {
     &.container {
       padding-right: 0;
 
-      @include breakpoint($extrasmall) {
+      @include breakpoint($small) {
         margin-top: $s-1;
         max-width: $cs-1;
         padding-right: $s0;

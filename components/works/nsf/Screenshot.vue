@@ -16,7 +16,7 @@ export default {
       placeholder: null
     }
   },
-  mounted: function() {
+  created: function() {
     this.placeholder = imageContentReflow('690', '660')
   }
 }
