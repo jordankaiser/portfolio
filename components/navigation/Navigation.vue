@@ -6,26 +6,38 @@
       <div class="hamburger__line hamburger__line--three"></div>
     </button>
     <div class="links" style="display: none;">
-      <ul>
-        <li class="links__group">
+      <ul class="links__list">
+        <li>
           <span class="links__headline">Work</span>
           <ul>
-            <li class="links__item">
-              <a href="#">MemorialCare</a>
+            <li>
+              <a href="#" class="links__link">
+                MemorialCare
+                <div class="links__link__underline"></div>
+              </a>
             </li>
-            <li class="links__item">
-              <a href="#">E-Z-GO</a>
+            <li>
+              <a href="#" class="links__link">
+                E-Z-GO
+                <div class="links__link__underline"></div>
+              </a>
             </li>
           </ul>
         </li>
-        <li class="links__group">
+        <li>
           <span class="links__headline">Me</span>
           <ul>
-            <li class="links__item">
-              <a href="#">MemorialCare</a>
+            <li>
+              <a href="#" class="links__link">
+                MemorialCare
+                <div class="links__link__underline"></div>
+              </a>
             </li>
-            <li class="links__item">
-              <a href="#">E-Z-GO</a>
+            <li>
+              <a href="#" class="links__link">
+                E-Z-GO
+                <div class="links__link__underline"></div>
+              </a>
             </li>
           </ul>
         </li>
@@ -75,16 +87,32 @@
     font-size: 15px;
     opacity: 0.6;
   }
+  &__link {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+    color: $color-white;
+    text-decoration: none;
+
+    &__underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color-orange;
+    }
+  }
   ul {
     color: $color-white;
     text-align: right;
 
     li {
       position: relative;
+      margin-bottom: $s-1;
 
-      a {
-        color: $color-white;
-        text-decoration: none;
+      & > ul {
+        margin-top: $s-1;
       }
     }
   }
