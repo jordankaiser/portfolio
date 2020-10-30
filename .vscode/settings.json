@@ -18,8 +18,19 @@
   "vetur.validation.template": false,
   "workbench.colorCustomizations": {
     "activityBar.background": "#472133",
-    "titleBar.activeBackground": "#632F47",
-    "titleBar.activeForeground": "#FCF9FA"
+    "titleBar.activeBackground": "#24111a",
+    "titleBar.activeForeground": "#e7e7e7",
+    "activityBar.activeBackground": "#472133",
+    "activityBar.activeBorder": "#4e6d33",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#4e6d33",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#24111a",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#472133",
+    "titleBar.inactiveBackground": "#24111a99",
+    "titleBar.inactiveForeground": "#e7e7e799"
   },
   // ES Lint
   "eslint.options": {
@@ -28,4 +39,5 @@
 "editor.codeActionsOnSave": {
   "source.fixAll.eslint": true
 },
+"peacock.color": "#24111a",
 }

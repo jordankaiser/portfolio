@@ -6,8 +6,13 @@
       <div class="hamburger__line hamburger__line--three"></div>
     </button>
     <div class="links" style="display: none;">
-      <ul class="links__list">
-        <li>
+      <div class="links__backgrounds">
+        <div class="links__background links__background--one"></div>
+        <div class="links__background links__background--two"></div>
+        <div class="links__background links__background--three"></div>
+      </div>
+      <ul>
+        <li class="links__group">
           <span class="links__headline">Work</span>
           <ul>
             <li>
@@ -24,7 +29,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="links__group">
           <span class="links__headline">Me</span>
           <ul>
             <li>
@@ -77,12 +82,41 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding-top: $s1;
-  padding-bottom: $s1;
-  padding-right: $s0;
+  padding-top: 75px;
+  padding-bottom: 25px;
+  padding-right: 20px;
   padding-left: $s0;
-  background-color: $color-mc-purple-dark;
 
+  &__backgrounds {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    overflow: hidden;
+  }
+  &__background {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 20px;
+
+    &--one {
+      background-color: pink;
+      right: -10px;
+      top: -10px;
+    }
+    &--two {
+      background-color: orange;
+      right: -20px;
+      top: -20px;
+    }
+    &--three {
+      background-color: $purple;
+    }
+  }
   &__headline {
     font-size: 15px;
     opacity: 0.6;
@@ -111,8 +145,15 @@
       position: relative;
       margin-bottom: $s-1;
 
+      &.links__group {
+        margin-bottom: 24px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
       & > ul {
-        margin-top: $s-1;
+        margin-top: $s-2;
       }
     }
   }
