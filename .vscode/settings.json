@@ -16,22 +16,6 @@
   "eslint.autoFixOnSave": true,
   "editor.formatOnSave": false,
   "vetur.validation.template": false,
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#472133",
-    "titleBar.activeBackground": "#24111a",
-    "titleBar.activeForeground": "#e7e7e7",
-    "activityBar.activeBackground": "#472133",
-    "activityBar.activeBorder": "#4e6d33",
-    "activityBar.foreground": "#e7e7e7",
-    "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#4e6d33",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "statusBar.background": "#24111a",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#472133",
-    "titleBar.inactiveBackground": "#24111a99",
-    "titleBar.inactiveForeground": "#e7e7e799"
-  },
   // ES Lint
   "eslint.options": {
     "configFile": ".eslintrc.js"
@@ -39,5 +23,21 @@
 "editor.codeActionsOnSave": {
   "source.fixAll.eslint": true
 },
-"peacock.color": "#24111a",
+"workbench.colorCustomizations": {
+  "activityBar.activeBackground": "#5f1d04",
+  "activityBar.activeBorder": "#057a25",
+  "activityBar.background": "#5f1d04",
+  "activityBar.foreground": "#e7e7e7",
+  "activityBar.inactiveForeground": "#e7e7e799",
+  "activityBarBadge.background": "#057a25",
+  "activityBarBadge.foreground": "#e7e7e7",
+  "statusBar.background": "#2e0e02",
+  "statusBar.foreground": "#e7e7e7",
+  "statusBarItem.hoverBackground": "#5f1d04",
+  "titleBar.activeBackground": "#2e0e02",
+  "titleBar.activeForeground": "#e7e7e7",
+  "titleBar.inactiveBackground": "#2e0e0299",
+  "titleBar.inactiveForeground": "#e7e7e799"
+},
+"peacock.color": "2e0e02",
 }

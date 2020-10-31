@@ -1,11 +1,16 @@
 <template>
   <nav class="menu">
-    <button class="hamburger" aria-label="menu" aria-expanded="false">
+    <button
+      class="hamburger"
+      aria-label="menu"
+      aria-expanded="false"
+      @click.prevent="toggleNavigation"
+    >
       <div class="hamburger__line hamburger__line--one"></div>
       <div class="hamburger__line hamburger__line--two"></div>
       <div class="hamburger__line hamburger__line--three"></div>
     </button>
-    <div class="links" style="display: none;">
+    <div class="links">
       <div class="links__backgrounds">
         <div class="links__background links__background--one"></div>
         <div class="links__background links__background--two"></div>
@@ -50,6 +55,31 @@
     </div>
   </nav>
 </template>
+<script>
+export default {
+  data: function() {
+    return {
+      navigationOpen: false
+    }
+  },
+  methods: {
+    toggleNavigation() {
+      const TimelineLite = this.$GSAP.TimelineLite
+      const navLinksTimeline = new TimelineLite({ paused: true })
+
+      // Navigation animation.
+      navLinksTimeline.fromTo('.links', 0.5, { x: 177 }, { x: 0 })
+
+      if (this.navigationOpen) {
+        navLinksTimeline.reverse(0)
+      } else {
+        navLinksTimeline.play()
+      }
+      this.navigationOpen = this.navigationOpen !== true
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_mixins.scss';
 @import '~/assets/scss/_variables.scss';
@@ -86,6 +116,7 @@
   padding-bottom: 25px;
   padding-right: 20px;
   padding-left: $s0;
+  transform: translateX(177px);
 
   &__backgrounds {
     position: absolute;
