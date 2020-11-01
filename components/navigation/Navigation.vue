@@ -1,15 +1,6 @@
 <template>
   <nav class="menu">
-    <button
-      class="hamburger"
-      aria-label="menu"
-      aria-expanded="false"
-      @click.prevent="toggleNavigation"
-    >
-      <div class="hamburger__line hamburger__line--one"></div>
-      <div class="hamburger__line hamburger__line--two"></div>
-      <div class="hamburger__line hamburger__line--three"></div>
-    </button>
+    <hamburger />
     <div class="links">
       <div class="links__backgrounds">
         <div class="links__background links__background--one"></div>
@@ -56,26 +47,14 @@
   </nav>
 </template>
 <script>
+import Hamburger from '~/components/navigation/Hamburger'
 export default {
+  components: {
+    Hamburger
+  },
   data: function() {
     return {
       navigationOpen: false
-    }
-  },
-  methods: {
-    toggleNavigation() {
-      const TimelineLite = this.$GSAP.TimelineLite
-      const navLinksTimeline = new TimelineLite({ paused: true })
-
-      // Navigation animation.
-      navLinksTimeline.fromTo('.links', 0.5, { x: 177 }, { x: 0 })
-
-      if (this.navigationOpen) {
-        navLinksTimeline.reverse(0)
-      } else {
-        navLinksTimeline.play()
-      }
-      this.navigationOpen = this.navigationOpen !== true
     }
   }
 }
@@ -88,25 +67,6 @@ export default {
   top: 0;
   right: 0;
   z-index: 6;
-}
-.hamburger {
-  @include buttonReset;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 12px;
-  height: 48px;
-  background-color: $color-red;
-  border-bottom-left-radius: 10px;
-  z-index: 1;
-
-  &__line {
-    width: 32px;
-    height: 4px;
-    background-color: $color-white;
-    border-radius: 10px;
-  }
 }
 .links {
   position: absolute;
