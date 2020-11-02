@@ -1,14 +1,17 @@
 <template>
-  <button
+  <a
+    href="#"
     class="hamburger"
-    aria-label="menu"
+    aria-label="Open menu."
     aria-expanded="false"
+    tabindex="0"
     @click.prevent="toggleNavigation"
+    @keyup.enter="toggleNavigation"
   >
     <hamburger-top />
     <hamburger-middle />
     <hamburger-bottom />
-  </button>
+  </a>
 </template>
 <script>
 import hamburgerTop from '~/components/svg/hamburgerTop.vue'
@@ -114,13 +117,19 @@ export default {
 @import '~/assets/scss/_variables.scss';
 .hamburger {
   @include buttonReset;
+  display: block;
   position: relative;
   padding: 12px;
   height: 52px;
   background-color: $color-red;
   border-bottom-left-radius: 10px;
+  transition: background-color 500ms;
   z-index: 1;
 
+  &:hover,
+  &:focus {
+    background-color: $color-red-dark;
+  }
   &__middle {
     position: relative;
   }
