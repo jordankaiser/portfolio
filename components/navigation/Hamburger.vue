@@ -1,17 +1,15 @@
 <template>
-  <a
+  <button
     href="#"
     class="hamburger"
     aria-label="Open menu."
     aria-expanded="false"
-    tabindex="0"
     @click.prevent="toggleNavigation"
-    @keyup.enter="toggleNavigation"
   >
     <hamburger-top />
     <hamburger-middle />
     <hamburger-bottom />
-  </a>
+  </button>
 </template>
 <script>
 import hamburgerTop from '~/components/svg/hamburgerTop.vue'
@@ -32,6 +30,7 @@ export default {
     toggleNavigation() {
       const navLinksTimeline = this.animateLinks()
       const hamburgerTimeline = this.hamburgerTimeline()
+      this.$store.commit('toggleMenuOpen')
       if (this.navigationOpen) {
         navLinksTimeline.reverse(0)
         hamburgerTimeline.reverse(0)
@@ -117,7 +116,6 @@ export default {
 @import '~/assets/scss/_variables.scss';
 .hamburger {
   @include buttonReset;
-  display: block;
   position: relative;
   padding: 12px;
   height: 52px;
@@ -128,7 +126,7 @@ export default {
 
   &:hover,
   &:focus {
-    background-color: $color-red-dark;
+    background-color: $color-purple;
   }
   &__middle {
     position: relative;

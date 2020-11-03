@@ -7,7 +7,7 @@
         <div class="links__background links__background--two"></div>
         <div class="links__background links__background--three"></div>
       </div>
-      <ul>
+      <ul class="links__list" tabindex="-1">
         <li class="links__group">
           <span class="links__headline">Work</span>
           <ul>
@@ -105,7 +105,7 @@ export default {
       top: -20px;
     }
     &--three {
-      background-color: $purple;
+      background-color: $color-purple;
     }
   }
   &__headline {
@@ -131,6 +131,7 @@ export default {
   ul {
     color: $color-white;
     text-align: right;
+    visibility: hidden;
 
     li {
       position: relative;
