@@ -7,18 +7,18 @@
         <div class="links__background links__background--two"></div>
         <div class="links__background links__background--three"></div>
       </div>
-      <ul class="links__list" tabindex="-1">
+      <ul class="links__list">
         <li class="links__group">
           <span class="links__headline">Work</span>
           <ul>
             <li>
-              <a href="#" class="links__link">
+              <a :tabindex="tabIndex" href="#" class="links__link">
                 MemorialCare
                 <div class="links__link__underline"></div>
               </a>
             </li>
             <li>
-              <a href="#" class="links__link">
+              <a :tabindex="tabIndex" href="#" class="links__link">
                 E-Z-GO
                 <div class="links__link__underline"></div>
               </a>
@@ -29,13 +29,13 @@
           <span class="links__headline">Me</span>
           <ul>
             <li>
-              <a href="#" class="links__link">
+              <a :tabindex="tabIndex" href="#" class="links__link">
                 MemorialCare
                 <div class="links__link__underline"></div>
               </a>
             </li>
             <li>
-              <a href="#" class="links__link">
+              <a :tabindex="tabIndex" href="#" class="links__link">
                 E-Z-GO
                 <div class="links__link__underline"></div>
               </a>
@@ -56,6 +56,14 @@ export default {
     return {
       navigationOpen: false
     }
+  },
+  computed: {
+    tabIndex() {
+      return this.$store.state.menuOpen === true ? 0 : -1
+    }
+  },
+  mounted() {
+    console.log(this.$store.state.menuOpen)
   }
 }
 </script>
@@ -131,7 +139,6 @@ export default {
   ul {
     color: $color-white;
     text-align: right;
-    visibility: hidden;
 
     li {
       position: relative;
