@@ -97,14 +97,24 @@ export default {
         )
         .fromTo(
           '.hamburger__middle.hamburger__middle--one',
-          0.25,
+          1,
           {
             morphSVG: '.hamburger__middle.hamburger__middle--one'
           },
           {
             morphSVG: '.hamburger__middle.hamburger__middle--two'
+          }
+        )
+        .fromTo(
+          '.hamburger__middle.hamburger__middle--one',
+          1,
+          {
+            morphSVG: '.hamburger__middle.hamburger__middle--two'
           },
-          '-=0.1'
+          {
+            morphSVG: '.hamburger__middle.hamburger__middle--three'
+          },
+          '+=1'
         )
       return timeline
     }
