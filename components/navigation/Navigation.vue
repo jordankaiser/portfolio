@@ -61,9 +61,6 @@ export default {
     tabIndex() {
       return this.$store.state.menuOpen === true ? 0 : -1
     }
-  },
-  mounted() {
-    console.log(this.$store.state.menuOpen)
   }
 }
 </script>

@@ -30,14 +30,17 @@ export default {
     toggleNavigation() {
       const navLinksTimeline = this.animateLinks()
       const hamburgerTimeline = this.hamburgerTimeline()
-      this.$store.commit('toggleMenuOpen')
-      if (this.navigationOpen) {
-        navLinksTimeline.reverse(0)
-      } else {
-        navLinksTimeline.play()
+      console.log(hamburgerTimeline.isActive())
+      if (!hamburgerTimeline.isActive()) {
+        this.$store.commit('toggleMenuOpen')
+        if (this.navigationOpen) {
+          navLinksTimeline.reverse(0)
+        } else {
+          navLinksTimeline.play()
+        }
+        hamburgerTimeline.play()
+        this.navigationOpen = this.navigationOpen !== true
       }
-      hamburgerTimeline.play()
-      this.navigationOpen = this.navigationOpen !== true
     },
     animateLinks() {
       const TimelineLite = this.$GSAP.TimelineLite
@@ -49,72 +52,90 @@ export default {
     },
     hamburgerTimeline() {
       const TimelineLite = this.$GSAP.TimelineLite
+      const timeline = new TimelineLite({ paused: true })
 
       if (this.navigationOpen) {
-        console.log('closing timeo')
-        const closeTimeline = new TimelineLite({ paused: true })
-        closeTimeline
+        timeline
           // Hamburger middle.
-          .to('.hamburger__middle.hamburger__middle--one', 1, {
+          .to('.hamburger__middle.hamburger__middle--one', 0.5, {
             morphSVG: '.hamburger__middle.hamburger__middle--two'
           })
-          .to('.hamburger__middle.hamburger__middle--one', 1, {
+          .to('.hamburger__middle.hamburger__middle--one', 0.5, {
             morphSVG: '.hamburger__middle.hamburger__middle--one'
           })
 
           // Hamburger top.
-          .to('.hamburger__top.hamburger__top--one', 0.1, {
-            morphSVG: '.hamburger__top.hamburger__top--two'
-          })
-          .to('.hamburger__top.hamburger__top--one', 0.1, {
+          .to(
+            '.hamburger__top.hamburger__top--one',
+            0.2,
+            {
+              morphSVG: '.hamburger__top.hamburger__top--two'
+            },
+            '-=0.25'
+          )
+          .to('.hamburger__top.hamburger__top--one', 0.2, {
             morphSVG: '.hamburger__top.hamburger__top--one'
           })
 
           // Hamburger bottom.
-          .to('.hamburger__bottom.hamburger__bottom--one', 0.1, {
-            morphSVG: '.hamburger__bottom.hamburger__bottom--two'
-          })
-          .to('.hamburger__bottom.hamburger__bottom--one', 0.1, {
-            morphSVG: '.hamburger__bottom.hamburger__bottom--one'
-          })
-        return closeTimeline
+          .to(
+            '.hamburger__bottom.hamburger__bottom--one',
+            0.2,
+            {
+              morphSVG: '.hamburger__bottom.hamburger__bottom--two'
+            },
+            '-=0.4'
+          )
+          .to(
+            '.hamburger__bottom.hamburger__bottom--one',
+            0.2,
+            {
+              morphSVG: '.hamburger__bottom.hamburger__bottom--one'
+            },
+            '-=0.2'
+          )
+        return timeline
       } else {
-        const openTimeline = new TimelineLite({ paused: true })
-        openTimeline
+        timeline
           // Hamburger top.
-          .to('.hamburger__top.hamburger__top--one', 0.1, {
+          .to('.hamburger__top.hamburger__top--one', 0.4, {
             morphSVG: '.hamburger__top.hamburger__top--two'
           })
-          .to('.hamburger__top.hamburger__top--one', 0.1, {
+          .to('.hamburger__top.hamburger__top--one', 0.4, {
             morphSVG: '.hamburger__top.hamburger__top--three'
           })
 
           // Hamburger bottom.
           .to(
             '.hamburger__bottom.hamburger__bottom--one',
-            0.1,
+            0.4,
             {
               morphSVG: '.hamburger__bottom.hamburger__bottom--two'
             },
-            '-=0.2'
+            '-=0.8'
           )
           .to(
             '.hamburger__bottom.hamburger__bottom--one',
-            0.1,
+            0.4,
             {
               morphSVG: '.hamburger__bottom.hamburger__bottom--three'
             },
-            '-=0.05'
+            '-=0.4'
           )
 
           // Hamburger middle.
-          .to('.hamburger__middle.hamburger__middle--one', 1, {
-            morphSVG: '.hamburger__middle.hamburger__middle--two'
-          })
-          .to('.hamburger__middle.hamburger__middle--one', 1, {
+          .to(
+            '.hamburger__middle.hamburger__middle--one',
+            0.5,
+            {
+              morphSVG: '.hamburger__middle.hamburger__middle--two'
+            },
+            '-=0.4'
+          )
+          .to('.hamburger__middle.hamburger__middle--one', 0.5, {
             morphSVG: '.hamburger__middle.hamburger__middle--three'
           })
-        return openTimeline
+        return timeline
       }
     }
   }
