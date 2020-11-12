@@ -10,8 +10,5 @@ export default {
       default: 'default title'
     }
   },
-  mounted: function() {
-    console.log('receiving mounted')
-  }
 }
 </script>
