@@ -29,45 +29,46 @@ export default {
   data: function() {
     return {
       hamburgerOpenTimeline: null,
-      hamburgerCloseTimeline: null
+      hamburgerCloseTimeline: null,
+      linksTimeline: null
+    }
+  },
+  computed: {
+    isAnimationPlaying() {
+      return (
+        this.hamburgerOpenTimeline.isActive() === true ||
+        this.hamburgerCloseTimeline.isActive() === true
+      )
     }
   },
   mounted() {
     this.createHamburgerOpenTimeline()
     this.createHamburgerCloseTimeline()
+    this.createLinksTimeline()
   },
   methods: {
     toggleNavigation() {
-      console.log(this.hamburgerOpenTimeline.isActive(), 'open tl')
-      console.log(this.hamburgerCloseTimeline.isActive(), 'close tl')
-      if (
-        this.hamburgerOpenTimeline.isActive() === true ||
-        this.hamburgerCloseTimeline.isActive() === true
-      ) {
-        return
+      // Don't toggle nav if animation is playing.
+      if (this.isAnimationPlaying === false) {
+        this.$store.commit('toggleMenuOpen')
+        if (this.$store.state.menuOpen) {
+          this.linksTimeline.reverse(0)
+          this.hamburgerCloseTimeline.play(0)
+        } else {
+          this.linksTimeline.play()
+          this.hamburgerOpenTimeline.play(0)
+        }
       }
-      const navLinksTimeline = this.animateLinks()
-      this.$store.commit('toggleMenuOpen')
-      if (this.navigationOpen) {
-        console.log('nav open')
-        navLinksTimeline.reverse(0)
-        this.hamburgerCloseTimeline.play()
-      } else {
-        console.log('nav closed')
-        navLinksTimeline.play()
-        this.hamburgerOpenTimeline.play()
-      }
-      this.navigationOpen = this.navigationOpen !== true
     },
-    animateLinks() {
+    createLinksTimeline() {
       const TimelineLite = this.$GSAP.TimelineLite
       const timeline = new TimelineLite({ paused: true })
 
       // Navigation animation.
       timeline.fromTo('.links', 0.5, { x: 177 }, { x: 0 })
-      return timeline
+      this.linksTimeline = timeline
     },
-    createHamburgerOpenTimeline() {
+    createHamburgerCloseTimeline() {
       const TimelineLite = this.$GSAP.TimelineLite
       const timeline = new TimelineLite({ paused: true })
 
@@ -110,9 +111,9 @@ export default {
           },
           '-=0.2'
         )
-      this.hamburgerOpenTimeline = timeline
+      this.hamburgerCloseTimeline = timeline
     },
-    createHamburgerCloseTimeline() {
+    createHamburgerOpenTimeline() {
       const TimelineLite = this.$GSAP.TimelineLite
       const timeline = new TimelineLite({ paused: true })
 
@@ -155,7 +156,7 @@ export default {
         .to('.hamburger__middle.hamburger__middle--one', 0.5, {
           morphSVG: '.hamburger__middle.hamburger__middle--three'
         })
-      this.hamburgerCloseTimeline = timeline
+      this.hamburgerOpenTimeline = timeline
     }
   }
 }
