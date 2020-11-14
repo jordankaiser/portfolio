@@ -50,7 +50,6 @@ export default {
     toggleNavigation() {
       // Don't toggle nav if animation is playing.
       if (this.isAnimationPlaying === false) {
-        this.$store.commit('toggleMenuOpen')
         if (this.$store.state.menuOpen) {
           this.linksTimeline.reverse(0)
           this.hamburgerCloseTimeline.play(0)
@@ -58,6 +57,7 @@ export default {
           this.linksTimeline.play()
           this.hamburgerOpenTimeline.play(0)
         }
+        this.$store.commit('toggleMenuOpen')
       }
     },
     createLinksTimeline() {
