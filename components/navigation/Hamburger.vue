@@ -37,7 +37,8 @@ export default {
     isAnimationPlaying() {
       return (
         this.hamburgerOpenTimeline.isActive() === true ||
-        this.hamburgerCloseTimeline.isActive() === true
+        this.hamburgerCloseTimeline.isActive() === true ||
+        this.linksTimeline.isActive()
       )
     }
   },
@@ -51,9 +52,11 @@ export default {
       // Don't toggle nav if animation is playing.
       if (this.isAnimationPlaying === false) {
         if (this.$store.state.menuOpen) {
+          this.linksTimeline.timeScale(2)
           this.linksTimeline.reverse(0)
           this.hamburgerCloseTimeline.play(0)
         } else {
+          this.linksTimeline.timeScale(1)
           this.linksTimeline.play()
           this.hamburgerOpenTimeline.play(0)
         }
@@ -63,9 +66,55 @@ export default {
     createLinksTimeline() {
       const TimelineLite = this.$GSAP.TimelineLite
       const timeline = new TimelineLite({ paused: true })
+      const elements = {
+        backgroundContainer: '.links',
+        backgrounds: [
+          document.querySelector('.links__background--one'),
+          document.querySelector('.links__background--two'),
+          document.querySelector('.links__background--three')
+        ],
+        links: '.links__text',
+        linkUnderlines: '.links__link__underline',
+        linkHeadlines: '.links__headline'
+      }
 
-      // Navigation animation.
-      timeline.fromTo('.links', 0.5, { x: 177 }, { x: 0 })
+      timeline
+        .set(elements.backgroundContainer, { x: 0 })
+        .staggerFromTo(
+          elements.backgrounds,
+          1.25,
+          { x: 177, y: -322 },
+          /* eslint-disable-next-line no-undef */
+          { x: 0, y: 0, ease: Back.easeOut.config(1.7) },
+          0.1
+        )
+        .staggerFromTo(
+          elements.links,
+          0.75,
+          { opacity: 0, x: 30 },
+          /* eslint-disable-next-line no-undef */
+          { opacity: 1, x: 0, ease: Back.easeOut.config(2) },
+          0.1,
+          '-=1'
+        )
+        .staggerFromTo(
+          elements.linkUnderlines,
+          0.75,
+          { opacity: 0, x: 30 },
+          /* eslint-disable-next-line no-undef */
+          { opacity: 1, x: 0, ease: Back.easeOut.config(2) },
+          0.1,
+          '-=0.75'
+        )
+        .staggerFromTo(
+          elements.linkHeadlines,
+          0.5,
+          { opacity: 0 },
+          { opacity: 0.75 },
+          0.2,
+          '-=0.5'
+        )
+
       this.linksTimeline = timeline
     },
     createHamburgerCloseTimeline() {

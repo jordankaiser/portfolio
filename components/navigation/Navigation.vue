@@ -13,13 +13,13 @@
           <ul>
             <li>
               <a :tabindex="tabIndex" href="#" class="links__link">
-                MemorialCare
+                <span class="links__text">MemorialCare</span>
                 <div class="links__link__underline"></div>
               </a>
             </li>
             <li>
               <a :tabindex="tabIndex" href="#" class="links__link">
-                E-Z-GO
+                <span class="links__text">E-Z-GO</span>
                 <div class="links__link__underline"></div>
               </a>
             </li>
@@ -30,13 +30,13 @@
           <ul>
             <li>
               <a :tabindex="tabIndex" href="#" class="links__link">
-                MemorialCare
+                <span class="links__text">MemorialCare</span>
                 <div class="links__link__underline"></div>
               </a>
             </li>
             <li>
               <a :tabindex="tabIndex" href="#" class="links__link">
-                E-Z-GO
+                <span class="links__text">E-Z-GO</span>
                 <div class="links__link__underline"></div>
               </a>
             </li>
@@ -93,21 +93,21 @@ export default {
   }
   &__background {
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 100%;
-    height: 100%;
+    top: -60px;
+    right: -60px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
     border-bottom-left-radius: 20px;
 
     &--one {
       background-color: pink;
-      right: -10px;
-      top: -10px;
+      // right: -10px;
+      // top: -10px;
     }
     &--two {
       background-color: orange;
-      right: -20px;
-      top: -20px;
+      // right: -20px;
+      // top: -20px;
     }
     &--three {
       background-color: $color-purple;
@@ -120,7 +120,7 @@ export default {
   &__link {
     display: inline-block;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 9px;
     color: $color-white;
     text-decoration: none;
 
@@ -129,9 +129,14 @@ export default {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 4px;
       background-color: $color-orange;
+      border-radius: 9px;
     }
+  }
+  &__text {
+    position: relative;
+    display: block;
   }
   ul {
     color: $color-white;
