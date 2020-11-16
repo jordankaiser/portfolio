@@ -15,6 +15,8 @@
 import hamburgerTop from '~/components/svg/hamburgerTop.vue'
 import hamburgerMiddle from '~/components/svg/hamburgerMiddle.vue'
 import hamburgerBottom from '~/components/svg/hamburgerBottom.vue'
+/* eslint-disable-next-line   no-unused-vars */
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 // Only pull in lib on client side.
 if (process.client) {
   /* eslint-disable-next-line */
@@ -64,8 +66,6 @@ export default {
       }
     },
     createLinksTimeline() {
-      const TimelineLite = this.$GSAP.TimelineLite
-      const timeline = new TimelineLite({ paused: true })
       const elements = {
         backgroundContainer: '.links',
         backgrounds: [
@@ -73,10 +73,16 @@ export default {
           document.querySelector('.links__background--two'),
           document.querySelector('.links__background--three')
         ],
-        links: '.links__text',
-        linkUnderlines: '.links__link__underline',
-        linkHeadlines: '.links__headline'
+        links: document.querySelectorAll('.links__text'),
+        linkUnderlines: document.querySelectorAll('.links__link__underline'),
+        linkHeadlines: document.querySelectorAll('.links__headline')
       }
+      const TimelineLite = this.$GSAP.TimelineLite
+      const timeline = new TimelineLite({
+        paused: true,
+        onComplete: this.cleanup,
+        onCompleteParams: ['createLinksTimeline', elements]
+      })
 
       timeline
         .set(elements.backgroundContainer, { x: 0 })
@@ -206,6 +212,9 @@ export default {
           morphSVG: '.hamburger__middle.hamburger__middle--three'
         })
       this.hamburgerOpenTimeline = timeline
+    },
+    cleanup(context, elements) {
+      console.log(context, elements)
     }
   }
 }

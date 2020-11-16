@@ -77,8 +77,8 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  padding-top: 75px;
-  padding-bottom: 25px;
+  padding-top: 85px;
+  padding-bottom: 30px;
   padding-right: 20px;
   padding-left: $s0;
   transform: translateX(177px);
@@ -101,13 +101,9 @@ export default {
 
     &--one {
       background-color: pink;
-      // right: -10px;
-      // top: -10px;
     }
     &--two {
       background-color: orange;
-      // right: -20px;
-      // top: -20px;
     }
     &--three {
       background-color: $color-purple;
@@ -124,6 +120,12 @@ export default {
     color: $color-white;
     text-decoration: none;
 
+    &:hover,
+    &:focus {
+      .links__link__underline {
+        transform: scaleX(0.5);
+      }
+    }
     &__underline {
       position: absolute;
       bottom: 0;
@@ -132,6 +134,7 @@ export default {
       height: 4px;
       background-color: $color-orange;
       border-radius: 9px;
+      transition: transform $t;
     }
   }
   &__text {
@@ -147,7 +150,7 @@ export default {
       margin-bottom: $s-1;
 
       &.links__group {
-        margin-bottom: 24px;
+        margin-bottom: 30px;
 
         &:last-of-type {
           margin-bottom: 0;
