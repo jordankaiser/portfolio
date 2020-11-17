@@ -1,15 +1,18 @@
 <template>
-  <button
-    href="#"
-    class="hamburger"
-    aria-label="Open menu."
-    aria-expanded="false"
-    @click.prevent="toggleNavigation"
-  >
-    <hamburger-top />
-    <hamburger-middle />
-    <hamburger-bottom />
-  </button>
+  <div class="hamburger">
+    <button
+      href="#"
+      class="hamburger__button"
+      aria-label="Open menu."
+      aria-expanded="false"
+      @click.prevent="toggleNavigation"
+    >
+      <hamburger-top />
+      <hamburger-middle />
+      <hamburger-bottom />
+    </button>
+    <div class="hamburger__background"></div>
+  </div>
 </template>
 <script>
 import hamburgerTop from '~/components/svg/hamburgerTop.vue'
@@ -67,7 +70,7 @@ export default {
     },
     createLinksTimeline() {
       const elements = {
-        backgroundContainer: '.links',
+        backgroundContainer: document.querySelector('.links'),
         backgrounds: [
           document.querySelector('.links__background--one'),
           document.querySelector('.links__background--two'),
@@ -214,7 +217,7 @@ export default {
       this.hamburgerOpenTimeline = timeline
     },
     cleanup(context, elements) {
-      console.log(context, elements)
+      timelineCleanup({ ...elements.linkUnderlines })
     }
   }
 }
@@ -223,18 +226,33 @@ export default {
 @import '~/assets/scss/_mixins.scss';
 @import '~/assets/scss/_variables.scss';
 .hamburger {
-  @include buttonReset;
   position: relative;
-  padding: 12px;
-  height: 52px;
-  background-color: $color-red;
-  border-bottom-left-radius: 10px;
-  transition: background-color 500ms;
-  z-index: 1;
 
   &:hover,
   &:focus {
-    background-color: $color-purple;
+    .hamburger__background {
+      transform: translate(-10px, 10px);
+    }
+  }
+  &__button {
+    @include buttonReset;
+    position: relative;
+    padding: 12px;
+    height: 52px;
+    background-color: $color-red;
+    border-bottom-left-radius: 10px;
+    z-index: 2;
+  }
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    background-color: $color-orange;
+    transition: transform $t;
+    z-index: 1;
   }
   &__middle {
     position: relative;

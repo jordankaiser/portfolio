@@ -123,7 +123,7 @@ export default {
     &:hover,
     &:focus {
       .links__link__underline {
-        transform: scaleX(0.5);
+        transform: scaleX(0.75);
       }
     }
     &__underline {
@@ -134,6 +134,7 @@ export default {
       height: 4px;
       background-color: $color-orange;
       border-radius: 9px;
+      transform-origin: 100% 50%;
       transition: transform $t;
     }
   }
