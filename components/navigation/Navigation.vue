@@ -122,6 +122,8 @@ export default {
 
     &:hover,
     &:focus {
+      outline: none;
+
       .links__link__underline {
         transform: scaleX(0.75);
       }

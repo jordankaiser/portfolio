@@ -71,6 +71,10 @@ export default {
     align-items: center;
     text-decoration: none;
     color: $color-blue-light;
+
+    &:focus {
+      outline: none;
+    }
   }
   &__text {
     flex: 0 1 auto;

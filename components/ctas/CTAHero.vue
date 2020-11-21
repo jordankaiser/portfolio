@@ -107,6 +107,8 @@ export default {
     &:hover,
     &:active,
     &:focus {
+      outline: none;
+
       .cta-hero__text {
         transform: translate(0px, 6px);
       }

@@ -77,6 +77,10 @@ export default {
     background-color: $color-blue-light;
     color: $color-white;
     font-family: $font-raleway;
+
+    &:focus {
+      outline: none;
+    }
   }
   &__icon {
     position: absolute;
