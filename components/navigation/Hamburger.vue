@@ -7,11 +7,13 @@
       aria-expanded="false"
       @click.prevent="toggleNavigation"
     >
+      <div class="hamburger__background-wrap">
+        <div class="hamburger__background"></div>
+      </div>
       <hamburger-top />
       <hamburger-middle />
       <hamburger-bottom />
     </button>
-    <div class="hamburger__background"></div>
   </div>
 </template>
 <script>
@@ -228,20 +230,39 @@ export default {
 .hamburger {
   position: relative;
 
-  &:hover,
-  &:focus {
-    .hamburger__background {
-      transform: translate(-10px, 10px);
-    }
-  }
   &__button {
     @include buttonReset;
     position: relative;
     padding: 12px;
     height: 52px;
-    background-color: $color-red;
-    border-bottom-left-radius: 10px;
     z-index: 2;
+
+    &:hover,
+    &:active,
+    &:focus {
+      .hamburger__background {
+        transform: translate(0px, 0px);
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-red;
+      border-bottom-left-radius: 10px;
+      z-index: 2;
+    }
+  }
+  &__background-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    overflow: hidden;
   }
   &__background {
     position: absolute;
@@ -249,19 +270,22 @@ export default {
     right: 0;
     width: 100%;
     height: 100%;
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 12px;
     background-color: $color-orange;
+    transform: translate(5px, -5px);
     transition: transform $t;
     z-index: 1;
   }
   &__middle {
     position: relative;
+    z-index: 3;
   }
   &__top,
   &__bottom {
     position: absolute;
     top: 12px;
     left: 12px;
+    z-index: 3;
   }
 }
 </style>
