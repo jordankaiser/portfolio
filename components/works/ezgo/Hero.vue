@@ -261,7 +261,7 @@ export default {
   &__image {
     flex: 0 0 auto;
     position: relative;
-    width: 155px;
+    width: 154px;
     height: auto;
     transform: rotate(15deg);
     transform-origin: 71% 80%;
