@@ -49,9 +49,11 @@ export default {
 
     @include breakpoint($extrasmall) {
       max-width: none;
+      overflow: visible;
+    }
+    @include breakpoint($small) {
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
-      overflow: visible;
     }
   }
 }
