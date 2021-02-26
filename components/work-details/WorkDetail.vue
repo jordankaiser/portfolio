@@ -8,7 +8,15 @@
         </div>
         <div class="introduction">
           <h4 class="introduction__roles container container--narrow">
-            Roles <span>|</span> Development
+            Roles <span class="introduction__role-seperator">|</span>
+            <span v-for="(role, index) in workDetails.roles" :key="role">
+              <span v-if="index !== workDetails.roles.length - 1">
+                {{ role }},
+              </span>
+              <span v-else>
+                {{ role }}
+              </span>
+            </span>
           </h4>
           <h1 class="introduction__title container">MemorialCare</h1>
           <div class="introduction__description container container--narrow">
@@ -120,9 +128,6 @@ import Navigation from '~/components/navigation/Navigation'
 import 'lazysizes'
 
 export default {
-  head: {
-    title: 'MemorialCare'
-  },
   components: {
     Hero,
     Screenshot,
@@ -133,6 +138,21 @@ export default {
     CtaHero,
     FooterPills,
     Navigation
+  },
+  props: {
+    workDetails: {
+      type: Object,
+      default: function() {
+        return {}
+      },
+      roles: {
+        type: Array,
+        default: ['Developer']
+      }
+    }
+  },
+  head: {
+    title: 'MemorialCare'
   },
   data: function() {
     return {
@@ -270,13 +290,13 @@ export default {
     line-height: $fs-1;
     text-align: center;
 
-    span {
-      color: #2c024d;
-    }
     @include breakpoint($medium) {
       font-size: $fs0;
       line-height: $fs0;
     }
+  }
+  &__role-seperator {
+    color: #2c024d;
   }
   &__title {
     margin-top: $s0;
