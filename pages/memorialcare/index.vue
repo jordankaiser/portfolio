@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navigation />
     <section class="work-details segment animated">
       <div class="work-details__sub-segment">
         <div class="work-details__header-flair">
@@ -113,6 +114,7 @@ import Flair from '~/components/work-details/universal/Flair.vue'
 import CtaSecondary from '~/components/ctas/CTASecondary'
 import CtaHero from '~/components/ctas/CTAHero'
 import FooterPills from '~/components/works/mc/Footer.vue'
+import Navigation from '~/components/navigation/Navigation'
 
 // Libraries.
 import 'lazysizes'
@@ -129,7 +131,8 @@ export default {
     Flair,
     CtaSecondary,
     CtaHero,
-    FooterPills
+    FooterPills,
+    Navigation
   },
   data: function() {
     return {
