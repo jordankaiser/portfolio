@@ -4,7 +4,7 @@
     <section class="work-details segment animated">
       <div class="work-details__sub-segment">
         <div class="work-details__header-flair">
-          <HeaderFlair :modifiers="headerModifiers" />
+          <HeaderFlair :modifiers="workDetails.headerModifiers" />
         </div>
         <div class="introduction">
           <h4 class="introduction__roles container container--narrow">
@@ -33,6 +33,7 @@
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotOneCaption">
                   <template v-slot:captionText>
+                    <!-- eslint-disable vue/no-v-html -->
                     <div v-html="workDetails.screenshotOneCaptionText"></div>
                   </template>
                 </ScreenshotCaption>
@@ -52,6 +53,7 @@
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotTwoCaption">
                   <template v-slot:captionText>
+                    <!-- eslint-disable vue/no-v-html -->
                     <div v-html="workDetails.screenshotTwoCaptionText"></div>
                   </template>
                 </ScreenshotCaption>
@@ -69,31 +71,32 @@
       <div class="work-details__sub-segment">
         <div class="container container--narrow">
           <div class="work-details__flair">
-            <Flair :modifiers="toolsModifiers" />
+            <Flair :modifiers="workDetails.toolsModifiers" />
           </div>
           <div class="tools">
             <div class="tools__listing">
               <h4 class="tools__list-title">Tools</h4>
               <ul class="tools__list">
-                <li class="tools__list-item">Drupal</li>
-                <li class="tools__list-item">PHP</li>
-                <li class="tools__list-item">Javascript</li>
-                <li class="tools__list-item">Vue.js</li>
-                <li class="tools__list-item">Twig</li>
-                <li class="tools__list-item">SCSS</li>
+                <li
+                  v-for="tool in workDetails.tools"
+                  :key="tool"
+                  class="tools__list-item"
+                >
+                  {{ tool }}
+                </li>
               </ul>
             </div>
             <div class="tools__illustration">
-              <Hero :modifiers="hero" />
+              <Hero :modifiers="workDetails.hero" />
             </div>
           </div>
         </div>
       </div>
       <div class="work-details__sub-segment">
-        <CtaHero :cta="ctaHero" />
+        <CtaHero :cta="workDetails.ctaHero" />
       </div>
       <div class="work-details__sub-segment">
-        <FooterPills :modifiers="footerPills" />
+        <FooterPills :modifiers="workDetails.footerPills" />
       </div>
     </section>
   </div>
@@ -186,40 +189,61 @@ export default {
             target: '_self'
           }
         }
+      },
+      toolsModifiers: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc-tools',
+            revealOffset: 0.8,
+            initialDelay: '+=1',
+            triggerEl: '.mc-hero'
+          }
+        }
+      },
+      hero: {
+        type: Object,
+        default: function() {
+          return {
+            revealOffset: 0.75
+          }
+        }
+      },
+      ctaHero: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc',
+            text: 'Visit Website',
+            link: 'https://wwww.memorialcare.org',
+            linkTarget: '_blank'
+          }
+        }
+      },
+      footerPills: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc',
+            revealOffset: 1,
+            triggerEl: '.work-details__sub-segment .pill-footer',
+            initialDelay: '+=0.5'
+          }
+        }
+      },
+      headerModifiers: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc-header',
+            revealOffset: 0.7
+          }
+        }
       }
     }
   },
   head: {
     title: 'MemorialCare'
-  },
-  data: function() {
-    return {
-      headerModifiers: {
-        id: 'mc-header',
-        revealOffset: 0.7
-      },
-      toolsModifiers: {
-        id: 'mc-tools',
-        revealOffset: 0.8,
-        initialDelay: '+=1',
-        triggerEl: '.mc-hero'
-      },
-      ctaHero: {
-        id: 'mc',
-        text: 'Visit Website',
-        link: 'https://wwww.memorialcare.org',
-        linkTarget: '_blank'
-      },
-      hero: {
-        revealOffset: 0.75
-      },
-      footerPills: {
-        id: 'mc',
-        revealOffset: 1,
-        triggerEl: '.work-details__sub-segment .pill-footer',
-        initialDelay: '+=0.5'
-      }
-    }
   },
   mounted: function() {
     // Unhide animated section.

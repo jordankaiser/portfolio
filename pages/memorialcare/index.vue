@@ -12,6 +12,10 @@ export default {
     return {
       workDetails: {
         id: 'mc',
+        headerModifiers: {
+          id: 'mc-header',
+          revealOffset: 0.7
+        },
         roles: ['Developer', 'Another'],
         title: 'MemorialCare',
         description:
@@ -70,6 +74,28 @@ export default {
           text: 'Cancer Care Service',
           href: 'https://www.memorialcare.org/services/cancer-care',
           target: '_blank'
+        },
+        toolsModifiers: {
+          id: 'mc-tools',
+          revealOffset: 0.8,
+          initialDelay: '+=1',
+          triggerEl: '.mc-hero'
+        },
+        tools: ['Drupal', 'Javascript', 'PHP', 'Vue.js', 'Twig', 'SCSS'],
+        hero: {
+          revealOffset: 0.75
+        },
+        ctaHero: {
+          id: 'mc',
+          text: 'Visit Website',
+          link: 'https://wwww.memorialcare.org',
+          linkTarget: '_blank'
+        },
+        footerPills: {
+          id: 'mc',
+          revealOffset: 1,
+          triggerEl: '.work-details__sub-segment .pill-footer',
+          initialDelay: '+=0.5'
         }
       }
     }
