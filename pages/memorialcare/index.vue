@@ -16,7 +16,7 @@ export default {
           id: 'mc-header',
           revealOffset: 0.7
         },
-        roles: ['Developer', 'Another'],
+        roles: ['Developer'],
         title: 'MemorialCare',
         description:
           'Introduction of work tortor ultricies malesuada viverra leo amet etiam feugiat senectus curabitur in felis himenaeos, a potenti libero eget pretium donec conubia nunc netus litora faucibus.',

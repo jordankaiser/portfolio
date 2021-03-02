@@ -43,14 +43,17 @@
           </ul>
         </li>
       </ul>
+      <nuxt-link to="/" class="links__home"><home /></nuxt-link>
     </div>
   </nav>
 </template>
 <script>
 import Hamburger from '~/components/navigation/Hamburger'
+import Home from '~/components/svg/home'
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    Home
   },
   data: function() {
     return {
@@ -78,7 +81,7 @@ export default {
   top: 0;
   right: 0;
   padding-top: 85px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   padding-right: 20px;
   padding-left: $s0;
   transform: translateX(177px);
@@ -143,6 +146,35 @@ export default {
   &__text {
     position: relative;
     display: block;
+  }
+  &__home {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darken($color-purple, 20);
+    padding: 8px 0;
+    border-bottom-left-radius: 20px;
+    transition: background-color $t;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $color-orange;
+
+      .icon-home path {
+        fill: $color-purple;
+      }
+    }
+    .icon-home {
+      flex: 0 1 auto;
+
+      path {
+        transition: fill $t;
+      }
+    }
   }
   ul {
     color: $color-white;
