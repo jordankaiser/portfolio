@@ -43,7 +43,10 @@
           </ul>
         </li>
       </ul>
-      <nuxt-link to="/" class="links__home"><home /></nuxt-link>
+      <nuxt-link to="/" class="links__home">
+        <div class="links__circle"></div>
+        <home />
+      </nuxt-link>
     </div>
   </nav>
 </template>
@@ -157,24 +160,35 @@ export default {
     background-color: darken($color-purple, 20);
     padding: 8px 0;
     border-bottom-left-radius: 20px;
-    transition: background-color $t;
 
     &:hover,
     &:focus {
       outline: none;
-      background-color: $color-orange;
 
-      .icon-home path {
-        fill: $color-purple;
+      .icon-home {
+        color: $color-white;
+      }
+      .links__circle {
+        transform: translate(-50%, -50%) scale(1);
       }
     }
     .icon-home {
+      position: relative;
       flex: 0 1 auto;
-
-      path {
-        transition: fill $t;
-      }
+      color: $color-white;
+      transition: color $t;
     }
+  }
+  &__circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 45px;
+    height: 40px;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: $color-orange;
+    border-radius: 45px;
+    transition: transform $t;
   }
   ul {
     color: $color-white;

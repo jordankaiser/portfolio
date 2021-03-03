@@ -80,7 +80,9 @@ export default {
         ],
         links: document.querySelectorAll('.links__text'),
         linkUnderlines: document.querySelectorAll('.links__link__underline'),
-        linkHeadlines: document.querySelectorAll('.links__headline')
+        linkHeadlines: document.querySelectorAll('.links__headline'),
+        home: document.querySelector('.links__home'),
+        homeIcon: document.querySelector('.links__home .icon-home')
       }
       const TimelineLite = this.$GSAP.TimelineLite
       const timeline = new TimelineLite({
@@ -125,6 +127,7 @@ export default {
           0.2,
           '-=0.5'
         )
+        .fromTo(elements.home, 0.5, { opacity: 0 }, { opacity: 1 }, '-=0.5')
 
       this.linksTimeline = timeline
     },
