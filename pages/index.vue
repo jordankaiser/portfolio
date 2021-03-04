@@ -90,6 +90,7 @@ export default {
 
   &::before {
     content: '';
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -97,21 +98,24 @@ export default {
     height: 70%;
     background-color: $color-red-light;
     border-bottom-right-radius: 14px;
+
+    @include breakpoint($large) {
+      display: block;
+    }
   }
   &:after {
     content: '';
+    display: none;
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 80px;
+    width: 25px;
     height: 14px;
     background-color: $color-red-light;
     border-top-left-radius: 14px;
 
-    @include breakpoint($small) {
-      & {
-        width: 25px;
-      }
+    @include breakpoint($large) {
+      display: block;
     }
   }
   &__container {

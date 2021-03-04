@@ -1,11 +1,23 @@
 <template>
   <div :class="`cta-hero cta-hero--${cta.id}`">
-    <nuxt-link :to="cta.link" class="cta-hero__link" :target="cta.target">
-      <div class="cta-hero__text">{{ cta.text }}</div>
-      <div class="cta-hero__arrow">
-        <cta-arrow :id="cta.id" />
-      </div>
-    </nuxt-link>
+    <!-- Use nuxt-link if an internal link -->
+    <div v-if="cta.target === '_self'" class="cta-hero__wrap">
+      <nuxt-link :to="cta.link" class="cta-hero__link" :target="cta.target">
+        <div class="cta-hero__text">{{ cta.text }}</div>
+        <div class="cta-hero__arrow">
+          <cta-arrow :id="cta.id" />
+        </div>
+      </nuxt-link>
+    </div>
+    <!-- Else use <a> if an external link -->
+    <div v-else class="cta-hero__wrap">
+      <a :href="cta.link" class="cta-hero__link" :target="cta.target">
+        <div class="cta-hero__text">{{ cta.text }}</div>
+        <div class="cta-hero__arrow">
+          <cta-arrow :id="cta.id" />
+        </div>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -97,7 +109,11 @@ export default {
       background-color: $color-mc-blue-medium;
     }
   }
+  &__wrap {
+    flex: 0 1 auto;
+  }
   &__link {
+    display: block;
     flex: 0 1 auto;
     padding: 20px 38px;
     background-color: $color-red-dark;

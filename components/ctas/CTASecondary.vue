@@ -1,21 +1,43 @@
 <template>
   <div :class="`cta-secondary--${varient}`" class="cta-secondary">
-    <a
-      :href="link.href"
-      :class="`cta-secondary__link--${varient}`"
-      class="cta-secondary__link"
-      :target="link.target"
-    >
-      <div class="cta-secondary__text">{{ link.text }}</div>
-      <div class="cta-secondary__icon">
-        <div class="cta-secondary__circle"></div>
-        <img
-          src="~/assets/img/cta-arrow-horiz.png"
-          alt="Arrow"
-          class="cta-secondary__arrow"
-        />
-      </div>
-    </a>
+    <!-- Use nuxt-link if an internal link -->
+    <div v-if="link.target === '_self'" class="cta-secondary__wrap">
+      <nuxt-link
+        :to="link.href"
+        :class="`cta-secondary__link--${varient}`"
+        class="cta-secondary__link"
+        :target="link.target"
+      >
+        <div class="cta-secondary__text">{{ link.text }}</div>
+        <div class="cta-secondary__icon">
+          <div class="cta-secondary__circle"></div>
+          <img
+            src="~/assets/img/cta-arrow-horiz.png"
+            alt="Arrow"
+            class="cta-secondary__arrow"
+          />
+        </div>
+      </nuxt-link>
+    </div>
+    <!-- Else use <a> if an external link -->
+    <div v-else class="cta-secondary__wrap">
+      <a
+        :href="link.href"
+        :class="`cta-secondary__link--${varient}`"
+        class="cta-secondary__link"
+        :target="link.target"
+      >
+        <div class="cta-secondary__text">{{ link.text }}</div>
+        <div class="cta-secondary__icon">
+          <div class="cta-secondary__circle"></div>
+          <img
+            src="~/assets/img/cta-arrow-horiz.png"
+            alt="Arrow"
+            class="cta-secondary__arrow"
+          />
+        </div>
+      </a>
+    </div>
   </div>
 </template>
 <script>

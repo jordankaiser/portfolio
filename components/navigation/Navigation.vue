@@ -166,17 +166,18 @@ export default {
       outline: none;
 
       .icon-home {
+        transform: translateY(-10px);
         color: $color-white;
       }
       .links__circle {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, calc(-50% - 10px)) scale(1);
       }
     }
     .icon-home {
       position: relative;
       flex: 0 1 auto;
       color: $color-white;
-      transition: color $t;
+      transition: color $t, transform $t;
     }
   }
   &__circle {
