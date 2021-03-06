@@ -2,8 +2,12 @@
   <div class="container container--narrow">
     <div :class="`screenshot--${screenshot.id}`" class="screenshot">
       <div class="screenshot__image">
-        <Flair :modifiers="screenshot.animationConfig" />
+        <Flair
+          :modifiers="screenshot.animationConfig"
+          :lazyloaded="lazyloaded"
+        />
         <img
+          ref="screenshot"
           :data-src="require(`~/assets/img/work/${screenshot.image}`)"
           :src="placeholder"
           :alt="screenshot.alt"
@@ -48,7 +52,8 @@ export default {
   },
   data: function() {
     return {
-      placeholder: null
+      placeholder: null,
+      lazyloaded: false
     }
   },
   created: function() {
@@ -56,6 +61,33 @@ export default {
       this.screenshot.placeholderConfig.width,
       this.screenshot.placeholderConfig.height
     )
+  },
+  mounted() {
+    this.observer = new MutationObserver(mutations => {
+      for (const m of mutations) {
+        const newValue = m.target.getAttribute(m.attributeName)
+        this.$nextTick(() => {
+          this.onClassChange(newValue, m.oldValue)
+        })
+      }
+    })
+
+    this.observer.observe(this.$refs.screenshot, {
+      attributes: true,
+      attributeOldValue: true,
+      attributeFilter: ['class']
+    })
+  },
+  beforeDestroy() {
+    this.observer.disconnect()
+  },
+  methods: {
+    onClassChange(classAttrValue) {
+      const classList = classAttrValue.split(' ')
+      if (classList.includes('lazyloaded')) {
+        this.lazyloaded = true
+      }
+    }
   }
 }
 </script>
