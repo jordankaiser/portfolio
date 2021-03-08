@@ -9,7 +9,6 @@
   </div>
 </template>
 <script>
-import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
 export default {
@@ -72,19 +71,28 @@ export default {
       }
 
       // Creat flair timeline.
-      const flairTimeline = new TimelineLite({
-        onComplete: timelineCleanup,
-        onCompleteParams: [flair]
-      })
+      const flairTimeline = new TimelineLite()
 
       // Flair animation.
       flairTimeline
+        .set(flair.three, { opacity: 1 })
         .fromTo(
           flair.three,
           0.33,
           { y: 25 },
           { y: 0 },
           `${this.modifiers.initialDelay}`
+        )
+        .set(
+          [
+            flair.one,
+            flair.two,
+            flair.three,
+            flair.four,
+            flair.five,
+            flair.six
+          ],
+          { opacity: 1 }
         )
         .fromTo(flair.two, 0.33, { y: 25 }, { y: 6 }, '-=0.2')
         .fromTo(flair.four, 0.33, { y: 25 }, { y: 6 }, '-=0.2')
@@ -142,6 +150,7 @@ export default {
     background-color: orange;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    opacity: 0;
 
     &--one {
       transform: translateY(16px);
