@@ -35,6 +35,10 @@ export default {
         return {
           id: 'default',
           image: '',
+          relatedCaption: {
+            type: String,
+            default: 'screenshotOneCaption'
+          },
           placeholderConfig: {
             initial: null,
             width: '500',
@@ -86,6 +90,11 @@ export default {
       const classList = classAttrValue.split(' ')
       if (classList.includes('lazyloaded')) {
         this.lazyloaded = true
+        console.log(this.screenshot)
+        this.$emit('lazyloaded', {
+          id: this.screenshot.relatedCaption,
+          loaded: true
+        })
       }
     }
   }

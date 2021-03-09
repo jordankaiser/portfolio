@@ -24,6 +24,7 @@ export default {
           id: 'one',
           image: 'mc/work-cash-pricing.jpg',
           alt: 'MemorialCare Home Page',
+          relatedCaption: 'screenshotOneCaption',
           placeholderConfig: {
             initial: null,
             width: '1000',
@@ -51,6 +52,7 @@ export default {
         screenshotTwo: {
           id: 'two',
           image: 'mc/work-small-service-line.jpg',
+          relatedCaption: 'screenshotTwoCaption',
           placeholderConfig: {
             initial: null,
             width: '582',

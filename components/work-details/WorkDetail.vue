@@ -28,7 +28,10 @@
         <div class="screenshots">
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot :screenshot="workDetails.screenshotOne">
+            <Screenshot
+              :screenshot="workDetails.screenshotOne"
+              @lazyloaded="lazyloaded"
+            >
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotOneCaption">
@@ -48,7 +51,10 @@
           </div>
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot :screenshot="workDetails.screenshotTwo">
+            <Screenshot
+              :screenshot="workDetails.screenshotTwo"
+              @lazyloaded="lazyloaded"
+            >
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotTwoCaption">
@@ -157,6 +163,7 @@ export default {
             id: 'one',
             image: 'mc/work-cash-pricing.jpg',
             alt: 'MemorialCare Home Page',
+            relatedCaption: 'screenshotOneCaption',
             placeholderConfig: {
               initial: null,
               width: '1000',
@@ -249,6 +256,13 @@ export default {
     // Unhide animated section.
     /* eslint-disable-next-line no-undef */
     TweenLite.set('.work-details.animated', { visibility: 'visible' })
+  },
+  methods: {
+    lazyloaded(value) {
+      console.log('screenshot lazyloaded')
+      console.log(value)
+      console.log('---')
+    }
   }
 }
 </script>

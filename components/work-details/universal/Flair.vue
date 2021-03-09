@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     createFlairTimeline() {
-      console.log('creating flair timeline')
       // Only animated if user hasn't scrolled past already
       if (
         scrolledPast(document.querySelector(`.flair--${this.modifiers.id}`)) ===
