@@ -144,6 +144,15 @@ export default {
         type: String,
         default: 'mc'
       },
+      headerModifiers: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc-header',
+            revealOffset: 0.7
+          }
+        }
+      },
       roles: {
         type: Array,
         default: ['Developer']
@@ -197,6 +206,52 @@ export default {
           }
         }
       },
+      screenshotTwo: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'two',
+            image: 'mc/work-small-service-line.jpg',
+            relatedCaption: 'screenshotTwoCaption',
+            placeholderConfig: {
+              initial: null,
+              width: '582',
+              height: '570'
+            },
+            animationConfig: {
+              id: 'mc-screenshot-two',
+              revealOffset: 0.75,
+              initialDelay: '+=0',
+              triggerEl: '.screenshot--two'
+            }
+          }
+        }
+      },
+      screenshotTwoCaption: {
+        type: Object,
+        default: function() {
+          return {
+            id: 'mc',
+            uniqueId: 'two',
+            cta: '.screenshot--two .cta-secondary'
+          }
+        }
+      },
+      screenshotTwoCaptionText: {
+        type: String,
+        default:
+          '<p>Lorem habitasse lacus amet ipsum consectetur adipiscing ullamcorper risus, morbi rutrum hac dictumst euismod elit hendrerit ligula, aenean malesuada cum metus pulvinar nisl eleifend.</p>'
+      },
+      screenshotTwoLink: {
+        type: Object,
+        default: function() {
+          return {
+            text: 'Cancer Care Service',
+            href: 'https://www.memorialcare.org/services/cancer-care',
+            target: '_blank'
+          }
+        }
+      },
       toolsModifiers: {
         type: Object,
         default: function() {
@@ -207,6 +262,10 @@ export default {
             triggerEl: '.mc-hero'
           }
         }
+      },
+      tools: {
+        type: Array,
+        default: ['Drupal', 'Javascript', 'PHP', 'Vue.js', 'Twig', 'SCSS']
       },
       hero: {
         type: Object,
@@ -235,15 +294,6 @@ export default {
             revealOffset: 1,
             triggerEl: '.work-details__sub-segment .pill-footer',
             initialDelay: '+=0.5'
-          }
-        }
-      },
-      headerModifiers: {
-        type: Object,
-        default: function() {
-          return {
-            id: 'mc-header',
-            revealOffset: 0.7
           }
         }
       }
