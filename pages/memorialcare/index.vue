@@ -21,7 +21,8 @@ export default {
         description:
           'Introduction of work tortor ultricies malesuada viverra leo amet etiam feugiat senectus curabitur in felis himenaeos, a potenti libero eget pretium donec conubia nunc netus litora faucibus.',
         screenshotOne: {
-          id: 'one',
+          id: 'mcScreenshotOne',
+          cssClass: 'one',
           image: 'mc/work-cash-pricing.jpg',
           alt: 'MemorialCare Home Page',
           relatedCaption: 'screenshotOneCaption',
@@ -40,7 +41,8 @@ export default {
         screenshotOneCaption: {
           id: 'mc',
           uniqueId: 'one',
-          cta: '.screenshot--one .cta-secondary'
+          cta: '.screenshot--one .cta-secondary',
+          screenshotImageId: 'mcScreenshotOne'
         },
         screenshotOneCaptionText:
           '<p>The Cash Pricing tool allows the user to specifiy a medical procedure and medical facility. The cash price of that procedure is then given.</p><p>This tool was built with Vue.js and utilizes Vuex for state management.</p>',
@@ -50,7 +52,8 @@ export default {
           target: '_blank'
         },
         screenshotTwo: {
-          id: 'two',
+          id: 'mcScreenshotTwo',
+          cssClass: 'two',
           image: 'mc/work-small-service-line.jpg',
           relatedCaption: 'screenshotTwoCaption',
           placeholderConfig: {
@@ -68,7 +71,8 @@ export default {
         screenshotTwoCaption: {
           id: 'mc',
           uniqueId: 'two',
-          cta: '.screenshot--two .cta-secondary'
+          cta: '.screenshot--two .cta-secondary',
+          screenshotImageId: 'mcScreenshotTwo'
         },
         screenshotTwoCaptionText:
           '<p>One of the objectives for the project was allow the user to specify a particular medical location. Once chosen the user sees specific content for that location throughout the site. The Cancer Care service page is one example of this.</p>',

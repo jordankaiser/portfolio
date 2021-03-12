@@ -1,6 +1,6 @@
 <template>
   <div class="container container--narrow">
-    <div :class="`screenshot--${screenshot.id}`" class="screenshot">
+    <div :class="`screenshot--${screenshot.cssClass}`" class="screenshot">
       <div class="screenshot__image">
         <Flair
           :modifiers="screenshot.animationConfig"
@@ -33,7 +33,7 @@ export default {
       type: Object,
       default: function() {
         return {
-          id: 'default',
+          cssClass: 'default',
           image: '',
           relatedCaption: {
             type: String,
@@ -89,12 +89,15 @@ export default {
     onClassChange(classAttrValue) {
       const classList = classAttrValue.split(' ')
       if (classList.includes('lazyloaded')) {
+        // this.$store.commit('setWorkDetailScreenshots', {
+        //   id: this.screenshot.id,
+        //   loaded: true
+        // })
         this.lazyloaded = true
-        console.log(this.screenshot)
-        this.$emit('lazyloaded', {
-          id: this.screenshot.relatedCaption,
-          loaded: true
-        })
+        // this.$emit('lazyloaded', {
+        //   id: this.screenshot.relatedCaption,
+        //   loaded: true
+        // })
       }
     }
   }

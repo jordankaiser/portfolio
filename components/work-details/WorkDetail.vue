@@ -28,10 +28,7 @@
         <div class="screenshots">
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot
-              :screenshot="workDetails.screenshotOne"
-              @lazyloaded="lazyloaded"
-            >
+            <Screenshot :screenshot="workDetails.screenshotOne">
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotOneCaption">
@@ -51,10 +48,7 @@
           </div>
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot
-              :screenshot="workDetails.screenshotTwo"
-              @lazyloaded="lazyloaded"
-            >
+            <Screenshot :screenshot="workDetails.screenshotTwo">
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotTwoCaption">
@@ -169,7 +163,8 @@ export default {
         type: Object,
         default: function() {
           return {
-            id: 'one',
+            id: 'mcScreenshotOne',
+            cssClass: 'one',
             image: 'mc/work-cash-pricing.jpg',
             alt: 'MemorialCare Home Page',
             relatedCaption: 'screenshotOneCaption',
@@ -210,7 +205,8 @@ export default {
         type: Object,
         default: function() {
           return {
-            id: 'two',
+            id: 'mcScreenshotTwo',
+            cssClass: 'two',
             image: 'mc/work-small-service-line.jpg',
             relatedCaption: 'screenshotTwoCaption',
             placeholderConfig: {
@@ -306,13 +302,6 @@ export default {
     // Unhide animated section.
     /* eslint-disable-next-line no-undef */
     TweenLite.set('.work-details.animated', { visibility: 'visible' })
-  },
-  methods: {
-    lazyloaded(value) {
-      console.log('screenshot lazyloaded')
-      console.log(value)
-      console.log('---')
-    }
   }
 }
 </script>

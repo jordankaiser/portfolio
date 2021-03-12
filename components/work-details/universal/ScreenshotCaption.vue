@@ -23,8 +23,26 @@ export default {
       default: function() {
         return {
           id: 'default',
-          uniqueId: 'one'
+          uniqueId: 'one',
+          screenshotLazyloaded: false
         }
+      }
+    }
+  },
+  computed: {
+    foo() {
+      console.log(this.caption.uniqueId)
+      console.log(this.caption.screenshotLazyloaded)
+      return this.caption.screenshotLazyloaded
+    }
+  },
+  watch: {
+    foo(newVal, oldVal) {
+      console.log(newVal)
+      if (newVal) {
+        console.log('screenshot loaded')
+      } else {
+        console.log('screenshot not loaded')
       }
     }
   },
