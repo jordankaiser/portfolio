@@ -35,10 +35,7 @@ export default {
         return {
           cssClass: 'default',
           image: '',
-          relatedCaption: {
-            type: String,
-            default: 'screenshotOneCaption'
-          },
+          relatedCaption: 'screenshotOneCaption',
           placeholderConfig: {
             initial: null,
             width: '500',
@@ -94,10 +91,10 @@ export default {
         //   loaded: true
         // })
         this.lazyloaded = true
-        // this.$emit('lazyloaded', {
-        //   id: this.screenshot.relatedCaption,
-        //   loaded: true
-        // })
+        this.$emit('lazyloaded', {
+          id: this.screenshot.relatedCaption,
+          loaded: true
+        })
       }
     }
   }

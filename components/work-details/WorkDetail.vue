@@ -28,7 +28,10 @@
         <div class="screenshots">
           <div class="screenshots__screenshot">
             <!-- Slot for Screenshot.vue -->
-            <Screenshot :screenshot="workDetails.screenshotOne">
+            <Screenshot
+              :screenshot="workDetails.screenshotOne"
+              @lazyloaded="lazyloaded"
+            >
               <template v-slot:caption>
                 <!-- Slot for ScreenshotCaption.vue -->
                 <ScreenshotCaption :caption="workDetails.screenshotOneCaption">
@@ -159,33 +162,11 @@ export default {
         type: String,
         default: 'Laoreet class eleifend dis.'
       },
-      screenshotOne: {
-        type: Object,
-        default: function() {
-          return {
-            id: 'mcScreenshotOne',
-            cssClass: 'one',
-            image: 'mc/work-cash-pricing.jpg',
-            alt: 'MemorialCare Home Page',
-            relatedCaption: 'screenshotOneCaption',
-            placeholderConfig: {
-              initial: null,
-              width: '1000',
-              height: '1000'
-            },
-            animationConfig: {
-              id: 'mc-screenshot-one',
-              revealOffset: 0.75,
-              initialDelay: '+=0',
-              triggerEl: '.screenshot--one'
-            }
-          }
-        }
-      },
       screenshotOneCaption: {
         id: 'mc',
         uniqueId: 'one',
-        cta: '.screenshot--one .cta-secondary'
+        cta: '.screenshot--one .cta-secondary',
+        screenshotLoaded: false
       },
       screenshotOneCaptionText: {
         type: String,
@@ -229,7 +210,8 @@ export default {
           return {
             id: 'mc',
             uniqueId: 'two',
-            cta: '.screenshot--two .cta-secondary'
+            cta: '.screenshot--two .cta-secondary',
+            loaded: false
           }
         }
       },
@@ -302,6 +284,12 @@ export default {
     // Unhide animated section.
     /* eslint-disable-next-line no-undef */
     TweenLite.set('.work-details.animated', { visibility: 'visible' })
+  },
+  methods: {
+    lazyloaded(param) {
+      console.log(param)
+      this.workDetails[param.id].screenshotLoaded = param.loaded
+    }
   }
 }
 </script>

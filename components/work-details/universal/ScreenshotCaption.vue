@@ -24,80 +24,75 @@ export default {
         return {
           id: 'default',
           uniqueId: 'one',
-          screenshotLazyloaded: false
+          screenshotLoaded: false
         }
       }
     }
   },
-  computed: {
-    foo() {
-      console.log(this.caption.uniqueId)
-      console.log(this.caption.screenshotLazyloaded)
-      return this.caption.screenshotLazyloaded
-    }
-  },
   watch: {
-    foo(newVal, oldVal) {
-      console.log(newVal)
-      if (newVal) {
-        console.log('screenshot loaded')
-      } else {
-        console.log('screenshot not loaded')
-      }
+    $props: {
+      handler(prop) {
+        if (prop.caption.screenshotLoaded) {
+          this.animateCaption()
+        }
+      },
+      deep: true
     }
   },
-  mounted: function() {
-    // TODO: Uncomment this after finished.
-    // Only animated if user hasn't scrolled past already
-    // if (
-    //   scrolledPast(document.querySelector(`.caption--${this.caption.id}`)) ===
-    //   true
-    // ) {
-    //   /* eslint-disable-next-line no-useless-return */
-    //   return
-    // }
+  methods: {
+    animateCaption() {
+      console.log('animating')
+      // TODO: Uncomment this after finished.
+      // Only animated if user hasn't scrolled past already
+      // if (
+      //   scrolledPast(document.querySelector(`.caption--${this.caption.id}`)) ===
+      //   true
+      // ) {
+      //   /* eslint-disable-next-line no-useless-return */
+      //   return
+      // }
 
-    // Timeline class.
-    const TimelineLite = this.$GSAP.TimelineLite
+      // Timeline class.
+      const TimelineLite = this.$GSAP.TimelineLite
 
-    // Animated elements.
-    // const uniqueEl = `.screenshot--${this.caption.uniqueId} img`
-    const uniqueEl = `.caption--${this.caption.uniqueId}`
-    const caption = {
-      flairLeft: document.querySelector(`${uniqueEl} .caption__flair-left`),
-      flairRight: document.querySelector(`${uniqueEl} .caption__flair-right`),
-      content: document.querySelector(`${uniqueEl} .caption__content`),
-      text: document.querySelector(`${uniqueEl} .caption__text`),
-      cta: document.querySelector(this.caption.cta)
+      // Animated elements.
+      const uniqueEl = `.caption--${this.caption.uniqueId}`
+      const caption = {
+        flairLeft: document.querySelector(`${uniqueEl} .caption__flair-left`),
+        flairRight: document.querySelector(`${uniqueEl} .caption__flair-right`),
+        content: document.querySelector(`${uniqueEl} .caption__content`),
+        text: document.querySelector(`${uniqueEl} .caption__text`),
+        cta: document.querySelector(this.caption.cta)
+      }
+
+      // Creat flair timeline.
+      const captionTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [caption]
+      })
+
+      captionTimeline
+        .fromTo(caption.content, 0.5, { opacity: 0 }, { opacity: 1 })
+        .fromTo(caption.flairLeft, 0.75, { y: -70 }, { y: 0 }, '-=0.25')
+        .fromTo(caption.flairRight, 1.25, { y: -200 }, { y: 0 }, '-=0.45')
+        .fromTo(
+          caption.text,
+          0.5,
+          { y: -15, opacity: 0 },
+          { y: 0, opacity: 1 },
+          '-=1.5'
+        )
+        .fromTo(
+          caption.cta,
+          0.5,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1 },
+          '-=1'
+        )
+
+      // Reveal flair animation on scroll.
+      scrollMagicScene(this, captionTimeline, uniqueEl, 0.8)
     }
-
-    // Creat flair timeline.
-    const captionTimeline = new TimelineLite({
-      onComplete: timelineCleanup,
-      onCompleteParams: [caption]
-    })
-
-    captionTimeline
-      .fromTo(caption.content, 0.5, { opacity: 0 }, { opacity: 1 })
-      .fromTo(caption.flairLeft, 0.75, { y: -70 }, { y: 0 }, '-=0.25')
-      .fromTo(caption.flairRight, 1.25, { y: -200 }, { y: 0 }, '-=0.45')
-      .fromTo(
-        caption.text,
-        0.5,
-        { y: -15, opacity: 0 },
-        { y: 0, opacity: 1 },
-        '-=1.5'
-      )
-      .fromTo(
-        caption.cta,
-        0.5,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1 },
-        '-=1'
-      )
-
-    // Reveal flair animation on scroll.
-    scrollMagicScene(this, captionTimeline, uniqueEl, 0.8)
   }
 }
 </script>
