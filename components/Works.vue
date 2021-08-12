@@ -121,7 +121,7 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: '/memorialcare',
+              href: '/memorialcarenew',
               target: '_self'
             }
           },
