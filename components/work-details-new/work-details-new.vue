@@ -1,35 +1,41 @@
 <template>
   <div class="work-detail">
     <h1 class="work-detail__headline">MemorialCare</h1>
-    <div ref="animatedHeadline" class="work-detail__animated-div"></div>
+    <div ref="animatedDivWrapper" class="work-detail__animated-div">
+      <div ref="animatedDiv" class="work-detail__animated-div__animator"></div>
+    </div>
   </div>
 </template>
 <script>
 export default {
+  data: () => {
+    return {
+      lastScrollTop: 0,
+      patternYTransform: 0
+    }
+  },
   mounted() {
-    window.requestAnimationFrame(this.callback)
+    this.attachScrollDetection()
   },
   methods: {
     animateDiv() {
-      console.log('debounced scroll')
-
-      let verticalPosition = 0
-      if (pageYOffset)
-        // usual
-        verticalPosition = pageYOffset
-      else if (document.documentElement.clientHeight)
-        // ie
-        verticalPosition = document.documentElement.scrollTop
-      else if (document.body)
-        // ie quirks
-        verticalPosition = document.body.scrollTop
-
-      this.$refs.animatedHeadline.style.top = verticalPosition + 1 + 'px'
+      // Distance scrolled from the top.
+      const scrolledTop =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (scrolledTop > this.lastScrollTop) {
+        // Translate the element on the Y axis by the patternYTransform.
+        this.patternYTransform = this.patternYTransform - 1
+        this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
+      } else {
+        this.patternYTransform = this.patternYTransform + 1
+        this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
+      }
+      this.lastScrollTop = scrolledTop <= 0 ? 0 : scrolledTop
     },
-    callback() {
-      window.onscroll = e => {
+    attachScrollDetection() {
+      window.onscroll = event => {
         window.requestAnimationFrame(() => {
-          this.animateDiv()
+          this.animateDiv(event)
         })
       }
     }
@@ -47,11 +53,29 @@ export default {
   }
   &__animated-div {
     position: fixed;
-    top: 50vh;
+    top: 0;
     right: 0;
+    height: 100%;
     width: 200px;
-    height: 200px;
-    background-color: orangered;
+    background-color: rgba(34, 193, 195, 1);
+
+    &__animator {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 100%;
+      height: calc(100% + 300px);
+      transform: translateY(-50%);
+      // background: linear-gradient(
+      //   0deg,
+      //   rgba(34, 193, 195, 1) 0%,
+      //   rgba(253, 187, 45, 1) 100%
+      // );
+      background-image: url('~assets/img/work/mc-new/pill-pattern.png');
+      background-repeat: repeat;
+      background-size: 94px;
+      // background-image: url('~assets/img/loader-bender.png');
+    }
   }
 }
 </style>
