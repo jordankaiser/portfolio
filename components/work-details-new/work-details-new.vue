@@ -22,6 +22,7 @@ export default {
       // Distance scrolled from the top.
       const scrolledTop =
         window.pageYOffset || document.documentElement.scrollTop
+      console.log('check')
       if (scrolledTop > this.lastScrollTop) {
         // Translate the element on the Y axis by the patternYTransform.
         this.patternYTransform = this.patternYTransform - 1
