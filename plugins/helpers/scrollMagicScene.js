@@ -26,4 +26,3 @@ export function scrollMagicScene(vue, timeline, trigger, triggerHook) {
     .setTween(timeline)
     .addTo(sceneController)
 }
-// TODO: Get JSDoc codehints working on imports.
