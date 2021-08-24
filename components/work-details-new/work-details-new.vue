@@ -41,6 +41,22 @@
       </div>
     </div>
 
+    <!-- Work Sections -->
+    <div class="work-detail__work work-detail__work--one">
+      <div class="work-detail__work__background">
+        <div class="work-detail__work__background-one"></div>
+        <div class="work-detail__work__background-two"></div>
+      </div>
+      <div class="work-detail__work__content"></div>
+    </div>
+    <div class="work-detail__work work-detail__work--two">
+      <div class="work-detail__work__background">
+        <div class="work-detail__work__background-one"></div>
+        <div class="work-detail__work__background-two"></div>
+      </div>
+      <div class="work-detail__work__content"></div>
+    </div>
+
     <!-- Animated pattern -->
     <div ref="animatedDivWrapper" class="work-detail__animated-div">
       <div ref="animatedDiv" class="work-detail__animated-div__animator"></div>
@@ -88,19 +104,19 @@ export default {
   },
   mounted() {
     this.attachScrollDetection()
+    this.animateWork()
   },
   methods: {
-    animateDiv() {
+    animateSidePattern() {
       // Distance scrolled from the top.
       const scrolledTop =
         window.pageYOffset || document.documentElement.scrollTop
-      console.log(this.patternYTransform, 'thisPatternYTransform')
       if (scrolledTop > this.lastScrollTop) {
         // Translate the element on the Y axis by the patternYTransform.
-        this.patternYTransform = this.patternYTransform - 1
+        this.patternYTransform = this.patternYTransform - 1.5
         this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
       } else {
-        this.patternYTransform = this.patternYTransform + 1
+        this.patternYTransform = this.patternYTransform + 1.5
         this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
       }
       this.lastScrollTop = scrolledTop <= 0 ? 0 : scrolledTop
@@ -108,9 +124,33 @@ export default {
     attachScrollDetection() {
       window.onscroll = event => {
         window.requestAnimationFrame(() => {
-          this.animateDiv(event)
+          this.animateSidePattern(event)
+          // Look at this link for an example of animating elements based on user scroll. May solve some issues with the current implementation.
+          // https://codepen.io/osublake/pen/a633d0c9e6e2b951496d7f1eb4fd8fb6?editors=1010
         })
       }
+    },
+    animateWork() {
+      const workSections = [
+        '.work-detail__work--one',
+        '.work-detail__work--two'
+      ]
+      workSections.forEach(workSection => {
+        const ScrollMagic = this.$ScrollMagic
+        const sceneController = new ScrollMagic.Controller()
+        new ScrollMagic.Scene({
+          triggerElement: workSection,
+          duration: document.querySelector(workSection).offsetHeight * 4,
+          triggerHook: 0.9
+        })
+          .setTween(`${workSection} .work-detail__work__background-one`, {
+            y: -35
+          })
+          .setTween(`${workSection} .work-detail__work__background-one`, {
+            y: 35
+          })
+          .addTo(sceneController)
+      })
     }
   }
 }
@@ -201,9 +241,19 @@ export default {
     position: relative;
     display: flex;
     justify-content: flex-start;
-    margin-top: $s0;
+    margin-top: $s1;
     color: $color-white;
 
+    &:before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      height: 1px;
+      background-color: $color-mc-new-purple-light;
+      width: calc(100% - 60px);
+      transform: translateX(-50%);
+    }
     &__headline {
       flex: 0 0 auto;
       width: 80px;
@@ -236,6 +286,43 @@ export default {
     }
     &__tool {
       flex: 0 1 auto;
+    }
+  }
+  &__work {
+    position: relative;
+    margin-top: $s1;
+    margin-bottom: 200vh;
+    width: 100%;
+    z-index: 1;
+
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    &__background-one {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-mc-new-purple-medium;
+      transform: skewY(-3deg);
+      z-index: 1;
+    }
+    &__background-two {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: calc(100% + 50px);
+      background-color: $color-mc-new-purple-light;
+      transform: skewY(3deg);
+    }
+    &__content {
+      height: 600px;
     }
   }
 }
