@@ -65,6 +65,7 @@
 </template>
 <script>
 // Components.
+import debounce from 'lodash/debounce'
 import CheckMark from '~/components/checkmark/Checkmark.vue'
 
 export default {
@@ -94,30 +95,30 @@ export default {
   data: () => {
     return {
       lastScrollTop: 0,
-      patternYTransform: 0,
       checkmark: {
         width: '9px',
         height: '14px',
         backgroundColor: '#fff'
-      }
+      },
+      documentHeight: 0
     }
   },
   mounted() {
     this.attachScrollDetection()
     this.animateWork()
+    this.setDocumentHeight()
   },
   methods: {
     animateSidePattern() {
       // Distance scrolled from the top.
       const scrolledTop =
         window.pageYOffset || document.documentElement.scrollTop
+      const percentageScrolled = scrolledTop / this.documentHeight
+      const scrollPositition = 250 * percentageScrolled
       if (scrolledTop > this.lastScrollTop) {
-        // Translate the element on the Y axis by the patternYTransform.
-        this.patternYTransform = this.patternYTransform - 1.5
-        this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
+        this.$refs.animatedDiv.style.transform = `translateY(calc(${scrollPositition}px - 50%))`
       } else {
-        this.patternYTransform = this.patternYTransform + 1.5
-        this.$refs.animatedDiv.style.transform = `translateY(calc(${this.patternYTransform}px - 50%))`
+        this.$refs.animatedDiv.style.transform = `translateY(calc(${scrollPositition}px - 50%))`
       }
       this.lastScrollTop = scrolledTop <= 0 ? 0 : scrolledTop
     },
@@ -125,8 +126,6 @@ export default {
       window.onscroll = event => {
         window.requestAnimationFrame(() => {
           this.animateSidePattern(event)
-          // Look at this link for an example of animating elements based on user scroll. May solve some issues with the current implementation.
-          // https://codepen.io/osublake/pen/a633d0c9e6e2b951496d7f1eb4fd8fb6?editors=1010
         })
       }
     },
@@ -144,13 +143,24 @@ export default {
           triggerHook: 0.9
         })
           .setTween(`${workSection} .work-detail__work__background-one`, {
-            y: -35
+            y: -100
           })
           .setTween(`${workSection} .work-detail__work__background-one`, {
-            y: 35
+            y: 100
           })
           .addTo(sceneController)
       })
+    },
+    setDocumentHeight() {
+      this.documentHeight = document.documentElement.scrollHeight
+      console.log(this.documentHeight)
+      window.addEventListener(
+        'resize',
+        debounce(() => {
+          console.log(this.documentHeight)
+          this.documentHeight = document.documentElement.scrollHeight
+        }, 200)
+      )
     }
   }
 }
@@ -228,7 +238,7 @@ export default {
       top: 50%;
       right: 0;
       width: 100%;
-      height: calc(200vh);
+      height: calc(100% + 500px);
       transform: translateY(-50%);
       background-image: url('~assets/img/work/mc-new/pill-pattern.png');
       background-repeat: repeat;
