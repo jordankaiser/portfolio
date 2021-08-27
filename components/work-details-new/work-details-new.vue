@@ -42,19 +42,32 @@
     </div>
 
     <!-- Work Sections -->
-    <div class="work-detail__work work-detail__work--one">
+    <div
+      v-for="work in content.works"
+      :key="work.title"
+      class="work-detail__work"
+    >
       <div class="work-detail__work__background">
         <div class="work-detail__work__background-one"></div>
         <div class="work-detail__work__background-two"></div>
       </div>
-      <div class="work-detail__work__content"></div>
-    </div>
-    <div class="work-detail__work work-detail__work--two">
-      <div class="work-detail__work__background">
-        <div class="work-detail__work__background-one"></div>
-        <div class="work-detail__work__background-two"></div>
+      <div class="work-detail__work__content">
+        <div class="work-detail__work__content__image">
+          <img
+            src="~/assets/img/work/mc-new/mc-detail-one.jpeg"
+            alt="Screenshot of MemorialCare Website"
+          />
+        </div>
+        <div class="work-detail__work__content__text">
+          <h2 class="work-detail__work__content__title">{{ work.title }}</h2>
+          <p class="work-detail__work__content__description">
+            {{ work.description }}
+          </p>
+          <div class="work-detail__work__content__cta">
+            <CtaSecondary :link="work.link" :varient="content.id" />
+          </div>
+        </div>
       </div>
-      <div class="work-detail__work__content"></div>
     </div>
 
     <!-- Animated pattern -->
@@ -67,10 +80,12 @@
 // Components.
 import debounce from 'lodash/debounce'
 import CheckMark from '~/components/checkmark/Checkmark.vue'
+import CtaSecondary from '~/components/ctas/CTASecondary'
 
 export default {
   components: {
-    CheckMark
+    CheckMark,
+    CtaSecondary
   },
   props: {
     content: {
@@ -89,6 +104,10 @@ export default {
       roles: {
         type: Array,
         default: ['Developer']
+      },
+      works: {
+        type: Array,
+        default: []
       }
     }
   },
@@ -130,24 +149,23 @@ export default {
       }
     },
     animateWork() {
-      const workSections = [
-        '.work-detail__work--one',
-        '.work-detail__work--two'
-      ]
-      workSections.forEach(workSection => {
+      const workSections = document.querySelectorAll('.work-detail__work')
+
+      Array.from(workSections).forEach(workSection => {
+        console.log(workSection)
         const ScrollMagic = this.$ScrollMagic
         const sceneController = new ScrollMagic.Controller()
         new ScrollMagic.Scene({
           triggerElement: workSection,
-          duration: document.querySelector(workSection).offsetHeight * 4,
+          duration: workSection.offsetHeight * 4,
           triggerHook: 0.9
         })
-          .setTween(`${workSection} .work-detail__work__background-one`, {
-            y: -100
-          })
-          .setTween(`${workSection} .work-detail__work__background-one`, {
-            y: 100
-          })
+          .setTween(
+            workSection.querySelector('.work-detail__work__background-one'),
+            {
+              y: -50
+            }
+          )
           .addTo(sceneController)
       })
     },
@@ -315,7 +333,7 @@ export default {
     &__background-one {
       position: absolute;
       left: 0;
-      top: 0;
+      top: 25px;
       width: 100%;
       height: 100%;
       background-color: $color-mc-new-purple-medium;
@@ -327,12 +345,29 @@ export default {
       left: 0;
       top: 0;
       width: 100%;
-      height: calc(100% + 50px);
+      height: 100%;
       background-color: $color-mc-new-purple-light;
       transform: skewY(3deg);
     }
     &__content {
-      height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 100px 30px;
+      z-index: 1;
+
+      &__image {
+        flex: 0 1 auto;
+
+        img {
+          width: 100%;
+          max-width: 480px;
+          height: auto;
+        }
+      }
+      &__text {
+        flex: 0 1 auto;
+      }
     }
   }
 }

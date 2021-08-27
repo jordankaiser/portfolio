@@ -60,6 +60,7 @@ export default {
     }
   },
   mounted: function() {
+    console.log(this.varient)
     secondaryTertiaryCTA('.cta-secondary__link', 'secondary')
   }
 }
@@ -88,7 +89,7 @@ export default {
     }
   }
   &__link {
-    display: block;
+    display: inline-block;
     position: relative;
     text-decoration: none;
     padding-top: 15px;
