@@ -161,9 +161,9 @@ export default {
           triggerHook: 0.9
         })
           .setTween(
-            workSection.querySelector('.work-detail__work__background-one'),
+            workSection.querySelector('.work-detail__work__background-two'),
             {
-              y: -50
+              y: 70
             }
           )
           .addTo(sceneController)
@@ -249,8 +249,12 @@ export default {
     top: 0;
     right: 0;
     height: 100%;
-    width: 95px;
+    width: 25px;
 
+    @include breakpoint($medium) {
+      width: 95px;
+      font-size: $fs6;
+    }
     &__animator {
       position: absolute;
       top: 50%;
@@ -353,12 +357,23 @@ export default {
       position: relative;
       display: flex;
       align-items: center;
-      padding: 100px 30px;
+      flex-direction: column;
+      padding: 100px 30px 40px;
       z-index: 1;
 
+      @include breakpoint($medium) {
+        flex-direction: row;
+        padding: 120px 30px 0;
+      }
       &__image {
         flex: 0 1 auto;
+        margin-bottom: $s0;
+        max-width: 350px;
 
+        @include breakpoint($medium) {
+          flex: 0 0 auto;
+          margin-right: $s0;
+        }
         img {
           width: 100%;
           max-width: 480px;
@@ -367,6 +382,19 @@ export default {
       }
       &__text {
         flex: 0 1 auto;
+
+        h2 {
+          margin-bottom: $s0;
+          font-family: $font-raleway;
+          font-size: 37px;
+          font-weight: 700;
+          letter-spacing: 115%;
+          color: $color-white;
+        }
+        p {
+          margin-bottom: $s0;
+          color: $color-white;
+        }
       }
     }
   }
