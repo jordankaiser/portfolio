@@ -1,5 +1,18 @@
 <template>
   <div class="work-detail">
+    <!-- Pill -->
+    <div class="work-detail__scroll-art">
+      <div
+        :class="`work-detail__scroll-art__one--${content.id}`"
+        class="work-detail__scroll-art__one"
+      >
+        <img
+          class="work-detail__scroll-art__image"
+          src="~/assets/img/work/mc-new/pill.png"
+          alt="Pill"
+        />
+      </div>
+    </div>
     <!-- Intro -->
     <div class="work-detail__intro container container--narrow">
       <!-- Roles -->
@@ -243,6 +256,26 @@ export default {
     color: #2c024d;
   }
 
+  // Scroll art.
+  &__scroll-art {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+
+    &__one--mc {
+      position: absolute;
+      left: 0;
+      top: 100px;
+      z-index: 2;
+    }
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   // Scrolling pattern.
   &__animated-div {
     position: fixed;
@@ -359,24 +392,26 @@ export default {
       align-items: center;
       flex-direction: column;
       padding: 100px 30px 40px;
+      max-width: 1080px;
+      margin: 0 auto;
       z-index: 1;
 
       @include breakpoint($medium) {
         flex-direction: row;
-        padding: 120px 30px 0;
+        padding: 140px 30px 20px;
       }
       &__image {
         flex: 0 1 auto;
         margin-bottom: $s0;
-        max-width: 350px;
+        max-width: 480px;
 
         @include breakpoint($medium) {
           flex: 0 0 auto;
           margin-right: $s0;
+          width: 480px;
         }
         img {
           width: 100%;
-          max-width: 480px;
           height: auto;
         }
       }
