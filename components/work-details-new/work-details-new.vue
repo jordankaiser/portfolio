@@ -1,10 +1,20 @@
 <template>
   <div class="work-detail">
-    <!-- Pill -->
+    <!-- Scroll art -->
     <div class="work-detail__scroll-art">
       <div
         :class="`work-detail__scroll-art__one--${content.id}`"
         class="work-detail__scroll-art__one"
+      >
+        <img
+          class="work-detail__scroll-art__image"
+          src="~/assets/img/work/mc-new/pill.png"
+          alt="Pill"
+        />
+      </div>
+      <div
+        :class="`work-detail__scroll-art__two--${content.id}`"
+        class="work-detail__scroll-art__two"
       >
         <img
           class="work-detail__scroll-art__image"
@@ -138,6 +148,7 @@ export default {
   mounted() {
     this.attachScrollDetection()
     this.animateWork()
+    this.animateScrollArt()
     this.setDocumentHeight()
   },
   methods: {
@@ -165,7 +176,6 @@ export default {
       const workSections = document.querySelectorAll('.work-detail__work')
 
       Array.from(workSections).forEach(workSection => {
-        console.log(workSection)
         const ScrollMagic = this.$ScrollMagic
         const sceneController = new ScrollMagic.Controller()
         new ScrollMagic.Scene({
@@ -179,6 +189,27 @@ export default {
               y: 70
             }
           )
+          .addTo(sceneController)
+      })
+    },
+    animateScrollArt() {
+      const scrollArts = document.querySelectorAll(
+        '.work-detail__scroll-art > *'
+      )
+
+      // Consider changing this so the animation is not
+      // reacting to scroll but instead more like the home page.
+      Array.from(scrollArts).forEach(scrollArt => {
+        const ScrollMagic = this.$ScrollMagic
+        const sceneController = new ScrollMagic.Controller()
+        new ScrollMagic.Scene({
+          // triggerElement: scrollArt,
+          duration: 500,
+          triggerHook: 0.9
+        })
+          .setTween(scrollArt, {
+            y: 250
+          })
           .addTo(sceneController)
       })
     },
@@ -266,9 +297,21 @@ export default {
 
     &__one--mc {
       position: absolute;
-      left: 0;
+      left: -50px;
       top: 100px;
-      z-index: 2;
+
+      img {
+        transform: scale(0.5) rotate(35deg);
+      }
+    }
+    &__two--mc {
+      position: absolute;
+      left: -10px;
+      top: 370px;
+
+      img {
+        transform: scale(0.3) rotate(-40deg);
+      }
     }
     &__image {
       width: 100%;
