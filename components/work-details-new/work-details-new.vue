@@ -3,23 +3,15 @@
     <!-- Scroll art -->
     <div class="work-detail__scroll-art">
       <div
-        :class="`work-detail__scroll-art__one--${content.id}`"
-        class="work-detail__scroll-art__one"
+        v-for="art in content.scrollArt"
+        :key="art.className"
+        :class="`${art.className} ${art.className}--${content.id}`"
       >
+        <!-- TODO: Use props for the image src -->
         <img
           class="work-detail__scroll-art__image"
-          src="~/assets/img/work/mc-new/pill.png"
-          alt="Pill"
-        />
-      </div>
-      <div
-        :class="`work-detail__scroll-art__two--${content.id}`"
-        class="work-detail__scroll-art__two"
-      >
-        <img
-          class="work-detail__scroll-art__image"
-          src="~/assets/img/work/mc-new/pill.png"
-          alt="Pill"
+          src="~assets/img/work/mc-new/pill.png"
+          :alt="art.imageAlt"
         />
       </div>
     </div>
@@ -57,7 +49,7 @@
           class="work-detail__tools__tool-wrapper"
         >
           <span class="work-detail__tools__checkmark">
-            <check-mark :checkmark="checkmark" />
+            <check-mark :checkmark="content.checkmark" />
           </span>
           <span class="work-detail__tools__tool">{{ tool }}</span>
         </span>
@@ -100,8 +92,12 @@
   </div>
 </template>
 <script>
-// Components.
+// Helpers.
 import debounce from 'lodash/debounce'
+import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
+import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
+
+// Components.
 import CheckMark from '~/components/checkmark/Checkmark.vue'
 import CtaSecondary from '~/components/ctas/CTASecondary'
 
@@ -128,7 +124,21 @@ export default {
         type: Array,
         default: ['Developer']
       },
+      checkmark: {
+        type: Object,
+        default: () => {
+          return {
+            width: '9px',
+            height: '14px',
+            backgroundColor: '#fff'
+          }
+        }
+      },
       works: {
+        type: Array,
+        default: []
+      },
+      scrollArt: {
         type: Array,
         default: []
       }
@@ -137,18 +147,14 @@ export default {
   data: () => {
     return {
       lastScrollTop: 0,
-      checkmark: {
-        width: '9px',
-        height: '14px',
-        backgroundColor: '#fff'
-      },
       documentHeight: 0
     }
   },
   mounted() {
+    console.log(this.checkmark)
     this.attachScrollDetection()
     this.animateWork()
-    this.animateScrollArt()
+    // this.animateScrollArt()
     this.setDocumentHeight()
   },
   methods: {
@@ -186,40 +192,47 @@ export default {
           .setTween(
             workSection.querySelector('.work-detail__work__background-two'),
             {
-              y: 70
+              y: 90
             }
           )
           .addTo(sceneController)
       })
     },
     animateScrollArt() {
-      const scrollArts = document.querySelectorAll(
-        '.work-detail__scroll-art > *'
-      )
+      const TimelineLite = this.$GSAP.TimelineLite
 
-      // Consider changing this so the animation is not
-      // reacting to scroll but instead more like the home page.
-      Array.from(scrollArts).forEach(scrollArt => {
-        const ScrollMagic = this.$ScrollMagic
-        const sceneController = new ScrollMagic.Controller()
-        new ScrollMagic.Scene({
-          // triggerElement: scrollArt,
-          duration: 500,
-          triggerHook: 0.9
+      const animatedClassNames = [
+        '.work-detail__scroll-art__one',
+        '.work-detail__scroll-art__two'
+      ]
+
+      let rotationAlternator = true
+      animatedClassNames.forEach(animatedClassName => {
+        const element = document.querySelector(animatedClassName)
+        const timeline = new TimelineLite({
+          onComplete: timelineCleanup,
+          onCompleteParams: [document.querySelector(animatedClassName)]
         })
-          .setTween(scrollArt, {
-            y: 250
-          })
-          .addTo(sceneController)
+
+        rotationAlternator = !rotationAlternator
+        const rotation = rotationAlternator ? 360 : -360
+
+        timeline.from(element, 1, {
+          x: -200,
+          rotation: rotation,
+          opacity: 0,
+          scale: 0.25
+        })
+
+        // Reveal on scroll.
+        scrollMagicScene(this, timeline, animatedClassName, 1)
       })
     },
     setDocumentHeight() {
       this.documentHeight = document.documentElement.scrollHeight
-      console.log(this.documentHeight)
       window.addEventListener(
         'resize',
         debounce(() => {
-          console.log(this.documentHeight)
           this.documentHeight = document.documentElement.scrollHeight
         }, 200)
       )
@@ -307,7 +320,7 @@ export default {
     &__two--mc {
       position: absolute;
       left: -10px;
-      top: 370px;
+      top: 400px;
 
       img {
         transform: scale(0.3) rotate(-40deg);
@@ -423,7 +436,7 @@ export default {
     &__background-two {
       position: absolute;
       left: 0;
-      top: 0;
+      top: -10px;
       width: 100%;
       height: 100%;
       background-color: $color-mc-new-purple-light;

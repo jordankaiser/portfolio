@@ -7,7 +7,7 @@
  *
  * @param {string} trigger - A CSS selector that triggers the animation.
  *
- * @param {integer} triggerHook - A integer between 0 and 1. The offset when the animation is trigger on.
+ * @param {integer} triggerHook - A integer between 0 and 1. The offset when the animation is triggered on.
  *
  * @example
  *

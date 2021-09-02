@@ -18,6 +18,11 @@ export default {
           '<p>Tempus malesuada himenaeos blandit tristique volutpat dictum duis, interdum placerat velit cras feugiat est fringilla, dictumst natoque nisl justo metus pulvinar. Sociosqu odio fames imperdiet aliquet nulla nullam mus consequat nisi, proin vivamus convallis faucibus varius at placerat praesent blandit id, nascetur aptent laoreet iaculis torquent potenti sollicitudin sem.</p><p>At fusce quis elementum dolor etiam ac scelerisque consequat, est lectus ante eu vel placerat nec, facilisis enim himenaeos ullamcorper sociosqu semper inceptos.</p>',
         roles: ['Developer'],
         tools: ['Javascript', 'SCSS', 'PHP', 'Drupal', 'Vue.js', 'Twig'],
+        checkmark: {
+          width: '9px',
+          height: '14px',
+          backgroundColor: '#fff'
+        },
         works: [
           {
             title: 'Euismod leo suscipit vivamus tempus',
@@ -29,6 +34,13 @@ export default {
               href: '/',
               target: '_blank'
             }
+          }
+        ],
+        scrollArt: [
+          {
+            className: 'work-detail__scroll-art__one',
+            imageSrc: '~assets/img/work/mc-new/pill.png',
+            imageAlt: 'Pill'
           }
         ]
       }

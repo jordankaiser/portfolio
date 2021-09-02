@@ -60,7 +60,6 @@ export default {
     }
   },
   mounted: function() {
-    console.log(this.varient)
     secondaryTertiaryCTA('.cta-secondary__link', 'secondary')
   }
 }
