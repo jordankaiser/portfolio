@@ -7,10 +7,9 @@
         :key="art.className"
         :class="`${art.className} ${art.className}--${content.id}`"
       >
-        <!-- TODO: Use props for the image src -->
         <img
           class="work-detail__scroll-art__image"
-          src="~assets/img/work/mc-new/pill.png"
+          :src="require(`~/assets/img/work/${art.imageSrc}`)"
           :alt="art.imageAlt"
         />
       </div>
@@ -69,7 +68,7 @@
       <div class="work-detail__work__content">
         <div class="work-detail__work__content__image">
           <img
-            src="~/assets/img/work/mc-new/mc-detail-one.jpeg"
+            :src="require(`~/assets/img/work/${work.image}`)"
             alt="Screenshot of MemorialCare Website"
           />
         </div>
@@ -313,6 +312,9 @@ export default {
       left: -50px;
       top: 100px;
 
+      @media only screen and (max-width: 800px) {
+        display: none;
+      }
       img {
         transform: scale(0.5) rotate(35deg);
       }
@@ -324,6 +326,30 @@ export default {
 
       img {
         transform: scale(0.3) rotate(-40deg);
+      }
+    }
+    &__three--mc {
+      position: absolute;
+      top: 1445px;
+      left: -40px;
+
+      @include breakpoint($medium) {
+        top: 1240px;
+      }
+      img {
+        transform: scale(0.2) rotate(-64deg);
+      }
+    }
+    &__four--mc {
+      position: absolute;
+      top: 2480px;
+      left: -40px;
+
+      @include breakpoint($medium) {
+        top: 2120px;
+      }
+      img {
+        transform: scale(0.65) rotate(-110deg);
       }
     }
     &__image {
@@ -412,7 +438,7 @@ export default {
   &__work {
     position: relative;
     margin-top: $s1;
-    margin-bottom: 200vh;
+    margin-bottom: 200px;
     width: 100%;
     z-index: 1;
 

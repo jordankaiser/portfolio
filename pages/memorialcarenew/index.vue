@@ -28,7 +28,29 @@ export default {
             title: 'Euismod leo suscipit vivamus tempus',
             description:
               'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
-            image: '~/assets/img/work/mc-new/mc-detail-one.jpeg',
+            image: 'mc-new/mc-detail-one.jpeg',
+            link: {
+              text: 'Non sociis',
+              href: '/',
+              target: '_blank'
+            }
+          },
+          {
+            title: 'Euismod leo suscipit vivamus tempus',
+            description:
+              'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
+            image: 'mc-new/mc-detail-one.jpeg',
+            link: {
+              text: 'Non sociis',
+              href: '/',
+              target: '_blank'
+            }
+          },
+          {
+            title: 'Euismod leo suscipit vivamus tempus',
+            description:
+              'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
+            image: 'mc-new/mc-detail-one.jpeg',
             link: {
               text: 'Non sociis',
               href: '/',
@@ -39,7 +61,22 @@ export default {
         scrollArt: [
           {
             className: 'work-detail__scroll-art__one',
-            imageSrc: '~assets/img/work/mc-new/pill.png',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__two',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__three',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__four',
+            imageSrc: 'mc-new/pill.png',
             imageAlt: 'Pill'
           }
         ]
