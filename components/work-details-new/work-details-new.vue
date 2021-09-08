@@ -1,5 +1,6 @@
 <template>
   <div class="work-detail">
+    <Navigation />
     <!-- Scroll art -->
     <div class="work-detail__scroll-art">
       <div
@@ -78,9 +79,16 @@
             {{ work.description }}
           </p>
           <div class="work-detail__work__content__cta">
-            <CtaSecondary :link="work.link" :varient="content.id" />
+            <CTASecondary :link="work.link" :varient="content.id" />
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Back -->
+    <div class="work-detail__back container container--narrow">
+      <div class="work-detail__back__link">
+        <CTATertiary :link="link" :varient="content.id" />
       </div>
     </div>
 
@@ -98,12 +106,16 @@ import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 
 // Components.
 import CheckMark from '~/components/checkmark/Checkmark.vue'
-import CtaSecondary from '~/components/ctas/CTASecondary'
+import CTASecondary from '~/components/ctas/CTASecondary'
+import CTATertiary from '~/components/ctas/CTATertiary'
+import Navigation from '~/components/navigation/Navigation'
 
 export default {
   components: {
     CheckMark,
-    CtaSecondary
+    CTASecondary,
+    CTATertiary,
+    Navigation
   },
   props: {
     content: {
@@ -146,7 +158,12 @@ export default {
   data: () => {
     return {
       lastScrollTop: 0,
-      documentHeight: 0
+      documentHeight: 0,
+      link: {
+        text: 'Home',
+        href: '/',
+        target: '_self'
+      }
     }
   },
   mounted() {
@@ -513,6 +530,17 @@ export default {
           color: $color-white;
         }
       }
+    }
+  }
+
+  // Back
+  &__back {
+    display: flex;
+    justify-content: center;
+    margin-top: -90px;
+
+    &__link {
+      flex: 0 1 auto;
     }
   }
 }
