@@ -88,6 +88,9 @@ export default {
       }
     }
   }
+  &__wrap {
+    display: inline-block;
+  }
   &__link {
     display: flex;
     align-items: center;
