@@ -1,108 +1,84 @@
 <template>
-  <work-detail :work-details="workDetails" />
+  <work-details :content="content" />
 </template>
 <script>
-import WorkDetail from '~/components/work-details/WorkDetail.vue'
+import WorkDetails from '~/components/work-details/work-details.vue'
 
 export default {
   components: {
-    WorkDetail
+    WorkDetails
   },
-  data: function() {
+  data: () => {
     return {
-      workDetails: {
+      content: {
         id: 'mc',
-        headerModifiers: {
-          id: 'mc-header',
-          revealOffset: 0.7
-        },
-        roles: ['Developer'],
         title: 'MemorialCare',
         description:
-          'Introduction of work tortor ultricies malesuada viverra leo amet etiam feugiat senectus curabitur in felis himenaeos, a potenti libero eget pretium donec conubia nunc netus litora faucibus.',
-        screenshotOne: {
-          id: 'mcScreenshotOne',
-          cssClass: 'one',
-          image: 'mc/work-cash-pricing.jpg',
-          alt: 'MemorialCare Home Page',
-          relatedCaption: 'screenshotOneCaption',
-          placeholderConfig: {
-            initial: null,
-            width: '1000',
-            height: '1000'
+          '<p>Tempus malesuada himenaeos blandit tristique volutpat dictum duis, interdum placerat velit cras feugiat est fringilla, dictumst natoque nisl justo metus pulvinar. Sociosqu odio fames imperdiet aliquet nulla nullam mus consequat nisi, proin vivamus convallis faucibus varius at placerat praesent blandit id, nascetur aptent laoreet iaculis torquent potenti sollicitudin sem.</p><p>At fusce quis elementum dolor etiam ac scelerisque consequat, est lectus ante eu vel placerat nec, facilisis enim himenaeos ullamcorper sociosqu semper inceptos.</p>',
+        roles: ['Developer'],
+        tools: ['Javascript', 'SCSS', 'PHP', 'Drupal', 'Vue.js', 'Twig'],
+        checkmark: {
+          width: '9px',
+          height: '14px',
+          backgroundColor: '#fff'
+        },
+        works: [
+          {
+            title: 'Euismod leo suscipit vivamus tempus',
+            description:
+              'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
+            image: 'mc-new/mc-detail-one.jpeg',
+            link: {
+              text: 'Non sociis',
+              href: '/',
+              target: '_blank'
+            }
           },
-          animationConfig: {
-            id: 'mc-screenshot-one',
-            revealOffset: 0.75,
-            initialDelay: '+=0',
-            triggerEl: '.screenshot--one'
-          }
-        },
-        screenshotOneCaption: {
-          id: 'mc',
-          uniqueId: 'one',
-          cta: '.screenshot--one .cta-secondary',
-          screenshotImageId: 'mcScreenshotOne'
-        },
-        screenshotOneCaptionText:
-          '<p>The Cash Pricing tool allows the user to specifiy a medical procedure and medical facility. The cash price of that procedure is then given.</p><p>This tool was built with Vue.js and utilizes Vuex for state management.</p>',
-        screenshotOneLink: {
-          text: 'Cash Pricing',
-          href: 'https://memorialcare.org/cash-pricing',
-          target: '_blank'
-        },
-        screenshotTwo: {
-          id: 'mcScreenshotTwo',
-          cssClass: 'two',
-          image: 'mc/work-small-service-line.jpg',
-          relatedCaption: 'screenshotTwoCaption',
-          placeholderConfig: {
-            initial: null,
-            width: '582',
-            height: '570'
+          {
+            title: 'Euismod leo suscipit vivamus tempus',
+            description:
+              'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
+            image: 'mc-new/mc-detail-one.jpeg',
+            link: {
+              text: 'Non sociis',
+              href: '/',
+              target: '_blank'
+            }
           },
-          animationConfig: {
-            id: 'mc-screenshot-two',
-            revealOffset: 0.75,
-            initialDelay: '+=0',
-            triggerEl: '.screenshot--two'
+          {
+            title: 'Euismod leo suscipit vivamus tempus',
+            description:
+              'Vitae senectus orci phasellus magnis suspendisse risus duis, ante parturient dictumst amet nostra tincidunt lectus, velit maecenas morbi imperdiet placerat malesuada.',
+            image: 'mc-new/mc-detail-one.jpeg',
+            link: {
+              text: 'Non sociis',
+              href: '/',
+              target: '_blank'
+            }
           }
-        },
-        screenshotTwoCaption: {
-          id: 'mc',
-          uniqueId: 'two',
-          cta: '.screenshot--two .cta-secondary',
-          screenshotImageId: 'mcScreenshotTwo'
-        },
-        screenshotTwoCaptionText:
-          '<p>One of the objectives for the project was allow the user to specify a particular medical location. Once chosen the user sees specific content for that location throughout the site. The Cancer Care service page is one example of this.</p>',
-        screenshotTwoLink: {
-          text: 'Cancer Care Service',
-          href: 'https://www.memorialcare.org/services/cancer-care',
-          target: '_blank'
-        },
-        toolsModifiers: {
-          id: 'mc-tools',
-          revealOffset: 0.8,
-          initialDelay: '+=1',
-          triggerEl: '.mc-hero'
-        },
-        tools: ['Drupal', 'Javascript', 'PHP', 'Vue.js', 'Twig', 'SCSS'],
-        hero: {
-          revealOffset: 0.75
-        },
-        ctaHero: {
-          id: 'mc',
-          text: 'Visit Website',
-          link: 'https://wwww.memorialcare.org',
-          linkTarget: '_blank'
-        },
-        footerPills: {
-          id: 'mc',
-          revealOffset: 1,
-          triggerEl: '.work-details__sub-segment .pill-footer',
-          initialDelay: '+=0.5'
-        }
+        ],
+        scrollArt: [
+          {
+            className: 'work-detail__scroll-art__one',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__two',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__three',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          },
+          {
+            className: 'work-detail__scroll-art__four',
+            imageSrc: 'mc-new/pill.png',
+            imageAlt: 'Pill'
+          }
+        ]
       }
     }
   }
