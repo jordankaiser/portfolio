@@ -43,7 +43,7 @@
           </ul>
         </li>
       </ul>
-      <nuxt-link to="/" class="links__home">
+      <nuxt-link to="/" class="links__home" :tabindex="tabIndex">
         <div class="links__circle"></div>
         <home />
       </nuxt-link>
