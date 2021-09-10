@@ -85,6 +85,19 @@
       </div>
     </div>
 
+    <!-- Addendum -->
+    <div
+      v-if="content.addendum"
+      class="work-detail__addendum container container--narrow"
+    >
+      <h2 class="work-detail__headline">Addendum</h2>
+      <!-- eslint-disable vue/no-v-html -->
+      <div
+        class="work-detail__description text"
+        v-html="content.addendum"
+      ></div>
+    </div>
+
     <!-- Back -->
     <div class="work-detail__back container container--narrow">
       <div class="work-detail__back__link">
@@ -325,12 +338,13 @@ export default {
     width: 250px;
 
     &__one--mc {
-      position: absolute;
-      left: -50px;
-      top: 100px;
+      display: none;
 
-      @media only screen and (max-width: 800px) {
-        display: none;
+      @media only screen and (min-width: 800px) {
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: -50px;
       }
       img {
         transform: scale(0.5) rotate(35deg);
@@ -338,8 +352,8 @@ export default {
     }
     &__two--mc {
       position: absolute;
-      left: -10px;
       top: 400px;
+      left: -10px;
 
       img {
         transform: scale(0.3) rotate(-40deg);
@@ -347,11 +361,11 @@ export default {
     }
     &__three--mc {
       position: absolute;
-      top: 1445px;
+      top: 1280px;
       left: -40px;
 
       @include breakpoint($medium) {
-        top: 1240px;
+        top: 1280px;
       }
       img {
         transform: scale(0.2) rotate(-64deg);
@@ -359,11 +373,11 @@ export default {
     }
     &__four--mc {
       position: absolute;
-      top: 2480px;
+      top: 2220px;
       left: -40px;
 
       @include breakpoint($medium) {
-        top: 2120px;
+        top: 2220px;
       }
       img {
         transform: scale(0.65) rotate(-110deg);
@@ -516,6 +530,7 @@ export default {
       }
       &__text {
         flex: 0 1 auto;
+        margin-bottom: 30px;
 
         h2 {
           margin-bottom: $s0;
@@ -533,11 +548,16 @@ export default {
     }
   }
 
+  // Addendum
+  &__addendum {
+    margin-top: -50px;
+  }
+
   // Back
   &__back {
     display: flex;
     justify-content: center;
-    margin-top: -90px;
+    margin-top: 30px;
 
     &__link {
       flex: 0 1 auto;
