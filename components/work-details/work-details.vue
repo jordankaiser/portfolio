@@ -88,7 +88,9 @@
     <!-- Addendum -->
     <div
       v-if="content.addendum"
-      class="work-detail__addendum container container--narrow"
+      :class="
+        `work-detail__addendum work-detail__addendum--${content.id} container container--narrow`
+      "
     >
       <h2 class="work-detail__headline">Addendum</h2>
       <!-- eslint-disable vue/no-v-html -->
@@ -124,6 +126,12 @@ import CTATertiary from '~/components/ctas/CTATertiary'
 import Navigation from '~/components/navigation/Navigation'
 
 export default {
+  head() {
+    return {
+      title: 'MemorialCare',
+      titleTemplate: '%s | Jordan Kaiser'
+    }
+  },
   components: {
     CheckMark,
     CTASecondary,

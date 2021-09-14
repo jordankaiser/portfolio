@@ -184,7 +184,7 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 45px;
+    width: 40px;
     height: 40px;
     transform: translate(-50%, -50%) scale(0);
     background-color: $color-orange;
