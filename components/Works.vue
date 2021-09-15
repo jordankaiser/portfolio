@@ -189,7 +189,7 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: '/styleguide',
+              href: '/ezgo',
               target: '_self'
             }
           },
