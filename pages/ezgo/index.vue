@@ -12,7 +12,8 @@ export default {
     return {
       content: {
         id: 'mc',
-        title: 'MemorialCare',
+        backgroundColor: '#A9CAFD',
+        title: 'E-Z-GO',
         description:
           "<p>MemorialCare is a health system serving Los Angeles County and Orange County in California. It is composed of four hospitals, two medical groups and multiple imaging centers, surgical centers, and more.</p><p>We meet directly with the client multiple times per week to discuss needs, features in progress, and plan new capabilities for the website. We used an agile process to put structure around this work. The client was very complimentary of this process and the work we produced.</p><p>I was the primary back end developer for this website over the majority of the it's existence. I worked closely with a front end developer and a digital strategist to plan feature additions and maintence.</p>",
         roles: ['Developer'],
@@ -81,6 +82,7 @@ export default {
             top: '2220px'
           }
         ],
+        pattern: 'ezgo-new/wheel-pattern.png',
         addendum:
           '<p>The MemorialCare website was built using Drupal\'s Domain Access module. This allowed for the content from the CMS to be used on multiple different websites such as <a target="_blank" href="https://www.beachfamilydoctors.net/">beachfamilydoctors.net</a> and <a target="_blank" href="https://memorialcareaconetwork.org">memorialcareaconetwork.org</a>.</p><p>Content was imported and exported from the site using custom Drupal modules. The Providers on the website where a typical target for data importing and exporting.</p><p>Drupal module update audits where conducted monthly. Updated modules, as well as general website updates and features, where then deployed from the development environment to staging and then the live site using Drupal\'s configuration management.</p>'
       }

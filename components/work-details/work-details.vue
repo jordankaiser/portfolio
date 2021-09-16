@@ -1,5 +1,8 @@
 <template>
-  <div class="work-detail">
+  <div
+    class="work-detail"
+    :style="{ backgroundColor: content.backgroundColor }"
+  >
     <Navigation />
     <!-- Scroll art -->
     <div class="work-detail__scroll-art">
@@ -109,7 +112,14 @@
 
     <!-- Animated pattern -->
     <div ref="animatedDivWrapper" class="work-detail__animated-div">
-      <div ref="animatedDiv" class="work-detail__animated-div__animator"></div>
+      <div
+        ref="animatedDiv"
+        :style="{
+          backgroundImage:
+            'url(\'' + require(`~/assets/img/work/${content.pattern}`) + '\')'
+        }"
+        class="work-detail__animated-div__animator"
+      ></div>
     </div>
   </div>
 </template>
@@ -292,7 +302,6 @@ export default {
     position: absolute;
     left: -9px;
     top: -30px;
-    background-color: $color-mc-purple-dark;
     opacity: 0.5;
     width: 160px;
     height: 50px;
@@ -416,8 +425,7 @@ export default {
       width: 100%;
       height: calc(100% + 500px);
       transform: translateY(-50%);
-      background-image: url('~assets/img/work/mc-new/pill-pattern.png');
-      background-repeat: repeat;
+      background-repeat: repeat-y;
       background-size: 94px;
     }
   }
