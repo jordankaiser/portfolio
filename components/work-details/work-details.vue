@@ -1,6 +1,6 @@
 <template>
   <div
-    class="work-detail"
+    :class="`work-detail work-detail--${content.id}`"
     :style="{ backgroundColor: content.backgroundColor }"
   >
     <Navigation />
@@ -21,8 +21,14 @@
     <!-- Intro -->
     <div class="work-detail__intro container container--narrow">
       <!-- Roles -->
-      <h4 class="work-detail__roles">
-        Roles <span class="work-detail__role-seperator">|</span>
+      <h4 :class="`work-detail__roles work-detail__roles--${content.id}`">
+        Roles
+        <span
+          :class="
+            `work-detail__role-seperator work-detail__role-seperator--${content.id}`
+          "
+          >|</span
+        >
         <span v-for="(role, index) in content.roles" :key="role">
           <span v-if="index !== content.roles.length - 1"> {{ role }}, </span>
           <span v-else>
@@ -32,18 +38,27 @@
       </h4>
 
       <!-- Headline -->
-      <h1 class="work-detail__headline">{{ content.title }}</h1>
+      <h1 :class="`work-detail__headline work-detail__headline--${content.id}`">
+        {{ content.title }}
+      </h1>
 
       <!-- Description -->
       <!-- eslint-disable vue/no-v-html -->
       <div
+        :class="
+          `work-detail__description work-detail__description--${content.id} text`
+        "
         class="work-detail__description text"
         v-html="content.description"
       ></div>
     </div>
 
     <!-- Tools -->
-    <div class="work-detail__tools container container--narrow">
+    <div
+      :class="
+        `work-detail__tools work-detail__tools--${content.id} container container--narrow`
+      "
+    >
       <div class="work-detail__tools__headline"><p>Tools</p></div>
       <div class="work-detail__tools__wrapper">
         <span
@@ -294,8 +309,14 @@ export default {
   position: relative;
   padding-top: 80px;
   padding-bottom: $s1;
-  background-color: $color-mc-purple;
 
+  &--mc {
+    background-color: $color-mc-purple;
+  }
+  &--ezgo {
+    background-color: $color-ezgo-blue;
+    color: $color-blue;
+  }
   // Top left triangle.
   &:after {
     content: '';
@@ -316,6 +337,12 @@ export default {
     color: $color-white;
     font-weight: 700;
 
+    &--mc {
+      color: $color-white;
+    }
+    &--ezgo {
+      color: $color-blue;
+    }
     @include breakpoint($small) {
       font-size: $fs6;
     }
@@ -326,6 +353,12 @@ export default {
     color: $color-white;
     margin-top: $s0;
 
+    &--mc {
+      color: $color-white;
+    }
+    &--ezgo {
+      color: $color-blue;
+    }
     p {
       margin-top: $s0;
     }
@@ -337,6 +370,12 @@ export default {
     font-size: $fs-1;
     line-height: $fs-1;
 
+    &--mc {
+      color: $color-white;
+    }
+    &--ezgo {
+      color: $color-blue;
+    }
     @include breakpoint($medium) {
       font-size: $fs0;
       line-height: $fs0;
@@ -344,6 +383,13 @@ export default {
   }
   &__role-seperator {
     color: #2c024d;
+
+    &--mc {
+      color: #2c024d;
+    }
+    &--ezgo {
+      color: #969ca5;
+    }
   }
 
   // Scroll art.
@@ -438,13 +484,26 @@ export default {
     margin-top: $s1;
     color: $color-white;
 
+    &--mc {
+      color: $color-white;
+
+      &:before {
+        background-color: $color-mc-new-purple-light;
+      }
+    }
+    &--ezgo {
+      color: $color-blue;
+
+      &:before {
+        background-color: #80a9ea;
+      }
+    }
     &:before {
       content: '';
       position: absolute;
       top: -30px;
       left: 50%;
       height: 1px;
-      background-color: $color-mc-new-purple-light;
       width: calc(100% - 60px);
       transform: translateX(-50%);
     }

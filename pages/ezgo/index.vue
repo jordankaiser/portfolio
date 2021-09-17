@@ -11,8 +11,7 @@ export default {
   data: () => {
     return {
       content: {
-        id: 'mc',
-        backgroundColor: '#A9CAFD',
+        id: 'ezgo',
         title: 'E-Z-GO',
         description:
           "<p>MemorialCare is a health system serving Los Angeles County and Orange County in California. It is composed of four hospitals, two medical groups and multiple imaging centers, surgical centers, and more.</p><p>We meet directly with the client multiple times per week to discuss needs, features in progress, and plan new capabilities for the website. We used an agile process to put structure around this work. The client was very complimentary of this process and the work we produced.</p><p>I was the primary back end developer for this website over the majority of the it's existence. I worked closely with a front end developer and a digital strategist to plan feature additions and maintence.</p>",
@@ -21,7 +20,7 @@ export default {
         checkmark: {
           width: '9px',
           height: '14px',
-          backgroundColor: '#fff'
+          backgroundColor: '#1A4382'
         },
         works: [
           {
