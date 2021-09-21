@@ -60,26 +60,24 @@ export default {
         scrollArt: [
           {
             className: 'work-detail__scroll-art__one',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill'
+            imageSrc: 'ezgo-new/golf-bag.png',
+            imageAlt: 'Golf Bag'
           },
           {
             className: 'work-detail__scroll-art__two',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill'
+            imageSrc: 'ezgo-new/flag.png',
+            imageAlt: 'Flag'
           },
           {
             className: 'work-detail__scroll-art__three',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill',
-            top: '1280px'
-          },
-          {
-            className: 'work-detail__scroll-art__four',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill',
-            top: '2220px'
+            imageSrc: 'ezgo-new/golf-ball.png',
+            imageAlt: 'Golf Ball'
           }
+          // {
+          //   className: 'work-detail__scroll-art__four',
+          //   imageSrc: 'mc-new/pill.png',
+          //   imageAlt: 'Pill'
+          // }
         ],
         pattern: 'ezgo-new/wheel-pattern.png',
         addendum:

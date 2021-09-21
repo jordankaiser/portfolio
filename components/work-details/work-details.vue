@@ -81,8 +81,16 @@
       class="work-detail__work"
     >
       <div class="work-detail__work__background">
-        <div class="work-detail__work__background-one"></div>
-        <div class="work-detail__work__background-two"></div>
+        <div
+          :class="
+            `work-detail__work__background-one work-detail__work__background-one--${content.id}`
+          "
+        ></div>
+        <div
+          :class="
+            `work-detail__work__background-two work-detail__work__background-two--${content.id}`
+          "
+        ></div>
       </div>
       <div class="work-detail__work__content">
         <div class="work-detail__work__content__image">
@@ -446,6 +454,35 @@ export default {
         transform: scale(0.65) rotate(-110deg);
       }
     }
+    &__one--ezgo {
+      display: none;
+
+      @media only screen and (min-width: 800px) {
+        display: block;
+        position: absolute;
+        top: 140px;
+        left: -50px;
+        width: 185px;
+      }
+    }
+    &__two--ezgo {
+      display: none;
+
+      @media only screen and (min-width: 800px) {
+        display: block;
+        position: absolute;
+        top: 580px;
+        left: 18px;
+        width: 84px;
+      }
+    }
+    &__three--ezgo {
+      display: block;
+      position: absolute;
+      top: 1408px;
+      left: 15px;
+      width: 84px;
+    }
     &__image {
       width: 100%;
       height: auto;
@@ -564,6 +601,13 @@ export default {
       background-color: $color-mc-new-purple-medium;
       transform: skewY(-3deg);
       z-index: 1;
+
+      &--mc {
+        background-color: $color-mc-new-purple-medium;
+      }
+      &--ezgo {
+        background-color: #7675ae;
+      }
     }
     &__background-two {
       position: absolute;
@@ -573,6 +617,13 @@ export default {
       height: 100%;
       background-color: $color-mc-new-purple-light;
       transform: skewY(3deg);
+
+      &--mc {
+        background-color: $color-mc-new-purple-light;
+      }
+      &--ezgo {
+        background-color: #d9e8ff;
+      }
     }
     &__content {
       position: relative;
