@@ -24,10 +24,10 @@ export default {
         },
         works: [
           {
-            title: 'MemorialCare Home Page',
+            title: 'E-Z-GO Home Page',
             description:
-              'The home page of the website features a marquee emphasizeing search which was heavily utilized. The Featured Content section of the home page is a high impact visual that allowed the client to emphasize other content on the site at their discretion.',
-            image: 'mc-new/mc-detail-one.jpeg',
+              'The E-Z-GO website is actually two seperate websites. When a visitor first comes to the site they are asked to choose between the Personal site and the Fleet site. Each of these sites features seperate content tailored to the visitors choice. On subsequent visits the site will remember the visitors last choice and automatically send them to their previous choice. The visitor can also switch sites at any time using links in the header navigation.',
+            image: 'ezgo-new/ezgo-detail-one.jpg',
             link: {
               text: 'View Home Page',
               href: '/',
