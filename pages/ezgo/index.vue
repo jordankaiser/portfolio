@@ -14,7 +14,7 @@ export default {
         id: 'ezgo',
         title: 'E-Z-GO',
         description:
-          "<p>MemorialCare is a health system serving Los Angeles County and Orange County in California. It is composed of four hospitals, two medical groups and multiple imaging centers, surgical centers, and more.</p><p>We meet directly with the client multiple times per week to discuss needs, features in progress, and plan new capabilities for the website. We used an agile process to put structure around this work. The client was very complimentary of this process and the work we produced.</p><p>I was the primary back end developer for this website over the majority of the it's existence. I worked closely with a front end developer and a digital strategist to plan feature additions and maintence.</p>",
+          "<p>E-Z-GO is a global manufacturer of golf cars, utility vehicles and personal transportation vehicles. E-Z-GO is part of Textron Inc. a global multi-industry Fortune 500 company. Their website features engaging photography, interactive product detail pages, a vehicle builder tool as well as multiple different page type and other features. In addition the website is actually two websites in one. One website who's content is tailored to personal users and another who's content is tailored to golf courses. These modes can be switched between by the user at will using links in the header navigation.</p><p>I was the lead developer from the projects inception and continued to add features and provide support throughout it's existance. The primary team for the initial development consisted of myself, a fellow back end developer, a front end developer and a producer. The CMS is Drupal and the front end was built using atomic design principles.</p><p>The website was very well received by the client and sees high engagement from users.</p>",
         roles: ['Developer'],
         tools: ['Javascript', 'SCSS', 'PHP', 'Drupal', 'Vue.js', 'Twig'],
         checkmark: {
@@ -24,7 +24,7 @@ export default {
         },
         works: [
           {
-            title: 'E-Z-GO Home Page',
+            title: 'Personal and Fleet Sites',
             description:
               'The E-Z-GO website is actually two seperate websites. When a visitor first comes to the site they are asked to choose between the Personal site and the Fleet site. Each of these sites features seperate content tailored to the visitors choice. On subsequent visits the site will remember the visitors last choice and automatically send them to their previous choice. The visitor can also switch sites at any time using links in the header navigation.',
             image: 'ezgo-new/ezgo-detail-one.jpg',
@@ -35,9 +35,9 @@ export default {
             }
           },
           {
-            title: 'Service Line Page',
+            title: 'Vehicle Builder',
             description:
-              'The Service Line page for MemorialCare was a page type that contained information on services like cancer care or joint care.  The user can switch their location using the tool in the top left of the header or directly below the in-page navigation. Switching locations will display specialized content tailored specifically to that location. The Servie Line page also offered robust referential content that could be controled using the CMS. Examples of this are the Specialites, Locations, Blog, Events and other sections on the page.',
+              "The Vehicle Builder was a pre-existing tool from another client project that they wanted to continue to use but with major changes and improvements. These changes included a major restructuring of the front end and very significant changes in how the accessory and vehicle selection logic worked. This entailed working in a large code base that had already undergone a good amount of work done by a variety of different developers. This was a tool was a key feature of the site and all client expectations where meet. In the end the retrofit of this tool was so successful it was taken and used as a basis for other similar tools on the client's parent companies other sites.",
             image: 'mc-new/mc-detail-two.jpg',
             link: {
               text: 'View Service Line Page',
