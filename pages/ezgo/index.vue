@@ -26,22 +26,22 @@ export default {
           {
             title: 'Personal and Fleet Sites',
             description:
-              'The E-Z-GO website is actually two seperate websites. When a visitor first comes to the site they are asked to choose between the Personal site and the Fleet site. Each of these sites features seperate content tailored to the visitors choice. On subsequent visits the site will remember the visitors last choice and automatically send them to their previous choice. The visitor can also switch sites at any time using links in the header navigation.',
+              'The E-Z-GO website is actually two seperate websites. When a visitor first comes to the site they are asked to choose between the Personal site and the Fleet site. Each of these sites features seperate content tailored to the visitors choice. On subsequent visits the site will remember the visitors last choice and automatically send them there. The visitor can also switch sites at any time using links in the header navigation.',
             image: 'ezgo-new/ezgo-detail-one.jpg',
             link: {
               text: 'View Home Page',
-              href: '/',
+              href: 'https://ezgo.txtsv.com/',
               target: '_blank'
             }
           },
           {
             title: 'Vehicle Builder',
             description:
-              "The Vehicle Builder was a pre-existing tool from another client project that they wanted to continue to use but with major changes and improvements. These changes included a major restructuring of the front end and very significant changes in how the accessory and vehicle selection logic worked. This entailed working in a large code base that had already undergone a good amount of work done by a variety of different developers. This was a tool was a key feature of the site and all client expectations where meet. In the end the retrofit of this tool was so successful it was taken and used as a basis for other similar tools on the client's parent companies other sites.",
-            image: 'mc-new/mc-detail-two.jpg',
+              "The Vehicle Builder was a pre-existing Vue.js tool from another client project that they wanted to continue to use but with major changes and improvements. These changes included a major restructuring of the front end and very significant changes in how the accessory and vehicle selection logic worked. This entailed working in a large code base that had already undergone a large amount of work done by a variety of different developers. This tool was a key feature of the site and all client expectations where meet. In the end the retrofit of this tool was so successful it was taken and used as a basis for different vehicle builders on the client's parent companies other sites.",
+            image: 'ezgo-new/ezgo-detail-two.jpg',
             link: {
-              text: 'View Service Line Page',
-              href: '/',
+              text: 'View Vehicle Builder',
+              href: 'https://ezgo.txtsv.com/personal/build#/',
               target: '_blank'
             }
           },
