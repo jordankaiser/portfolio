@@ -118,7 +118,9 @@
         `work-detail__addendum work-detail__addendum--${content.id} container container--narrow`
       "
     >
-      <h2 class="work-detail__headline">Addendum</h2>
+      <h2 :class="`work-detail__headline work-detail__headline--${content.id}`">
+        Addendum
+      </h2>
       <!-- eslint-disable vue/no-v-html -->
       <div
         class="work-detail__description text"
@@ -409,7 +411,10 @@ export default {
     width: 250px;
 
     &__one--mc {
-      display: none;
+      display: block;
+      position: absolute;
+      top: -183px;
+      left: -51px;
 
       @media only screen and (min-width: 800px) {
         display: block;
@@ -418,7 +423,11 @@ export default {
         left: -50px;
       }
       img {
-        transform: scale(0.5) rotate(35deg);
+        transform: scale(0.28) rotate(-65deg);
+
+        @media only screen and (min-width: 800px) {
+          transform: scale(0.5) rotate(35deg);
+        }
       }
     }
     &__two--mc {
@@ -479,9 +488,16 @@ export default {
     &__three--ezgo {
       display: block;
       position: absolute;
-      top: 1408px;
+      top: 1680px;
       left: 15px;
       width: 84px;
+    }
+    &__four--ezgo {
+      display: block;
+      position: absolute;
+      top: 2728px;
+      left: 3px;
+      width: 100px;
     }
     &__image {
       width: 100%;

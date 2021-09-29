@@ -24,7 +24,7 @@ export default {
         },
         works: [
           {
-            title: 'MemorialCare Home Page',
+            title: 'Home Page',
             description:
               'The home page of the website features a marquee emphasizeing search which was heavily utilized. The Featured Content section of the home page is a high impact visual that allowed the client to emphasize other content on the site at their discretion.',
             image: 'mc-new/mc-detail-one.jpeg',
@@ -35,9 +35,9 @@ export default {
             }
           },
           {
-            title: 'Service Line Page',
+            title: 'Service Lines`',
             description:
-              'The Service Line page for MemorialCare was a page type that contained information on services like cancer care or joint care.  The user can switch their location using the tool in the top left of the header or directly below the in-page navigation. Switching locations will display specialized content tailored specifically to that location. The Servie Line page also offered robust referential content that could be controled using the CMS. Examples of this are the Specialites, Locations, Blog, Events and other sections on the page.',
+              'The Service Line page type for MemorialCare was a page type that contained information on services like cancer care or joint care.  The user can switch their location using the tool in the top left of the header or directly below the in-page navigation. Switching locations will display specialized content tailored specifically to that location. The Servie Line page also offered robust referential content that could be controled using the CMS. Examples of this are the Specialites, Locations, Blog, Events and other sections on the page.',
             image: 'mc-new/mc-detail-two.jpg',
             link: {
               text: 'View Service Line Page',
@@ -46,9 +46,9 @@ export default {
             }
           },
           {
-            title: 'Hospital Page',
+            title: 'Hospitals',
             description:
-              'The Hospital supports a variety of customisable layout segments, the ability to display related locations as either a list of cards or an interactive map similar to the one on the Locations page. This page also supports a variety of referential content which is both populated by choosing specific content in the CMS and automatically by utilizing related taxonomy terms.',
+              'The Hospital page type supports a variety of customisable layout segments, the ability to display related locations as either a list of cards or an interactive map similar to the one on the Locations page. This page also supports a variety of referential content which is both populated by choosing specific content in the CMS and automatically by utilizing related taxonomy terms.',
             image: 'mc-new/mc-detail-three.jpeg',
             link: {
               text: 'View Hospital Page',

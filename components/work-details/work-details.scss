@@ -1,7 +1,6 @@
 // Styling for markup passed using props.
 .work-detail__addendum {
   &--mc {
-
     a {
       color: $color-white;
       background-color: $color-mc-purple-dark;
@@ -9,6 +8,25 @@
       transition: background-color $t;
       text-decoration: none;
 
+      &:hover,
+      &:active {
+        background-color: rgba($color-mc-purple-dark, 0);
+      }
+    }
+  }
+  &--ezgo {
+    h2,
+    p {
+      color: $color-blue;
+    }
+
+    a {
+      color: $color-blue;
+      background-color: #d9e8ff;
+      border-bottom: 5px solid $color-blue;
+      transition: background-color $t;
+      text-decoration: none;
+  
       &:hover,
       &:active {
         background-color: rgba($color-mc-purple-dark, 0);
