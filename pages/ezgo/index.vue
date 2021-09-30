@@ -79,9 +79,7 @@ export default {
             imageAlt: 'Golf Club'
           }
         ],
-        pattern: 'ezgo-new/wheel-pattern.png',
-        addendum:
-          '<p>The MemorialCare website was built using Drupal\'s Domain Access module. This allowed for the content from the CMS to be used on multiple different websites such as <a target="_blank" href="https://www.beachfamilydoctors.net/">beachfamilydoctors.net</a> and <a target="_blank" href="https://memorialcareaconetwork.org">memorialcareaconetwork.org</a>.</p><p>Content was imported and exported from the site using custom Drupal modules. The Providers on the website where a typical target for data importing and exporting.</p><p>Drupal module update audits where conducted monthly. Updated modules, as well as general website updates and features, where then deployed from the development environment to staging and then the live site using Drupal\'s configuration management.</p>'
+        pattern: 'ezgo-new/wheel-pattern.png'
       }
     }
   }

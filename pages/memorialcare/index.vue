@@ -67,18 +67,6 @@ export default {
             className: 'work-detail__scroll-art__two',
             imageSrc: 'mc-new/pill.png',
             imageAlt: 'Pill'
-          },
-          {
-            className: 'work-detail__scroll-art__three',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill',
-            top: '1280px'
-          },
-          {
-            className: 'work-detail__scroll-art__four',
-            imageSrc: 'mc-new/pill.png',
-            imageAlt: 'Pill',
-            top: '2220px'
           }
         ],
         pattern: 'mc-new/pill-pattern.png',

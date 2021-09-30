@@ -76,9 +76,9 @@
 
     <!-- Work Sections -->
     <div
-      v-for="work in content.works"
+      v-for="(work, index) in content.works"
       :key="work.title"
-      class="work-detail__work"
+      :class="`work-detail__work work-detail__work--${content.id}-${index}`"
     >
       <div class="work-detail__work__background">
         <div
@@ -343,7 +343,7 @@ export default {
   &__headline {
     position: relative;
     margin-top: $s-1;
-    font-size: $fs3;
+    font-size: $fs4;
     color: $color-white;
     font-weight: 700;
 
@@ -431,36 +431,17 @@ export default {
       }
     }
     &__two--mc {
-      position: absolute;
-      top: 400px;
-      left: -10px;
+      display: none;
 
-      img {
-        transform: scale(0.3) rotate(-40deg);
-      }
-    }
-    &__three--mc {
-      position: absolute;
-      top: 1280px;
-      left: -40px;
+      @media only screen and (min-width: 800px) {
+        display: block;
+        position: absolute;
+        top: 400px;
+        left: -10px;
 
-      @include breakpoint($medium) {
-        top: 1280px;
-      }
-      img {
-        transform: scale(0.2) rotate(-64deg);
-      }
-    }
-    &__four--mc {
-      position: absolute;
-      top: 2220px;
-      left: -40px;
-
-      @include breakpoint($medium) {
-        top: 2220px;
-      }
-      img {
-        transform: scale(0.65) rotate(-110deg);
+        img {
+          transform: scale(0.3) rotate(-40deg);
+        }
       }
     }
     &__one--ezgo {
@@ -601,6 +582,34 @@ export default {
     width: 100%;
     z-index: 1;
 
+    &--mc-0 {
+      .work-detail__work__background:before {
+        content: '';
+        position: absolute;
+        left: 44px;
+        bottom: -154px;
+        width: 22px;
+        height: 50px;
+        background-image: url('~assets/img/work/mc-new/pill.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: scale(2) rotate(48deg);
+      }
+    }
+    &--mc-1 {
+      .work-detail__work__background:before {
+        content: '';
+        position: absolute;
+        left: 44px;
+        bottom: -154px;
+        width: 22px;
+        height: 50px;
+        background-image: url('~assets/img/work/mc-new/pill.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: scale(1.5) rotate(113deg);
+      }
+    }
     &__background {
       position: absolute;
       top: 0;
@@ -651,7 +660,7 @@ export default {
       margin: 0 auto;
       z-index: 1;
 
-      @include breakpoint($medium) {
+      @media only screen and (min-width: 850px) {
         flex-direction: row;
         padding: 140px 30px 20px;
       }
@@ -660,7 +669,7 @@ export default {
         margin-bottom: $s0;
         max-width: 480px;
 
-        @include breakpoint($medium) {
+        @media only screen and (min-width: 850px) {
           flex: 0 0 auto;
           margin-right: $s0;
           width: 480px;
@@ -699,8 +708,13 @@ export default {
   &__back {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
 
+    .work-detail__addendum + & {
+      margin-top: 30px;
+    }
+    .work-detail__work + & {
+      margin-top: -90px;
+    }
     &__link {
       flex: 0 1 auto;
     }
