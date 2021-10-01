@@ -474,13 +474,7 @@ export default {
         width: 84px;
       }
     }
-    &__three--ezgo {
-      display: block;
-      position: absolute;
-      top: 1680px;
-      left: 15px;
-      width: 84px;
-    }
+    // TODO: Delete three aand four.
     &__four--ezgo {
       display: block;
       position: absolute;
@@ -590,32 +584,48 @@ export default {
     width: 100%;
     z-index: 1;
 
+    &__background:before {
+      content: '';
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
     &--mc-0 {
       .work-detail__work__background:before {
-        content: '';
-        position: absolute;
         left: 44px;
         bottom: -154px;
         width: 22px;
         height: 50px;
         background-image: url('~assets/img/work/mc-new/pill.png');
-        background-repeat: no-repeat;
-        background-size: contain;
         transform: scale(2) rotate(48deg);
       }
     }
     &--mc-1 {
       .work-detail__work__background:before {
-        content: '';
-        position: absolute;
         left: 44px;
         bottom: -154px;
         width: 22px;
         height: 50px;
         background-image: url('~assets/img/work/mc-new/pill.png');
-        background-repeat: no-repeat;
-        background-size: contain;
         transform: scale(1.5) rotate(113deg);
+      }
+    }
+    &--ezgo-0 {
+      .work-detail__work__background:before {
+        left: 35px;
+        bottom: -158px;
+        width: 85px;
+        height: 85px;
+        background-image: url('~assets/img/work/ezgo-new/golf-ball.png');
+      }
+    }
+    &--ezgo-1 {
+      .work-detail__work__background:before {
+        left: 22px;
+        bottom: -168px;
+        width: 85px;
+        height: 85px;
+        background-image: url('~assets/img/work/ezgo-new/golf-club.png');
       }
     }
     &__background {

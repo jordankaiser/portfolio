@@ -67,16 +67,6 @@ export default {
             className: 'work-detail__scroll-art__two',
             imageSrc: 'ezgo-new/flag.png',
             imageAlt: 'Flag'
-          },
-          {
-            className: 'work-detail__scroll-art__three',
-            imageSrc: 'ezgo-new/golf-ball.png',
-            imageAlt: 'Golf Ball'
-          },
-          {
-            className: 'work-detail__scroll-art__four',
-            imageSrc: 'ezgo-new/golf-club.png',
-            imageAlt: 'Golf Club'
           }
         ],
         pattern: 'ezgo-new/wheel-pattern.png'
