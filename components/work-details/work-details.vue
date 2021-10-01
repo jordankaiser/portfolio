@@ -408,7 +408,7 @@ export default {
     left: 0;
     top: 0;
     height: 100%;
-    width: 250px;
+    width: 100%;
 
     &__one--mc {
       display: block;
@@ -445,14 +445,22 @@ export default {
       }
     }
     &__one--ezgo {
-      display: none;
+      display: block;
+      position: absolute;
+      top: -70px;
+      left: 36%;
+      width: 180px;
 
       @media only screen and (min-width: 800px) {
-        display: block;
-        position: absolute;
         top: 140px;
         left: -50px;
-        width: 185px;
+      }
+      img {
+        transform: rotate(107deg);
+
+        @media only screen and (min-width: 800px) {
+          transform: rotate(0deg);
+        }
       }
     }
     &__two--ezgo {
@@ -461,8 +469,8 @@ export default {
       @media only screen and (min-width: 800px) {
         display: block;
         position: absolute;
-        top: 580px;
-        left: 18px;
+        top: 670px;
+        left: 27px;
         width: 84px;
       }
     }
