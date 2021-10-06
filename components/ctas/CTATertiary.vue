@@ -88,6 +88,15 @@ export default {
       }
     }
   }
+  &--slb {
+    .cta-tertiary__link {
+      color: $color-white;
+
+      .cta-tertiary__circle {
+        background-color: $color-slb-pink;
+      }
+    }
+  }
   &__wrap {
     display: inline-block;
   }

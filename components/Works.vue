@@ -200,6 +200,40 @@ export default {
               revealOffset: '1'
             }
           }
+        },
+        {
+          id: 'slb',
+          parity: null,
+          title: 'JLG Self-Leveling Boom',
+          task: 'Development',
+          description:
+            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+          illustration: EZGOHero,
+          divider: EZGODivider,
+          screenshot: EZGOScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://ezgo.txtsv.com/',
+              target: '_blank'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: '/ezgo',
+              target: '_self'
+            }
+          },
+          footer: {
+            component: EZGOFooter,
+            modifiers: {
+              triggerEl: '.work__segment--ezgo .golf-footer',
+              revealOffset: '1'
+            }
+          }
         }
       ]
     }
@@ -263,6 +297,10 @@ export default {
       .work__subhead span {
         color: #2c024d;
       }
+    }
+    &--slb {
+      color: $color-white;
+      background-color: $color-slb-grey;
     }
     &--even {
       &:after {

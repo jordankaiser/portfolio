@@ -87,6 +87,15 @@ export default {
       }
     }
   }
+  &--slb {
+    .cta-secondary__link {
+      background-color: $color-slb-turquoise;
+
+      .cta-secondary__circle {
+        background-color: $color-slb-pink;
+      }
+    }
+  }
   &__link {
     display: inline-block;
     position: relative;
