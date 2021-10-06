@@ -72,6 +72,9 @@ import MCHero from '~/components/works/mc/Hero.vue'
 import MCDivider from '~/components/works/mc/Divider.vue'
 import MCScreenshot from '~/components/works/mc/Screenshot.vue'
 import MCFooter from '~/components/works/mc/Footer.vue'
+import SLBHero from '~/components/works/slb/Hero.vue'
+import SLBDivider from '~/components/works/slb/Divider.vue'
+import SLBScreenshot from '~/components/works/slb/Screenshot.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -94,7 +97,10 @@ export default {
     MCHero,
     MCDivider,
     MCScreenshot,
-    MCFooter
+    MCFooter,
+    SLBHero,
+    SLBDivider,
+    SLBScreenshot
   },
   data: function() {
     return {
@@ -208,9 +214,9 @@ export default {
           task: 'Development',
           description:
             'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: EZGOHero,
-          divider: EZGODivider,
-          screenshot: EZGOScreenshot,
+          illustration: SLBHero,
+          divider: SLBDivider,
+          screenshot: SLBScreenshot,
           CTATertiary: {
             component: CTATertiary,
             link: {
