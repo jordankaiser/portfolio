@@ -27,7 +27,7 @@ export default {
             title: 'Personal and Fleet Sites',
             description:
               'The E-Z-GO website is actually two seperate websites. When a visitor first comes to the site they are asked to choose between the Personal site and the Fleet site. Each of these sites features seperate content tailored to the visitors choice. On subsequent visits the site will remember the visitors last choice and automatically send them there. The visitor can also switch sites at any time using links in the header navigation.',
-            image: 'ezgo-new/ezgo-detail-one.jpg',
+            image: 'ezgo/ezgo-detail-one.jpg',
             link: {
               text: 'View Home Page',
               href: 'https://ezgo.txtsv.com/',
@@ -38,7 +38,7 @@ export default {
             title: 'Vehicle Builder',
             description:
               "The Vehicle Builder was a pre-existing Vue.js tool from another client project that they wanted to continue to use but with major changes and improvements. These changes included a major restructuring of the front end and very significant changes in how the accessory and vehicle selection logic worked. The data for the tool is pulled from a combination of a google spreadsheets and data contained in the CMS. This allows the CMS user a large amount of freedom to update the tool without the need for a developer's assistannce. The tool was a key feature of the site and all client expectations where meet. In the end the retrofit of this tool was so successful it was taken and used as a basis for different vehicle builders on the client's parent companies other sites.",
-            image: 'ezgo-new/ezgo-detail-two.jpg',
+            image: 'ezgo/ezgo-detail-two.jpg',
             link: {
               text: 'View Vehicle Builder',
               href: 'https://ezgo.txtsv.com/personal/build#/',
@@ -49,7 +49,7 @@ export default {
             title: 'Vehicle Detail',
             description:
               "The marquee of the Vehicle Detail page allows the user to switch the color of the vehicle. The available colors are completely controllable by the CMS user and can be changed as needed. The vehicle page contains a number of high impact visual layout segments all of which are also controlled by the CMS. The See Specs callout opens in a model who's content is populated by another google spreadsheet. The vehicle detail page also includes integration points that link to the builder both in the marquee and and in the Build and Price sections.",
-            image: 'ezgo-new/ezgo-detail-three.jpg',
+            image: 'ezgo/ezgo-detail-three.jpg',
             link: {
               text: 'View Vehicle Detail',
               href: 'https://ezgo.txtsv.com/personal/golfcarts/express-l6',
@@ -60,16 +60,16 @@ export default {
         scrollArt: [
           {
             className: 'work-detail__scroll-art__one',
-            imageSrc: 'ezgo-new/golf-bag.png',
+            imageSrc: 'ezgo/golf-bag.png',
             imageAlt: 'Golf Bag'
           },
           {
             className: 'work-detail__scroll-art__two',
-            imageSrc: 'ezgo-new/flag.png',
+            imageSrc: 'ezgo/flag.png',
             imageAlt: 'Flag'
           }
         ],
-        pattern: 'ezgo-new/wheel-pattern.png'
+        pattern: 'ezgo/wheel-pattern.png'
       }
     }
   }

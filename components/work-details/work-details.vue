@@ -13,7 +13,7 @@
       >
         <img
           class="work-detail__scroll-art__image"
-          :src="require(`~/assets/img/work/${art.imageSrc}`)"
+          :src="require(`~/assets/img/work-detail/${art.imageSrc}`)"
           :alt="art.imageAlt"
         />
       </div>
@@ -95,7 +95,7 @@
       <div class="work-detail__work__content">
         <div class="work-detail__work__content__image">
           <img
-            :src="require(`~/assets/img/work/${work.image}`)"
+            :src="require(`~/assets/img/work-detail/${work.image}`)"
             alt="Screenshot of MemorialCare Website"
           />
         </div>
@@ -141,7 +141,9 @@
         ref="animatedDiv"
         :style="{
           backgroundImage:
-            'url(\'' + require(`~/assets/img/work/${content.pattern}`) + '\')'
+            'url(\'' +
+            require(`~/assets/img/work-detail/${content.pattern}`) +
+            '\')'
         }"
         class="work-detail__animated-div__animator"
       ></div>
@@ -596,7 +598,7 @@ export default {
         bottom: -154px;
         width: 22px;
         height: 50px;
-        background-image: url('~assets/img/work/mc-new/pill.png');
+        background-image: url('~assets/img/work-detail/mc/pill.png');
         transform: scale(2) rotate(48deg);
       }
     }
@@ -606,7 +608,7 @@ export default {
         bottom: -154px;
         width: 22px;
         height: 50px;
-        background-image: url('~assets/img/work/mc-new/pill.png');
+        background-image: url('~assets/img/work-detail/mc/pill.png');
         transform: scale(1.5) rotate(113deg);
       }
     }
@@ -616,7 +618,7 @@ export default {
         bottom: -158px;
         width: 85px;
         height: 85px;
-        background-image: url('~assets/img/work/ezgo-new/golf-ball.png');
+        background-image: url('~assets/img/work-detail/ezgo/golf-ball.png');
       }
     }
     &--ezgo-1 {
@@ -625,7 +627,7 @@ export default {
         bottom: -168px;
         width: 85px;
         height: 85px;
-        background-image: url('~assets/img/work/ezgo-new/golf-club.png');
+        background-image: url('~assets/img/work-detail/ezgo/golf-club.png');
       }
     }
     &__background {
