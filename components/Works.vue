@@ -57,21 +57,29 @@
   </section>
 </template>
 <script>
-// Work components.
+// Callouts.
 import CTASecondary from '~/components/ctas/CTASecondary'
 import CTATertiary from '~/components/ctas/CTATertiary'
+
+// NSF.
 import NSFHero from '~/components/works/nsf/Hero.vue'
 import NSFDivider from '~/components/works/nsf/Divider.vue'
 import NSFScreenshot from '~/components/works/nsf/Screenshot.vue'
 import NSFFooter from '~/components/works/nsf/Footer.vue'
+
+// EZGO.
 import EZGOHero from '~/components/works/ezgo/Hero.vue'
 import EZGODivider from '~/components/works/ezgo/Divider.vue'
 import EZGOScreenshot from '~/components/works/ezgo/Screenshot.vue'
 import EZGOFooter from '~/components/works/ezgo/Footer.vue'
+
+// MC.
 import MCHero from '~/components/works/mc/Hero.vue'
 import MCDivider from '~/components/works/mc/Divider.vue'
 import MCScreenshot from '~/components/works/mc/Screenshot.vue'
 import MCFooter from '~/components/works/mc/Footer.vue'
+
+// SLB.
 import SLBHero from '~/components/works/slb/Hero.vue'
 import SLBDivider from '~/components/works/slb/Divider.vue'
 import SLBScreenshot from '~/components/works/slb/Screenshot.vue'
