@@ -75,6 +75,7 @@ import MCFooter from '~/components/works/mc/Footer.vue'
 import SLBHero from '~/components/works/slb/Hero.vue'
 import SLBDivider from '~/components/works/slb/Divider.vue'
 import SLBScreenshot from '~/components/works/slb/Screenshot.vue'
+import SLBFooter from '~/components/works/slb/Footer.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -100,7 +101,8 @@ export default {
     MCFooter,
     SLBHero,
     SLBDivider,
-    SLBScreenshot
+    SLBScreenshot,
+    SLBFooter
   },
   data: function() {
     return {
@@ -221,7 +223,7 @@ export default {
             component: CTATertiary,
             link: {
               text: 'Visit Site',
-              href: 'https://ezgo.txtsv.com/',
+              href: 'https://www.selflevelingboom.com/',
               target: '_blank'
             }
           },
@@ -234,9 +236,9 @@ export default {
             }
           },
           footer: {
-            component: EZGOFooter,
+            component: SLBFooter,
             modifiers: {
-              triggerEl: '.work__segment--ezgo .golf-footer',
+              triggerEl: '.work__segment--slb .golf-footer',
               revealOffset: '1'
             }
           }
