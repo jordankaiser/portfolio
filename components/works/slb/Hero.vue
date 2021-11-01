@@ -54,6 +54,17 @@ export default {
     const vm = this
     let viewportDimensions = getViewportDimensions()
     const TimelineLite = vm.$GSAP.TimelineLite
+    const hero = {
+      conatiner: document.querySelector('.slb-hero'),
+      circle: document.querySelector('.slb-hero__circle'),
+      wrench: document.querySelector('.slb-hero__wrench img'),
+      nuts: document.querySelector('.slb-hero__nuts'),
+      nutOne: document.querySelector('.slb-hero__nut--one'),
+      nutTwo: document.querySelector('.slb-hero__nut--two'),
+      nutThree: document.querySelector('.slb-hero__nut--three'),
+      nutFour: document.querySelector('.slb-hero__nut--four'),
+      nutFive: document.querySelector('.slb-hero__nut--five')
+    }
 
     // Determine viewport width.
     window.addEventListener(
@@ -73,10 +84,94 @@ export default {
     mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth >= 600) {
-        // desktopTimeline(pillHero)
+        // desktopTimeline(hero)
       } else {
-        // mobileTimeline(pillHero)
+        mobileTimeline(hero)
       }
+    }
+
+    function mobileTimeline(element) {
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      heroTimeline
+        .set(
+          [
+            element.nuts,
+            element.nutOne,
+            element.nutTwo,
+            element.nutThree,
+            element.nutFour,
+            element.nutFive
+          ],
+          {
+            opacity: 0
+          }
+        )
+        .from(element.circle, 0.5, { opacity: 0 })
+        .fromTo(element.nuts, 0.1, { opacity: 0 }, { opacity: 1 }, '-=0.5')
+        .fromTo(
+          element.wrench,
+          0.5,
+          { opacity: 0, rotation: -30 },
+          { opacity: 1, rotation: 0 }
+        )
+        .fromTo(
+          element.nutThree,
+          0.5,
+          { opacity: 0, rotation: -60 },
+          { opacity: 1, rotation: -30 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(
+          element.nutThree,
+          0.5,
+          { rotation: -30 },
+          { rotation: 0 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(
+          element.nutOne,
+          0.5,
+          { opacity: 0, rotation: -60 },
+          { opacity: 1, rotation: -30 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(
+          element.nutOne,
+          0.5,
+          { rotation: -30 },
+          { rotation: 0 },
+          '-=0.5'
+        )
+
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(
+          element.nutTwo,
+          0.5,
+          { opacity: 0, rotation: -60 },
+          { opacity: 1, rotation: -30 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(
+          element.nutTwo,
+          0.5,
+          { rotation: -30 },
+          { rotation: 0 },
+          '-=0.5'
+        )
+      // console.log(element.nutThree)
     }
 
     // Intro reveal.
@@ -183,14 +278,25 @@ export default {
     transform: translate(24px, 20px);
 
     img {
+      position: relative;
       width: 162px;
       height: auto;
-      transform-origin: 90% 71%;
+      transform-origin: 18% 18%;
 
       @include breakpoint($small) {
-        transform-origin: 50% 50%;
+        transform-origin: 18% 18%;
       }
     }
+    // Transform origin helper.
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 18%;
+    //   left: 18%;
+    //   width: 5px;
+    //   height: 5px;
+    //   background-color: red;
+    // }
   }
   &__nuts {
     position: absolute;

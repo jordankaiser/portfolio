@@ -428,6 +428,9 @@ export default {
     &--mc {
       overflow: visible;
     }
+    &--slb {
+      height: 160px;
+    }
   }
   &__divider {
     margin-top: $s0;
