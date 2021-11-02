@@ -17,14 +17,9 @@
         class="slb-hero__nut slb-hero__nut--red slb-hero__nut--three"
       />
       <img
-        src="~/assets/img/work/slb/nut-green.png"
+        src="~/assets/img/work/slb/nut-purple-large.png"
         alt="Pill Illustration"
         class="slb-hero__nut slb-hero__nut--green slb-hero__nut--four"
-      />
-      <img
-        src="~/assets/img/work/slb/nut-purple.png"
-        alt="Pill Illustration"
-        class="slb-hero__nut slb-hero__nut--purple slb-hero__nut--five"
       />
     </div>
     <div class="slb-hero__wrench-wrap">
@@ -62,8 +57,7 @@ export default {
       nutOne: document.querySelector('.slb-hero__nut--one'),
       nutTwo: document.querySelector('.slb-hero__nut--two'),
       nutThree: document.querySelector('.slb-hero__nut--three'),
-      nutFour: document.querySelector('.slb-hero__nut--four'),
-      nutFive: document.querySelector('.slb-hero__nut--five')
+      nutFour: document.querySelector('.slb-hero__nut--four')
     }
 
     // Determine viewport width.
@@ -84,12 +78,13 @@ export default {
     mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth >= 600) {
-        // desktopTimeline(hero)
+        desktopTimeline(hero)
       } else {
         mobileTimeline(hero)
       }
     }
 
+    // Mobile animations.
     function mobileTimeline(element) {
       // Hero timeline.
       const heroTimeline = new TimelineLite({
@@ -103,8 +98,7 @@ export default {
             element.nutOne,
             element.nutTwo,
             element.nutThree,
-            element.nutFour,
-            element.nutFive
+            element.nutFour
           ],
           {
             opacity: 0
@@ -121,8 +115,8 @@ export default {
         .fromTo(
           element.nutThree,
           0.5,
-          { opacity: 0, rotation: -60 },
-          { opacity: 1, rotation: -30 },
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
           '-=0.5'
         )
         .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
@@ -130,7 +124,7 @@ export default {
         .fromTo(
           element.nutThree,
           0.5,
-          { rotation: -30 },
+          { rotation: -60 },
           { rotation: 0 },
           '-=0.5'
         )
@@ -139,8 +133,8 @@ export default {
         .fromTo(
           element.nutOne,
           0.5,
-          { opacity: 0, rotation: -60 },
-          { opacity: 1, rotation: -30 },
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
           '-=0.5'
         )
         .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
@@ -148,7 +142,7 @@ export default {
         .fromTo(
           element.nutOne,
           0.5,
-          { rotation: -30 },
+          { rotation: -60 },
           { rotation: 0 },
           '-=0.5'
         )
@@ -158,8 +152,8 @@ export default {
         .fromTo(
           element.nutTwo,
           0.5,
-          { opacity: 0, rotation: -60 },
-          { opacity: 1, rotation: -30 },
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
           '-=0.5'
         )
         .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
@@ -167,11 +161,108 @@ export default {
         .fromTo(
           element.nutTwo,
           0.5,
-          { rotation: -30 },
+          { rotation: -60 },
           { rotation: 0 },
           '-=0.5'
         )
-      // console.log(element.nutThree)
+
+      // Reveal on scroll.
+      scrollMagicScene(vm, heroTimeline, '.slb-hero', 0.75)
+    }
+
+    // Desktop animations.
+    function desktopTimeline(element) {
+      // Hero timeline.
+      const heroTimeline = new TimelineLite({
+        onComplete: timelineCleanup,
+        onCompleteParams: [element]
+      })
+      heroTimeline
+        .set(
+          [
+            element.nuts,
+            element.nutOne,
+            element.nutTwo,
+            element.nutThree,
+            element.nutFour
+          ],
+          {
+            opacity: 0
+          }
+        )
+        .from(element.circle, 0.5, { opacity: 0 })
+        .fromTo(element.nuts, 0.1, { opacity: 0 }, { opacity: 1 }, '-=0.5')
+        .fromTo(
+          element.wrench,
+          0.5,
+          { opacity: 0, rotation: -24 },
+          { opacity: 1, rotation: 0 }
+        )
+        .fromTo(
+          element.nutThree,
+          0.5,
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
+          '-=0.5'
+        )
+        .fromTo(
+          element.nutTwo,
+          0.5,
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -24 })
+        .fromTo(element.wrench, 0.5, { rotation: -24 }, { rotation: 0 })
+        .fromTo(
+          element.nutThree,
+          0.5,
+          { rotation: -60 },
+          { rotation: 0 },
+          '-=0.5'
+        )
+        .fromTo(
+          element.nutTwo,
+          0.5,
+          { rotation: -60 },
+          { rotation: 0 },
+          '-=0.5'
+        )
+        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -9 })
+        .fromTo(element.wrench, 0.25, { rotation: -9 }, { rotation: 0 })
+        .fromTo(
+          element.nutOne,
+          0.25,
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
+          '-=0.25'
+        )
+        .fromTo(
+          element.nutFour,
+          0.25,
+          { opacity: 0, rotation: -120 },
+          { opacity: 1, rotation: -60 },
+          '-=0.25'
+        )
+        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -9 })
+        .fromTo(element.wrench, 0.25, { rotation: -9 }, { rotation: 0 })
+        .fromTo(
+          element.nutOne,
+          0.25,
+          { rotation: -60 },
+          { rotation: 0 },
+          '-=0.25'
+        )
+        .fromTo(
+          element.nutFour,
+          0.25,
+          { rotation: 60 },
+          { rotation: 0 },
+          '-=0.25'
+        )
+
+      // Reveal on scroll.
+      scrollMagicScene(vm, heroTimeline, '.slb-hero', 0.75)
     }
 
     // Intro reveal.
@@ -277,6 +368,9 @@ export default {
   &__wrench {
     transform: translate(24px, 20px);
 
+    @include breakpoint($small) {
+      transform: translate(17px, 6px);
+    }
     img {
       position: relative;
       width: 162px;
@@ -287,16 +381,6 @@ export default {
         transform-origin: 18% 18%;
       }
     }
-    // Transform origin helper.
-    // &:after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 18%;
-    //   left: 18%;
-    //   width: 5px;
-    //   height: 5px;
-    //   background-color: red;
-    // }
   }
   &__nuts {
     position: absolute;
@@ -307,8 +391,6 @@ export default {
     overflow: hidden;
 
     @include breakpoint($small) {
-      right: 20px;
-      top: -4px;
       overflow: visible;
     }
   }
@@ -323,26 +405,47 @@ export default {
     &--purple {
       width: 39px;
     }
+    &--purple-large {
+      width: 45px;
+    }
     &--red {
       width: 31px;
     }
     &--one {
       top: 88px;
       left: 45px;
+
+      @include breakpoint($small) {
+        top: 78px;
+        left: 40px;
+      }
     }
     &--two {
       top: 114px;
       left: 85px;
+
+      @include breakpoint($small) {
+        top: 108px;
+        left: 83px;
+      }
     }
     &--three {
       top: 5px;
       left: 90px;
+
+      @include breakpoint($small) {
+        top: -3px;
+        left: 90px;
+      }
     }
     &--four {
       display: none;
-    }
-    &--five {
-      display: none;
+
+      @include breakpoint($small) {
+        display: block;
+        top: 11px;
+        left: 133px;
+      }
     }
   }
   &__circle-wrap {
