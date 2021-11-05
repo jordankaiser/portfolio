@@ -147,23 +147,23 @@ export default {
           '-=0.5'
         )
 
-        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.25, { rotation: -30 }, { rotation: 0 })
         .fromTo(
           element.nutTwo,
-          0.5,
+          0.25,
           { opacity: 0, rotation: -120 },
           { opacity: 1, rotation: -60 },
-          '-=0.5'
+          '-=0.25'
         )
-        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
+        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -30 })
+        .fromTo(element.wrench, 0.25, { rotation: -30 }, { rotation: 0 })
         .fromTo(
           element.nutTwo,
-          0.5,
+          0.25,
           { rotation: -60 },
           { rotation: 0 },
-          '-=0.5'
+          '-=0.25'
         )
 
       // Reveal on scroll.

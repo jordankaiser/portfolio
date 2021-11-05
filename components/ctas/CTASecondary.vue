@@ -92,7 +92,7 @@ export default {
       background-color: $color-slb-turquoise;
 
       .cta-secondary__circle {
-        background-color: $color-slb-pink;
+        background-color: $color-slb-green;
       }
     }
   }

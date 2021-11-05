@@ -225,7 +225,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.checkmark)
     this.attachScrollDetection()
     this.animateWork()
     // this.animateScrollArt()
@@ -328,6 +327,9 @@ export default {
   &--ezgo {
     background-color: $color-ezgo-blue;
     color: $color-blue;
+  }
+  &--slb {
+    background-color: $color-slb-grey;
   }
   // Top left triangle.
   &:after {

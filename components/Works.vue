@@ -239,14 +239,14 @@ export default {
             component: CTASecondary,
             link: {
               text: 'Project Details',
-              href: '/ezgo',
+              href: '/selflevelingboom',
               target: '_self'
             }
           },
           footer: {
             component: SLBFooter,
             modifiers: {
-              triggerEl: '.work__segment--slb .golf-footer',
+              triggerEl: '.work__segment--slb .work__footer',
               revealOffset: '1'
             }
           }

@@ -93,7 +93,7 @@ export default {
       color: $color-white;
 
       .cta-tertiary__circle {
-        background-color: $color-slb-pink;
+        background-color: $color-slb-green;
       }
     }
   }
