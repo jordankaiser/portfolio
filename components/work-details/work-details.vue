@@ -486,6 +486,25 @@ export default {
       left: 3px;
       width: 100px;
     }
+    &__one--slb {
+      display: block;
+      position: absolute;
+      top: -63px;
+      left: 56%;
+      width: 130px;
+
+      @media only screen and (min-width: 800px) {
+        top: 230px;
+        left: 10px;
+      }
+      img {
+        transform: rotate(94deg);
+
+        @media only screen and (min-width: 800px) {
+          transform: rotate(0deg);
+        }
+      }
+    }
     &__image {
       width: 100%;
       height: auto;
@@ -536,6 +555,29 @@ export default {
 
       &:before {
         background-color: #80a9ea;
+      }
+    }
+    &--slb {
+      &:before {
+        background-color: $color-slb-orange;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: -10px;
+        bottom: -82px;
+        width: 77px;
+        height: 126px;
+        background-image: url('~assets/img/work-detail/slb/screw-driver.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(85deg);
+
+        @media only screen and (min-width: 800px) {
+          bottom: -50px;
+          left: -130px;
+          transform: rotate(0deg);
+        }
       }
     }
     &:before {

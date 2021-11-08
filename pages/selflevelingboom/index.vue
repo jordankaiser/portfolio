@@ -20,7 +20,7 @@ export default {
         checkmark: {
           width: '9px',
           height: '14px',
-          backgroundColor: '#fff'
+          backgroundColor: '#F49E1E'
         },
         works: [
           {
@@ -60,13 +60,8 @@ export default {
         scrollArt: [
           {
             className: 'work-detail__scroll-art__one',
-            imageSrc: 'mc/pill.png',
-            imageAlt: 'Pill'
-          },
-          {
-            className: 'work-detail__scroll-art__two',
-            imageSrc: 'mc/pill.png',
-            imageAlt: 'Pill'
+            imageSrc: 'slb/shovel.png',
+            imageAlt: 'Shovel'
           }
         ],
         pattern: 'slb/nut-pattern.png',
