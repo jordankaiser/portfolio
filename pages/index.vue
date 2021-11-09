@@ -8,15 +8,15 @@
         <introduction-dino />
         <div class="introduction__text">
           <p>
-            Brief description of self amet nulla vel nunc placerat ultricies
-            eget vel massa. Ut efficitur ex ut libero vestibulum porta.
-            Vestibulum sed purus aliquet, consequat nisl vel. Donec non felis et
-            turpis tempor.
+            Hi I'm Jordan Kaiser. I've been working in web development for over
+            ten years. Throughout that time I've created many digital projects
+            for a variety of clients. Below you'll see a small sampling of some
+            of those projects.
           </p>
         </div>
-        <div class="introduction__cta">
+        <!-- <div class="introduction__cta">
           <cta-hero color="red" />
-        </div>
+        </div> -->
       </div>
       <div class="introduction__scroll-hint">
         <div class="scroll-hint">
@@ -33,7 +33,7 @@
 <script>
 import BgFun from '~/components/bg-fun/BGFun.vue'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
-import CtaHero from '~/components/ctas/CTAHero'
+// import CtaHero from '~/components/ctas/CTAHero'
 import Works from '~/components/Works'
 import Navigation from '~/components/navigation/Navigation'
 export default {
@@ -44,7 +44,7 @@ export default {
   },
   components: {
     introductionDino,
-    CtaHero,
+    // CtaHero,
     Works,
     BgFun,
     Navigation

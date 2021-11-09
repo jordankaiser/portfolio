@@ -9,7 +9,7 @@
       </div>
       <ul class="links__list">
         <li class="links__group">
-          <span class="links__headline">Work</span>
+          <span class="links__headline">My Work</span>
           <ul>
             <li>
               <a :tabindex="tabIndex" href="#" class="links__link">
@@ -25,7 +25,7 @@
             </li>
           </ul>
         </li>
-        <li class="links__group">
+        <!-- <li class="links__group">
           <span class="links__headline">Me</span>
           <ul>
             <li>
@@ -41,7 +41,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <nuxt-link to="/" class="links__home" :tabindex="tabIndex">
         <div class="links__circle"></div>

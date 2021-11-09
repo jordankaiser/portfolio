@@ -359,6 +359,7 @@ export default {
     }
     @include breakpoint($small) {
       font-size: $fs6;
+      line-height: $fs6;
     }
   }
 
@@ -403,6 +404,9 @@ export default {
     }
     &--ezgo {
       color: #969ca5;
+    }
+    &--slb {
+      color: $color-slb-orange;
     }
   }
 
@@ -674,6 +678,15 @@ export default {
         background-image: url('~assets/img/work-detail/ezgo/golf-club.png');
       }
     }
+    &--slb-0 {
+      .work-detail__work__background:before {
+        left: 22px;
+        bottom: -185px;
+        width: 85px;
+        height: 85px;
+        background-image: url('~assets/img/work-detail/slb/hard-hat.png');
+      }
+    }
     &__background {
       position: absolute;
       top: 0;
@@ -697,6 +710,9 @@ export default {
       &--ezgo {
         background-color: #7675ae;
       }
+      &--slb {
+        background-color: $color-slb-grey-dark;
+      }
     }
     &__background-two {
       position: absolute;
@@ -712,6 +728,9 @@ export default {
       }
       &--ezgo {
         background-color: #d9e8ff;
+      }
+      &--slb {
+        background-color: $color-slb-orange;
       }
     }
     &__content {
