@@ -121,7 +121,7 @@ export default {
           title: 'MemorialCare',
           task: 'Development',
           description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+            "MemorialCare is a large hospital system in Los Angeles California and surrounding areas. The website contains information on it's hospitals, providers, services and treatments.",
           illustration: MCHero,
           divider: MCDivider,
           screenshot: MCScreenshot,

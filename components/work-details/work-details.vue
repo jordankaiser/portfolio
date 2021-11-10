@@ -237,9 +237,9 @@ export default {
         window.pageYOffset || document.documentElement.scrollTop
       const percentageScrolled = scrolledTop / this.documentHeight
       const scrollPositition = 250 * percentageScrolled
-      if (scrolledTop > this.lastScrollTop) {
+      if (scrolledTop > this.lastScrollTop && this.$refs.animatedDiv) {
         this.$refs.animatedDiv.style.transform = `translateY(calc(${scrollPositition}px - 50%))`
-      } else {
+      } else if (this.$refs.animatedDiv) {
         this.$refs.animatedDiv.style.transform = `translateY(calc(${scrollPositition}px - 50%))`
       }
       this.lastScrollTop = scrolledTop <= 0 ? 0 : scrolledTop

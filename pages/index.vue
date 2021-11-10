@@ -8,7 +8,7 @@
         <introduction-dino />
         <div class="introduction__text">
           <p>
-            Hi I'm Jordan Kaiser. I've been working in web development for over
+            Hi, I'm Jordan Kaiser. I've been working in web development for over
             ten years. Throughout that time I've created many digital projects
             for a variety of clients. Below you'll see a small sampling of some
             of those projects.

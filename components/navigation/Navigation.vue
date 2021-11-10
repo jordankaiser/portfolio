@@ -23,6 +23,12 @@
                 <div class="links__link__underline"></div>
               </a>
             </li>
+            <li>
+              <a :tabindex="tabIndex" href="#" class="links__link">
+                <span class="links__text">JLG</span>
+                <div class="links__link__underline"></div>
+              </a>
+            </li>
           </ul>
         </li>
         <!-- <li class="links__group">

@@ -28,6 +28,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  position: relative;
   margin-top: $s0;
   padding-top: 5px;
   padding-left: 5px;

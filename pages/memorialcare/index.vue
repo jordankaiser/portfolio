@@ -35,9 +35,9 @@ export default {
             }
           },
           {
-            title: 'Service Lines`',
+            title: 'Service Lines',
             description:
-              'The Service Line page type for MemorialCare was a page type that contained information on services like cancer care or joint care.  The user can switch their location using the tool in the top left of the header or directly below the in-page navigation. Switching locations will display specialized content tailored specifically to that location. The Servie Line page also offered robust referential content that could be controled using the CMS. Examples of this are the Specialites, Locations, Blog, Events and other sections on the page.',
+              'The Service Line page type for MemorialCare  contained information on services like cancer care or joint care.  The user can switch their location using the tool in the top left of the header or directly below the in-page navigation. Switching locations will display specialized content tailored specifically to that location. The Servie Line page also offered robust referential content that could be controled using the CMS. Examples of this are the Specialites, Locations, Blog, Events and other sections on the page.',
             image: 'mc/mc-detail-two.jpg',
             link: {
               text: 'View Service Line Page',
