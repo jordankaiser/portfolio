@@ -14,7 +14,7 @@ export default {
         id: 'slb',
         title: 'JLG Self-Leveling Boom',
         description:
-          '<p>JLG is a global producer of aerial work platforms and telehandlers. The Self-Leveling Boom site was created to promote the new 670SJ Self-Leveling Boom. This project was a collaboration between myself and another developer. I handled setting up the Next.js framework, site structure, and the majority of the site\'s pages while the other developer focused on the <a href="https://www.selflevelingboom.com/masteryourterrain/" target="_blank" rel="nofollow">Master Your Terrain</a> component. After the initial site launched I started on a second phase of development to add Spanish and Portuguese translations.</p>',
+          "<p>JLG is a global producer of aerial work platforms and telehandlers. The Self-Leveling Boom site was created to promote the new 670SJ Self-Leveling Boom. This project was a collaboration between myself and another developer. I handled setting up the Next.js framework, site structure, and the majority of the site's pages while the other developer focused on the Master Your Terrain component. After the initial site launched I started on a second phase of development to add translations.</p>",
         roles: ['Developer'],
         tools: ['Next.js', 'React', 'next-translate'],
         checkmark: {
@@ -37,11 +37,11 @@ export default {
           {
             title: 'Translation',
             description:
-              "Translation support is currently being added to the site. For tooling I used the Next.js internationalized routing system to handle page URLs and detecting the user's preferred language. For translating the site's content I choose next-translate. Using those two tools I was able to produce a robust and flexible translation system.",
-            image: 'mc/mc-detail-two.jpg',
+              "Since the site is being promoted in the UK, North America and South America translation was needed. For tooling I used the Next.js internationalized routing system to handle page URLs and detecting the user's preferred language. For translating the site's content I used next-translate. Using those two tools I was able to produce a robust and flexible translation system.",
+            image: 'slb/slb-detail-two.jpeg',
             link: {
               text: 'View Site',
-              href: 'https://www.selflevelingboom.com/',
+              href: 'https://www.selflevelingboom.com/whereitallbegan/',
               target: '_blank'
             }
           }

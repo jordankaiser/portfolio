@@ -12,22 +12,37 @@
           <span class="links__headline">My Work</span>
           <ul>
             <li>
-              <a :tabindex="tabIndex" href="#" class="links__link">
+              <nuxt-link
+                to="/memorialcare"
+                :tabindex="tabIndex"
+                class="links__link"
+                @click.native="toggleNavigation"
+              >
                 <span class="links__text">MemorialCare</span>
                 <div class="links__link__underline"></div>
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a :tabindex="tabIndex" href="#" class="links__link">
+              <nuxt-link
+                to="/ezgo"
+                :tabindex="tabIndex"
+                class="links__link"
+                @click.native="toggleNavigation"
+              >
                 <span class="links__text">E-Z-GO</span>
                 <div class="links__link__underline"></div>
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a :tabindex="tabIndex" href="#" class="links__link">
+              <nuxt-link
+                to="/selflevelingboom"
+                :tabindex="tabIndex"
+                class="links__link"
+                @click.native="toggleNavigation"
+              >
                 <span class="links__text">JLG</span>
                 <div class="links__link__underline"></div>
-              </a>
+              </nuxt-link>
             </li>
           </ul>
         </li>
@@ -49,7 +64,12 @@
           </ul>
         </li> -->
       </ul>
-      <nuxt-link to="/" class="links__home" :tabindex="tabIndex">
+      <nuxt-link
+        to="/"
+        class="links__home"
+        :tabindex="tabIndex"
+        @click.native="toggleNavigation"
+      >
         <div class="links__circle"></div>
         <home />
       </nuxt-link>
@@ -72,6 +92,12 @@ export default {
   computed: {
     tabIndex() {
       return this.$store.state.menuOpen === true ? 0 : -1
+    }
+  },
+  methods: {
+    toggleNavigation() {
+      console.log('clicked')
+      this.$store.commit('toggleMenuOpen')
     }
   }
 }

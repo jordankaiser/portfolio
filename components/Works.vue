@@ -150,46 +150,12 @@ export default {
           }
         },
         {
-          id: 'nsf',
-          parity: null,
-          title: 'Nebraska State Fair',
-          task: 'Development',
-          description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
-          illustration: NSFHero,
-          divider: NSFDivider,
-          screenshot: NSFScreenshot,
-          CTATertiary: {
-            component: CTATertiary,
-            link: {
-              text: 'Visit Site',
-              href: 'https://statefair.org',
-              target: '_blank'
-            }
-          },
-          CTASecondary: {
-            component: CTASecondary,
-            link: {
-              text: 'Project Details',
-              href: '/styleguide',
-              target: '_self'
-            }
-          },
-          footer: {
-            component: NSFFooter,
-            modifiers: {
-              triggerEl: '.work__segment--nsf .corn-footer',
-              revealOffset: '0.85'
-            }
-          }
-        },
-        {
           id: 'ezgo',
           parity: null,
           title: 'E-Z-GO',
           task: 'Development',
           description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+            'E-Z-GO is a leading global manufacturer of golf cars, utility vehicles and personal transportation vehicles. The website features segmented audience content and a vehicle building tool.',
           illustration: EZGOHero,
           divider: EZGODivider,
           screenshot: EZGOScreenshot,
@@ -223,7 +189,7 @@ export default {
           title: 'JLG Self-Leveling Boom',
           task: 'Development',
           description:
-            'Brief description of project amet nulla vel nunc placerat ultricies eget vel massa. Ut efficitur ex ut libero vestibulum porta. Vestibulum sed purus aliquet, consequat.',
+            'This site was created to promote the international launch of the new 670SJ Self-Leveling Boom from JLG. The website was built with nuxt.js and features translation.',
           illustration: SLBHero,
           divider: SLBDivider,
           screenshot: SLBScreenshot,
@@ -317,6 +283,11 @@ export default {
     &--slb {
       color: $color-white;
       background-color: $color-slb-grey;
+
+      &::before,
+      &:after {
+        background-color: $color-slb-orange;
+      }
     }
     &--even {
       &:after {

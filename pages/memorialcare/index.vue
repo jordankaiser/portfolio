@@ -30,7 +30,7 @@ export default {
             image: 'mc/mc-detail-one.jpeg',
             link: {
               text: 'View Home Page',
-              href: '/',
+              href: 'https://www.memorialcare.org/',
               target: '_blank'
             }
           },
@@ -41,7 +41,7 @@ export default {
             image: 'mc/mc-detail-two.jpg',
             link: {
               text: 'View Service Line Page',
-              href: '/',
+              href: 'https://www.memorialcare.org/services/womens-care',
               target: '_blank'
             }
           },
@@ -52,7 +52,8 @@ export default {
             image: 'mc/mc-detail-three.jpeg',
             link: {
               text: 'View Hospital Page',
-              href: '/',
+              href:
+                'https://www.memorialcare.org/locations/miller-childrens-womens-hospital-long-beach',
               target: '_blank'
             }
           }
