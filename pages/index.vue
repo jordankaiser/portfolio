@@ -33,7 +33,6 @@
 <script>
 import BgFun from '~/components/bg-fun/BGFun.vue'
 import introductionDino from '~/components/introduction-dino/IntroductionDino.vue'
-// import CtaHero from '~/components/ctas/CTAHero'
 import Works from '~/components/Works'
 import Navigation from '~/components/navigation/Navigation'
 export default {
@@ -44,34 +43,9 @@ export default {
   },
   components: {
     introductionDino,
-    // CtaHero,
     Works,
     BgFun,
     Navigation
-  },
-  mounted: function() {
-    // Intersection Observer example.
-    // this.$nextTick(() => {
-    //   const myImg = document.querySelector('.introduction')
-    //   const observer = new IntersectionObserver((entry, observer) => {
-    //     if (entry[0].intersectionRatio > 0) {
-    //       console.log('in the view')
-    //     } else {
-    //       console.log('out of view')
-    //     }
-    //   })
-    //   observer.observe(myImg)
-    // })
-    // Uncomment to simulate a 1 second delay. Used for building loading animations. Have this fire on a click event. Kind of working maybe.
-    // function asyncData() {
-    /* eslint-disable */
-      // return new Promise(resolve => {
-      //   setTimeout(function() {
-      //     resolve({ name: 'world' })
-      //   }, 5000)
-      // })
-      /* eslint-enable */
-    // }
   }
 }
 </script>
