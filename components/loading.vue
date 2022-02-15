@@ -45,6 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_animation.scss';
+@import '~/assets/scss/_variables.scss';
 .loader {
   display: flex;
   flex-direction: column;
@@ -55,7 +56,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 1);
+  background: $color-red;
   font-size: 30px;
   z-index: 100;
   transition: opacity 0.5s, visibility 0.5s;
