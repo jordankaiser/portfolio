@@ -750,12 +750,12 @@ export default {
       &__image {
         flex: 0 1 auto;
         margin-bottom: $s0;
-        max-width: 550px;
+        max-width: 610px;
 
         @media only screen and (min-width: 850px) {
           flex: 0 0 auto;
           margin-right: $s0;
-          width: 550px;
+          width: 610px;
         }
         img {
           width: 100%;
