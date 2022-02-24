@@ -11,7 +11,7 @@
         <div class="dino__forground">
           <img
             class="dino__artwork dino__artwork--body"
-            src="~/assets/img/Dino.png"
+            src="~/assets/img/dino.png"
           />
           <img
             class="dino__artwork dino__artwork--eye-open"

@@ -6,12 +6,17 @@
       'loader--finish': !loading
     }"
   >
-    <div class="loader__icons">
-      <div class="loader__icon"></div>
-      <div class="loader__icon"></div>
-      <div class="loader__icon"></div>
-      <div class="loader__icon"></div>
-      <div class="loader__icon"></div>
+    <div class="loader__dino">
+      <img
+        class="loader__dino__layer1"
+        src="~/assets/img/dino.png"
+        alt="Dinosaur"
+      />
+      <img
+        class="loader__dino__layer2"
+        src="~/assets/img/dino-eye-closed.png"
+        alt="Dinosaur"
+      />
     </div>
     <div class="loader__description">
       <p>Loading</p>
@@ -44,7 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/_animation.scss';
 @import '~/assets/scss/_variables.scss';
 .loader {
   display: flex;
@@ -66,22 +70,11 @@ export default {
     visibility: visible;
     opacity: 1;
 
-    .loader__icon {
-      &:nth-child(1) {
-        @include bender(0s);
-      }
-      &:nth-child(2) {
-        @include bender(0.1s);
-      }
-      &:nth-child(3) {
-        @include bender(0.2s);
-      }
-      &:nth-child(4) {
-        @include bender(0.3s);
-      }
-      &:nth-child(5) {
-        @include bender(0.4s);
-      }
+    .loader__dino {
+      animation-name: dino-loader;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
     }
   }
 
@@ -99,17 +92,42 @@ export default {
     border-bottom: 1px solid #9ea9bd;
     overflow: hidden;
   }
-  &__icon {
-    width: 50px;
-    height: 50px;
-    background-image: url('~assets/img/loader-bender.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: translateY(55px);
-    transition: transform 0.5s;
-  }
   &__description p {
-    color: grey;
+    color: $color-white;
+    font-family: $font-open-sans;
+    font-size: $fs2;
+    font-weight: 700;
+    margin-top: $s-1;
+  }
+  &__dino {
+    position: relative;
+    width: 150px;
+    transform-origin: 100% 100%;
+
+    &__layer1 {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    &__layer2 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@keyframes dino-loader {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
 }
 </style>
