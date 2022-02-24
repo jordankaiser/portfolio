@@ -9,7 +9,7 @@
     <div class="loader__dino">
       <img
         class="loader__dino__layer1"
-        src="~/assets/img/dino.png"
+        src="~/assets/img/dino-body.png"
         alt="Dinosaur"
       />
       <img
