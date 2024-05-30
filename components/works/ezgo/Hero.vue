@@ -220,10 +220,7 @@ export default {
     )
 
     // CTA reveal.
-    const ctas = [
-      segment.querySelector('.cta-secondary__link'),
-      segment.querySelector('.cta-tertiary__link')
-    ]
+    const ctas = [segment.querySelector('.cta-secondary__link')]
     const ctasTimeline = new TimelineLite({
       onComplete: timelineCleanup,
       onCompleteParams: [ctas]

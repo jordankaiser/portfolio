@@ -104,7 +104,7 @@
           <p class="work-detail__work__content__description">
             {{ work.description }}
           </p>
-          <div class="work-detail__work__content__cta">
+          <div v-if="work.link" class="work-detail__work__content__cta">
             <CTASecondary :link="work.link" :varient="content.id" />
           </div>
         </div>

@@ -37,12 +37,13 @@
             :link="work.CTASecondary.link"
             :varient="work.id"
           ></component>
-          <component
-            :is="work.CTATertiary.component"
-            v-if="work.CTATertiary"
-            :link="work.CTATertiary.link"
-            :varient="work.id"
-          ></component>
+          <template v-if="work.CTATertiary">
+            <component
+              :is="work.CTATertiary.component"
+              :link="work.CTATertiary.link"
+              :varient="work.id"
+            ></component>
+          </template>
         </div>
       </div>
       <div class="work__footer container container--narrow">
@@ -159,14 +160,6 @@ export default {
           illustration: EZGOHero,
           divider: EZGODivider,
           screenshot: EZGOScreenshot,
-          CTATertiary: {
-            component: CTATertiary,
-            link: {
-              text: 'Visit Site',
-              href: 'https://ezgo.txtsv.com/',
-              target: '_blank'
-            }
-          },
           CTASecondary: {
             component: CTASecondary,
             link: {
