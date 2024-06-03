@@ -86,6 +86,9 @@ import SLBDivider from '~/components/works/slb/Divider.vue'
 import SLBScreenshot from '~/components/works/slb/Screenshot.vue'
 import SLBFooter from '~/components/works/slb/Footer.vue'
 
+// CABC
+import CABCHero from '~/components/works/cabc/Hero.vue'
+
 // Libraries.
 import 'lazysizes'
 
@@ -209,6 +212,40 @@ export default {
               revealOffset: '1'
             }
           }
+        },
+        {
+          id: 'cabc',
+          parity: null,
+          title: 'Cascade Bicycle Club',
+          task: 'Development',
+          description:
+            'Deserunt amet adipiscing, dolore nisi. Dolore, nisi enim voluptate laboris reprehenderit non. Voluptate laboris reprehenderit non, lorem.',
+          illustration: CABCHero,
+          divider: SLBDivider,
+          screenshot: SLBScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://cascade.org/',
+              target: '_blank'
+            }
+          },
+          CTASecondary: {
+            component: CTASecondary,
+            link: {
+              text: 'Project Details',
+              href: '/selflevelingboom',
+              target: '_self'
+            }
+          },
+          footer: {
+            component: SLBFooter,
+            modifiers: {
+              triggerEl: '.work__segment--slb .work__footer',
+              revealOffset: '1'
+            }
+          }
         }
       ]
     }
@@ -280,6 +317,15 @@ export default {
       &::before,
       &:after {
         background-color: $color-slb-orange;
+      }
+    }
+    &--cabc {
+      color: $color-white;
+      background-color: $color-cabc-green-500;
+
+      &::before,
+      &:after {
+        background-color: $color-cabc-green-100;
       }
     }
     &--even {
