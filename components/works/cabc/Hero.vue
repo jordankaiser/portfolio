@@ -1,6 +1,8 @@
 <template>
   <div class="cabc-hero">
     <div class="cabc-hero__parts">
+      <!-- Circle -->
+      <div class="cabc-hero__layer cabc-hero__layer--circle"></div>
       <!-- Background -->
       <div class="cabc-hero__layer cabc-hero__layer--background">
         <img
@@ -165,9 +167,8 @@ export default {
     let viewportDimensions = getViewportDimensions()
     const TimelineLite = vm.$GSAP.TimelineLite
     const hero = {
-      conatiner: document.querySelector('.cabc-hero'),
-      circle: document.querySelector('.cabc-hero__circle'),
-      wrench: document.querySelector('.cabc-hero__wrench img')
+      container: document.querySelector('.cabc-hero'),
+      parts: document.querySelector('.cabc-hero__parts'),
     }
 
     // Determine viewport width.
@@ -188,96 +189,10 @@ export default {
     mobileOrDesktop(viewportDimensions.width)
     function mobileOrDesktop(viewportWidth) {
       if (viewportWidth >= 600) {
-        // desktopTimeline(hero)
+        desktopTimeline(hero)
       } else {
         // mobileTimeline(hero)
       }
-    }
-
-    // Mobile animations.
-    function mobileTimeline(element) {
-      // Hero timeline.
-      const heroTimeline = new TimelineLite({
-        onComplete: timelineCleanup,
-        onCompleteParams: [element]
-      })
-      heroTimeline
-        .set(
-          [
-            element.nuts,
-            element.nutOne,
-            element.nutTwo,
-            element.nutThree,
-            element.nutFour
-          ],
-          {
-            opacity: 0
-          }
-        )
-        .from(element.circle, 0.5, { opacity: 0 })
-        .fromTo(element.nuts, 0.1, { opacity: 0 }, { opacity: 1 }, '-=0.5')
-        .fromTo(
-          element.wrench,
-          0.5,
-          { opacity: 0, rotation: -30 },
-          { opacity: 1, rotation: 0 }
-        )
-        .fromTo(
-          element.nutThree,
-          0.5,
-          { opacity: 0, rotation: -120 },
-          { opacity: 1, rotation: -60 },
-          '-=0.5'
-        )
-        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
-        .fromTo(
-          element.nutThree,
-          0.5,
-          { rotation: -60 },
-          { rotation: 0 },
-          '-=0.5'
-        )
-        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
-        .fromTo(
-          element.nutOne,
-          0.5,
-          { opacity: 0, rotation: -120 },
-          { opacity: 1, rotation: -60 },
-          '-=0.5'
-        )
-        .fromTo(element.wrench, 0.5, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.5, { rotation: -30 }, { rotation: 0 })
-        .fromTo(
-          element.nutOne,
-          0.5,
-          { rotation: -60 },
-          { rotation: 0 },
-          '-=0.5'
-        )
-
-        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.25, { rotation: -30 }, { rotation: 0 })
-        .fromTo(
-          element.nutTwo,
-          0.25,
-          { opacity: 0, rotation: -120 },
-          { opacity: 1, rotation: -60 },
-          '-=0.25'
-        )
-        .fromTo(element.wrench, 0.25, { rotation: 0 }, { rotation: -30 })
-        .fromTo(element.wrench, 0.25, { rotation: -30 }, { rotation: 0 })
-        .fromTo(
-          element.nutTwo,
-          0.25,
-          { rotation: -60 },
-          { rotation: 0 },
-          '-=0.25'
-        )
-
-      // Reveal on scroll.
-      scrollMagicScene(vm, heroTimeline, '.cabc-hero', 0.75)
     }
 
     // Desktop animations.
@@ -288,19 +203,8 @@ export default {
         onCompleteParams: [element]
       })
       heroTimeline
-        .set(
-          [
-            element.nuts,
-            element.nutOne,
-            element.nutTwo,
-            element.nutThree,
-            element.nutFour
-          ],
-          {
-            opacity: 0
-          }
-        )
-        .from(element.circle, 0.5, { opacity: 0 })
+        .fromTo(element.container, 1, { opacity: 0 }, { opacity: 1 })
+        .fromTo(element.parts, 1, { scale: 0.5, rotation: 20 }, { scale: 1, rotation: 0, ease: Back.easeOut.config(1.7), }, '-=1')
 
       // Reveal on scroll.
       scrollMagicScene(vm, heroTimeline, '.cabc-hero', 0.75)
@@ -402,16 +306,6 @@ export default {
     position: relative;
     width: 243px;
     height: 232px;
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: 51% ;
-      top: 56%;
-      width: 1px;
-      height: 1px;
-      background-color: red;
-    }
   }
 
   // Layer.
@@ -421,6 +315,22 @@ export default {
     height: 100%;
     top: 0;
     left: 0;
+
+    // Circle.
+    &--circle {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border-radius: 140px;
+        background-color: $color-cabc-green-200;
+        border-radius: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
 
     // Pedal.
     &--pedal {
