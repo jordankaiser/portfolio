@@ -2,7 +2,7 @@
   <div class="cabc-hero">
     <div class="cabc-hero__parts">
       <!-- Background -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--background">
         <img
           src="~/assets/img/work/cabc/background.png"
           alt="Bicycle"
@@ -11,7 +11,7 @@
       </div>
 
       <!-- Frame -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--frame">
         <img
           src="~/assets/img/work/cabc/frame.png"
           alt="Bicycle"
@@ -19,26 +19,38 @@
         />
       </div>
 
-      <!-- Foot gears -->
-      <div class="cabc-hero__layer">
-        <img
-          src="~/assets/img/work/cabc/foot-grears.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
+      <!-- Pedal -->
+      <div class="cabc-hero__layer cabc-hero__layer--pedal">
+        <!-- Foot gears -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-gears">
+          <img
+            src="~/assets/img/work/cabc/foot-gears.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
 
-      <!-- Foot rest -->
-      <div class="cabc-hero__layer">
-        <img
-          src="~/assets/img/work/cabc/foot-rest.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
+        <!-- Pedal leg -->
+        <div class="cabc-hero__layer cabc-hero__layer--pedal-leg">
+          <img
+            src="~/assets/img/work/cabc/pedal-leg.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
+
+        <!-- Foot rest -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-rest">
+          <img
+            src="~/assets/img/work/cabc/foot-rest.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
       </div>
 
       <!-- Front wheel -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--front-wheel">
         <img
           src="~/assets/img/work/cabc/front-wheel.png"
           alt="Bicycle"
@@ -47,7 +59,7 @@
       </div>
 
       <!-- Back wheel -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--back-wheel">
         <img
           src="~/assets/img/work/cabc/back-wheel.png"
           alt="Bicycle"
@@ -55,17 +67,8 @@
         />
       </div>
 
-      <!-- Pedal leg -->
-      <div class="cabc-hero__layer">
-        <img
-          src="~/assets/img/work/cabc/pedal-leg.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-01">
         <img
           src="~/assets/img/work/cabc/line-01.png"
           alt="Bicycle"
@@ -73,7 +76,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-02">
         <img
           src="~/assets/img/work/cabc/line-02.png"
           alt="Bicycle"
@@ -81,7 +84,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-03">
         <img
           src="~/assets/img/work/cabc/line-03.png"
           alt="Bicycle"
@@ -89,7 +92,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-04">
         <img
           src="~/assets/img/work/cabc/line-04.png"
           alt="Bicycle"
@@ -97,7 +100,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-05">
         <img
           src="~/assets/img/work/cabc/line-05.png"
           alt="Bicycle"
@@ -105,7 +108,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-06">
         <img
           src="~/assets/img/work/cabc/line-06.png"
           alt="Bicycle"
@@ -113,7 +116,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-07">
         <img
           src="~/assets/img/work/cabc/line-07.png"
           alt="Bicycle"
@@ -121,7 +124,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-08">
         <img
           src="~/assets/img/work/cabc/line-08.png"
           alt="Bicycle"
@@ -129,7 +132,7 @@
         />
       </div>
       <!-- Line -->
-      <div class="cabc-hero__layer">
+      <div class="cabc-hero__layer cabc-hero__layer--line-09">
         <img
           src="~/assets/img/work/cabc/line-09.png"
           alt="Bicycle"
@@ -399,6 +402,16 @@ export default {
     position: relative;
     width: 243px;
     height: 232px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 51% ;
+      top: 56%;
+      width: 1px;
+      height: 1px;
+      background-color: red;
+    }
   }
 
   // Layer.
@@ -409,6 +422,71 @@ export default {
     top: 0;
     left: 0;
 
+    // Pedal.
+    &--pedal {
+      transform-origin: 51.15% 56.4%;
+    }
+
+    // Foot rest.
+    &--foot-rest {
+      transform-origin: 48.1% 65.95%;
+    }
+
+    // Front wheel.
+    &--front-wheel {
+      transform-origin: 25.85% 48.85%;
+    }
+
+    // Back wheel.
+    &--back-wheel {
+      transform-origin: 70.3% 62.3%;
+    }
+
+    // Line 1.
+    &--line-01 {
+      transform-origin: 12% 63.5%;
+    }
+
+    // Line 2.
+    &--line-02 {
+      transform-origin: 13% 29.5%;
+    }
+
+    // Line 3.
+    &--line-03 {
+      transform-origin: 33% 11%;
+    }
+
+    // Line 4.
+    &--line-04 {
+      transform-origin: 51.5% 13%;
+    }
+
+    // Line 5.
+    &--line-05 {
+      transform-origin: 72% 16%;
+    }
+
+    // Line 6.
+    &--line-06 {
+      transform-origin: 85% 36%;
+    }
+
+    // Line 7.
+    &--line-07 {
+      transform-origin: 88% 67%;
+    }
+    
+    // Line 8.
+    &--line-08 {
+      transform-origin: 66% 83%;
+    }
+    
+    // Line 9.
+    &--line-09 {
+      transform-origin: 36.5% 81%;
+    }
+    
     img {
       position: absolute;
       left: 0;
