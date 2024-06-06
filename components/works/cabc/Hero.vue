@@ -3,6 +3,87 @@
     <div class="cabc-hero__parts">
       <!-- Circle -->
       <div class="cabc-hero__layer cabc-hero__layer--circle"></div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-01">
+        <img
+          src="~/assets/img/work/cabc/line-01.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-02">
+        <img
+          src="~/assets/img/work/cabc/line-02.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-03">
+        <img
+          src="~/assets/img/work/cabc/line-03.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-04">
+        <img
+          src="~/assets/img/work/cabc/line-04.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-05">
+        <img
+          src="~/assets/img/work/cabc/line-05.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-06">
+        <img
+          src="~/assets/img/work/cabc/line-06.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-07">
+        <img
+          src="~/assets/img/work/cabc/line-07.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-08">
+        <img
+          src="~/assets/img/work/cabc/line-08.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-09">
+        <img
+          src="~/assets/img/work/cabc/line-09.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+
       <!-- Background -->
       <div class="cabc-hero__layer cabc-hero__layer--background">
         <img
@@ -19,36 +100,6 @@
           alt="Bicycle"
           class="cabc-hero__frame"
         />
-      </div>
-
-      <!-- Pedal -->
-      <div class="cabc-hero__layer cabc-hero__layer--pedal">
-        <!-- Foot gears -->
-        <div class="cabc-hero__layer cabc-hero__layer--foot-gears">
-          <img
-            src="~/assets/img/work/cabc/foot-gears.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
-
-        <!-- Pedal leg -->
-        <div class="cabc-hero__layer cabc-hero__layer--pedal-leg">
-          <img
-            src="~/assets/img/work/cabc/pedal-leg.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
-
-        <!-- Foot rest -->
-        <div class="cabc-hero__layer cabc-hero__layer--foot-rest">
-          <img
-            src="~/assets/img/work/cabc/foot-rest.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
       </div>
 
       <!-- Front wheel -->
@@ -69,82 +120,36 @@
         />
       </div>
 
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-01">
-        <img
-          src="~/assets/img/work/cabc/line-01.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-02">
-        <img
-          src="~/assets/img/work/cabc/line-02.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-03">
-        <img
-          src="~/assets/img/work/cabc/line-03.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-04">
-        <img
-          src="~/assets/img/work/cabc/line-04.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-05">
-        <img
-          src="~/assets/img/work/cabc/line-05.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-06">
-        <img
-          src="~/assets/img/work/cabc/line-06.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-07">
-        <img
-          src="~/assets/img/work/cabc/line-07.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-08">
-        <img
-          src="~/assets/img/work/cabc/line-08.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
-      </div>
-      <!-- Line -->
-      <div class="cabc-hero__layer cabc-hero__layer--line-09">
-        <img
-          src="~/assets/img/work/cabc/line-09.png"
-          alt="Bicycle"
-          class="cabc-hero__frame"
-        />
+      <!-- Pedal -->
+      <div class="cabc-hero__layer cabc-hero__layer--pedal">
+        <!-- Foot gears -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-gears">
+          <img
+            src="~/assets/img/work/cabc/foot-gears.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
+
+        <!-- Foot rest -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-rest">
+          <img
+            src="~/assets/img/work/cabc/foot-rest.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
+
+        <!-- Pedal leg -->
+        <div class="cabc-hero__layer cabc-hero__layer--pedal-leg">
+          <img
+            src="~/assets/img/work/cabc/pedal-leg.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
       </div>
     </div>
-    <!-- <div class="cabc-hero__circle-wrap">
-      <div class="cabc-hero__circle"></div>
-    </div> -->
   </div>
 </template>
 <script>
@@ -169,6 +174,21 @@ export default {
     const hero = {
       container: document.querySelector('.cabc-hero'),
       parts: document.querySelector('.cabc-hero__parts'),
+      frontWheel: document.querySelector('.cabc-hero__layer--front-wheel'),
+      backWheel: document.querySelector('.cabc-hero__layer--back-wheel'),
+      pedal: document.querySelector('.cabc-hero__layer--pedal'),
+      footRest: document.querySelector('.cabc-hero__layer--foot-rest'),
+      lines: {
+        one: document.querySelector('.cabc-hero__layer--line-01'),
+        two: document.querySelector('.cabc-hero__layer--line-02'),
+        three: document.querySelector('.cabc-hero__layer--line-03'),
+        four: document.querySelector('.cabc-hero__layer--line-04'),
+        five: document.querySelector('.cabc-hero__layer--line-05'),
+        six: document.querySelector('.cabc-hero__layer--line-06'),
+        seven: document.querySelector('.cabc-hero__layer--line-07'),
+        eight: document.querySelector('.cabc-hero__layer--line-08'),
+        nine: document.querySelector('.cabc-hero__layer--line-09')
+      }
     }
 
     // Determine viewport width.
@@ -198,13 +218,33 @@ export default {
     // Desktop animations.
     function desktopTimeline(element) {
       // Hero timeline.
-      const heroTimeline = new TimelineLite({
-        onComplete: timelineCleanup,
-        onCompleteParams: [element]
-      })
-      heroTimeline
+      const introTimeline = new TimelineLite()
+      const lineDuration = 0.75
+      const lineOffset = '-=0.7'
+      introTimeline
         .fromTo(element.container, 1, { opacity: 0 }, { opacity: 1 })
         .fromTo(element.parts, 1, { scale: 0.5, rotation: 20 }, { scale: 1, rotation: 0, ease: Back.easeOut.config(1.7), }, '-=1')
+        .fromTo(element.lines.one, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, '-=0.5')
+        .fromTo(element.lines.six, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.eight, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.three, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.five, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.nine, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.two, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.seven, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.four, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+
+      // Bike timeline
+      const bikeTimeline = new TimelineLite()
+      bikeTimeline
+        .fromTo(element.frontWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone })
+        .fromTo(element.backWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        .fromTo(element.pedal, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        .fromTo(element.footRest, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        
+      const heroTimeline = new TimelineLite()
+      heroTimeline.add(introTimeline, 0)
+      heroTimeline.add(bikeTimeline, 0)
 
       // Reveal on scroll.
       scrollMagicScene(vm, heroTimeline, '.cabc-hero', 0.75)
