@@ -131,10 +131,10 @@
           />
         </div>
 
-        <!-- Foot rest -->
-        <div class="cabc-hero__layer cabc-hero__layer--foot-rest">
+        <!-- Foot rest back -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-rest-back">
           <img
-            src="~/assets/img/work/cabc/foot-rest.png"
+            src="~/assets/img/work/cabc/foot-rest-back.png"
             alt="Bicycle"
             class="cabc-hero__frame"
           />
@@ -144,6 +144,15 @@
         <div class="cabc-hero__layer cabc-hero__layer--pedal-leg">
           <img
             src="~/assets/img/work/cabc/pedal-leg.png"
+            alt="Bicycle"
+            class="cabc-hero__frame"
+          />
+        </div>
+
+        <!-- Foot rest front -->
+        <div class="cabc-hero__layer cabc-hero__layer--foot-rest-front">
+          <img
+            src="~/assets/img/work/cabc/foot-rest-front.png"
             alt="Bicycle"
             class="cabc-hero__frame"
           />
@@ -177,7 +186,8 @@ export default {
       frontWheel: document.querySelector('.cabc-hero__layer--front-wheel'),
       backWheel: document.querySelector('.cabc-hero__layer--back-wheel'),
       pedal: document.querySelector('.cabc-hero__layer--pedal'),
-      footRest: document.querySelector('.cabc-hero__layer--foot-rest'),
+      footRestBack: document.querySelector('.cabc-hero__layer--foot-rest-back'),
+      footRestFront: document.querySelector('.cabc-hero__layer--foot-rest-front'),
       lines: {
         one: document.querySelector('.cabc-hero__layer--line-01'),
         two: document.querySelector('.cabc-hero__layer--line-02'),
@@ -240,7 +250,8 @@ export default {
         .fromTo(element.frontWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone })
         .fromTo(element.backWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
         .fromTo(element.pedal, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
-        .fromTo(element.footRest, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        .fromTo(element.footRestBack, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        .fromTo(element.footRestFront, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
         
       const heroTimeline = new TimelineLite()
       heroTimeline.add(introTimeline, 0)
@@ -346,6 +357,16 @@ export default {
     position: relative;
     width: 243px;
     height: 232px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      width: 3px;
+      height: 3px;
+      background-color: red;
+    }
   }
 
   // Layer.
@@ -377,9 +398,14 @@ export default {
       transform-origin: 51.15% 56.4%;
     }
 
-    // Foot rest.
-    &--foot-rest {
-      transform-origin: 48.1% 65.95%;
+    // Foot rest front.
+    &--foot-rest-front {
+      transform-origin: 48.25% 66.25%;
+    }
+
+    // Foot rest back.
+    &--foot-rest-back {
+      transform-origin: 48.25% 66.25%;
     }
 
     // Front wheel.
