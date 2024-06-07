@@ -244,9 +244,9 @@ export default {
         .fromTo(element.lines.seven, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
         .fromTo(element.lines.four, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
 
-      // Bike timeline
-      const bikeTimeline = new TimelineLite()
-      bikeTimeline
+      // Pedaling timeline
+      const pedalingTimeline = new TimelineLite()
+      pedalingTimeline
         .fromTo(element.frontWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone })
         .fromTo(element.backWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
         .fromTo(element.pedal, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
@@ -255,7 +255,7 @@ export default {
         
       const heroTimeline = new TimelineLite()
       heroTimeline.add(introTimeline, 0)
-      heroTimeline.add(bikeTimeline, 0)
+      heroTimeline.add(pedalingTimeline, 0)
 
       // Reveal on scroll.
       scrollMagicScene(vm, heroTimeline, '.cabc-hero', 0.75)
@@ -357,16 +357,6 @@ export default {
     position: relative;
     width: 243px;
     height: 232px;
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0%;
-      top: 0%;
-      width: 3px;
-      height: 3px;
-      background-color: red;
-    }
   }
 
   // Layer.
