@@ -46,7 +46,7 @@ export default {}
     height: 100%;
     border: 2px solid $color-slb-orange;
     border-radius: 33px;
-    background-color: transparent;
+    background-color: $color-slb-grey;
   }
   &__illustration-wrap {
     position: absolute;
