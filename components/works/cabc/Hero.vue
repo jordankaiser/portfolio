@@ -201,30 +201,6 @@ export default {
       }
     }
 
-    // Determine viewport width.
-    window.addEventListener(
-      'resize',
-      debounce(() => {
-        viewportDimensions = getViewportDimensions()
-        if (
-          viewportDimensions.width !== document.documentElement.clientWidth ||
-          viewportDimensions.height !== document.documentElement.clientHeight
-        ) {
-          mobileOrDesktop(viewportDimensions.width)
-        }
-      }, 200)
-    )
-
-    // Determine which animations to play by viewport width.
-    mobileOrDesktop(viewportDimensions.width)
-    function mobileOrDesktop(viewportWidth) {
-      if (viewportWidth >= 600) {
-        desktopTimeline(hero)
-      } else {
-        // mobileTimeline(hero)
-      }
-    }
-
     // Desktop animations.
     function desktopTimeline(element) {
       // Hero timeline.
@@ -260,6 +236,8 @@ export default {
       // Reveal on scroll.
       scrollMagicScene(vm, heroTimeline, '.cabc-hero', 0.75)
     }
+    desktopTimeline(hero)
+
 
     // Intro reveal.
     const introText = [

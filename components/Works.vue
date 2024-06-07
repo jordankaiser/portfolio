@@ -7,7 +7,7 @@
       class="work__segment segment"
     >
       <div class="work__intro container container--narrow">
-        <div class="work__text">
+        <div :class="'work__text--' + work.id" class="work__text">
           <h2 class="work__heading">{{ work.title }}</h2>
           <p class="work__subhead">Roles <span>|</span> {{ work.task }}</p>
         </div>
@@ -409,6 +409,10 @@ export default {
     align-self: flex-end;
     margin-bottom: 35px;
     width: 100%;
+
+    &--cabc {
+      max-width: 230px;
+    }
   }
   &__description.container {
     padding-right: 70px;
@@ -440,6 +444,9 @@ export default {
     }
     &--slb {
       height: 160px;
+    }
+    &--cabc {
+      width: 134px;
     }
   }
   &__divider {
