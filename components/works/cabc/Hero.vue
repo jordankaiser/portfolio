@@ -400,7 +400,7 @@ export default {
 
     // Foot rest front.
     &--foot-rest-front {
-      transform-origin: 48.25% 66.25%;
+      transform-origin: 48.5% 66.3%;
     }
 
     // Foot rest back.
