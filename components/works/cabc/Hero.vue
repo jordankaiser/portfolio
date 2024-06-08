@@ -270,7 +270,6 @@ export default {
     const divider = {
       container: document.querySelector('.work__segment--cabc .work__divider'),
       line: document.querySelector('.divider-cabc__line'),
-      circle: document.querySelector('.divider-cabc__circle'),
       illustration: document.querySelector('.divider-cabc__illustration')
     }
     const dividerTimeline = new TimelineLite({
@@ -288,7 +287,6 @@ export default {
         },
         '-=1'
       )
-      .from(divider.circle, 0.5, { scale: 0, x: -20 }, '-=1')
       .from(
         divider.illustration,
         0.75,

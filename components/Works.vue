@@ -89,6 +89,7 @@ import SLBFooter from '~/components/works/slb/Footer.vue'
 // CABC
 import CABCHero from '~/components/works/cabc/Hero.vue'
 import CABCDivider from '~/components/works/cabc/Divider.vue'
+import CABCFooter from '~/components/works/cabc/Footer.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -241,9 +242,9 @@ export default {
             }
           },
           footer: {
-            component: SLBFooter,
+            component: CABCFooter,
             modifiers: {
-              triggerEl: '.work__segment--slb .work__footer',
+              triggerEl: '.work__segment--cabc .work__footer',
               revealOffset: '1'
             }
           }

@@ -2,7 +2,6 @@
   <div class="divider-cabc">
     <div class="divider-cabc__line"></div>
     <div class="divider-cabc__artwork">
-      <div class="divider-cabc__circle"></div>
       <div class="divider-cabc__illustration-wrap">
         <img
           class="divider-cabc__illustration"
@@ -40,13 +39,6 @@ export default {}
       left: 50%;
       transform: translateX(-50%);
     }
-  }
-  &__circle {
-    width: 100%;
-    height: 100%;
-    border: 2px solid $color-cabc-green-600;
-    border-radius: 33px;
-    background-color: $color-cabc-green-500;
   }
   &__illustration-wrap {
     position: absolute;
