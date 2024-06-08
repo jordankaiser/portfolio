@@ -221,13 +221,15 @@ export default {
         .fromTo(element.lines.four, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
 
       // Pedaling timeline
+      const repeat = 6
+      const duration = 10
       const pedalingTimeline = new TimelineLite()
       pedalingTimeline
-        .fromTo(element.frontWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone })
-        .fromTo(element.backWheel, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
-        .fromTo(element.pedal, 10, { rotation: 0 }, { rotation: -360, repeat: -1, ease: Linear.easeNone }, '-=10')
-        .fromTo(element.footRestBack, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
-        .fromTo(element.footRestFront, 10, { rotation: 0 }, { rotation: 360, repeat: -1, ease: Linear.easeNone }, '-=10')
+        .fromTo(element.frontWheel, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone })
+        .fromTo(element.backWheel, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.pedal, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.footRestBack, duration, { rotation: 0 }, { rotation: 360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.footRestFront, duration, { rotation: 0 }, { rotation: 360, repeat: repeat, ease: Linear.easeNone }, 0)
         
       const heroTimeline = new TimelineLite()
       heroTimeline.add(introTimeline, 0)
@@ -335,6 +337,7 @@ export default {
     position: relative;
     width: 243px;
     height: 232px;
+    overflow: hidden;
   }
 
   // Layer.
