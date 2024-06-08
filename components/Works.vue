@@ -447,7 +447,11 @@ export default {
       height: 160px;
     }
     &--cabc {
-      width: 134px;
+      width: 119px;
+
+      @include breakpoint($small) {
+        width: inherit;
+      }
     }
   }
   &__divider {
