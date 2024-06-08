@@ -88,6 +88,7 @@ import SLBFooter from '~/components/works/slb/Footer.vue'
 
 // CABC
 import CABCHero from '~/components/works/cabc/Hero.vue'
+import CABCDivider from '~/components/works/cabc/Divider.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -221,7 +222,7 @@ export default {
           description:
             'Deserunt amet adipiscing, dolore nisi. Dolore, nisi enim voluptate laboris reprehenderit non. Voluptate laboris reprehenderit non, lorem.',
           illustration: CABCHero,
-          divider: SLBDivider,
+          divider: CABCDivider,
           screenshot: SLBScreenshot,
           CTATertiary: {
             component: CTATertiary,

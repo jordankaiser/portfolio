@@ -269,9 +269,9 @@ export default {
     // Divider reveal.
     const divider = {
       container: document.querySelector('.work__segment--cabc .work__divider'),
-      line: document.querySelector('.divider-hammer__line'),
-      circle: document.querySelector('.divider-hammer__circle'),
-      illustration: document.querySelector('.divider-hammer__illustration')
+      line: document.querySelector('.divider-cabc__line'),
+      circle: document.querySelector('.divider-cabc__circle'),
+      illustration: document.querySelector('.divider-cabc__illustration')
     }
     const dividerTimeline = new TimelineLite({
       onComplete: timelineCleanup,
