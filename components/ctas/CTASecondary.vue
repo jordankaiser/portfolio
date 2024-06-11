@@ -96,6 +96,18 @@ export default {
       }
     }
   }
+  &--cabc {
+    .cta-secondary__link {
+      background-color: $white;
+
+      .cta-secondary__circle {
+        background-color: $color-cabc-green-600;
+      }
+    }
+    .cta-secondary__text {
+      color: $color-cabc-green-600;
+    }
+  }
   &__link {
     display: inline-block;
     position: relative;

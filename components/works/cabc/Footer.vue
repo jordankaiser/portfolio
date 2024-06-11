@@ -95,6 +95,7 @@ export default {
   align-items: flex-end;
   width: 130px;
   overflow: hidden;
+  margin-top: 30px;
 
   &__left,
   &__center,

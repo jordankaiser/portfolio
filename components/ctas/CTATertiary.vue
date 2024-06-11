@@ -97,6 +97,15 @@ export default {
       }
     }
   }
+  &--cabc {
+    .cta-tertiary__link {
+      color: $color-white;
+
+      .cta-tertiary__circle {
+        background-color: $color-cabc-green-600;
+      }
+    }
+  }
   &__wrap {
     display: inline-block;
   }
