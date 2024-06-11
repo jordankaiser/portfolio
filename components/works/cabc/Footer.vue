@@ -1,25 +1,24 @@
 <template>
-  <div class="construction-worker-footer">
+  <div class="bike-footer">
     <img
-      :data-src="require('~/assets/img/work/slb/construction-worker-red.png')"
+      :data-src="require('~/assets/img/work/cabc/chain-1.png')"
       alt="Construction worker illustration"
-      class="animatelazyload lazyload construction-worker-footer__left"
+      class="animatelazyload lazyload bike-footer__left"
     />
     <img
-      :data-src="require('~/assets/img/work/slb/construction-worker-green.png')"
+      :data-src="require('~/assets/img/work/cabc/chain-2.png')"
       alt="Construction worker illustration"
-      class="animatelazyload lazyload construction-worker-footer__middle"
+      class="animatelazyload lazyload bike-footer__center"
     />
     <img
-      :data-src="
-        require('~/assets/img/work/slb/construction-worker-purple.png')
-      "
+      :data-src="require('~/assets/img/work/cabc/chain-1.png')"
       alt="Construction worker illustration"
-      class="animatelazyload lazyload construction-worker-footer__right"
+      class="animatelazyload lazyload bike-footer__right"
     />
   </div>
 </template>
 <script>
+/* eslint-disable no-undef  */
 import { timelineCleanup } from '~/plugins/helpers/timelineCleanup.js'
 import { scrolledPast } from '~/plugins/helpers/scrolledPast.js'
 import { scrollMagicScene } from '~/plugins/helpers/scrollMagicScene.js'
@@ -37,7 +36,7 @@ export default {
   },
   mounted: function() {
     // Only animated if user hasn't scrolled past already
-    if (scrolledPast(document.querySelector('.work__segment--slb')) === true) {
+    if (scrolledPast(document.querySelector('.work__segment--cabc')) === true) {
       return
     }
 
@@ -47,23 +46,38 @@ export default {
 
     // Footer reveal.
     const footerIllustrations = {
-      left: document.querySelector(
-        '.work__segment--slb .construction-worker-footer__left'
+      left: document.querySelector('.work__segment--cabc .bike-footer__left'),
+      center: document.querySelector(
+        '.work__segment--cabc .bike-footer__center'
       ),
-      middle: document.querySelector(
-        '.work__segment--slb .construction-worker-footer__middle'
-      ),
-      right: document.querySelector(
-        '.work__segment--slb .construction-worker-footer__right'
-      )
+      right: document.querySelector('.work__segment--cabc .bike-footer__right')
     }
     const footerTimeline = new TimelineLite({
       onComplete: timelineCleanup,
       onCompleteParams: [footerIllustrations]
     })
-    footerTimeline.from(footerIllustrations.middle, 0.5, { y: 70 })
-    footerTimeline.from(footerIllustrations.left, 0.5, { y: 70 }, '-=0.25')
-    footerTimeline.from(footerIllustrations.right, 0.5, { y: 70 }, '-=0.4')
+    const duration = 1
+    footerTimeline.from(
+      footerIllustrations.center,
+      duration,
+      {
+        y: 94,
+        ease: Back.easeOut.config(1)
+      },
+      '+=1'
+    )
+    footerTimeline.from(
+      footerIllustrations.left,
+      duration,
+      { y: 58, ease: Back.easeOut.config(1.7) },
+      '-=0.5'
+    )
+    footerTimeline.from(
+      footerIllustrations.right,
+      duration,
+      { y: 84, ease: Back.easeOut.config(1.7) },
+      '-=0.5'
+    )
     scrollMagicScene(
       vm,
       footerTimeline,
@@ -75,26 +89,30 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
-.construction-worker-footer {
+.bike-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: calc(#{$s0} - 5px);
-  width: 190px;
+  width: 130px;
   overflow: hidden;
 
   &__left,
+  &__center,
   &__right {
-    flex: 0 1 auto;
-    width: 56px;
+    width: 24px;
     height: auto;
-    transform: translateY(5px);
   }
-  &__middle {
-    flex: 0 1 auto;
-    width: 66px;
-    height: auto;
-    transform: translateY(5px);
+  &__left {
+    position: relative;
+    top: 46px;
+  }
+  &__center {
+    position: relative;
+    top: 11px;
+  }
+  &__right {
+    position: relative;
+    top: 23px;
   }
 }
 </style>
