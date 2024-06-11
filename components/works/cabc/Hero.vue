@@ -4,87 +4,84 @@
       <!-- Circle -->
       <div class="cabc-hero__layer cabc-hero__layer--circle"></div>
 
-      <!-- Lines -->
-      <div class="cabc-hero__layer cabc-hero__layer--lines">
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-01">
-          <img
-            src="~/assets/img/work/cabc/line-01.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-01">
+        <img
+          src="~/assets/img/work/cabc/line-01.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-02">
-          <img
-            src="~/assets/img/work/cabc/line-02.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-02">
+        <img
+          src="~/assets/img/work/cabc/line-02.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-03">
-          <img
-            src="~/assets/img/work/cabc/line-03.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-03">
+        <img
+          src="~/assets/img/work/cabc/line-03.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-04">
-          <img
-            src="~/assets/img/work/cabc/line-04.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-04">
+        <img
+          src="~/assets/img/work/cabc/line-04.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-05">
-          <img
-            src="~/assets/img/work/cabc/line-05.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-05">
+        <img
+          src="~/assets/img/work/cabc/line-05.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-06">
-          <img
-            src="~/assets/img/work/cabc/line-06.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-07">
-          <img
-            src="~/assets/img/work/cabc/line-07.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-06">
+        <img
+          src="~/assets/img/work/cabc/line-06.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-07">
+        <img
+          src="~/assets/img/work/cabc/line-07.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-08">
-          <img
-            src="~/assets/img/work/cabc/line-08.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-08">
+        <img
+          src="~/assets/img/work/cabc/line-08.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
+      </div>
 
-        <!-- Line -->
-        <div class="cabc-hero__layer cabc-hero__layer--line-09">
-          <img
-            src="~/assets/img/work/cabc/line-09.png"
-            alt="Bicycle"
-            class="cabc-hero__frame"
-          />
-        </div>
+      <!-- Line -->
+      <div class="cabc-hero__layer cabc-hero__layer--line-09">
+        <img
+          src="~/assets/img/work/cabc/line-09.png"
+          alt="Bicycle"
+          class="cabc-hero__frame"
+        />
       </div>
 
       <!-- Background -->
@@ -208,40 +205,31 @@ export default {
     function desktopTimeline(element) {
       // Hero timeline.
       const introTimeline = new TimelineLite()
+      const lineDuration = 0.75
+      const lineOffset = '-=0.7'
       introTimeline
         .fromTo(element.container, 1, { opacity: 0 }, { opacity: 1 })
         .fromTo(element.parts, 1, { scale: 0.5, rotation: 20 }, { scale: 1, rotation: 0, ease: Back.easeOut.config(1.7), }, '-=1')
-
-      // Lines timeline
-      const minScale = 1
-      const maxScale = 0.96
-      const minRotation = 3
-      const maxRotation = -6
-      const durationLine = 3
-      const linesTimeline = new TimelineLite({repeat: 3})
-      linesTimeline
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: maxRotation, scale: maxScale }, { rotation: minRotation, scale: minScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: minRotation, scale: minScale }, { rotation: maxRotation, scale: maxScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: maxRotation, scale: maxScale }, { rotation: minRotation, scale: minScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: minRotation, scale: minScale }, { rotation: maxRotation, scale: maxScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: maxRotation, scale: maxScale }, { rotation: minRotation, scale: minScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: minRotation, scale: minScale }, { rotation: maxRotation, scale: maxScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: maxRotation, scale: maxScale }, { rotation: minRotation, scale: minScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: minRotation, scale: minScale }, { rotation: maxRotation, scale: maxScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: maxRotation, scale: maxScale }, { rotation: minRotation, scale: minScale, ease: Power2.easeInOut})
-        .fromTo(document.querySelector('.cabc-hero__layer--lines'), durationLine, { rotation: minRotation, scale: minScale }, { rotation: maxRotation, scale: maxScale, ease: Power2.easeInOut})
-      linesTimeline.play()
+        .fromTo(element.lines.one, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, '-=0.5')
+        .fromTo(element.lines.six, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.eight, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.three, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.five, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.nine, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.two, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.seven, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
+        .fromTo(element.lines.four, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
 
       // Pedaling timeline
-      const repeatPedal = 1
-      const durationPedal = 10
+      const repeat = 6
+      const duration = 10
       const pedalingTimeline = new TimelineLite()
       pedalingTimeline
-        .fromTo(element.frontWheel, durationPedal, { rotation: 0 }, { rotation: -360, repeat: repeatPedal, ease: Linear.easeNone })
-        .fromTo(element.backWheel, durationPedal, { rotation: 0 }, { rotation: -360, repeat: repeatPedal, ease: Linear.easeNone }, 0)
-        .fromTo(element.pedal, durationPedal, { rotation: 0 }, { rotation: -360, repeat: repeatPedal, ease: Linear.easeNone }, 0)
-        .fromTo(element.footRestBack, durationPedal, { rotation: 0 }, { rotation: 360, repeat: repeatPedal, ease: Linear.easeNone }, 0)
-        .fromTo(element.footRestFront, durationPedal, { rotation: 0 }, { rotation: 360, repeat: repeatPedal, ease: Linear.easeNone }, 0)
+        .fromTo(element.frontWheel, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone })
+        .fromTo(element.backWheel, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.pedal, duration, { rotation: 0 }, { rotation: -360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.footRestBack, duration, { rotation: 0 }, { rotation: 360, repeat: repeat, ease: Linear.easeNone }, 0)
+        .fromTo(element.footRestFront, duration, { rotation: 0 }, { rotation: 360, repeat: repeat, ease: Linear.easeNone }, 0)
         
       const heroTimeline = new TimelineLite()
       heroTimeline.add(introTimeline, 0)
