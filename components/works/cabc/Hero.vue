@@ -210,7 +210,7 @@ export default {
       introTimeline
         .fromTo(element.container, 1, { opacity: 0 }, { opacity: 1 })
         .fromTo(element.parts, 1, { scale: 0.5, rotation: 20 }, { scale: 1, rotation: 0, ease: Back.easeOut.config(1.7), }, '-=1')
-        .fromTo(element.lines.one, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, '-=0.5')
+        .fromTo(element.lines.one, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, '-=0.1')
         .fromTo(element.lines.six, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
         .fromTo(element.lines.eight, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
         .fromTo(element.lines.three, lineDuration, { opacity: 0, scale: 0.5, }, { opacity: 1, scale: 1, ease: Back.easeOut.config(1.7) }, lineOffset)
