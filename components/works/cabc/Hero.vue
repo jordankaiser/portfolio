@@ -307,7 +307,6 @@ export default {
 
     // CTA reveal.
     const ctas = [
-      document.querySelector('.work__segment--cabc .cta-secondary__link'),
       document.querySelector('.work__segment--cabc .cta-tertiary__link')
     ]
     const ctasTimeline = new TimelineLite({

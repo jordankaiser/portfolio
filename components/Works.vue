@@ -90,6 +90,7 @@ import SLBFooter from '~/components/works/slb/Footer.vue'
 import CABCHero from '~/components/works/cabc/Hero.vue'
 import CABCDivider from '~/components/works/cabc/Divider.vue'
 import CABCFooter from '~/components/works/cabc/Footer.vue'
+import CABCScreenshot from '~/components/works/cabc/Screenshot.vue'
 
 // Libraries.
 import 'lazysizes'
@@ -121,6 +122,32 @@ export default {
   data: function() {
     return {
       works: [
+        {
+          id: 'cabc',
+          parity: null,
+          title: 'Cascade Bicycle Club',
+          task: 'Development',
+          description:
+            'Cascade Bicycle Club is a non-profit organization serving 10,000+ members based in Seattle, Washington. The highly trafficked website features event registration, e-commerce, membership management, and a custom ride finder.',
+          illustration: CABCHero,
+          divider: CABCDivider,
+          screenshot: CABCScreenshot,
+          CTATertiary: {
+            component: CTATertiary,
+            link: {
+              text: 'Visit Site',
+              href: 'https://cascade.org/',
+              target: '_blank'
+            }
+          },
+          footer: {
+            component: CABCFooter,
+            modifiers: {
+              triggerEl: '.work__segment--cabc .work__footer',
+              revealOffset: '1'
+            }
+          }
+        },
         {
           id: 'mc',
           parity: null,
@@ -211,40 +238,6 @@ export default {
             component: SLBFooter,
             modifiers: {
               triggerEl: '.work__segment--slb .work__footer',
-              revealOffset: '1'
-            }
-          }
-        },
-        {
-          id: 'cabc',
-          parity: null,
-          title: 'Cascade Bicycle Club',
-          task: 'Development',
-          description:
-            'Deserunt amet adipiscing, dolore nisi. Dolore, nisi enim voluptate laboris reprehenderit non. Voluptate laboris reprehenderit non, lorem.',
-          illustration: CABCHero,
-          divider: CABCDivider,
-          screenshot: SLBScreenshot,
-          CTATertiary: {
-            component: CTATertiary,
-            link: {
-              text: 'Visit Site',
-              href: 'https://cascade.org/',
-              target: '_blank'
-            }
-          },
-          CTASecondary: {
-            component: CTASecondary,
-            link: {
-              text: 'Project Details',
-              href: '/selflevelingboom',
-              target: '_self'
-            }
-          },
-          footer: {
-            component: CABCFooter,
-            modifiers: {
-              triggerEl: '.work__segment--cabc .work__footer',
               revealOffset: '1'
             }
           }

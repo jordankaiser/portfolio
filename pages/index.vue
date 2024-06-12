@@ -8,11 +8,11 @@
         <introduction-dino />
         <div class="introduction__text">
           <p>
-            Hi, I'm Jordan Kaiser. I'm a web developer and certified Web
-            Accessibility Specialist. I've been working in the industry for over
-            ten years. Throughout that time I've created many digital projects
-            for a variety of clients. Below you'll see a small sampling of some
-            of those projects.
+            Hi, I'm Jordan Kaiser. I'm a website developer and certified Web
+            Accessibility Specialist. I'm an industry veteran who has been
+            working in the field for over ten years. I've worked in a variety of
+            roles include back and front end development, design and user
+            experience.
           </p>
         </div>
         <!-- <div class="introduction__cta">

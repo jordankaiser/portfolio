@@ -18,7 +18,10 @@ $ npm start
 # generate static project
 $ npm run generate
 
-# push to heroku
+# push to heroku staging site
+$ git push heroku-staging master
+
+# push to heroku live site
 $ git push heroku master
 
 ```
