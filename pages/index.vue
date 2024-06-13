@@ -11,8 +11,8 @@
             Hi, I'm Jordan Kaiser. I'm a website developer and certified Web
             Accessibility Specialist. I'm an industry veteran who has been
             working in the field for over ten years. I've worked in a variety of
-            roles include back and front end development, design and user
-            experience.
+            roles including back and front end development, animation, design
+            and user experience.
           </p>
         </div>
         <!-- <div class="introduction__cta">
